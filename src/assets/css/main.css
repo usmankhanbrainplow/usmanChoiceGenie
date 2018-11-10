@@ -324,7 +324,7 @@ app-products {
 .card a {
   display: inline-block;
   vertical-align: top;
-  font-weight: 500;
+  font-weight: 400;
 }
 .card .card-description {
   font-weight: 500; }
@@ -4612,9 +4612,9 @@ footer p a:hover { color:#333; border-bottom-color: #333; }
 .plan-information__heading {
   padding: 10px;
   font-family: "Open Sans",sans-serif;
-  font-weight: 300;
+  font-weight: bold;
   font-size: 22px;
-  color: #4f4f4f;
+  color: #09addd;
   background: #ebebeb;
   margin-top: 10px;
   margin-bottom: 5px;
@@ -4633,7 +4633,7 @@ footer p a:hover { color:#333; border-bottom-color: #333; }
   border-right: 1px solid #ebebeb;
   width: 50%;
   font-size: 16px;
-  font-weight: 600;
+  font-weight: 400;
   padding: 5px 0;
   color: #000000;
 }
@@ -4644,19 +4644,19 @@ footer p a:hover { color:#333; border-bottom-color: #333; }
 .plan-description__heading{
   padding: 10px;
   font-family: "Open Sans",sans-serif;
-  font-weight: 300;
-  color: #4f4f4f;
+  font-weight: bold;
+  color: #09addd;
   background: #ebebeb;
   margin-bottom: 5px;
   margin-top: 10px;
   font-size: 22px;
 }
 .modal-v2__main-heading {
-  color: #c00;
+  color: #000;
   font-family: "Open Sans",sans-serif;
   font-weight: 600;
   font-size: 32px;
-  float: left;
+  /* float: left; */
   margin-bottom: 0;
 
 }
@@ -4750,7 +4750,7 @@ footer p a:hover { color:#333; border-bottom-color: #333; }
   font-size: 16px;
   color: #000;
   border-bottom: 1px solid #ebebeb;
-  font-weight: 600;
+  font-weight: 400;
 }
 .blog li{
   width: 33% !important;
@@ -6570,7 +6570,7 @@ background: linear-gradient(to bottom, #ededed 0%,#c1bfbf 100%); /* W3C, IE10+, 
   font-size: 18px;
   background: #ffffff;
   padding: 0 !important;
-  margin: 15px;
+  margin: 15px 15px 0;
   position: relative !important;
 }
 .mob-v-product{

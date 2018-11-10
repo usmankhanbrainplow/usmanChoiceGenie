@@ -152,6 +152,9 @@ body {
   -o-transition: background-color .25s ease 0s;
   -ms-transition: background-color .25s ease 0s;
   transition: background-color .25s ease 0s;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 .popup-image a{
   max-width: 80px;
