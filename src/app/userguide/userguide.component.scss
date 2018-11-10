@@ -1,0 +1,276 @@
+#page {
+  background: #f9f9f9;
+}
+
+.bg--color {
+  background-color: #f9f9f9;
+  border-radius: 50px;
+  padding: 15px 30px;
+  margin: 0 auto 20px !important;
+}
+.wrapper{
+  width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+}
+#main .title-box {
+  padding: 19px 0 12px;
+}
+.title-box {
+  padding: 19px 0;
+  text-align: center;
+  position: relative;
+  width: 100%;
+}
+.title-box h1 {
+  //font: 58px/60px "lobster_1.4regular", Georgia, "Times New Roman", Times, serif;
+  margin: 0;
+  padding: 0px;
+  text-shadow: 1px 1px #fff;
+}
+.content-box {
+  width: 735px !important;
+  margin: 0 auto;
+}
+.content-box p {
+  margin:0px;
+  text-align: left;
+  line-height: 26px;
+  font-size: 17px;
+  font-weight: 500;
+}
+//.link-info {
+//  float: right;
+//  margin: 1px 1px 0 6px;
+//  background: url(../assets/img/userguide/icon-info.png) no-repeat;
+//  width: 17px;
+//  height: 17px;
+//  overflow: hidden;
+//  text-indent: -9999px;
+//}
+/******* Font Overrides ********/
+.inst--lob {
+  font: 58px/60px "lobster_1.4regular", Georgia, "Times New Roman", Times, serif;
+  margin-top: 20px;
+}
+
+.inst--lob .top--h2 {
+  font-size: 36px;
+  line-height: 20px;
+  margin: 0px 13px 40px;
+  text-align: center;
+}
+
+.inst--lob .inst--h2 {
+  font-size: 36px;
+  line-height: 20px;
+  margin: 50px 13px 40px;
+  text-align: center;
+}
+
+.emphasis {
+  font-weight: bolder;
+}
+
+/******* Shapes ********/
+
+.dot {
+  color: #ffffff;
+  line-height: 53px;
+  text-align: center;
+  font-size: 42px;
+  vertical-align: super;
+  font-weight: bold;
+  /* make em centered in the div both hor and ver */
+  transform: translate(30%, 19%);
+  position: relative;
+  border: 2px solid #c00;
+  border-radius: 100%;
+  width: 60px;
+  margin-left: 50px;
+  background-color: #c00;
+  padding-bottom: 2.5px;
+}
+
+.dot:first-child {
+  margin-top: 0;
+}
+
+/**.dot:before {
+	position: absolute;
+	border: 1px solid #c00;
+	width: 0;
+	height: 101px;
+	display: block;
+	content: '';
+	left: 50%;
+	z-index: 0;
+	top: 100%;
+	margin-left: -1px;
+}**/
+
+/* Remove line on last element - :last isn't working */
+.dot-after:before {
+  border: none;
+}
+
+#shrink-star {
+  -webkit-transform: scale(0.5) rotate(-11deg);
+  -moz-transform: scale(0.5) rotate(-11deg);
+  -ms-transform: scale(0.5) rotate(-11deg);
+  transform: scale(0.5) rotate(-24deg);
+  margin-top: -40px;
+}
+
+.star-text {
+  color: black;
+;
+  text-shadow: 3px 3px 0 #c00, -2px -2px 0 #c00, 2px -2px 0 #c00, -2px 2px 0 #c00, 2px 2px 0 #c00;
+  -webkit-text-stroke: 1px #c00;
+  font-size: 42px;
+  text-align: center;
+  line-height: 10px;
+  font: 58px/60px "lobster_1.4regular", Georgia, "Times New Roman", Times, serif;
+  margin-left: -40px;
+  transform: rotate(-24deg);
+  -webkit-text-fill-color: white;
+}
+
+#star-five {
+  margin: 50px 0;
+  position: relative;
+  display: block;
+  color: #c00;
+  width: 0px;
+  height: 0px;
+  border-right: 100px solid transparent;
+  border-bottom: 70px solid #c00;
+  border-left: 100px solid transparent;
+  -moz-transform: rotate(35deg);
+  -webkit-transform: rotate(35deg);
+  -ms-transform: rotate(35deg);
+  -o-transform: rotate(35deg);
+  z-index: -99999;
+}
+
+#star-five:before {
+  border-bottom: 80px solid #c00;
+  border-left: 30px solid transparent;
+  border-right: 30px solid transparent;
+  position: absolute;
+  height: 0;
+  width: 0;
+  top: -45px;
+  left: -65px;
+  display: block;
+  content: '';
+  -webkit-transform: rotate(-35deg);
+  -moz-transform: rotate(-35deg);
+  -ms-transform: rotate(-35deg);
+  -o-transform: rotate(-35deg);
+  z-index: -99999;
+}
+
+#star-five:after {
+  position: absolute;
+  display: block;
+  color: #c00;
+  top: 3px;
+  left: -105px;
+  width: 0px;
+  height: 0px;
+  border-right: 100px solid transparent;
+  border-bottom: 70px solid #c00;
+  border-left: 100px solid transparent;
+  -webkit-transform: rotate(-70deg);
+  -moz-transform: rotate(-70deg);
+  -ms-transform: rotate(-70deg);
+  -o-transform: rotate(-70deg);
+  z-index: -99999;
+  content: '';
+}
+
+
+/******* Resize Images ********/
+
+.img--size {
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  display: flex;
+}
+
+.icon--size {
+  width: 75px;
+  height: auto;
+}
+
+/***** grid ********/
+.row {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.row:first-child {
+  margin-top: 30px;
+}
+
+.row:not(:last-child) {
+  margin-bottom: 30px;
+}
+
+.row::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.step-detail{
+  font-size: 18px;
+  font-weight: 500;
+}
+/* Create columns - use 30px margins */
+@media (max-width: 768px){
+  .dot{
+    margin: 0 auto;
+  }
+  .wrapper{
+    padding: 15px;
+  }
+  .title-box h1{
+    font-size: 34px;
+  }
+}
+@media (max-width: 425px) {
+  #star-five{
+    margin-left: -65px;
+  }
+  .content-box {
+    width: 100% !important;
+  }
+  .step-detail{
+    margin-top: 15px;
+  }
+  .inst--lob .inst--h2 {
+    font-size: 29px;
+    line-height: 28px;
+    margin: 0px auto 0px;
+  }
+  .inst--lob .top--h2 {
+    font-size: 29px;
+    line-height: 28px;
+    margin: 0px auto 0px;
+  }
+}
+@media (max-width: 375px) {
+  .dot {
+    margin-left:-28px;
+  }
+  .title-box h1{
+    font-size: 27px;
+  }
+}
+@media (max-width: 325px) {
+  .img--size {
+    width: 100%;
+  }
+}

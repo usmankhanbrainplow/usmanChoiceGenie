@@ -1,0 +1,189 @@
+<div class="container-fluid">
+
+  <div class="page-title margin-t">
+
+    <h3 class="text-center choiecegenie-offers wow fadeInLeft"> BLOG</h3>
+
+  </div>
+  <div class="row">
+    <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 margin-b" *ngFor="let data of data;let i=index">
+      <div class="layer-content">
+
+
+
+        <div>
+          <img src="https://storage.choicegenie.com/images/{{data.blog_image}}" alt="ChoiceGenie">
+        </div>
+        <div class="blog-layout-content">
+          <h2>{{data.heading}}</h2>
+          <div [innerHTML]="data.content1 | slice:0:130"></div>
+          <div>
+          <a (click)="fun(data.heading)">
+            <button class="btn btn-fill blog3-read-btn" type="submit">Read more..</button>
+            </a>
+            <button class="btn fa fa-trash-o" style="background-color: transparent !important; color: #cc0000 !important; padding: 13px 14px;" type="submit" value="Delete" (click)="btnDeleteClick(data.id,data.heading1,data.Ch_image)" data-toggle="modal" data-target="#myModal3">
+           </button>
+           <button  class="btn fa fa-edit " style="background-color: transparent !important; color: #cc0000 !important; padding: 13px 14px;" type="submit" value="Edit" type="submit" (click)="btnEditClick(data.id,data.heading,data.content1,data.blog_image)"
+             data-toggle="modal" data-target="#myModal2">
+
+            </button>
+
+           </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="myModal2" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content popupmodel">
+        <div class="modal-header">
+
+
+        </div>
+        <div class="modal-body" style="font-size: 18px;
+                            background: #ffffff;
+                            padding: 20px;
+                            margin: 15px;
+                            position: relative;">
+          <div class="popup-close-button" data-dismiss="modal">X</div>
+          <div class="row">
+            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 " >
+              <p style="font-size: 30px !important" class=" modal-v2__main-heading"> {{heading}}</p>
+
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3" >
+              <div class="popup-image">
+                <a target="_blank" class="display-b margin-top">
+                  <img style="width: 100%;" src="https://storage.choicegenie.com/images/{{blog_image}}" />
+                </a>
+              </div>
+            </div>
+            <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+
+              <!-- <div class="card-header text-center" data-background-color="rose"style="text-align:center; padding-top:10px;">
+                                  <h4 class="card-title">Edit Your product</h4>
+
+
+                                </div> -->
+
+              <div class="col-md-6 col-sm-6">
+                <div class="input-group">
+
+
+
+
+                  <mat-form-field>
+                    <input matInput placeholder="Heading" name="heading" value="{{heading}}" required #updatedheading/>
+
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="col-md-6 col-sm-6">
+                <div class="input-group">
+
+
+
+                  <!-- <input class="form-control" type="text" > -->
+                  <!-- <mat-form-field>
+                    <input matInput placeholder="Content" name="content1" value="{{content1}}" #updatedcontent1/>
+
+                  </mat-form-field> -->
+                  <ckeditor [(ngModel)]="content1" name="content1"
+                  > {{myDiv}}
+                    <ckbutton [name]="'saveButton'"
+                      [command]="'saveCmd'"
+                      (click)="save($event)"
+                      [icon]="'save.png'"
+                      [label]="'Save Document'"
+                      [toolbar]="'clipboard,1'">
+                    </ckbutton>
+
+
+                </ckeditor>
+
+                </div>
+              </div>
+              <div class="col-md-6 col-sm-6">
+                <div class="input-group">
+
+
+
+                  <!-- <input class="form-control" type="text" > -->
+                  <mat-form-field>
+                    <input matInput placeholder="Image url"  name="blog_image" value="{{blog_image}}" #updatedblog_image />
+
+                  </mat-form-field>
+                </div>
+              </div>
+
+
+              <div class=" text-center">
+                <button type="submit" class="btn btn-fill" (click)="editClick(updatedheading.value,content1,updatedblog_image.value)"
+                  data-dismiss="modal">Update</button>
+
+                <button type="button" class="btn btn-fill" data-dismiss="modal">Cancel</button>
+                <!-- <button class="btn btn-fill btn-wd btn-lg" type="submit" (click)="onSubmit()" >Search</button> -->
+              </div>
+              <!-- </div> -->
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="myModal3" role="dialog">
+      <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content popupmodel">
+          <!-- <div class="modal-header">
+
+
+                </div> -->
+          <div class="modal-body" style="font-size: 18px;
+                background: #ffffff;
+                padding: 20px;
+                margin: 15px;
+                position: relative;">
+            <div class="popup-close-button" data-dismiss="modal">X</div>
+            <div class="row">
+              <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 " style="border-bottom: 1px #4f4f4f solid;">
+                <p style="font-size: 30px !important" class=" modal-v2__main-heading">{{heading}}</p>
+
+              </div>
+              <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3" style="border-bottom: 1px #4f4f4f solid;">
+                <div class="popup-image">
+                  <a routerLink="/blog/{{heading1}}" target="_blank" class="display-b margin-top">
+                    <img style="width: 100%;" src="https://storage.choicegenie.com/images/{{blog_image}}" />
+                  </a>
+                </div>
+              </div>
+              <div>
+                <h4 class="modal-title" style="text-align: center;
+                      color: red;
+                      font-size: 30px;">Confirmation Alert</h4>
+                <p>Do you want to Delete this Blog?</p>
+              </div>
+
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-fill" (click)="deleteClick(dataId)" data-dismiss="modal" style="
+                  color: white;
+
+                  width: 20%;
+                  height: 45px;
+                  font-size: 18px;">Delete</button>
+            <button type="button" class="btn btn-fill" data-dismiss="modal" style="
+                  color: white;
+
+                  width: 20%;
+                  height: 45px;
+                  font-size: 18px;">Cancel</button>
+          </div>
+        </div>
+      </div>
+    </div>

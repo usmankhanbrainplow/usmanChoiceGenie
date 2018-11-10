@@ -1,0 +1,77 @@
+<div class="main-content">
+    <div class="container-fluid container">
+      <section class="">
+          <h2 class="text-center"><strong style="color: #c00">ChoiceGenie</strong> RESIDENTIAL ELECTRICITY</h2>
+          <hr />
+          <mat-tab-group dynamicHeight="true">
+            <mat-tab>
+              <ng-template mat-tab-label>
+                <div class="holder white">
+                  <div class="img-holder">
+                    <!--<i class="material-icons">face</i>-->
+                    <img src="assets\img\b.png">
+                    <h3 class="text-center title" style="color:#4a3592;">New Customer</h3>
+                  </div>
+                  <div class="txt-holder">
+                    <p>We encourage you to compare electricity rates and service levels. <strong>Make the switch now.</strong> You’ll never look back!</p>
+                  </div>
+                  <div class="btn-holder">
+                    <button class="btn btn-round btn-fill font-s" type="button" (click)="openDialog()">Find Your Plan</button>
+                  </div>
+                </div>
+              </ng-template>
+              <div class="detail-holder white">
+                <p>Are you tired of run of the mill energy providers in Texas? Make the switch now. You’ll never look back!</p>
+                <p><strong>We encourage you to compare electricity rates and service levels.</strong> Other power and light companies just don’t measure up to the ChoiceGenie high quality standards. Act now and take advantage of our affordable residential electricity prices. Your ideal Texas energy plan is only a click away!</p>
+                <p><strong>You have the Power to Choose Texas! Make the Right Choice Today!</strong></p>
+                <button class="btn btn-round btn-fill" (click)="openDialog()">Sign Up Today!</button>
+              </div>
+            </mat-tab>
+            <mat-tab>
+              <ng-template mat-tab-label>
+                <div class="holder white">
+                  <div class="img-holder">
+                    <!--<i class="material-icons">autorenew</i>-->
+                    <img src="assets\img\c.png">
+                    <h3 class="text-center title" style="color: #ab7b00;">Renew Residential</h3>
+                  </div>
+                  <div class="txt-holder">
+                    <p><strong>Welcome back!</strong> It’s our privilege to continue providing you with the most affordable Texas electricity rates with the premium service that you deserve.</p>
+                  </div>
+                  <div class="btn-holder">
+                    <a routerLink="/login">   <button class="btn btn-round btn-fill font-s" type="button">Renew Your Service</button></a>
+                  </div>
+                </div>
+              </ng-template>
+              <div class="detail-holder white">
+                <p><strong>Welcome back!</strong> It’s our privilege to continue providing you with the most affordable Texas electricity rates with the premium service that you deserve. It’s not just about our select energy services.  We are all about personalized attention and premium extras.  At ChoiceGenie, we constantly seek out new ways to better serve you.  We promise to set ourselves apart from the usual humdrum of traditional electric providers.</p>
+                <p>You have entrusted us with the essential task of providing your home with electrical energy.  For this reason, we’ve made it our mission to go above and beyond your expectations of a quality electric company.  As a member of the ChoiceGenie family, you are invited to partake in our exclusive <strong>Member specials.</strong>  <a href="#">Check them out today!</a></p>
+                <p>Have a question about your local Texas electric rates?  Do you have any suggestions on how we can improve our TX energy service? <strong> We welcome and encourage your questions and valuable customer feedback. </strong> Please feel free to <strong>contact our friendly support team.</strong>  It is our pleasure to serve you.</p>
+                <a routerLink="/pages/login">   <button class="btn btn-round btn-fill">Renew Today!</button></a>
+              </div>
+            </mat-tab>
+            <mat-tab>
+              <ng-template mat-tab-label>
+                <div class="holder white">
+                  <div class="img-holder">
+                    <!--<i class="material-icons">credit_card</i>-->
+                    <img src="assets\img\a.png">
+                    <h3 class="text-center title" style="color: #c42829;">Pay Your Bill</h3>
+                  </div>
+                  <div class="txt-holder">
+                    <p><strong>Safe. Secure. Hassle Free.</strong> This will not interrupt your busy schedule.  You’ll you wish that everything was just as easy!</p>
+                  </div>
+                  <div class="btn-holder">
+                    <a routerLink="/login">    <button class="btn btn-round btn-fill font-s" type="button" >Pay Online Now</button></a>
+                  </div>
+                </div>
+              </ng-template>
+              <div class="detail-holder white">
+                <p><strong>Safe. Secure. Hassle Free.</strong> <br />This will not interrupt your busy schedule. You’ll you wish that everything was just as easy!</p>
+                <a routerLink="/login">    <button class="btn btn-round btn-fill">Pay Online Now</button></a>
+              </div>
+            </mat-tab>
+          </mat-tab-group>
+      </section>
+    </div>
+  </div>

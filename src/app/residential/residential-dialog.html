@@ -1,0 +1,46 @@
+<div class="dialogRes">
+    <form (ngSubmit)="Checkzipcode()" #f="ngForm" class="zip">
+    <!-- (ngSubmit)="onSubmit(f)" #f="ngForm" class="form-zip" -->
+        <div class="card card-login">
+            <div class="card-header text-center" data-background-color="rose">
+                <h4 class="card-title">Find Your Plans</h4>
+            </div>
+
+            <div class="card-content">
+                <!-- <div class="input-group">
+                      <span class="input-group-addon">
+                          <i class="material-icons">code</i>
+                      </span>
+                    <div class="form-group label-floating is-empty">
+                        <label class="control-label">Promo Code</label>
+                        <input class="form-control" type="text">
+                    </div>
+                </div> -->
+                <div class="input-group">
+                  <span class="input-group-addon">
+                      <i class="material-icons">near_me</i>
+                  </span>
+                    <div class="form-group label-floating is-empty">
+                       
+                        <!-- <input class="form-control" type="text" > -->
+                        <mat-form-field>
+                                <input matInput placeholder="Zip Code" name="zipCode" [(ngModel)]=zipCode />
+                                <mat-error *ngIf="zip_code.hasError('pattern')">
+                                  Numbers Only
+                                </mat-error>
+                              </mat-form-field>
+                    </div>
+                </div>
+            </div>
+            <div class=" text-center">
+                <button type="submit" class="btn btn-rose">Submit</button>
+                <!-- <button class="btn btn-rose btn-wd btn-lg" type="submit" (click)="onSubmit()" >Search</button> -->
+            </div>
+        </div>
+    </form>
+</div>
+
+
+
+
+

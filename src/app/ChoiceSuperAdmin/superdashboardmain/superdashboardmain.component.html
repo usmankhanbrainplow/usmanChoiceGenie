@@ -1,0 +1,402 @@
+<div class="col-md-12 col-lg-12 col-sm-12  col-xs-12 padding-zero-i">
+  <div class="ptb-80">
+    <div class="container-fluid" style="padding: 0px; margin: 0px;">
+
+      <ol class="breadcrumb2">
+        <li>
+          <a href="#">
+            <i class="fa fa-home"></i>
+          </a>
+        </li>
+        <li class="active">Dashboard</li>
+      </ol>
+      <div class="row">
+        <div class="col-xs-12 col-lg-3 col-md-4">
+
+          <div class="panel2 panel-default">
+            <div class="panel-body easypiechart-panel">
+              <h4>New Users at ChoiceGenie</h4>
+              <div class="easypiechart" id="easypiechart-blue" data-percent="">
+                <!-- <span class="percent">90</span> -->
+                <span class="percent">{{results.Users}}</span>
+                <canvas height="110" width="110"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-12 col-lg-3 col-md-4">
+          <div class="panel2 panel-default">
+            <div class="panel-body easypiechart-panel">
+              <h4>Total REPS Members</h4>
+              <div class="easypiechart" id="easypiechart-orange" data-percent="">
+                <!-- <span class="percent">60</span> -->
+                <span class="percent">{{results.Rep}}</span>
+                <canvas height="110" width="110"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-12 col-lg-3 col-md-4">
+          <div class="panel2 panel-default">
+            <div class="panel-body easypiechart-panel">
+              <h4>Total Active Product</h4>
+              <div class="easypiechart" id="easypiechart-teal" data-percent="56">
+                <span class="percent">{{results.ActiveProducts}}</span>
+                <!-- <span class="percent">{{active.Results}}</span> -->
+                <canvas height="110" width="110"></canvas>
+              </div>
+              <!-- <input matInput placeholder="Contact #" value = "{{data.user_count}}" #updatecontact  > -->
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-12 col-lg-3 col-md-4">
+          <div class="panel2 panel-default">
+            <div class="panel-body easypiechart-panel">
+              <h4>Total In Active Product</h4>
+              <div class="easypiechart" id="easypiechart-teal" data-percent="56">
+                <!-- <span class="percent">100</span> -->
+                <span class="percent">{{results.InactiveProducts}}</span>
+                <!-- InactiveProducts -->
+                <canvas height="110" width="110"></canvas>
+              </div>
+              <!-- <input matInput placeholder="Contact #" value = "{{data.user_count}}" #updatecontact  > -->
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-12 col-lg-3 col-md-4">
+
+          <div class="panel2 panel-default">
+            <div class="panel-body easypiechart-panel">
+              <h4>Deregulated REP's Member </h4>
+              <div class="easypiechart" id="easypiechart-blue" data-percent="">
+                <!-- <span class="percent">90</span> -->
+                <span class="percent">{{deresults.Rep}}</span>
+                <canvas height="110" width="110"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-12 col-lg-3 col-md-4">
+          <div class="panel2 panel-default">
+            <div class="panel-body easypiechart-panel">
+              <h4>Total Deregulated Products</h4>
+              <div class="easypiechart" id="easypiechart-orange" data-percent="">
+                <!-- <span class="percent">60</span> -->
+                <span class="percent">{{deresults.Products}}</span>
+                <canvas height="110" width="110"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-12 col-lg-3 col-md-4">
+          <div class="panel2 panel-default">
+            <div class="panel-body easypiechart-panel">
+              <h4>Total Deregulated Active Product</h4>
+              <div class="easypiechart" id="easypiechart-teal" data-percent="56">
+                <span class="percent">{{deresults.ActiveProducts}}</span>
+                <!-- <span class="percent">{{active.Results}}</span> -->
+                <canvas height="110" width="110"></canvas>
+              </div>
+              <!-- <input matInput placeholder="Contact #" value = "{{data.user_count}}" #updatecontact  > -->
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-12 col-lg-3 col-md-4">
+          <div class="panel2 panel-default">
+            <div class="panel-body easypiechart-panel">
+              <h4>Total Deregulated In Active Product</h4>
+              <div class="easypiechart" id="easypiechart-teal" data-percent="56">
+                <!-- <span class="percent">100</span> -->
+                <span class="percent">{{deresults.InactiveProducts}}</span>
+                <!-- InactiveProducts -->
+                <canvas height="110" width="110"></canvas>
+              </div>
+              <!-- <input matInput placeholder="Contact #" value = "{{data.user_count}}" #updatecontact  > -->
+            </div>
+          </div>
+        </div>
+        <!-- <div class="col-xs-6 col-md-3">
+          <div class="panel2 panel-default">
+            <div class="panel-body easypiechart-panel">
+              <h4>Visitors</h4>
+              <div class="easypiechart" id="easypiechart-red" data-percent="27"><span class="percent">27%</span><canvas height="110" width="110"></canvas></div>
+            </div>
+          </div>
+        </div> -->
+      </div>
+      <div class="row">
+
+        <!-- <div class="col-xs-6 col-md-3">
+          <div class="panel2 panel-default">
+            <div class="panel-body easypiechart-panel">
+              <h4>Visitors</h4>
+              <div class="easypiechart" id="easypiechart-red" data-percent="27"><span class="percent">27%</span><canvas height="110" width="110"></canvas></div>
+            </div>
+          </div>
+        </div> -->
+      </div>
+
+
+
+
+
+      <div class="row">
+        <div class="col-md-6" style="">
+          <div class="panel panel-default articles">
+            <div class="panel-heading">
+              ChoiceGenie Contact Quotes
+              <!-- <span class="pull-right clickable panel-toggle panel-button-tab-left">
+                <em class="fa fa-toggle-up"></em>
+              </span> -->
+            </div>
+            <!-- *ngFor="let item of data; let i = index" -->
+            <div class="panel-body articles-container padding-zero-i">
+              <div class="article border-bottom"  *ngFor="let item of data;"  >
+                <div class="col-xs-12">
+                  <div class="row">
+                    <div class="col-xs-2 col-md-2 date">
+                      <div class="large">{{item.date | date: 'dd'}}</div>
+                      <div class="text-muted">{{item.date | date: 'MM'}}</div>
+                      <div class="text-muted">{{item.date | date: 'yyyy'}}</div>
+                    </div>
+                    <div class="col-xs-10 col-md-10 heading-bottom">
+                      <h4 >
+                        {{item.name}}
+                      </h4>
+                      <p>{{item.email}}</p>
+                      <p>{{item.subject}}</p>
+                      </div>
+                  </div>
+                </div>
+                <div class="clear"></div>
+              </div>
+              <!--End .article-->
+
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6" style="">
+          <div class="panel panel-default articles">
+            <div class="panel-heading">
+              ChoiceGenie Become a Partner Quotes
+
+              <!-- <span class="pull-right clickable panel-toggle panel-button-tab-left">
+                <em class="fa fa-toggle-up"></em>
+              </span> -->
+              <!-- *ngFor="let item of data; let i = index" -->
+            </div>
+            <div class="panel-body articles-container padding-zero-i">
+              <div class="article border-bottom" *ngFor="let item of data; let i = index"   >
+                <div class="col-xs-12">
+                  <div class="row">
+                    <div class="col-xs-2 col-md-2 date">
+                      <div class="large">30</div>
+                      <div class="text-muted">Jun</div>
+                    </div>
+                    <div class="col-xs-10 col-md-10 heading-bottom">
+                      <h4>
+                        <a>{{item.name}}</a>
+                      </h4>
+                      <p>{{item.email}}</p>
+                      <p>{{item.desc}}</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="clear"></div>
+              </div>
+              <!--End .article-->
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="content-mid row" style="padding: 0px">
+        <div class="col-md-5 col-sm-12 margin-b">
+          <div class="cal1 cal_2">
+            <div class="clndr">
+              <div class="clndr-controls">
+                <div class="clndr-control-button">
+                  <p class="clndr-previous-button">previous</p>
+                </div>
+                <div class="month">May 2018</div>
+                <div class="clndr-control-button rightalign">
+                  <p class="clndr-next-button">next</p>
+                </div>
+              </div>
+              <table class="clndr-table" border="0" cellspacing="0" cellpadding="0">
+                <thead>
+                  <tr class="header-days">
+                    <td class="header-day">S</td>
+                    <td class="header-day">M</td>
+                    <td class="header-day">T</td>
+                    <td class="header-day">W</td>
+                    <td class="header-day">T</td>
+                    <td class="header-day">F</td>
+                    <td class="header-day">S</td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="day past adjacent-month last-month calendar-day-2018-04-29">
+                      <div class="day-contents">29</div>
+                    </td>
+                    <td class="day past adjacent-month last-month calendar-day-2018-04-30">
+                      <div class="day-contents">30</div>
+                    </td>
+                    <td class="day past calendar-day-2018-05-01">
+                      <div class="day-contents">1</div>
+                    </td>
+                    <td class="day past calendar-day-2018-05-02">
+                      <div class="day-contents">2</div>
+                    </td>
+                    <td class="day past calendar-day-2018-05-03">
+                      <div class="day-contents">3</div>
+                    </td>
+                    <td class="day past calendar-day-2018-05-04">
+                      <div class="day-contents">4</div>
+                    </td>
+                    <td class="day past calendar-day-2018-05-05">
+                      <div class="day-contents">5</div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="day past calendar-day-2018-05-06">
+                      <div class="day-contents">6</div>
+                    </td>
+                    <td class="day past calendar-day-2018-05-07">
+                      <div class="day-contents">7</div>
+                    </td>
+                    <td class="day past calendar-day-2018-05-08">
+                      <div class="day-contents">8</div>
+                    </td>
+                    <td class="day past calendar-day-2018-05-09">
+                      <div class="day-contents">9</div>
+                    </td>
+                    <td class="day past event calendar-day-2018-05-10">
+                      <div class="day-contents">10</div>
+                    </td>
+                    <td class="day today event calendar-day-2018-05-11">
+                      <div class="day-contents">11</div>
+                    </td>
+                    <td class="day event calendar-day-2018-05-12">
+                      <div class="day-contents">12</div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="day event calendar-day-2018-05-13">
+                      <div class="day-contents">13</div>
+                    </td>
+                    <td class="day event calendar-day-2018-05-14">
+                      <div class="day-contents">14</div>
+                    </td>
+                    <td class="day calendar-day-2018-05-15">
+                      <div class="day-contents">15</div>
+                    </td>
+                    <td class="day calendar-day-2018-05-16">
+                      <div class="day-contents">16</div>
+                    </td>
+                    <td class="day calendar-day-2018-05-17">
+                      <div class="day-contents">17</div>
+                    </td>
+                    <td class="day calendar-day-2018-05-18">
+                      <div class="day-contents">18</div>
+                    </td>
+                    <td class="day calendar-day-2018-05-19">
+                      <div class="day-contents">19</div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="day calendar-day-2018-05-20">
+                      <div class="day-contents">20</div>
+                    </td>
+                    <td class="day event calendar-day-2018-05-21">
+                      <div class="day-contents">21</div>
+                    </td>
+                    <td class="day event calendar-day-2018-05-22">
+                      <div class="day-contents">22</div>
+                    </td>
+                    <td class="day event calendar-day-2018-05-23">
+                      <div class="day-contents">23</div>
+                    </td>
+                    <td class="day calendar-day-2018-05-24">
+                      <div class="day-contents">24</div>
+                    </td>
+                    <td class="day calendar-day-2018-05-25">
+                      <div class="day-contents">25</div>
+                    </td>
+                    <td class="day calendar-day-2018-05-26">
+                      <div class="day-contents">26</div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="day calendar-day-2018-05-27">
+                      <div class="day-contents">27</div>
+                    </td>
+                    <td class="day calendar-day-2018-05-28">
+                      <div class="day-contents">28</div>
+                    </td>
+                    <td class="day calendar-day-2018-05-29">
+                      <div class="day-contents">29</div>
+                    </td>
+                    <td class="day calendar-day-2018-05-30">
+                      <div class="day-contents">30</div>
+                    </td>
+                    <td class="day calendar-day-2018-05-31">
+                      <div class="day-contents">31</div>
+                    </td>
+                    <td class="day adjacent-month next-month calendar-day-2018-06-01">
+                      <div class="day-contents">1</div>
+                    </td>
+                    <td class="day adjacent-month next-month calendar-day-2018-06-02">
+                      <div class="day-contents">2</div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <!----Calender -------->
+          <!----End Calender -------->
+        </div>
+        <div class="col-md-7 col-sm-12 mid-content-top mini-height margin-b">
+          <div class="middle-content">
+            <div id="myCarousel" class="carousel slide" data-ride="carousel">
+              <!-- Indicators -->
+              <ol class="carousel-indicators">
+                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="1"></li>
+                <li data-target="#myCarousel" data-slide-to="2"></li>
+              </ol>
+
+              <!-- Wrapper for slides -->
+              <div class="carousel-inner">
+                <div class="item active">
+                  <img src="../../assets/img/providers/Champion-Energy-Services-min.jpg" alt="Los Angeles">
+                </div>
+
+                <div class="item">
+                  <img src="../../assets/img/providers/Amigo-Energy-min.jpg" alt="Chicago">
+                </div>
+
+                <div class="item">
+                  <img src="../../assets/img/providers/cirro.jpg" alt="New York">
+                </div>
+              </div>
+
+              <!-- Left and right controls -->
+              <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+                <span class="sr-only">Next</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+  </div>
+</div>
+</div>

@@ -1,0 +1,57 @@
+<div class="navbar-fixed">
+  <app-navbar-cmp></app-navbar-cmp>
+</div>
+
+
+<div class=" main-bg margin-t-70">
+  <div id="mySidebar" class="col-lg-2 col-md-4 position-fixed w3-sidebar w3-bar-block w3-collapse w3-card w3-animate-left padding-zero-i" data-spy="affix" data-offset-top="137" style="background: #ffffff">
+    <button class="w3-bar-item w3-button w3-large w3-hide-large" (click)="w3_close()">&times;</button>
+    <app-supersiderbar></app-supersiderbar>
+  </div>
+
+  <div class="col-lg-offset-2 col-md-offset-2 col-lg-10 pull-right padding-zero-i sh-top-menu-fix" style="background: #fff;">
+
+    <div class="padding-box">
+      <button class="w3-button w3-teal w3-xlarge w3-hide-large" (click)="w3_open()" style="background: #CC0000 !important; margin-left: 0px">&#9776;</button>
+      <router-outlet></router-outlet>
+
+
+    </div>
+    <div class="dashboard-footer" style="float: right;">
+
+      <app-footer-cmp></app-footer-cmp>
+
+    </div>
+
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+<!--<div class="wrapper" style="overflow: hidden ; padding-top: 70px;">-->
+  <!--<div class="container-fluid" >-->
+    <!--<div class="row">-->
+      <!--<div class="super-sidebar-main">-->
+        <!--<app-supersiderbar></app-supersiderbar>-->
+      <!--</div>-->
+        <!--<div class="" style="width: 20%"></div>-->
+      <!--<div class="" style="width: 80%;padding: 20px 20px;">-->
+        <!--<router-outlet></router-outlet>-->
+      <!--</div>-->
+    <!--</div>-->
+    <!---->
+  <!--</div>-->
+  <!--<div class="dashboard-footer" style="float: right; width:79%">-->
+
+    <!--<app-footer-cmp></app-footer-cmp>-->
+
+  <!--</div>-->
+
+<!--</div>-->

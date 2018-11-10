@@ -1,0 +1,227 @@
+
+<div class="header-home " style="position: fixed; z-index: 9; width: 100%;">
+  <nav class="nav-home navbar-transparent">
+    <!-- <div class="container container-fluid"> -->
+    <div class="navbar-header " >
+      <button class="navbar-toggle" data-target="#menu-example" data-toggle="collapse" type="button">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="logo" routerLink="/">
+        <img src="../../assets/img/ChoiceGenie-logo2.png" alt="ChoiceGenie"  />
+      </a>
+    </div>
+    <div class="collapse navbar-collapse" id="menu-example">
+      <ul class="navbar-nav navbar-right">
+        <li class="vanders">
+          <a routerLink="/">
+            <i class="material-icons">home</i> Why ChoiceGenie ?
+            <i class="fa fa-caret-down"></i>
+          </a>
+          <div class="drop-downs">
+            <ul class="nav-vanders  why-choiegenie-sublist">
+              <li>
+                <a routerLink="/Why-Choice-Genie">
+                  <i class="fa fa-question-circle-o"></i>
+
+                  Why ChoiceGenie?</a>
+              </li>
+              <li>
+                <a routerLink="/how-it-works">
+                  <i class="fa fa-fire"></i>
+                  How It Works?</a>
+              </li>
+              <li>
+                <a routerLink="/Faqs">
+                  <i class="fa fa-leanpub"></i>
+                  FAQs</a>
+              </li>
+              <li>
+                <a routerLink="/what-is-ChoiceGenie">
+                  <i class="fa fa-leaf"></i>
+                  What is ChoiceGenie?</a>
+              </li>
+              <li>
+                <a routerLink="/" >
+                  <i class="fa fa-question-circle-o"></i>
+                  Who are We?</a>
+              </li>
+              <li>
+                <a routerLink="/features-comparison" >
+                  <i class=" fa fa-language"></i>
+                  Comparison Matrix</a>
+              </li>
+              <li>
+                <a routerLink="/Become-a-partner" >
+                  <i class=" fa fa-group"></i>
+                  Become a Partner</a>
+              </li>
+              <li>
+                <a routerLink="/Choice-and-Saving" >
+                  <i class=" fa fa-cubes"></i>
+                  Choice and Savings</a>
+              </li>
+              <li>
+                <a routerLink="/contactus" >
+                  <i class="fa fa-address-book-o"></i>
+                  Establish Contact</a>
+              </li>
+            
+            </ul>
+          </div>
+        </li>
+        <!-- <li>
+                <a routerLink="">
+                 Vendors
+
+
+                </a>
+              </li> -->
+
+        <li>
+          <a routerLink="/residential">
+            <i class="material-icons">dashboard </i> Residential
+          </a>
+        </li>
+
+
+        <li class="">
+          <a routerLink="/commercial">
+            <i class="material-icons">person_add </i> Commercial
+          </a>
+        </li>
+
+        <!-- <li>
+            <a routerLink="/new-product">
+              REPs
+
+            </a>
+          </li> -->
+        <!-- <li class="">
+            <a routerLink="/mainlogin">
+              <i class="material-icons">fingerprint </i> login2
+            </a>
+          </li> -->
+
+        <!-- <li class="vanders" style="border-right: 2px solid #ccc; padding-right: 10px;">
+          <a>
+            <i class="material-icons">fingerprint</i>
+            Login
+            <i class="fa fa-caret-down"></i>
+          </a>
+          <div class="drop-downs">
+            <ul class="nav-vanders">
+              <li class="/login">
+                <a routerLink="/login">
+                  <i class="material-icons">face</i> Vendor
+                </a>
+              </li>
+              <li class="">
+                <a routerLink="/userlogin">
+                  <i class="material-icons">face</i> User
+                </a>
+              </li>
+              <li class="/superlogin">
+                <a routerLink="/superlogin">
+                  <i class="material-icons">face</i> Super Admin
+                </a>
+              </li>
+            </ul>
+          </div>
+        </li> -->
+        <!-- <li class="vanders">
+          <a>
+            <i class="material-icons">
+              lock_open
+            </i>
+            Signup
+            <i class="fa fa-caret-down"></i>
+          </a>
+          <div class="drop-downs">
+            <ul class="nav-vanders">
+              <li class="/userlogin">
+                <a routerLink="/register">
+                  <i class="material-icons">face</i> Vendor
+                </a>
+              </li>
+              <li class="">
+                <a routerLink="/usersignup">
+                  <i class="material-icons">face</i> User
+                </a>
+
+              </li>
+            </ul>
+          </div>
+        </li> -->
+
+        <!--<li class="border-right-signup">-->
+        <!--<a routerLink="/">-->
+        <!--&lt;!&ndash; <i class="material-icons">lock_open</i>Sign Up &ndash;&gt;-->
+        <!--</a>-->
+        <!--</li>-->
+        <li class="">
+            <a routerLink="/">
+              <i class="material-icons">android</i>
+            </a>
+          </li>
+          <li class="">
+            <a routerLink="/">
+              <i class="fa fa-apple"></i>
+            </a>
+          </li>
+        
+          <!-- <li class=""> -->
+            <!-- <a> -->
+              <!-- <i class="material-icons">
+                lock_open
+              </i>
+              <a (click) = "logout()" >logout</a>
+  
+              <i class="fa fa-caret-down"></i> -->
+            <!-- </a> -->
+             
+          <!-- </li> -->
+      
+        
+          <li class="vanders"*ngIf="check_login()">
+              <a >
+                <i class="material-icons">account_circle</i> My ChoiceGenie
+              </a>
+              <div  class="drop-downs">
+                <ul class="nav-vanders  why-choiegenie-sublist">
+                    <li>
+                        <a (click)=" move()">
+                          <i class="material-icons">unarchive</i> My Profile
+                        </a>
+                      </li>
+                    <li>
+                        <a>
+                          <i class="material-icons">unarchive</i> <input style="font-size: 20px; margin-left: 5px;" type="text" [value]="username" readonly>
+                        </a>
+                      </li>
+                    <li>
+                        <a routerLink="/ChangePassword">
+                          <i class="material-icons">unarchive</i> Change Password
+                        </a>
+                      </li>
+                  <li>
+                    <a (click) = "logout()">
+                      <i class="material-icons">lock</i>Logout
+                    </a>
+                  </li>
+                  
+                  <!-- <li>
+                    <a routerLink="/mycourses">
+                      <i class="material-icons">library_books</i> My Library
+                    </a>
+                  </li> -->
+                  </ul>
+              </div>
+            </li>
+      </ul>
+    </div>
+    <!-- </div> -->
+  </nav>
+</div>

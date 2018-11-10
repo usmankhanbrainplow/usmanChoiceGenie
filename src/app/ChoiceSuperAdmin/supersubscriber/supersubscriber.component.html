@@ -1,0 +1,77 @@
+<div  class="container-fluid" style="overflow: hidden;">
+
+  <div class="page-title margin-t">
+    <!--<span>Contact Detail </span>-->
+    <h3 class="text-center choiecegenie-offers wow fadeInLeft"> Subscribed Emails </h3>
+
+  </div>
+
+<div class="scroll-table">
+
+
+  <!-- End .media-info -->
+
+
+
+
+  <table class="table superreviews-table table-bordered  tablefixed margin-zero1" style="background-color:#ffffff">
+    <thead>
+      <tr class="bg">
+        <!-- <th class="text-center">User ID</th>
+        <th class="text-center">Product ID</th> -->
+        <th class="text-center">Email</th>
+        <th class="text-center">Subscribed</th>
+
+
+        <!--<th class="text-center">State</th>
+      <th class="text-center">Email</th>
+      <th class="text-center">Country</th> -->
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of subs; let i = index">
+        <!-- <td style="font-size: 20px;">{{item.id}}</td>
+        <td style="font-size: 20px;">{{item.productid}}</td> -->
+        <td style="font-size: 20px;">{{item.email}}</td>
+        <td style="font-size: 20px;">
+         {{item.subscribe}}
+        </td>
+
+
+
+
+        <!-- <td style="font-size: 20px;"  ><a>Delete </a></td> -->
+        <!--<td style="font-size: 20px;">{{item.state}}</td>
+      <td style="font-size: 20px;">{{item.email}}</td>
+      <td style="font-size: 20px;">{{item.country}}</td> -->
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class="">
+    <div class="text-center">
+      <!-- <h1>Angular 2 - Pagination Example with logic like Google</h1> -->
+
+      <!-- items being paged -->
+      <div *ngFor="let item of pagedItems">{{item.name}}</div>
+
+      <!-- pager -->
+      <ul *ngIf="pager.pages && pager.pages.length" class="pagination">
+        <li [ngClass]="{hide:pager.currentPage === 1}">
+          <a (click)="getreview(1)" class="btn btn-fill">First</a>
+        </li>
+        <li [ngClass]="{hide:pager.currentPage === 1}">
+          <a (click)="getreview(pager.currentPage - 1)" class="btn btn-fill">Previous</a>
+        </li>
+        <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
+          <a (click)="getreview(page)" class="btn btn-fill">{{page}}</a>
+        </li>
+        <li [ngClass]="{hide:pager.currentPage === pager.totalPages}">
+          <a (click)="getreview(pager.currentPage + 1)" class="btn btn-fill" type="Next">Next</a>
+        </li>
+        <li [ngClass]="{hide:pager.currentPage === pager.totalPages}">
+          <a (click)="getreview(pager.totalPages)" class="btn btn-fill" type="Last">Last</a>
+        </li>
+      </ul>
+    </div>
+  </div>

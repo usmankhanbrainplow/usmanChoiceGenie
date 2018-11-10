@@ -1,0 +1,24 @@
+
+<div class="wrapper" [ngClass]="status ? 'sidebarActive' : ''">
+        <app-header ></app-header>
+    
+        <div class="main-panel ps" style="overflow-y: hidden;">
+            <!--<div class="navbar-minimize sidebarToggle" (click)="navbarClass()">-->
+                <!--<button class="btn btn-round btn-white btn-fill btn-just-icon" id="minimizeSidebar">-->
+                <!--<i class="material-icons visible-on-sidebar-regular">more_vert</i>-->
+                <!--<i class="material-icons visible-on-sidebar-mini">view_list</i>-->
+                <!--<div class="ripple-container"></div></button>-->
+                <!--<strong>Sidebar</strong>-->
+            <!--</div>-->
+            <!-- <div class="sidebar custom top-margin">
+    
+                <app-user-sidebar></app-user-sidebar>
+    
+            </div> -->
+            <router-outlet></router-outlet>
+            <div *ngIf="!isMap()" class="col-lg-10 col-md-12 col-sm-12" style="float: right; padding: 0px;">
+                <app-footer-cmp></app-footer-cmp>
+            </div>
+        </div>
+</div>
+  

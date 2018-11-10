@@ -1,0 +1,336 @@
+<app-loader></app-loader>
+<div class="" style="background: #fff" *ngIf="deproduct || pro">
+  <!--<div class="container-fluid header-bar">-->
+    <!--<div class="container">-->
+      <!--<div class="row title-bar">-->
+        <!--<div class="col-lg-12 text-center">-->
+          <!--<h2>{{title}}</h2>-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</div>-->
+  <!--</div>-->
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-sm-12">
+        <div class="rating-main">
+          <h1>Rating &amp; Reviews</h1>
+          <div class="rating-box" *ngIf="score<50">
+            <h2>{{title}} Reviews Score</h2>
+            <round-progress [current]="score" [max]="100" [color]="'#ca260f'" [background]="'#eaeaea'" [radius]="100" [stroke]="20" [semicircle]="false"
+              [rounded]="false" [clockwise]="true" [responsive]="false" [duration]="800" [animation]="'easeOutCubic'" [animationDelay]="5"
+              style="margin: auto;">
+
+            </round-progress>
+            <div style="position: relative; bottom: 112px;font-size:25px;">{{score}} %</div>
+            <h4>Total Reviews:{{totalrev}}</h4>
+            <h4>Average Reviews:{{ave}}</h4>
+          </div>
+          <div class="rating-box" *ngIf="score>50">
+            <h2>Choice Genie Product Score</h2>
+            <round-progress [current]="score" [max]="100" [color]="'#59c000'" [background]="'#eaeaea'" [radius]="100" [stroke]="20" [semicircle]="false"
+              [rounded]="false" [clockwise]="true" [responsive]="false" [duration]="800" [animation]="'easeOutCubic'" [animationDelay]="5"
+              style="margin: auto;">
+
+            </round-progress>
+            <div style="position: relative; bottom: 112px;font-size:25px;">{{score}} %</div>
+            <h4>Total Reviews:{{totalrev}}</h4>
+            <h4>Average Reviews:{{ave}}</h4>
+          </div>
+        </div>
+
+        <br>
+        <div class="well well-sm">
+          <div class="row">
+            <div class="col-xs-12 col-md-3 text-center">
+              <h1 class="rating-num">
+                {{ave}}</h1>
+              <div class="rating">
+                <span class="glyphicon glyphicon-star"></span>
+                <span class="glyphicon glyphicon-star"></span>
+                <span class="glyphicon glyphicon-star"></span>
+                <span class="glyphicon glyphicon-star"></span>
+                <span class="glyphicon glyphicon-star-empty"></span>
+              </div>
+              <div class="font-w">
+                <span class="glyphicon glyphicon-user"></span>{{totalrev}} total
+              </div>
+            </div>
+            <div class="col-xs-12 col-md-9">
+              <div class="row rating-desc">
+                <div class="col-xs-4 col-md-2 text-right font-w">
+                  <span class="glyphicon glyphicon-star"></span>5
+                </div>
+                <div class="col-xs-8 col-md-10">
+                  <div class="progress progress-striped">
+                    <div aria-valuemax="100" aria-valuemin="0" aria-valuenow="20" class="progress-bar progress-bar-success" role="progressbar"
+                      style="width: 80%; height: 100%;">
+                      <span class="sr-only">80%</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-xs-4 col-md-2 text-right font-w">
+                  <span class="glyphicon glyphicon-star "></span>4
+                </div>
+                <div class="col-xs-8 col-md-10">
+                  <div class="progress">
+                    <div aria-valuemax="100" aria-valuemin="0" aria-valuenow="20" class="progress-bar progress-bar-success" role="progressbar"
+                      style="width: 60%; height: 100%;">
+                      <span class="sr-only">60%</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-xs-4 col-md-2 text-right font-w">
+                  <span class="glyphicon glyphicon-star"></span>3
+                </div>
+                <div class="col-xs-8 col-md-10">
+                  <div class="progress">
+                    <div aria-valuemax="100" aria-valuemin="0" aria-valuenow="20" class="progress-bar progress-bar-info" role="progressbar" style="width: 40%; height: 100%;">
+                      <span class="sr-only">40%</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-xs-4 col-md-2 text-right font-w">
+                  <span class="glyphicon glyphicon-star"></span>2
+                </div>
+                <div class="col-xs-8 col-md-10">
+                  <div class="progress">
+                    <div aria-valuemax="100" aria-valuemin="0" aria-valuenow="20" class="progress-bar progress-bar-warning" role="progressbar"
+                      style="width: 20%; height: 100%;">
+                      <span class="sr-only">20%</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-xs-4 col-md-2 text-right font-w">
+                  <span class="glyphicon glyphicon-star"></span>1
+                </div>
+                <div class="col-xs-8 col-md-10">
+                  <div class="progress">
+                    <div aria-valuemax="100" aria-valuemin="0" aria-valuenow="80" class="progress-bar progress-bar-danger" role="progressbar"
+                      style="width: 15%; height: 100%;">
+                      <span class="sr-only">15%</span>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="col-md-4 col-sm-12 sidebar-reviews" *ngIf="pro">
+        <div class="sidebar-wrapper">
+          <div class="clearfix" style="position: relative;">
+
+            <div class="post-media clearfix text-center" style="background: #ffffff; padding: 0; ">
+              <a href="{{pro.profileurl}}" target="_blank" class="display-b margin-top">
+              <img src="{{pro.profile_logo}}" alt="{{pro.title}}"  onerror="this.src='../../assets/img/ChoiceGenie-logo2.png'" />
+</a>
+            </div>
+          </div>
+          <div class="widget custom-widget course-pricing clearfix" style="padding: 10px !important;">
+            <div class="customwidget text-left">
+              <div style="margin-bottom: 0px !important;">
+                <h3 style="margin-bottom: 0px !important; color: #c00; padding: 0px;">
+                  <strong>Plan Price:</strong>
+                </h3>
+                <div style="text-align:center;font-weight: bold;">
+                  500 kWh
+                  <b class="price-style"> {{pro.price_500_kwh}}¢</b>
+
+                </div>
+                <div class="add-price grid-element">
+                  <div class="unit">1,000 kWh
+                    <span class="price-style"> {{pro.price_1000_kwh}}¢ </span>
+                  </div>
+                  <div class="unit">2,000 kWh
+                    <span class="price-style"> {{pro.price_2000_kwh}}¢ </span>
+                  </div>
+
+                </div>
+              </div>
+
+              <h4 class="text-center"></h4>
+
+              <br>
+              <br>
+              <hr/>
+              <h3 style="margin-bottom: 0px !important; color: #c00; padding: 0;">
+                <strong>Plan Details:</strong>
+              </h3>
+              <p class="items-detail" *ngFor="let item of plan">
+                {{item}}</p>
+              <!-- <br > -->
+
+
+              <div class="course-meta clearfix">
+                <hr>
+                <p class="course-category">
+                  <span style="color: #c00;"> Title: </span>
+                  <a>{{pro.title}}</a>
+                </p>
+                <hr>
+                <div class="rating">
+                  <p>
+                    <span style="color: #c00;">Reviews:</span> &nbsp;
+                    <img src="{{pro.rating_logo}}" alt="{{pro.title}}" class="reviews-stars" />
+                  </p>
+                </div>
+                <hr>
+                <p class="course-time" *ngIf="pro.cancelation_fee;else no_data_temp2">
+                  <span style="color: #c00;"> Cancelation Fee:</span> {{pro.cancelation_fee.split(' ',3000)[2]}}
+                </p>
+                <!-- <hr>
+                <p class="course-time" *ngIf="hit;else no_data_temp2">
+                  <span style="color: #c00;"> No of Hits:</span> {{hit}}
+                </p>
+                <ng-template #no_data_temp2>
+
+                  <h4>&nbsp;&nbsp;&nbsp;&nbsp; ---</h4>
+                </ng-template> -->
+                <hr>
+                <p>
+                  <span style="color: #c00;">Call Now:</span> &nbsp;
+                  <a href="tel:{{pro.phone}}" style="color: #000;">
+
+                    {{pro.phone}}</a>
+                </p>
+
+              </div>
+              <div class="sidebar-btn">
+                <!---->
+                <a class="button ng-star-inserted" style="margin: 0" type="" href="{{pro.profileurl}}" target="_blank"> Signup Now </a>
+                <!---->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-12 sidebar-reviews" *ngIf="deproduct">
+        <div class="sidebar-wrapper">
+          <div class="clearfix" style="position: relative;">
+
+            <div class="post-media clearfix text-center" style="background: #ffffff; padding: 0; ">
+                <a href="{{deproduct.sign_up}}" target="_blank" class="display-b margin-top">
+              <img src="{{deproduct.profile_logo}}" alt="{{deproduct.title}}" />
+</a>
+            </div>
+          </div>
+          <div class="widget custom-widget course-pricing clearfix" style="padding: 10px !important;">
+            <div class="customwidget text-left">
+              <div style="margin-bottom: 0px !important;">
+                <h3 style="margin-bottom: 0px !important; color: #c00; padding: 0px;">
+                  <strong>Plan Price:</strong>
+                </h3>
+                <div style="text-align:center;">
+
+                    <b class="price-style"> {{deproduct.price_rate}}¢</b>
+
+                  </div>
+
+              </div>
+
+              <h4 class="text-center"></h4>
+
+              <br>
+              <br>
+              <hr/>
+              <h3 style="margin-bottom: 0px !important; color: #c00;">
+                <strong>Plan Details:</strong>
+              </h3>
+              <p class="items-detail">
+                {{deproduct.plan_information}}</p>
+              <!-- <br > -->
+
+
+              <div class="course-meta clearfix">
+                <hr>
+                <p class="course-category">
+                  <span style="color: #c00;"> Title: </span>
+                  <a>{{deproduct.title}}</a>
+                </p>
+                <hr>
+                <div class="rating">
+                  <p>
+                    <span style="color: #c00;">Reviews:</span> &nbsp;
+                    <img src="{{deproduct.rating_logo}}" alt="{{deproduct.title}}" class="reviews-stars" />
+                  </p>
+                </div>
+                <hr>
+                <p class="course-time" *ngIf="deproduct.cancelation_fee;else no_data_temp2">
+                  <span style="color: #c00;"> Cancelation Fee:</span> {{deproduct.cancelation_fee}}
+                </p>
+                <hr>
+                <p class="course-time">
+                  <span style="color: #c00;"> No of Hits:</span> {{hit}}
+                </p>
+                <ng-template #no_data_temp2>
+
+                  <h4>&nbsp;&nbsp;&nbsp;&nbsp; ---</h4>
+                </ng-template>
+                <hr>
+                <p>
+                  <span style="color: #c00;">Call Now:</span> &nbsp;
+                  <a href="tel:{{deproduct.phone}}" style="color: #000;">
+
+                    {{deproduct.phone}}</a>
+                </p>
+
+              </div>
+              <div class="sidebar-btn">
+                <!---->
+                <a class="button ng-star-inserted" style="margin: 0" type="" href="{{deproduct.sign_up}}" target="_blank"> Signup Now </a>
+                <!---->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 reviews-box">
+        <h1>Reviews</h1>
+      </div>
+      <div class="col-md-6" style="padding: 0px">
+        <h2 class="margin-zero">{{total}} Reviews</h2>
+      </div>
+      <div class="col-md-6" style="padding: 0px; text-align:right;">
+        <label class="product-label">Sort By</label>
+        <mat-form-field style="padding: 0px; max-width:200px; margin-left:20px; margin-top: 0px;">
+          <mat-select (change)="sortby(sort)" required [(ngModel)]="sort" name="sort">
+            <mat-option value="Top" style="font-size: 20px">Top</mat-option>
+            <mat-option value="newest" style="font-size: 20px">Newest </mat-option>
+            <mat-option value="oldest" style="font-size: 20px">Oldest</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="container comments-box" *ngIf="rev">
+
+    <div class="review-content" *ngFor="let item of rev" class="product-review">
+      <h3>{{item.username}}</h3>
+      <div class="rating-star">
+          <neutron-rating [rating]=item.rate [starColour]="'#FDD835'" [readOnly]="true" [starSize]="2"></neutron-rating>
+
+      </div>
+      <p>{{item.comment}}</p>
+      <hr>
+    </div>
+    <div *ngIf="rev == 0" class="reviews-img">
+      <p>No Reviews have been posted yet</p>
+      <!-- <img src="../../assets/img/review.gif" class="reviews-animation"> -->
+
+    </div>
+  </div>
+</div>

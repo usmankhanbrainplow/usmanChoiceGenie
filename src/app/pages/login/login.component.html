@@ -1,0 +1,89 @@
+
+
+<div class="login-form-1-img">
+    <div class="container">
+      <div class="login-form-1-center">
+        <form [formGroup]="login" class="login-form-1">
+          <div class="login-form-1-header">
+            <h3>SignIn to Your ChoiceGenie</h3>
+
+          </div>
+          <div class="login-form-1-body">
+
+            <mat-form-field [ngClass]="displayFieldCss(login, 'username')">
+              <input matInput id="username" placeholder="Enter Username" formControlName="username" [(ngModel)]="username">
+              <mat-error *ngIf="login.controls.username.value == '' || !login.controls.username.value"><strong>This Field cannot be empty</strong></mat-error>
+
+            </mat-form-field>
+            <mat-form-field [ngClass]="displayFieldCss(login, 'password')">
+              <input matInput type="password" id="password" [type]="hide ? 'password' : 'text'"  placeholder="Enter Your Password" formControlName="password" [(ngModel)]="password">
+              <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+              <mat-error *ngIf="login.controls.password.value == '' || !login.controls.password.value"><strong>This Field cannot be empty</strong></mat-error>
+
+            </mat-form-field>
+            <!-- <div *ngIf="!islogin">
+              <p class="errormessage">Incorrect Password or Username</p>
+            </div> -->
+            <!-- <mat-checkbox>
+
+              Stay signed in
+            </mat-checkbox> -->
+            <div class="float-left">
+              <label >
+                  <input type="checkbox" [(ngModel)]="staySignedIn" formControlName="staySignedIn" value="staySignedIn" (change)="checked($event,i)" checked="true">
+                  <!-- <input [(ngModel)]="staySignedIn" type="checkbox" checked="true" name="stay-signed" value="Stay Sign In"> -->
+                  <div class="float-r">Stay Signed In</div>
+                  <!-- <mat-checkbox checked="true">Stay Signed In</mat-checkbox> -->
+              </label>
+            </div>
+
+            <!-- || !recaptcha -->
+            <!-- <div class="row" style="margin: 25px 0 0 0;"> -->
+            <blackgeeks-recaptcha class="float-r margin-right-bottom" ></blackgeeks-recaptcha>
+            <!-- </div> -->
+            <div class="" *ngIf="isequal==false">
+              <p class="col-lg-12 errormessage" style="color: #CC0000">Invalid Answer</p>
+            </div>
+            <!-- <re-captcha (resolved)="resolved($event)" siteKey="6Lc4418UAAAAAPxDwXhjAF3a2sdRn2RIoMQxF9D9
+            " style="transform:scale(0.77);-webkit-transform:scale(0.77);transform-origin:0 0;-webkit-transform-origin:0 0;"></re-captcha>
+     -->
+            <button class="btn-fill" type="submit" (click)="onLogin();">SIGN IN</button>
+
+            <a  value="Delete" data-toggle="modal" data-target="#myModal3">Forgot Password?</a>
+            <div class="modal fade" id="myModal3" role="dialog">
+              <div class="modal-dialog">
+
+                <div class="modal-content" style="margin-top:25%; width:119%;">
+                  <div class="modal-header">
+
+                  </div>
+                  <div class="modal-body" style="font-size: 18px;
+                  text-align: center;">
+
+                  <h3>Enter Your Email</h3>
+                  <input type="text" placeholder="Enter Your Email" class="form-control" [(ngModel)]="Email" formControlName="Email" style="font-size: 20px">
+                  </div>
+                  <div class="modal-footer">
+
+                    <button type="button" class="btn btn-rose"  data-dismiss="modal" style="
+                  color: white;
+
+                  width: 20%;
+                  height: 45px;
+                  font-size: 18px;" (click)="forgetpass(Email)">Submit</button>
+                    <button type="button" class="btn btn-rose" data-dismiss="modal" style="
+                  color: white;
+
+                  width: 20%;
+                  height: 45px;
+                  font-size: 18px;">Cancel</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div>Don't have an account?<a routerLink="/register"> Sign Up </a></div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>

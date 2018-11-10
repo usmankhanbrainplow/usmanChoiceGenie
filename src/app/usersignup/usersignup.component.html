@@ -1,0 +1,331 @@
+<div class="container-fluid">
+  <div class="container" style="padding:12px 0px 15px 0px">
+    <!--<h3 class="text-center" style="margin: 0px !important;">Tell Us About-->
+    <!--<strong>Yourself</strong>-->
+    <!--</h3>-->
+
+    <!-- <div class="vander-signup-heading" data-notify="container">
+      <span data-notify="message">Any Enrollment Request including move-in or a switch can only be made by service applicant or the applicant's authorized
+        agent.
+        <br> If you are not an authorized individual, please do not submit your request using this portal.
+      </span>
+    </div> -->
+
+
+
+    <div class="card-content card-content-fixed" style="padding-top: 1px;">
+
+
+
+
+
+      <form [formGroup]="signupForm" *ngIf="signupForm">
+
+        <!-- <div class="signup-form-fixed" data-background-color="rose">
+          <i class="material-icons">mail_outline</i>
+        </div> -->
+
+
+        <div class="card-content">
+
+          <!-- <div  class="signin-form-1-header">
+            <h3>User Registration  </h3>
+
+          </div> -->
+
+
+          <h1 class="signup-heading">MEMBER INFORMATION</h1>
+          <p class="signup-tagline">Okay, lets get started! First, tell us about yourself and the address we're going
+            to help you with.</p>
+          <ng-template matStepLabel>About</ng-template>
+
+
+
+          <div class="row sh-signup-form-fix">
+            <div class="col-sm-4">
+              <div class="margin-t">
+
+                <mat-form-field>
+                  <input matInput placeholder="  Name" [formControl]="signupForm.controls['name']" required [(ngModel)]="model.name"
+                    class="text-transform">
+                  <mat-icon matSuffix (click)="hide = !hide">account_circle </mat-icon>
+                  <mat-error *ngIf="signupForm.controls['name'].value == '' || !signupForm.controls['name'].value"><strong>This
+                      Field cannot be empty</strong></mat-error>
+
+                </mat-form-field>
+              </div>
+            </div>
+            <br class="clearfix" />
+            <div class="col-sm-4">
+              <div class="margin-t">
+
+                <mat-form-field>
+                  <input matInput placeholder="Service Zip Code" maxlength="5" (ngModelChange)="states(zip.value)" #zip
+                    [formControl]="signupForm.controls['service_zip']" required [(ngModel)]="model.service_zip">
+                  <mat-icon matSuffix (click)="hide = !hide">code</mat-icon>
+                  <mat-error *ngIf="signupForm.controls['service_zip'].value == '' || !signupForm.controls['service_zip'].value"><strong>This
+                      Field cannot be empty</strong></mat-error>
+
+                  <mat-error *ngIf="signupForm.controls['service_zip'].hasError('pattern')">
+                    Only Numbers
+                  </mat-error>
+                  <mat-error *ngIf="signupForm.controls['service_zip'].errors?.minlength">
+                    Only 5 Numbers.
+                  </mat-error>
+                </mat-form-field>
+              </div>
+            </div>
+            <br class="clearfix" />
+            <div class="col-sm-4">
+              <div class="form-group margin-t">
+
+                <mat-form-field>
+                  <input matInput placeholder="Service Address" [formControl]="signupForm.controls['service_address']"
+                    required [(ngModel)]="model.service_address">
+                  <mat-icon matSuffix (click)="hide = !hide">room</mat-icon>
+                  <mat-error *ngIf="signupForm.controls['service_address'].value == '' || !signupForm.controls['service_address'].value"><strong>This
+                      Field cannot be empty</strong></mat-error>
+
+                </mat-form-field>
+              </div>
+            </div>
+            <br class="clearfix" />
+            <div class="col-sm-4">
+              <div class="form-group margin-t">
+
+
+                <!-- <mat-form-field>
+<input matInput placeholder="State" [formControl]="signupForm.controls['state']" required [(ngModel)]="model.state" >
+<mat-error *ngIf="secondFormGroup.controls.State.dirty && !secondFormGroup.controls.State.value"> Special characters not allowed</mat-error>
+</mat-form-field> -->
+                <mat-form-field>
+                  <input matInput placeholder="Service State" [formControl]="signupForm.controls['service_state']"
+                    #servicestate required [(ngModel)]="model.service_state">
+                  <mat-icon matSuffix (click)="hide = !hide">room</mat-icon>
+                  <mat-error *ngIf="signupForm.controls['service_state'].value == '' || !signupForm.controls['service_state'].value"><strong>This
+                      Field cannot be empty</strong></mat-error>
+
+                </mat-form-field>
+
+                <!-- <mat-form-field>
+                  <input type="text" placeholder="Service State" aria-label="Number" matInput [formControl]="signupForm.controls['service_state']"
+                    value="{{state}}" [(ngModel)]="model.service_state">
+                </mat-form-field> -->
+              </div>
+            </div>
+            <br class="clearfix" />
+            <div class="col-sm-4">
+              <div class="form-group margin-t">
+
+                <mat-form-field>
+                  <input matInput placeholder="Service City" [formControl]="signupForm.controls['service_city']"
+                    #service_city required [(ngModel)]="model.service_city">
+                  <mat-icon matSuffix (click)="hide = !hide">voicemail</mat-icon>
+                  <mat-error *ngIf="signupForm.controls['service_city'].value == '' || !signupForm.controls['service_city'].value"><strong>This
+                      Field cannot be empty</strong></mat-error>
+
+                  <!-- <mat-error *ngIf="secondFormGroup.controls.Country.dirty && !secondFormGroup.controls.Country.value"> Special characters not allowed</mat-error> -->
+                </mat-form-field>
+              </div>
+            </div>
+            <!-- <br class="clearfix" />
+            <div class="col-sm-6">
+              <div class="form-group">
+
+                <mat-form-field>
+                  <input matInput placeholder="Billing Address" [formControl]="signupForm.controls['billing_address']" required [(ngModel)]="model.billing_address">
+                   </mat-form-field>
+              </div>
+            </div> -->
+            <br class="clearfix" />
+            <div class="col-sm-4">
+              <div class="form-group margin-t">
+
+                <mat-form-field>
+                  <input matInput placeholder="Email" required [formControl]="signupForm.controls['email']" #email1
+                    (ngModelChange)="emailCheck(email1.value)" [(ngModel)]="model.email" />
+                  <mat-icon matSuffix (click)="hide = !hide">email</mat-icon>
+                  <mat-error *ngIf="signupForm.controls['email'].value == '' || !signupForm.controls['email'].value"><strong>This
+                      Field cannot be empty</strong></mat-error>
+                  <mat-error *ngIf="signupForm.controls['email'].hasError('pattern')">
+                    Please enter a valid email address
+                  </mat-error>
+                  <!-- (ngModelChange)="emailCheck(email1.value)" #email1  -->
+
+                </mat-form-field>
+                <div *ngIf="emailexist!=true" class="alert alert-danger">
+                  This email already exist.
+                </div>
+
+              </div>
+            </div>
+
+
+
+
+
+            <br class="clearfix" />
+            <div class="col-sm-6">
+              <div class="form-group margin-t">
+
+                <mat-form-field>
+                  <input matInput [textMask]="{mask: phoneMask}" placeholder="Contact No" [formControl]="signupForm.controls['phoneno']"
+                    required [(ngModel)]="model.phoneno">
+                  <mat-icon matSuffix (click)="hide = !hide">settings_phone</mat-icon>
+                  <mat-error *ngIf="signupForm.controls['phoneno'].value == '' || !signupForm.controls['phoneno'].value"><strong>This
+                      Field cannot be empty</strong></mat-error>
+
+                  <!-- <mat-error *ngIf="secondFormGroup.controls.Phone_No.dirty && !secondFormGroup.controls.Phone_No.value"> Special characters not allowed</mat-error> -->
+                </mat-form-field>
+              </div>
+            </div>
+
+            <!--
+
+            <br class="clearfix" />
+            <div class="col-sm-6">
+              <div class="form-group">
+
+                <mat-form-field>
+                  <input matInput placeholder="Billing City" [formControl]="signupForm.controls['billing_city']" required [(ngModel)]="model.billing_city">
+                  <mat-error *ngIf="signupForm.controls.billing_city.value == ''">
+                    <strong>City cannot be empty</strong>
+                  </mat-error>
+                  </mat-form-field>
+              </div>
+            </div> -->
+            <!-- <br class="clearfix" />
+            <div class="col-sm-6">
+              <div class="form-group">
+
+                <mat-form-field>
+                  <input matInput placeholder="Billing State" [formControl]="signupForm.controls['billing_state']" required [(ngModel)]="model.billing_state">
+                  <mat-error *ngIf="signupForm.controls.billing_state.value == ''">
+                    <strong>City cannot be empty</strong>
+                  </mat-error>
+                   </mat-form-field>
+              </div>
+            </div> -->
+            <!-- <br class="clearfix" />
+            <div class="col-sm-6">
+              <div class="form-group">
+
+                <mat-form-field>
+                  <input matInput placeholder="Billing Zipcode" [formControl]="signupForm.controls['billing_zip']" required [(ngModel)]="model.billing_zip">
+                  <mat-error *ngIf="signupForm.controls.billing_zip.value == ''">
+                    <strong>City cannot be empty</strong>
+                  </mat-error>
+                   </mat-form-field>
+              </div>
+            </div> -->
+            <!-- <br class="clearfix" />
+            <div class="col-sm-6">
+              <div class="form-group margin">
+
+                <mat-form-field>
+                  <mat-select placeholder="Market" (ngModelChange)="check($event)" [(ngModel)]="model.Market" [formControl]="signupForm.controls['Market']">
+                    <mat-option value="ERCOT" style="font-size: 20px">ERCOT</mat-option>
+                    <mat-option value="PJM" style="font-size: 20px">PJM</mat-option>
+
+                    <mat-error *ngIf="signupForm.controls.Market.value == ''">
+                      <strong>City cannot be empty</strong>
+                    </mat-error>
+                  </mat-select>
+                     </mat-form-field>
+              </div>
+            </div> -->
+            <br class="clearfix" />
+            <div class="col-sm-6">
+              <div class="form-group margin-t">
+                <mat-form-field>
+
+                  <input matInput placeholder="User name " [formControl]="signupForm.controls['username']"
+                    (ngModelChange)="usernameCheck(username1.value)" #username1 required [(ngModel)]="model.username">
+                  <mat-icon matSuffix (click)="hide = !hide">account_circle </mat-icon>
+                  <mat-error *ngIf="signupForm.controls['username'].value == '' || !signupForm.controls['username'].value"><strong>This
+                      Field cannot be empty</strong></mat-error>
+                  <mat-error *ngIf="signupForm.controls['username'].hasError('pattern')">
+                    Invalid Username
+                  </mat-error>
+                </mat-form-field>
+                <div *ngIf="usernameexist!= true" class="alert alert-danger">
+                  This username already exist.
+                </div>
+                <!-- <ng-template #no_data_temp1>
+  <div class="alert alert-danger"> This username already exist. </div>
+
+
+              </ng-template> -->
+              </div>
+            </div>
+
+            <br class="clearfix" />
+            <div class="col-sm-6">
+              <div class="form-group margin-t">
+
+                <mat-form-field>
+                  <input matInput placeholder="Password" type="password" [type]="hide ? 'password' : 'text'"
+                    [formControl]="signupForm.controls['password']" required [(ngModel)]="model.password">
+                  <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                  <mat-error *ngIf="signupForm.controls['password'].value == '' || !signupForm.controls['password'].value"><strong>This
+                      Field cannot be empty</strong></mat-error>
+
+                  <!-- <mat-error *ngIf="secondFormGroup.controls.Password.dirty && !secondFormGroup.controls.Password.value"> Special characters not allowed</mat-error> -->
+                </mat-form-field>
+              </div>
+            </div>
+            <br class="clearfix" />
+            <div class="col-sm-6">
+              <div class="form-group margin-t">
+
+                <mat-form-field>
+                  <input matInput placeholder="Confirm Password" type="password" [type]="hide ? 'password' : 'text'"
+                    [formControl]="signupForm.controls['confirmpassword']" required>
+                  <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                  <mat-error *ngIf="signupForm.controls['confirmpassword'].value == '' || !signupForm.controls['confirmpassword'].value"><strong>This
+                      Field cannot be empty</strong></mat-error>
+
+                  <!-- <mat-error *ngIf="secondFormGroup.controls.Confirm_Password.dirty && !secondFormGroup.controls.Confirm_Password.value"> Special characters not allowed</mat-error> -->
+                  <mat-error *ngIf="(signupForm.controls.confirmpassword.value != signupForm.controls.password.value) || signupForm.controls.confirmpassword.value == ''">
+                    <strong>Password must match
+                    </strong>
+                  </mat-error>
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="col-lg-6 recaptcha-box recaptcha-top">
+              <blackgeeks-recaptcha></blackgeeks-recaptcha>
+              <div class="" *ngIf="isequal==false">
+                <p class="col-lg-12 errormessage" style="color: #c00">Invalid Answer</p>
+              </div>
+              <!-- <blackgeeks-recaptcha></blackgeeks-recaptcha> -->
+            </div>
+
+            <div class="col-lg-6 form-footer text-center">
+              <div class="">
+                <label class="acknowladge" for="AcknowledgeTerms">
+                  <input data-val="true" data-val-required="The AcknowledgeTerms field is required." id="AcknowledgeTerms"
+                    name="AcknowledgeTerms" tabindex="11" type="checkbox" value="true">
+                  <input name="AcknowledgeTerms" type="hidden" value="false">
+                  I authorize ChoiceGenie to request historical usage data for <span id="blockProperty">my property</span>,
+                  and affirm that I agree to the <a href="javascript:showTerms();">ChoiceGenie Terms of Use</a>
+                </label>
+              </div>
+              <div class="form-group" style="margin:25px 0 0;">
+
+                <button class="btn btn-fill" style="width:100%; border-radius:50px;font-size:24px !important;" type="submit"
+                  (click)="signupuserdata();clear() ">Register</button>
+              </div>
+
+            </div>
+          </div>
+
+
+
+
+        </div>
+      </form>
+    </div>
+
+  </div>
+</div>

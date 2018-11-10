@@ -1,0 +1,168 @@
+<div class="col-md-12 col-lg-12 col-sm-12  colxs-12" style="overflow-x: hidden">
+  <div class="page-title margin-t">
+
+    <h3 class="text-center choiecegenie-offers wow fadeInLeft"> Vendors Details   </h3>
+
+  </div>
+
+    <!--<div class="page-title">-->
+      <!--<span>User Details </span>-->
+
+    <!--</div>-->
+    <div class="ptb-80">
+      <div>
+        <!-- <div class="text-center appio-center-heading pb-20">
+    <h2>Why ChoiceGenie?</h2>
+    <span _ngcontent-c4="" class="bordered-icon"><i _ngcontent-c4="" class="fa fa-square"></i></span>
+    <p class="text-center"> We, the engineers at ChoiceGenie have devised bleeding edge Machine Learning (ML) and proprietary Artificially Intelligent (AI) algorithms to bring you a next generation Artificially Intelligent Comparative Shopping Marketplace for Energy Vendors/Products. Our technology is bleeding edge and was engineered with a singular goal: Save the consumer Time n’ Money. </p>
+  </div> -->
+        <div class="com-table-2 scroll-table">
+
+          <table class="table table-bordered  margin-zero1" style="background-color:#ffffff; border-radius: 5px; table-layout: auto;">
+            <thead>
+              <tr>
+                <th class="text-center" hidden="ture">User ID</th>
+                <th class="text-center">REP Name</th>
+                <th class="text-center">REP # </th>
+                <th class="text-center">Name</th>
+                <th class="text-center">Phone #</th>
+                <th class="text-center">Email</th>
+                <th class="text-center">Status</th>
+                <th class="text-center">Active</th>
+                <th class="text-center">Un Active</th>
+
+              </tr>
+            </thead>
+            <tbody *ngIf="data;else no_data_templ">
+              <tr *ngFor="let item of data.slice().reverse(); let i = index" class="text-center">
+                <td style="font-size: 16px;" hidden="true" >{{item.id}}</td>
+                <td style="font-size: 16px;">{{item.REP_name}}</td>
+                <td style="font-size: 16px;">{{item.REP_certificate_id}}</td>
+                <td style="font-size: 16px;">{{item.Contact_Name}}</td>
+                <td style="font-size: 16px;">{{item.Contact_Phone}}</td>
+                <td style="font-size: 16px; word-wrap: break-word;">{{item.contact_email}}</td>
+                <td style="font-size: 16px;"  hidden="true">{{item.Market}}</td>
+                <td style="font-size: 16px;">{{item.status}}</td>
+                <!-- <td style="font-size: 20px;">{{item.user}}</td> -->
+                <td style="font-size: 20px;">
+                  <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+
+                      <!-- id.value,updatedzipcode.value,updatedutilityarea.value,updatedtitle.value,updatedphone.value,updatedstate.value,updatedcountry.value,updatedstatus.value,updateduser.value -->
+                      <!-- <input matInput name="item.id" value="{{item.id}}"[hidden]="true" required #catagoryId/> -->
+
+                      <input matInput name="item.REP_name" value="{{item.REP_name}}"[hidden]="true" required #updatedrepname/>
+                    <input matInput  name="item.REP_certificate_id" value="{{item.REP_certificate_id}}"[hidden]="true" required #updaterepcertificateid/>
+                    <input matInput  name="item.Contact_Name" value="{{item.Contact_Name}}" required [hidden]="true" #updatedcontactname/>
+                    <input matInput  name="item.Contact_Phone" value="{{item.Contact_Phone}}" required [hidden]="true" #updatedcontactphone/>
+                    <input matInput name="item.Market" value="{{item.Market}}" required [hidden]="true" #updatedmarket/>
+                    <input matInput  name="item.status" [value]="status" required [hidden]="true" #updatedstatus/>
+                    <input matInput  name="item.contact_email" value="{{item.contact_email}}" required [hidden]="true" #updatedcontact_email/>
+                    <input matInput  name="item.user" value="{{item.user}}" required [hidden]="true" #updateduser/>
+
+                    <!-- <input matInput placeholder="status" [formControl]="signupForm.controls['status']" required [value]="status" [(ngModel)]="model.status" hidden="true"> -->
+                    <button type="submit" class="btn btn-default" style="background-color: #ffffff !important;  width: 80%; height: 100%"  (click)="btnEditClick(item.id,item.REP_name,item.REP_certificate_id,item.Contact_Name,item.Contact_Phone,item.Market,item.status,item.user,item.contact_email);editClick(updatedrepname.value,updaterepcertificateid.value,updatedcontactname.value,updatedcontactphone.value,updatedmarket.value,updatedstatus.value,updateduser.value,updatedcontact_email.value)"><i class="fa fa-check"></i> </button>
+                  </form>
+                </td>
+                <!-- <td style="font-size: 20px;">
+                  <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+
+
+                      <input matInput name="item.REP_name" value="{{item.REP_name}}"[hidden]="true" required #updatedrepname/>
+                    <input matInput  name="item.REP_certificate_id" value="{{item.REP_certificate_id}}"[hidden]="true" required #updaterepcertificateid/>
+                    <input matInput  name="item.Contact_Name" value="{{item.Contact_Name}}" required [hidden]="true" #updatedcontactname/>
+                    <input matInput  name="item.Contact_Phone" value="{{item.Contact_Phone}}" required [hidden]="true" #updatedcontactphone/>
+                    <input matInput name="item.Market" value="{{item.Market}}" required [hidden]="true" #updatedmarket/>
+                    <input matInput  name="item.status" [value]="statuss" required [hidden]="true" #updatedstatus/>
+                    <input matInput  name="item.contact_email" value="{{item.contact_email}}" required [hidden]="true" #updatedcontact_email/>
+                    <input matInput  name="item.user" value="{{item.user}}" required [hidden]="true" #updateduser/>
+
+                       <button type="submit" class="btn btn-default" style="background-color: #ffffff !important;  width: 100%; height: 100%"  (click)="btnEditClick(item.id,item.REP_name,item.REP_certificate_id,item.Contact_Name,item.Contact_Phone,item.Market,item.status,item.user,item.contact_email);updateeditClick(updatedrepname.value,updaterepcertificateid.value,updatedcontactname.value,updatedcontactphone.value,updatedmarket.value,updatedstatus.value,updateduser.value,updatedcontact_email.value)"><i class="fa fa-check"></i> </button>
+                  </form>
+                </td> -->
+                <td >
+                  <button style=" width: 80%; height: 100%; color: red; background-color: #ffffff !important; " class="btn btn-default" type="submit" value="Delete" (click)="btnDeleteClick(item.id)" data-toggle="modal" data-target="#myModal3">
+                    <i class="fa fa-times"></i> </button>
+                </td>
+
+
+
+
+              </tr>
+            </tbody>
+
+          </table>
+          <div class="modal fade" id="myModal3" role="dialog">
+            <div class="modal-dialog">
+              <!-- Modal content-->
+              <div class="modal-content" style="margin-top:25%; width:119%;">
+                <div class="modal-header">
+
+                  <h4 class="modal-title" style="text-align: left;
+                  color: red;
+                  font-size: 30px;">Confirmation Alert</h4>
+                  <button type="button" class="close close-button" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body" style="font-size: 18px;
+                  text-align: center; padding: 0px;">
+                  <p class="delet-this">Do you want to Delete this Task?</p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-fill" (click)="deleteClick(dataId)" data-dismiss="modal" style="
+                  color: white;
+
+                  width: 20%;
+                  height: 45px;
+                  font-size: 18px;">Delete</button>
+                  <button type="button" class="btn btn-fill" data-dismiss="modal" style="
+                  color: white;
+
+                  width: 20%;
+                  height: 45px;
+                  font-size: 18px;">Cancel</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <span>
+            <ng-template #no_data_templ>
+
+              <!-- <img src="../../assets/img/no_Record.png" style="width: 250px;height:200px" > -->
+              <h1 style="height:1000px;width:1000px;padding:200px">
+
+                <!-- <b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;No Record Found</b> -->
+              </h1>
+            </ng-template>
+          </span>
+
+        </div>
+        <div class="">
+          <div class="text-center">
+            <!-- <h1>Angular 2 - Pagination Example with logic like Google</h1> -->
+
+            <!-- items being paged -->
+            <div *ngFor="let item of pagedItems">{{item.name}}</div>
+
+            <!-- pager -->
+            <ul *ngIf="pager.pages && pager.pages.length" class="pagination">
+              <li [ngClass]="{hide:pager.currentPage === 1}">
+                <a (click)="premiseIdData(1)" class="btn btn-fill">First</a>
+              </li>
+              <li [ngClass]="{hide:pager.currentPage === 1}">
+                <a (click)="premiseIdData(pager.currentPage - 1)" class="btn btn-fill">Previous</a>
+              </li>
+              <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
+                <a (click)="premiseIdData(page)" class="btn btn-fill">{{page}}</a>
+              </li>
+              <li [ngClass]="{hide:pager.currentPage === pager.totalPages}">
+                <a (click)="premiseIdData(pager.currentPage + 1)" class="btn btn-fill" type="Next">Next</a>
+              </li>
+              <li [ngClass]="{hide:pager.currentPage === pager.totalPages}">
+                <a (click)="premiseIdData(pager.totalPages)" class="btn btn-fill" type="Last">Last</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+

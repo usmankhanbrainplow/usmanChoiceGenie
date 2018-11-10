@@ -1,0 +1,142 @@
+
+<div class="" style="padding: 15px;">
+<div class="page-title margin-t">
+
+    <h3 class="text-center choiecegenie-offers wow fadeInLeft"> Add New Blog  </h3>
+
+  </div>
+
+
+  <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 contact-details-form" style="padding: 17px 11px; margin-bottom: 20px;" >
+    <div class="ptb-80" >
+      <div class="">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="form-group margin">
+                  <mat-form-field class="width-full">
+                    <input matInput placeholder=" Heading" [formControl]="signupForm.controls['heading']" required [(ngModel)]="model.heading">
+                  </mat-form-field>
+                </div>
+              </div>
+              </div>
+              <!-- <br class="clearfix" /> -->
+              <div class="row">
+          <div class="col-sm-12">
+            <div class="form-group">
+                <ckeditor
+                [(ngModel)]="model.content1" [formControl]="signupForm.controls['content1']">
+                  <ckbutton [name]="'saveButton'"
+                    [command]="'saveCmd'"
+                    (click)="save($event)"
+                    [icon]="'save.png'"
+                    [label]="'Save Document'"
+                    [toolbar]="'clipboard,1'">
+                  </ckbutton>
+              </ckeditor>
+              <!-- <mat-form-field class="width-full">
+                <input matInput placeholder=" Heading 1 " [formControl]="signupForm.controls['heading1']" required [(ngModel)]="model.heading1">
+              </mat-form-field> -->
+            </div>
+          </div>
+          <!-- <div class="col-sm-6">
+            <div class="form-group">
+              <mat-form-field class="width-full">
+                <input matInput placeholder=" Content1" [formControl]="signupForm.controls['content1']" required [(ngModel)]="model.content1">
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="form-group margin">
+              <mat-form-field class="width-full">
+                <input matInput placeholder=" Heading2" [formControl]="signupForm.controls['heading']" required [(ngModel)]="model.heading">
+              </mat-form-field>
+            </div>
+          </div>
+          <br class="clearfix" />
+          <div class="col-sm-6">
+            <div class="form-group margin">
+              <mat-form-field class="width-full">
+                <input matInput placeholder=" Content2" [formControl]="signupForm.controls['content2']" required [(ngModel)]="model.content2">
+              </mat-form-field>
+            </div>
+          </div>
+          <br class="clearfix" />
+          <div class="col-sm-6">
+            <div class="form-group margin">
+              <mat-form-field class="width-full">
+                <input matInput placeholder=" Heading3" [formControl]="signupForm.controls['heading3']" required [(ngModel)]="model.heading3">
+              </mat-form-field>
+            </div>
+          </div>
+          <br class="clearfix" />
+          <div class="col-sm-6">
+            <div class="form-group margin">
+              <mat-form-field class="width-full">
+                <input matInput placeholder=" Content3" [formControl]="signupForm.controls['content3']" required [(ngModel)]="model.content3">
+              </mat-form-field>
+            </div>
+          </div>
+          <br class="clearfix" />
+          <div class="col-sm-6">
+            <div class="form-group margin">
+              <mat-form-field class="width-full">
+                <input matInput placeholder=" Heading4" [formControl]="signupForm.controls['heading4']" required [(ngModel)]="model.heading4">
+              </mat-form-field>
+            </div>
+          </div>
+          <br class="clearfix" />
+          <div class="col-sm-6">
+            <div class="form-group margin">
+              <mat-form-field class="width-full">
+                <input matInput placeholder=" Content4" [formControl]="signupForm.controls['content4']" required [(ngModel)]="model.content4">
+              </mat-form-field>
+            </div>
+          </div>
+          <br class="clearfix" />
+          <div class="col-sm-6">
+            <div class="form-group margin">
+              <mat-form-field class="width-full">
+                <input matInput placeholder=" Heading5" [formControl]="signupForm.controls['heading5']" required [(ngModel)]="model.heading5">
+              </mat-form-field>
+            </div>
+          </div>
+          <br class="clearfix" />
+          <div class="col-sm-6">
+            <div class="form-group margin">
+
+              <mat-form-field class="width-full">
+                <input matInput placeholder=" Content5" [formControl]="signupForm.controls['content5']" required [(ngModel)]="model.content5">
+              </mat-form-field>
+            </div>
+          </div>
+          <br class="clearfix" />
+          <div class="col-sm-6">
+            <div class="form-group margin">
+              <mat-form-field class="width-full">
+                <input matInput placeholder=" Heading6" [formControl]="signupForm.controls['heading6']" required [(ngModel)]="model.heading6">
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="form-group margin">
+              <mat-form-field class="width-full">
+                <input matInput placeholder=" Content6" [formControl]="signupForm.controls['content6']" required [(ngModel)]="model.content6">
+              </mat-form-field>
+            </div>
+          </div> -->
+          <div class="col-sm-12" style="margin-bottom: 30px;">
+          <input id="img" type='file' (change)="onChange($event)" (change)="readUrl($event)" name="blog_image" [(ngModel)]="model.blog_image" accept="image/*" multiple>
+          <img [src]="url" class="image-box" >
+          <br class="clearfix" />
+          </div>
+          <br class="clearfix" />
+          <div class="col-sm-6" style="margin: 0 auto">
+            <div class="form-group margin">
+              <button class="btn btn-fill" style="width:100%; border-radius:50px;font-size:24px !important;" type="submit"(click)="upload()">Add Now</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

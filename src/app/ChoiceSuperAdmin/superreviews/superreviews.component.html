@@ -1,0 +1,256 @@
+<div  class="container-fluid" style="overflow: hidden;" >
+    <div class="page-title margin-t">
+      <!--<span>Contact Detail </span>-->
+      <h3 class="text-center choiecegenie-offers wow fadeInLeft"> Reviews </h3>
+
+    </div>
+      <!--<h3 class="text-center choiecegenie-offers wow fadeInLeft"> Reviews </h3>-->
+    <div class="scroll-table">
+        <div class="modal fade" id="myModal5" role="dialog">
+            <div class="modal-dialog">
+              <!-- Modal content-->
+              <div class="modal-content popupmodel">
+                <div class="modal-header">
+
+
+                </div>
+                <div class="modal-body" style="font-size: 18px;
+                          background: #ffffff;
+                          padding: 20px;
+                          margin: 15px;
+                          position: relative;">
+                  <div class="popup-close-button" data-dismiss="modal">X</div>
+                  <div class="row">
+
+                    <div>
+
+                      <p>{{comt}}</p>
+                    </div>
+
+                  </div>
+
+                </div>
+                <div style="display:inline-block; text-align:center;">
+
+                </div>
+              </div>
+            </div>
+          </div>
+      <div class="modal fade" id="myModal3" role="dialog">
+        <div class="modal-dialog">
+          <!-- Modal content-->
+          <div class="modal-content popupmodel">
+            <div class="modal-header">
+
+
+            </div>
+            <div class="modal-body" style="font-size: 18px;
+                      background: #ffffff;
+                      padding: 20px;
+                      margin: 15px;
+                      position: relative;">
+              <div class="popup-close-button" data-dismiss="modal">X</div>
+              <div class="row">
+
+                <div>
+                  <h4 class="modal-title" style="text-align: center;
+                              color: red;
+                              font-size: 30px;">Confirmation Alert</h4>
+                  <p>Do you want to Delete this review?</p>
+                </div>
+
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-fill" (click)="deleteClick(dataId)" style="
+              color: white;
+
+              width: 20%;
+              height: 45px;
+              font-size: 18px;" data-dismiss="modal">Delete</button>
+                <button type="button" class="btn btn-fill" data-dismiss="modal" style="
+              color: white;
+
+              width: 20%;
+              height: 45px;
+              font-size: 18px;">Cancel</button>
+              </div>
+            </div>
+            <div style="display:inline-block; text-align:center;">
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade" id="myModal2" role="dialog">
+        <div class="modal-dialog">
+
+          <!-- Modal content-->
+          <div class="modal-content popupmodel">
+            <!-- <div class="modal-header">
+
+
+                              </div> -->
+            <div class="modal-body" style="font-size: 18px;
+                              background: #ffffff;
+                              padding: 20px;
+                              margin: 15px;
+                              position: relative;">
+              <div class="popup-close-button" data-dismiss="modal">X</div>
+              <div class="row">
+
+                <div>
+                  <h4 class="modal-title" style="text-align: center;
+                                    color: red;
+                                    font-size: 30px;">Confirmation Alert</h4>
+                  <p>Do you want to Aprove this Review to display?</p>
+                </div>
+
+              </div>
+            </div>
+            <div class="modal-footer">
+              <form>
+
+
+                <input matInput readonly name="rate" value="{{rate}}" [hidden]="true" required #uprate/>
+
+                <input matInput readonly name="productid" value="{{productid}}" [hidden]="true" #upproid/>
+
+
+                <input matInput readonly name="active" [value]=true [hidden]="true" #upstatus/>
+
+
+                <input matInput readonly name="zipcode" [hidden]="true" value="{{zipcode}}" #upzip />
+
+
+                <input matInput [hidden]="true" readonly name="comment" value="{{comment}}" #upcomt />
+
+
+                <input matInput name="username" [hidden]="true" value="{{username}}" #upuser />
+                <input matInput name="user" [hidden]="true" value="{{user}}" #updateduser />
+
+
+
+                <!-- <input matInput placeholder="status" [formControl]="signupForm.controls['status']" required [value]="status" [(ngModel)]="model.status" hidden="true"> -->
+                <div class=" text-center">
+                  <button type="submit" class="btn btn-fill" (click)="activeClick(uprate.value,upproid.value,upstatus.value,upzip.value,upcomt.value,upuser.value,updateduser.value)"
+                    data-dismiss="modal">Aprove</button>
+
+                  <button type="button" class="btn btn-fill" data-dismiss="modal">Cancel</button>
+                  <!-- <button class="btn btn-fill btn-wd btn-lg" type="submit" (click)="onSubmit()" >Search</button> -->
+                </div>
+              </form>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- End .media-info -->
+
+
+
+
+      <table class="table superreviews-table table-bordered  tablefixed margin-zero1" style="background-color:#ffffff">
+        <thead>
+          <tr class="bg">
+            <!-- <th class="text-center">User ID</th>
+            <th class="text-center">Product ID</th> -->
+            <th class="text-center">Name</th>
+            <th class="text-center">Company Name</th>
+            <th class="text-center">Rating</th>
+            <th class="text-center">Comments</th>
+            <th class="text-center">Status</th>
+            <th class="text-center">Delete</th>
+            <th class="text-center">Approve</th>
+
+            <!--<th class="text-center">State</th>
+          <th class="text-center">Email</th>
+          <th class="text-center">Country</th> -->
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of rev; let i = index">
+            <!-- <td style="font-size: 20px;">{{item.id}}</td>
+            <td style="font-size: 20px;">{{item.productid}}</td> -->
+            <td style="font-size: 20px;">{{item.username}}</td>
+            <td style="font-size: 20px;">{{item.company_name}}</td>
+            <td style="font-size: 20px;">
+              <div class="media-info">
+                  <neutron-rating [rating]=item.rate [starColour]="'#FDD835'" [readOnly]="true" [starSize]="2"></neutron-rating>
+
+                <!-- <ul class="rating">
+                  <li *ngFor=" let i of [1,2,3,4,5]">
+                    <span *ngIf="i<=item.rate && item.rate!=0" aria-hidden="true" class="icon-star customColor"></span>
+
+                    <span *ngIf="i>item.rate && item.rate!=0" class="icon-star customColor"></span>
+                  </li>
+
+                </ul> -->
+
+                <!--<ul class="rating rating-width">-->
+                <!---->
+
+                <!--</ul>-->
+
+              </div>
+            </td>
+            <td style="font-size: 20px;">
+                <label class="view-plan-details" style="padding-bottom: 0px; margin-bottom: 0px;" (click)="btncomtClick(item.comment)"
+                data-toggle="modal" data-target="#myModal5"> View Comment
+              </label>
+            </td>
+            <td style="font-size: 20px;">{{item.reviewactive}}</td>
+
+            <td style="font-size: 20px;">
+
+              <button class="btn btn-default" data-target="#myModal3" data-toggle="modal" style=" height: 100%; color: #cc0000 !important; background-color: #ffffff !important; "
+                type="submit" value="Delete" (click)="btnDeleteClick(item.id)">
+                <i class="fa fa-times"></i>
+              </button>
+
+            </td>
+            <td style="font-size: 20px;">
+
+              <button class="btn btn-default" data-target="#myModal2" data-toggle="modal" style=" height: 100%; color: #1e970e !important; background-color: #ffffff !important; "
+                type="submit" value="Delete" (click)="btnactiveClick(item.id,item.rate,item.productid,item.zipcode,item.comment,item.username,item.reviewactive,item.user)">
+                <i class="fa fa-check"></i>
+              </button>
+
+            </td>
+            <!-- <td style="font-size: 20px;"  ><a>Delete </a></td> -->
+            <!--<td style="font-size: 20px;">{{item.state}}</td>
+          <td style="font-size: 20px;">{{item.email}}</td>
+          <td style="font-size: 20px;">{{item.country}}</td> -->
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="">
+        <div class="text-center">
+          <!-- <h1>Angular 2 - Pagination Example with logic like Google</h1> -->
+
+          <!-- items being paged -->
+          <div *ngFor="let item of pagedItems">{{item.name}}</div>
+
+          <!-- pager -->
+          <ul *ngIf="pager.pages && pager.pages.length" class="pagination">
+            <li [ngClass]="{hide:pager.currentPage === 1}">
+              <a (click)="getreview(1)" class="btn btn-fill">First</a>
+            </li>
+            <li [ngClass]="{hide:pager.currentPage === 1}">
+              <a (click)="getreview(pager.currentPage - 1)" class="btn btn-fill">Previous</a>
+            </li>
+            <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
+              <a (click)="getreview(page)" class="btn btn-fill">{{page}}</a>
+            </li>
+            <li [ngClass]="{hide:pager.currentPage === pager.totalPages}">
+              <a (click)="getreview(pager.currentPage + 1)" class="btn btn-fill" type="Next">Next</a>
+            </li>
+            <li [ngClass]="{hide:pager.currentPage === pager.totalPages}">
+              <a (click)="getreview(pager.totalPages)" class="btn btn-fill" type="Last">Last</a>
+            </li>
+          </ul>
+        </div>
+      </div>

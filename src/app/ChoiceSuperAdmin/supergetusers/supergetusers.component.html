@@ -1,0 +1,149 @@
+<!-- <app-loader></app-loader> -->
+<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12" style="overflow: hidden;">
+
+  <div class="page-title margin-t">
+    <!--<span>View Partners Detail </span>-->
+    <h3 class="text-center choiecegenie-offers wow fadeInLeft" style="margin-bottom: 11px !important;">User's Detail  </h3>
+
+  </div>
+
+
+<div class="row">
+  <div class="search-bar col-lg-8">
+    <input class="col-lg-9 search-field" type="text" [(ngModel)]="queryString">
+    <button class="col-lg-3 search-btn" >Search</button>
+  </div>
+</div>
+
+
+<div class="ptb-80" >
+<div class="container-fluid padding-zero-i">
+<!-- <div class="text-center appio-center-heading pb-20">
+<h2>Why ChoiceGenie?</h2>
+<span _ngcontent-c4="" class="bordered-icon"><i _ngcontent-c4="" class="fa fa-square"></i></span>
+<p class="text-center"> We, the engineers at ChoiceGenie have devised bleeding edge Machine Learning (ML) and proprietary Artificially Intelligent (AI) algorithms to bring you a next generation Artificially Intelligent Comparative Shopping Marketplace for Energy Vendors/Products. Our technology is bleeding edge and was engineered with a singular goal: Save the consumer Time n’ Money. </p>
+</div> -->
+<div class="com-table scroll-table">
+
+<table class="table table-bordered tablefixed margin-zero1" style="background-color:#ffffff">
+  <thead>
+  <tr>
+    <!-- <th class="text-center" hidden="ture">User ID</th> -->
+    <th class="text-center">User Name</th>
+    <th class="text-center">Email</th>
+    <th class="text-center">Date Join </th>
+    <!-- <th class="text-center">Description</th> -->
+    <!-- <th class="text-center">status</th> -->
+    <!-- <th class="text-center">Phone</th>
+    <th class="text-center">State</th>
+    <th class="text-center">Email</th>
+    <th class="text-center">Country</th> -->
+    <!-- let i = index -->
+  </tr>
+  </thead>
+  <tbody *ngIf="data;else no_data_templ">
+  <tr *ngFor="let item of data | myfilter: queryString : 'username' ; let i = index " style="text-align: center;">
+    <!-- <td style="font-size: 20px;" hidden="ture">{{item.id}}</td> -->
+    <td style="font-size: 20px;">{{item.username}}</td>
+    <td style="font-size: 20px;">{{item.email}}</td>
+    <td style="font-size: 20px;">{{item.date_joined | date: 'yyyy-MM-dd'}}</td>
+    <!-- <td style="font-size: 20px;">{{item.desc}}</td> -->
+    <!-- <td style="font-size: 20px;">{{item.activepartner}}</td> -->
+    <!-- <td style="font-size: 20px;">
+    <form>
+
+   <input matInput name="item.name" value="{{item.name}}"[hidden]="true" required #updatedname/>
+    <input matInput  name="item.email" value="{{item.email}}"[hidden]="true" required #updatedemail/>
+    <input matInput  name="item.partnername" value="{{item.partnername}}" required [hidden]="true" #updatedpartnername/>
+    <input matInput  name="item.desc" value="{{item.desc}}" required [hidden]="true" #updateddesc/>
+    <input matInput  name="item.activepartner" [value]="status" required [hidden]="true" #updatedactivepartner/>
+
+
+    <button type="submit" class="btn btn-default" style="background-color: #ffffff !important;  width: 100%; height: 100%"
+    (click)="btnEditClick(item.id,item.name,item.email,item.partnername,item.desc,item.activepartner);editClick(updatedname.value,updatedemail.value,updatedpartnername.value,updateddesc.value,updatedactivepartner.value)"><i class="fa fa-check"></i> </button>
+  </form>
+  </td> -->
+<!--
+    <td style="font-size: 20px;">
+      <button  class="btn btn-default" data-target="#myModal3" data-toggle="modal" style=" width: 100%; height: 100%; color: red; background-color: #ffffff !important; " type="submit" value="Delete"(click)="btnDeleteClick(item.id)" >
+        <i  class="fa fa-times"></i> </button>
+    </td> -->
+
+  </tr>
+  </tbody>
+</table>
+<!-- <div class="modal fade" id="myModal3" role="dialog">
+  <div class="modal-dialog">
+
+    <div class="modal-content" style="margin-top:25%; width:119%;">
+      <div class="modal-header">
+
+        <h4 class="modal-title" style="text-align: center;
+      color: red;
+      font-size: 30px;">Confirmation Alert</h4>
+        <button type="button" class="close close-button" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body" style="font-size: 18px;
+      text-align: center; padding: 0px;">
+        <p class="delet-this">Do you want to Delete this Task?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-fill" (click)="deleteClick(dataId)" data-dismiss="modal" style="
+      color: white;
+
+      width: 20%;
+      height: 45px;
+      font-size: 18px;">Delete</button>
+        <button type="button" class="btn btn-fill" data-dismiss="modal" style="
+      color: white;
+
+      width: 20%;
+      height: 45px;
+      font-size: 18px;">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<span>
+      <ng-template #no_data_templ>
+
+        <!-- <img src="../../assets/img/no_Record.png" style="width: 250px;height:200px" > -->
+        <h1 style="height:1000px;width:1000px;padding:200px">
+
+          <!-- <b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;No Record Found</b> -->
+        </h1>
+      </ng-template>
+    </span>
+
+</div>
+  <div class="">
+    <div class="text-center">
+      <!-- <h1>Angular 2 - Pagination Example with logic like Google</h1> -->
+
+      <!-- items being paged -->
+      <div *ngFor="let item of pagedItems">{{item.name}}</div>
+
+      <!-- pager -->
+      <ul *ngIf="pager.pages && pager.pages.length" class="pagination">
+        <li [ngClass]="{hide:pager.currentPage === 1}">
+          <a (click)="premiseIdData(1)" class="btn btn-fill">First</a>
+        </li>
+        <li [ngClass]="{hide:pager.currentPage === 1}">
+          <a (click)="premiseIdData(pager.currentPage - 1)" class="btn btn-fill">Previous</a>
+        </li>
+        <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
+          <a (click)="premiseIdData(page)" class="btn btn-fill">{{page}}</a>
+        </li>
+        <li [ngClass]="{hide:pager.currentPage === pager.totalPages}">
+          <a (click)="premiseIdData(pager.currentPage + 1)" class="btn btn-fill" type="Next">Next</a>
+        </li>
+        <li [ngClass]="{hide:pager.currentPage === pager.totalPages}">
+          <a (click)="premiseIdData(pager.totalPages)" class="btn btn-fill" type="Last">Last</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+</div>
+</div>

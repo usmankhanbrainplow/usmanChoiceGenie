@@ -1,0 +1,80 @@
+<div class="dialog-Res">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Generous Saver 12</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body">
+                <div class="modal-card" *ngFor="let data of sg['products']; let i = index" >
+                    <div class=" modal-row ">
+                        <!-- <div class="col-sm-12 "> -->
+                        <div class="card-header card-header-text " data-background-color="rose ">
+                            <a href="{{data.profileurl}} " target="_blank ">
+                                <h4 class="card-title ">{{data.title}} </h4>
+                            </a>
+                        </div>
+                        <!-- </div> -->
+                        <div class="modal-card-content ">
+                            <!-- <div class="col-sm-3 col-sm-3 col-xs-5 plan-detail "> -->
+                            <p>
+                                <img src="{{data.profile_logo}} ">
+                            </p>
+                            <!-- <p>
+                                    <img src="{{data.rating_logo}} ">
+                                </p> -->
+
+                            <!-- <br> <star-rating-comp [size]=" 'large' " [starType]=" 'svg' " [rating]="
+                    " [(ngModel)]="rating "></star-rating-comp>  -->
+
+                            <!-- </div> -->
+
+                            <!-- <div class="col-sm-3 col-sm-3 col-xs-5 rate plan-detail "> -->
+                            <h3>
+                                <b>Plan Details</b>
+                            </h3>
+                            <p *ngFor="let item of data.plan_information ">
+                                {{item}}
+                            </p>
+                            <!-- <p>{{amount| myCurrency }} </p> -->
+                            <!-- <p *ngFor="let item of yehDekhana ">{{data.plan_information}}</p> -->
+                            <!-- </div> -->
+
+
+
+                            <h3>
+                                <b>Plan Documents</b>
+                            </h3>
+                            <a style="color:black " href="{{data.terms_of_service}} " target="_blank ">
+                                <i style="color:#25B7D3 " class="material-icons ">picture_as_pdf</i>
+                                Terms of service
+                            </a>
+
+                            <a style="color:black " href="# ">
+                                <i style="color:#25B7D3 " class="material-icons ">picture_as_pdf</i>
+                                Your rights as a Customer
+                            </a>
+
+                            <a style="color:black " href="{{data.fact_sheet}} " target="_blank ">
+                                <i style="color:#25B7D3 " class="material-icons ">picture_as_pdf</i>
+                                Fact Sheet
+                            </a>
+
+
+
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="modal-footer ">
+                <button type="button " class="btn btn-primary ">Save changes</button>
+                <button type="button " class="btn btn-secondary " data-dismiss="modal ">Close</button>
+            </div>
+        </div>
+    </div>

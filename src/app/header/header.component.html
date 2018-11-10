@@ -1,0 +1,558 @@
+<div class="main-search">
+  <i class="fa fa-times" id="closeSearch"></i>
+  <div class="search-holder">
+    <div class="container">
+      <div class="form-search animated">
+        <input ngAutoFocus type="text" placeholder="Search with a Zip Code" class="search-input" name="search"
+          [(ngModel)]="search" #query (ngModelChange)="searchuserdata(query.value)" (keydown)="submit($event,query.value)">
+        <button (click)="searchuserdata(query.value)" style="display: none;">hi</button>
+      </div>
+      <div class="hint-box" *ngIf="record">
+        <ul class="list-normal" *ngFor="let data of record;">
+          <li class="search-list">
+            <a style="cursor:pointer" (click)="singlerfp(data.zipcode)" >
+              <i class="material-icons">arrow_forward</i> 
+              <span>{{data.zipcode}}</span> 
+              <span class="margin-search"> {{data.country}}</span> 
+              <span> {{data.city}}</span>
+              </a>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</div>
+<!-- (click)="singlerfp(data.zipcode)" -->
+
+<!-- <div class="top-bar container-fluid main-bg">
+  <div class="pull-left">
+    <p class="info-bar">
+      <i class="fa fa-envelope"></i> 
+      <a href="tel:+1-888-764-0100">
+        +1 (888) 764-0100 </a> 
+        Email: info@choicegenie.com
+        
+    </p>
+  </div>
+  <div class="pull-right">
+    <ul class="top-icon">
+      <li>
+        <a onclick="topFunction()" routerLink="/contactus">
+          Contact Us
+        </a>
+      </li>
+      <li>
+        <a onclick="topFunction()" routerLink="/Faqs">
+          Help
+        </a>
+      </li>
+      <li>
+        <a onclick="topFunction()" routerLink="/userlogin">
+          My Account
+        </a>
+      </li>
+      <li>
+        <a onclick="topFunction()" href=" https://www.facebook.com/Choicegenie-337916770049641/" target="_blank">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+      </li>
+      <li>
+        <a onclick="topFunction()" href="https://twitter.com/Choicegenie1/" target="_blank">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a onclick="topFunction()" href="https://www.pinterest.com/95e02068dbf471424b31ea58b84a02/" target="_blank">
+          <i class="fab fa-pinterest-p"></i>
+        </a>
+      </li>
+      <li>
+
+
+        <a onclick="topFunction()" href="https://www.instagram.com/choicegenie772/" target="_blank">
+          <i class="fab fa-instagram"></i>
+
+        </a>
+      </li>
+    </ul>
+    <div id="google_translate_element" class="g-translate pull-right"></div>
+  </div>
+</div> -->
+
+
+
+<div class="header-home ">
+
+  <nav class="nav-home navbar-transparent">
+    <div class="navbar-header ">
+      <!-- <button class="navbar-toggle" data-target="#menu-example" data-toggle="collapse" type="button">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button> -->
+      <a class="logo" onclick="topFunction()" routerLink="/">
+        <img src="../../assets/img/ChoiceGenie-logo2.png" alt="ChoiceGenie" />
+      </a>
+    </div>
+    <div class="collapse navbar-collapse" id="menu-example">
+      <ul class="navbar-nav navbar-right">
+
+        <li class="vanders">
+
+          <a routerLink="/">
+            <i class="fa fa-home"></i> Why ChoiceGenie ?
+            <!-- <i class="fa fa-caret-down"></i> -->
+          </a>
+          <div class="drop-downs">
+            <ul class="nav-vanders  why-choiegenie-sublist">
+              <li>
+                <a onclick="topFunction()" routerLink="/Why-Choice-Genie">
+                  <i class="fa fa-question-circle-o"></i>
+
+                  Why ChoiceGenie?</a>
+              </li>
+              <li>
+                <a onclick="topFunction()" routerLink="/how-it-works">
+                  <i class="fa fa-fire"></i>
+                  How It Works?</a>
+              </li>
+              <li>
+                <a onclick="topFunction()" routerLink="/Faqs">
+                  <i class="fa fa-leanpub"></i>
+                  FAQs</a>
+              </li>
+              <li>
+                <a onclick="topFunction()" routerLink="/what-is-ChoiceGenie">
+                  <i class="fa fa-leaf"></i>
+                  What is ChoiceGenie?</a>
+              </li>
+              <!-- <li>
+                <a routerLink="/">
+                  <i class="fa fa-question-circle-o"></i>
+                  Who are We?</a>
+              </li> -->
+
+              <li>
+                <a onclick="topFunction()" routerLink="/Become-a-partner">
+                  <i class=" fa fa-group"></i>
+                  Become a Partner</a>
+              </li>
+              <li>
+                <a onclick="topFunction()" routerLink="/Choice-and-Saving">
+                  <i class=" fa fa-cubes"></i>
+                  Choice and Savings</a>
+              </li>
+              <li>
+                <a onclick="topFunction()" routerLink="/contactus">
+                  <i class="fa fa-address-book-o"></i>
+                  Establish Contact</a>
+              </li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <a onclick="topFunction()" routerLink="/User-guide">
+            <i class="fa fa-th-large"></i> User Guide
+          </a>
+        </li>
+        <li>
+          <a onclick="topFunction()" routerLink="/residential">
+            <i class="fa fa-th-large"></i> Residential
+          </a>
+        </li>
+        <li *ngIf="checked_price()">
+          <a onclick="topFunction()" routerLink="/pricing">
+            <i class="fa fa-shopping-cart"></i> Pricing
+          </a>
+        </li>
+        <li class="">
+          <a onclick="topFunction()" routerLink="/commercial">
+            <i class="fa fa-users"></i> Commercial
+          </a>
+        </li>
+        <li>
+          <a onclick="topFunction()" routerLink="/features-comparison">
+            <i class="fas fa-chart-bar"></i> Comparison Matrix
+
+          </a>
+        </li>
+        <li>
+          <a onclick="topFunction()" routerLink="/blog">
+            <i class="fab fa-leanpub"></i> Blog
+
+          </a>
+        </li>
+        <li class="vanders" style="border-right: 2px solid #ccc; padding-right: 10px;" *ngIf="!checked_login() && !check_login1()">
+          <!-- <a > -->
+          <!-- <i class="material-icons">fingerprint</i>
+            Sign IN -->
+          <a onclick="topFunction()" routerLink="/userlogin">
+            <i class="fas fa-fingerprint"></i> Sign in
+          </a>
+          <!-- <i class="fa fa-caret-down"></i> -->
+          <!-- </a> -->
+          <!-- <div class="drop-downs-l"> -->
+          <!-- <ul class="nav-vanders"> -->
+          <!-- <li class="/login">
+                <a onclick="topFunction()" routerLink="/login">
+                  <i class="material-icons">face</i> Vendor
+                </a>
+              </li> -->
+          <!-- <li class="">
+                <a onclick="topFunction()" routerLink="/userlogin">
+                  <i class="material-icons">face</i> User
+                </a>
+              </li> -->
+          <!-- </ul> -->
+          <!-- </div> -->
+        </li>
+        
+
+
+
+        <li class="vanders" *ngIf="!checked_login() && !check_login1()">
+
+          <a routerLink="/usersignup">
+            <i class="fas fa-unlock-alt"></i>
+            Sign up
+            <!-- <i class="fa fa-caret-down"></i> -->
+          </a>
+          <!-- <div class="drop-downs right-drop"> -->
+            <!-- <ul class="nav-vanders  why-choiegenie-sublist"> -->
+              <!-- <li>
+                <a onclick="topFunction()" routerLink="/register">
+                  <i class="far fa-smile"></i> Vendor
+                </a>
+              </li> -->
+              <!-- <li>
+                <a onclick="topFunction()" routerLink="/usersignup">
+                  <i class="far fa-smile"></i> User
+                </a>
+              </li> -->
+            <!-- </ul> -->
+          <!-- </div> -->
+        </li>
+
+
+
+
+        <li class="info-box-02__box-02">
+          <a href="javascript:void(0)" class="search-block search-icon" id="searchIcon">
+            <i class="fa fa-search"></i>
+          </a>
+        </li>
+
+        <li class="">
+          <a href="https://play.google.com/store/apps/details?id=com.brainplow.choicegenie&hl=en" target="_blank">
+
+            <i class="fab fa-android"></i>
+          </a>
+        </li>
+        <li class="">
+          <a href="https://itunes.apple.com/us/app/choicegenie/id1391027521?platform=ipad&preserveScrollPosition=true&platform=ipad#platform/ipad&platform=ipad"
+            target="_blank">
+            <i class="fab fa-apple"></i>
+          </a>
+        </li>
+        <!-- <li class="vanders" *ngIf="check_login()">
+          <a>
+            <i class="material-icons">account_circle</i>{{username}}
+
+          </a>
+          <div class="drop-downs">
+            <ul class="nav-vanders  why-choiegenie-sublist">
+              <li>
+                <a (click)="moving()" style="cursor: pointer;">
+                  Dashboard
+                </a>
+              </li>
+ <li>
+                <a (click)="vendorlogout()">
+                  <i class="material-icons">lock</i>Logout
+                </a>
+              </li>
+            </ul>
+          </div>
+        </li> -->
+        <li class="vanders" *ngIf="check_login1()">
+
+          <a (click)="moving1()">
+            <i class="material-icons">
+              account_circle</i>{{admin}}
+            <!-- <i class="fa fa-caret-down"></i> -->
+          </a>
+          <div class="drop-downs right-drop">
+            <ul class="nav-vanders  why-choiegenie-sublist">
+              <li>
+                  <a (click)="moving1()" style="cursor: pointer;">
+                      Dashboard
+                    </a>
+              </li>
+              <li>
+                  <a (click)="logout()">
+                      <i class="fas fa-lock"></i>Logout
+                    </a>
+              </li>
+            </ul>
+          </div>
+        </li>
+
+
+
+        <li class="vanders" *ngIf="checked_login()">
+
+            <a (click)="moving()">
+              <i class="material-icons">
+                account_circle</i>{{username}}
+              <!-- <i class="fa fa-caret-down"></i> -->
+            </a>
+            <div class="drop-downs right-drop1">
+              <ul class="nav-vanders  why-choiegenie-sublist">
+                  <li>
+                      <a (click)="getprofile()">
+                          <i class="material-icons">lock</i>My Profile
+                        </a>
+                  </li>
+                  <li>
+                      <a routerLink="/ChangePassword1">
+                          <i class="material-icons">lock</i>Change Password
+                        </a>
+                  </li>
+                  <li>
+                      <a routerLink="/contactus">
+                          <i class="material-icons">lock</i>Feed back
+                        </a>
+                  </li>
+  
+                  <li>
+                      <a (click)="logout()">
+                          <i class="material-icons">lock</i>Logout
+                        </a>
+                  </li>
+                <!-- <li>
+                    <a (click)="moving()" style="cursor: pointer;">
+                        Dashboard
+                      </a>
+                </li>
+                <li>
+                    <a (click)="logout()">
+                        <i class="fas fa-lock"></i>Logout
+                      </a>
+                </li> -->
+              </ul>
+            </div>
+          </li>
+
+
+
+
+      </ul>
+    </div>
+  </nav>
+  <span class="menu-btn fas fa-bars" (click)="openNav()"></span>
+  <div id="mySidenav" class="sidenav">
+    <div class="sidebar-header">
+        <!-- <a class="sidebar-logo" onclick="topFunction()" routerlink="/" ng-reflect-router-link="/" href="/"> -->
+          <!-- <img class="sidebar-logo" alt="ChoiceGenie" src="../../assets/img/ChoiceGenie-logo2.png"> -->
+        <!-- </a> -->
+        <h2 class="sidebar-heading">ChoiceGenie</h2>
+    </div>
+      <a href="javascript:void(0)" class="closebtn" (click)="closeNav()">&times;</a>
+      <li class="dropdown">
+          <button class="" type="button" data-toggle="dropdown"><i class="fa fa-home"></i> Why ChoiceGenie
+          <span class="caret"></span></button>
+          <ul class="dropdown-menu">
+            <li><a onclick="topFunction()" routerLink="/Why-Choice-Genie">
+              <i class="fa fa-question-circle-o"></i>
+
+              Why ChoiceGenie?</a>
+            </li>
+            <li>
+                <a onclick="topFunction()" routerLink="/how-it-works">
+                  <i class="fa fa-fire"></i>
+                  How It Works?</a>
+              </li>
+              <li>
+                <a onclick="topFunction()" routerLink="/Faqs">
+                  <i class="fa fa-leanpub"></i>
+                  FAQs</a>
+              </li>
+              <li>
+                <a onclick="topFunction()" routerLink="/what-is-ChoiceGenie">
+                  <i class="fa fa-leaf"></i>
+                  What is ChoiceGenie?</a>
+              </li>
+              <!-- <li>
+                <a routerLink="/">
+                  <i class="fa fa-question-circle-o"></i>
+                  Who are We?</a>
+              </li> -->
+
+              <li>
+                <a onclick="topFunction()" routerLink="/Become-a-partner">
+                  <i class=" fa fa-group"></i>
+                  Become a Partner</a>
+              </li>
+              <li>
+                <a onclick="topFunction()" routerLink="/Choice-and-Saving">
+                  <i class=" fa fa-cubes"></i>
+                  Choice and Savings</a>
+              </li>
+              <li>
+                <a onclick="topFunction()" routerLink="/contactus">
+                  <i class="fa fa-address-book-o"></i>
+                  Establish Contact</a>
+              </li>
+          </ul>
+        </li>
+        <a onclick="topFunction()" routerLink="/User-guide">
+          <i class="fa fa-th-large"></i> User Guide
+        </a>
+        <a onclick="topFunction()" routerLink="/residential">
+          <i class="fa fa-th-large"></i> Residential
+        </a>
+        <a onclick="topFunction()" routerLink="/pricing">
+          <i class="fa fa-shopping-cart"></i> Pricing
+        </a>
+        <a onclick="topFunction()" routerLink="/commercial">
+          <i class="fa fa-users"></i> Commercial
+        </a>
+        <a onclick="topFunction()" routerLink="/features-comparison">
+          <i class="fas fa-chart-bar"></i> Comparison Matrix
+
+        </a>
+        <a onclick="topFunction()" routerLink="/blog">
+          <i class="fab fa-leanpub"></i> Blog
+
+        </a>
+        <a onclick="topFunction()" routerLink="/userlogin">
+          <i class="fas fa-fingerprint"></i> Sign in
+        </a>
+        <a onclick="topFunction()" routerLink="/usersignup">
+          <i class="fas fa-unlock-alt"></i>
+          Sign up
+          <!-- <i class="fa fa-caret-down"></i> -->
+        </a>
+        <!-- <li class="dropdown vanders" *ngIf="!checked_login() && !check_login1()">
+            <button class="" type="button" data-toggle="dropdown">
+               <i class="fas fa-unlock-alt"></i>
+              Sign up
+            <span class="caret"></span></button>
+            <ul class="dropdown-menu">
+                <li class="/userlogin">
+                  <a onclick="topFunction()" routerLink="/register">
+                    <i class="far fa-smile"></i> Vendor
+                  </a>
+                </li>
+                <li class="">
+                  <a onclick="topFunction()" routerLink="/usersignup">
+                    <i class="far fa-smile"></i> User
+                  </a>
+                </li>
+            </ul>
+          </li> -->
+          <a href="javascript:void(0)" class="search-block search-icon" id="searchIcon">
+              <i class="fa fa-search"></i>
+            </a>
+            <a href="https://play.google.com/store/apps/details?id=com.brainplow.choicegenie&hl=en" target="_blank">
+
+              <i class="fab fa-android"></i>
+            </a>
+            <a href="https://itunes.apple.com/us/app/choicegenie/id1391027521?platform=ipad&preserveScrollPosition=true&platform=ipad#platform/ipad&platform=ipad"
+            target="_blank">
+            <i class="fab fa-apple"></i>
+          </a>
+
+
+          <li class="dropdown vanders" *ngIf="check_login1()">
+              <button class="" type="button" data-toggle="dropdown">
+                  <i class="material-icons">account_circle</i>{{admin}}
+              <span class="caret"></span></button>
+              <ul class="dropdown-menu">
+                  <li>
+                      <a (click)="moving1()" style="cursor: pointer;">
+                        Dashboard
+                      </a>
+                    </li>
+                    <li>
+                      <a (click)="logout()">
+                        <i class="fas fa-lock"></i>Logout
+                      </a>
+                    </li>
+              </ul>
+            </li>
+
+
+
+            <li class="dropdown vanders" *ngIf="checked_login()">
+                <button class="" type="button" data-toggle="dropdown">
+                    <i class="material-icons">account_circle</i>{{username}}
+                <span class="caret"></span></button>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a (click)="moving()" style="cursor: pointer;">
+                          Dashboard
+                        </a>
+                      </li>
+        
+                      <li>
+                        <a (click)="logout()">
+                          <i class="fas fa-lock"></i>Logout
+                        </a>
+                      </li>
+                </ul>
+              </li>
+    </div>
+
+    <!-- <section class=""> -->
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- <button id="openModal " type="button" #openModal [hidden]="true" class="btn btn-primary modal-hide" data-toggle="modal" data-target="#exampleModalCenter">
+        </button> -->
+
+
+        <!-- Modal -->
+        <!-- <div *ngIf="!check_login()" class="modal fade login-or-signup" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+              aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered custom-model" style="animation-delay: 15s" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <div style="float: top; float: right">
+
+                            <button type="button" class="close" style="padding: 6px 11px;margin-top:-10px;size: auto;background-color: black;color: white;font-weight: bold;font-size: 25px;"  data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+
+                        </div>
+                        <h5 class="modal-title must-login" id="exampleModalCenterTitle">Join RFPGurus</h5>
+                    </div>
+                    <div class="modal-body">
+                        Hundreds of Thousands RFPS: RFPGurus is the most comprehensive source of Government RFPs.
+                        <div class="custom-popup-img">
+                        
+                            <img src="../../assets/img/Choice_logo.png">
+                        </div>
+                    </div>
+
+
+
+                    <div class="modal-footer">
+                        <a routerLink="/login">
+                            <button title="Member Login" type="button" style="border-radius: 30px" class="btn btn-primary btn-must-login" data-dismiss="modal" >Member Login</button>
+                        </a>
+                        <a routerLink="/sign-up">
+                            <button title="Subscribe Now" type="button" style="border-radius: 30px" class="btn btn-primary btn-must-signup" data-dismiss="modal" >Subscribe Now</button>
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+        </div> -->
+
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+    <!-- </section> -->
+  
+
+
+<!-- </div> -->

@@ -1,0 +1,1283 @@
+<app-loader></app-loader>
+
+<!--<div id="myID" *ngIf="status !=false" class="bottomMenu hide">-->
+  <!--<button id="ID" class="w3-button pop-up-close" (click)="pop_close()">&times;</button>-->
+  <!--<a href="#" class="popo-up-logo">-->
+    <!--<img alt="ChoiceGenie" src="../../assets/img/ChoiceGenie-logo2.png">-->
+  <!--</a>-->
+  <!--<p>-->
+      <!--Welcome to ChoiceGenie.com  <br/>ChoiceGenie is available for all electric providers to list their offers for free. <br/>  Compare offers and Choose the right electric plan.-->
+  <!--</p>-->
+  <!--<a href="/usersignup" class="signup-popup btn-fill">-->
+    <!--<h1 class="btn-fill">Sign Up Now</h1>-->
+  <!--</a>-->
+<!--</div>-->
+
+<div class="container-fluid sh-pd-0">
+  <div class="row product-body">
+    <div id="mySidebar" class="col-lg-2 col-md-4 position-fixed w3-sidebar w3-bar-block w3-collapse w3-card w3-animate-left"
+      data-spy="affix" data-offset-top="137">
+      <div class="">
+        <button class="w3-bar-item w3-button w3-hide-large" (click)="w3_close()">&times;</button>
+        <nav class="sidebar-cust">
+          <ul class="sh-sidebar-fix">
+            <li style="margin-bottom: 0px">
+              <!-- <div class="panel-title">f
+      <a>
+      <h5>Enter Zip Code
+      <i class="fa fa-info-circle float" aria-hidden="true" title="Enter zipcode."></i>
+      </h5>
+      </a>
+      </div> -->
+              <div class="form-group label-floating custom-style">
+
+                <b>
+                  <input type="text" class="form-control zip-input" maxlength="5" [(ngModel)]="zip_code" name="zipcode"
+                    (keypress)="keyPress($event)" (change)="Checkzipcode()">
+                </b>
+              </div>
+
+            </li>
+            <li>
+              <div class="text-center">
+                <button type="button" class="btn-fill sidebar-serch-btn" (click)="setPage(1)" style="margin: 0px; padding: 5px 0px;">
+                  Refresh Results
+                  <!-- <i class="material-icons" title="Use these filters to set your preferences. Get rid of the plans you don’t want to see and only show those that fit your needs.">search</i> -->
+                </button>
+              </div>
+            </li>
+
+            <!-- <li>
+      <div class="panel-title">
+      <a>
+      <h5>Enter Zip Code &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <i class="fa fa-info-circle" aria-hidden="true" title="Enter zipcode."></i>
+      </h5>
+      </a>
+      </div>
+      <div class="form-group label-floating">
+
+      <b>
+      <input type="text" class="form-control" [(ngModel)]="zip_code" name="zipcode" style="font-size: 20px">
+      </b>
+      </div>
+
+      </li> -->
+
+
+            <li style="margin-bottom: 0px;">
+              <div class="panel-title">
+                <a>
+                  <h5 class="color-red">Estimated Usage
+                    <i class="color-black fa fa-info-circle float" aria-hidden="true"
+                    title="Your average estimated monthly electricity use. The amount of electricity you use each month can be found on your electric bill. To find your average for the last six months, add the total kWh used each month and divide that number by six. Or you can just use 1,000 kWh as your monthly average."></i>
+
+                  </h5>
+                </a>
+              </div>
+              <!-- <mat-form-field>
+                <mat-select [(value)]="selected">
+                  <mat-option>None</mat-option>
+                  <mat-option value="option1">Option 1</mat-option>
+                  <mat-option value="option2">Option 2</mat-option>
+                  <mat-option value="option3">Option 3</mat-option>
+                </mat-select>
+              </mat-form-field> -->
+
+              <mat-form-field>
+                <mat-select  [(ngModel)]="value1" name="price"  value="price"  (change)="price1(price)"
+                 disableRipple>
+                  <mat-option value="500"  style="font-size: 20px" >500 kWh</mat-option>
+                  <mat-option value="1000" style="font-size: 20px">1000 kWh</mat-option>
+                  <mat-option value="2000" style="font-size: 20px">2000 kWh</mat-option>
+                </mat-select>
+              </mat-form-field>
+
+
+
+
+            </li>
+            <li>
+              <div class="panel-title">
+                <a>
+                  <h5 class="cat-title color-red" style="margin-top: -20px;"> Price Range
+                    <i class="color-black fa fa-info-circle float" aria-hidden="true" title=" Price per kilowatt hour: A kilowatt hour is equal to 1 kilowatt (1kW) of power used for 1 hour (1h) of time."></i>
+                  </h5>
+                </a>
+              </div>
+
+
+
+              <div class="pric-range-box">
+
+                <input type="text" class="ng-valid ng-dirty ng-touched" required name="min" [(ngModel)]="min" style="font-size: 20px;border-radius: 5px;">
+                <span>¢</span>
+                <span>to</span>
+
+                <input type="text" class="ng-valid ng-dirty ng-touched" required name="max" [(ngModel)]="max" style="font-size:20px;border-radius: 5px;">
+                <span>¢</span>
+
+                <button class="price-range-submit btn-fill" (click)="pricerate(min,max)">
+                  <i class="fa fa-chevron-right" style="color: #000"></i>
+                </button>
+
+              </div>
+              <hr style="margin-top: 10px !important; background: #000000">
+            </li>
+
+
+            <li>
+              <div class="panel-title">
+                <a>
+                  <h5 class="color-red"> Contract Length
+                    <i class="color-black fa fa-info-circle float" aria-hidden="true" title="If you choose a plan with a long contract period, you may be subject to an early cancellation fee if you decide to change plans prior to the expiration of the contract period.Plans that are shorter give you more flexibility to switch, but they only lock in your set rate for a short amount of time.Month-to-Month plans are usually Variable or Indexed offers."></i>
+                  </h5>
+                </a>
+              </div>
+
+              <div class="checkbox">
+                <label class="checkbox-font">
+                  <input type="checkbox" name="months1" [(ngModel)]=months1 value="months1" (change)="checked1($event,i)">36
+                  Months
+                </label>
+
+              </div>
+              <!-- end ngRepeat: term in filters.terms -->
+              <div class="checkbox">
+                <label class="checkbox-font">
+                  <input type="checkbox" name="months2" [(ngModel)]=months2 value="months2" (change)="checked2($event,i)">24
+                  Months
+                </label>
+
+              </div>
+              <div class="checkbox">
+                <label class="checkbox-font">
+                  <input type="checkbox" name="months3" [(ngModel)]=months3 value="months3" (change)="checked3($event,i)">18
+                  Months
+                </label>
+
+              </div>
+              <!-- end ngRepeat: term in filters.terms -->
+              <div class="checkbox">
+                <label class="checkbox-font">
+                  <input type="checkbox" name="months4" [(ngModel)]=months4 value="months4" (change)="checked4($event,i)">14
+                  Months
+                </label>
+
+              </div>
+
+              <div class="checkbox">
+                <label class="checkbox-font">
+                  <input type="checkbox" name="months5" [(ngModel)]=months5 value="months5" (change)="checked5($event,i)">12
+                  Months
+                </label>
+
+              </div>
+              <!-- end ngRepeat: term in filters.terms -->
+              <div class="checkbox">
+                <label class="checkbox-font">
+                  <input type="checkbox" name="months6" [(ngModel)]=months6 value="months6" (change)="checked6($event,i)">6
+                  Months
+                </label>
+
+              </div>
+              <!-- end ngRepeat: term in filters.terms -->
+              <div class="checkbox">
+                <label class="checkbox-font">
+                  <input type="checkbox" name="months7" [(ngModel)]=months7 value="months7" (change)="checked7($event,i)">5
+                  Months
+                </label>
+
+
+              </div>
+
+              <hr style="background: #000000">
+            </li>
+
+            <li>
+              <div class="panel-title">
+                <a>
+                  <h5 class="color-red">Pricing and Billing &nbsp;
+                    <i class="color-black fa fa-info-circle float" aria-hidden="true" title="This filter allows you to view plans that do not have any recurring fees or credits included in the average per kWh price.  Plans where the energy charge for each kWh changes depending on the amount of kWh consumed are also excluded.If you choose to view these plan types (“Show All Plans”), you need to be aware that the average per kWh price may vary significantly from your actual billed price per kWh.Please review the fact sheets for these plans carefully before enrolling in a product.
+                 "></i>
+
+                  </h5>
+                </a>
+              </div>
+              <div class="radio">
+                <label class="checkbox-font">
+
+                  <input type="radio" (change)="checked13($event,i)" checked="true"  ng-Model="planmin"  name="planmin" [value]="planmin" >
+                  Plans without minimum usage Fee/Credits
+                </label>
+              </div>
+              <div class="radio">
+                <label class="checkbox-font">
+                  <!-- checked8 -->
+                  <!-- id="chckbx" -->
+                  <!-- <input type="radio" (change)="checked12($event,i)" [(ngModel)]="prepaid" name="prepaid" value="prepaid"> -->
+                  <input type="radio"   (change)="checkedall($event,i)"  ng-Model="showallplanPB" name="planmin"  value="showallplanPB">Show
+                  All Plans
+                </label>
+              </div>
+
+              <hr style="background: #000000">
+            </li>
+            <li>
+              <div class="panel-title">
+                <a>
+                  <h5 class="color-red">Plan Type
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <i class="color-black fa fa-info-circle float" aria-hidden="true" title="Fixed Rate Plans have a set rate per kWh that does not change throughout your contract, except for exceptions beyond the provider’s control.
+
+                    Changing Rate (Variable) Plans have rates per kWh that can vary according to a method determined solely by the provider and may be dependent on market changes and other exceptions beyond the provider’s control
+
+                    Market Rate (Indexed) Plans have rates per kWh that can vary according to pre-defined publicly available indices or information and other exceptions beyond the provider’s control."></i>
+                  </h5>
+                </a>
+              </div>
+              <div class="checkbox">
+                <label class="checkbox-font">
+                    <!-- [(ngModel)]=fixed value="fixed" -->
+                    <!-- [(ngModel)]=fixed value="fixed" -->
+                    <!-- checked="true" -->
+                   
+                  <input type="checkbox" name="fixed"  ng-Model="fixed" checked="true" [value]="fixed"   (change)="checked8($event,i)">
+                  Fixed Rate
+
+                </label>
+              </div>
+              <div class="checkbox">
+                <label class="checkbox-font">
+                  <input type="checkbox" name="vari" [(ngModel)]="vari" value="vari" (change)="checked9($event,i)">
+                  Variable
+                  <small>(changing rate)</small>
+                </label>
+              </div>
+              <div class="checkbox">
+                <label class="checkbox-font">
+                  <input type="checkbox" [(ngModel)]="market" name="market" value="market" (change)="checked10($event,i)">
+                  Indexed
+                  <small>(market rate)</small>
+                </label>
+              </div>
+              <hr style="background: #000000">
+            </li>
+            <li>
+              <div class="panel-title">
+                <a>
+                  <h5 class="color-red">Prepaid Plans &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <i class="color-black fa fa-info-circle float" aria-hidden="true" title="Prepaid plans provide service on a “pay-as-you-go” basis. These plans require close monitoring or accurately estimating your monthly electric use to avoid disconnection."></i>
+                  </h5>
+                </a>
+              </div>
+              <div class="radio">
+                <label class="checkbox-font">
+                    <!-- checkedpre -->
+                    <!-- prepaidall -->
+                    <!-- (change)="checkedpre($event,i) -->
+                  <input type="radio"  name="prepaid"  ng-Model="prepaidall" checked="true"  [value]="prepaidall" (change)="checkedpre($event,i)"> Show All Plans
+                </label>
+              </div>
+              <div class="radio">
+                <label class="checkbox-font">
+                  <input type="radio" (change)="checked12($event,i)" ng-Model="prepaid" name="prepaid" value="prepaid">
+                  Show only Prepaid Plans
+                </label>
+              </div>
+              <div class="radio">
+                <label class="checkbox-font">
+                  <input type="radio" ng-Model="notprepaid" name="prepaid" value="notprepaid"  (change)="checked11($event,i)">
+                  Do not show Prepaid Plans
+                </label>
+              </div>
+              <hr style="background: #000000">
+            </li>
+            <li>
+              <div class="panel-title">
+                <a>
+                  <h5 class="color-red">Time of Use Plans &nbsp;
+                    <i class="color-black fa fa-info-circle float" aria-hidden="true"
+                    title="Time-of-Use plans include incentives to use power during certain periods such as nights or weekends.  The average prices shown for Time-of-Use Plans are based on the REP’s estimate of energy used during discounted and non-discounted times.  Please note that the average price you pay will vary depending on your actual usage of energy during the discounted and non-discounted times.  See the glossary for details."></i>
+                  </h5>
+                </a>
+              </div>
+              <div class="radio">
+                <label class="checkbox-font">
+                  <!-- checkedtime -->
+                  <!-- timeall -->
+                  <input type="radio"  name="time" checked="true"  ng-Model="timeall" [value]="timeall" (change)="checkedtime($event,i)"> Show All Plans
+                </label>
+              </div>
+              <div class="radio">
+                <label class="checkbox-font">
+                    <!-- <input type="radio" (change)="checked12($event,i)" [(ngModel)]="prepaid" name="prepaid" value="prepaid"> -->
+                  <input type="radio" (change)="checked14($event,i)" ng-Model="time" name="time" value="time" > Show
+                  only Time Of Use Plans
+                </label>
+              </div>
+              <div class="radio">
+                <label class="checkbox-font">
+                  <input type="radio"  (change)="checked15($event,i)" ng-Model="nottime" name="time" value="nottime">
+                  Do not show Time Of Use Plans
+                </label>
+              </div>
+
+              <hr style="background: #000000">
+            </li>
+            <li>
+              <div class="panel-title">
+                <a>
+                  <h5 class="color-red" style="margin-bottom: 15px;">Renewable
+                    <i class="color-black fa fa-info-circle float" aria-hidden="true" title="Renewable Energy: Percentage of electricity in your plan that comes from renewable energy sources such as wind, solar, hydroelectric, geothermal, landfill gas, or biomass. Providers are allowed to designate products that use electricity generated by Texas-produced natural gas, which is a relatively clear fuel, as “green.”"></i>
+                  </h5>
+                </a>
+              </div>
+              <mat-form-field class="margin-up1">
+                <mat-select (change)="checked16($event,i,energy)" value="renewable" required [(ngModel)]="energy" name="energy">
+                  <mat-option value="100">100% RENEWABLE</mat-option>
+                  <mat-option value="76,99">76% To 99%</mat-option>
+                  <mat-option value="51,75">51% To 75%</mat-option>
+                  <mat-option value="26,50">26% To 50%</mat-option>
+                  <mat-option value="0,25">0% To 25%</mat-option>
+                  <mat-option value="" selected="selected">N/A</mat-option>
+                </mat-select>
+              </mat-form-field>
+              <!-- <hr style="margin-top: 20px !important; background: #000000"> -->
+            </li>
+            <li>
+              <div class="panel-title" style="margin-top: -24px;">
+                <a>
+                  <!-- <a  title="" data-original-title="Energy Companies:  Also called retail electric providers or REPs. They sell and bill electricity and provide customer service.">Info</a> -->
+                  <h5 class="color-red">Electric Companies
+                    <i class="color-black fa fa-info-circle float" aria-hidden="true" title="Energy Companies:  Also called retail electric providers or REPs. They sell and bill electricity and provide customer service."></i>
+
+                  </h5>
+                </a>
+              </div>
+              <!-- <div class="select-f-sackers-heavy select-area" style="width: 160px;"> -->
+              <!-- <span class="left"></span> -->
+              <mat-form-field class="margin-up">
+                  <!-- <mat-option (click)="setPage(1);refresh()" >ALL</mat-option> -->
+                <mat-select (change)="checked17($event,i,name)" value="name" required [(ngModel)]="name" name="name">
+
+                    <mat-option  (click)="checked17($event,i,name)"  >ALL</mat-option>
+                  <mat-option *ngFor="let data of title" [value]="data.title">
+                    {{data.title}}
+
+                  </mat-option>
+
+
+                </mat-select>
+              </mat-form-field>
+              <!-- <hr style="background: #000000"> -->
+            </li>
+
+            <li>
+              <div class="panel-title" style="margin-top: -24px;">
+                <a>
+                  <!-- <a  title="" data-original-title="Energy Companies:  Also called retail electric providers or REPs. They sell and bill electricity and provide customer service.">Info</a> -->
+                  <h5 class="color-red">Company Rating
+                    <i class="color-black fa fa-info-circle float" aria-hidden="true"
+                     title="The Company Rating is a measure of consumer complaints per 1,000 customers based on a 6-month rolling average. The PUC is legally prohibited from releasing the number of customers that each REP serves."></i>
+
+                  </h5>
+                </a>
+                <!-- <a class="link-info tool-tip" href="javascript:" title="" data-original-title="The Company Rating is a measure of consumer complaints per 1,000 customers based on a 6-month rolling average. The PUC is legally prohibited from releasing the number of customers that each REP serves.">Info</a> -->
+              </div>
+              <ul class="check-list">
+                <li>
+
+                  <div _ngcontent-c0="" class="checkbox">
+                    <label _ngcontent-c0="" class="checkbox-font">
+
+                      <input name="logo5" type="checkbox" value="logo5" [(ngModel)]="logo5" ng-reflect-name="fixed"
+                        (change)="star5($event,i)" class="ng-untouched ng-pristine ng-valid">
+                      <span class="checkbox-material"></span>
+                      <img src="../../assets/img/StarRating5.png" class="sidrbar-rating" title="">
+                    </label>
+
+                  </div>
+                </li>
+                <li>
+
+                  <div _ngcontent-c0="" class="checkbox">
+                    <label _ngcontent-c0="" class="checkbox-font">
+
+                      <input name="logo4" type="checkbox" value="logo4" [(ngModel)]="logo4" ng-reflect-name="fixed"
+                        (change)="star4($event,i)" class="ng-untouched ng-pristine ng-valid">
+                      <span class="checkbox-material"></span>
+                      <img src="../../assets/img/StarRating4.png" title="" class="sidrbar-rating">
+                    </label>
+
+                  </div>
+                </li>
+                <li>
+
+                  <div _ngcontent-c0="" class="checkbox">
+                    <label _ngcontent-c0="" class="checkbox-font">
+
+                      <input name="logo3" type="checkbox" value="logo3" [(ngModel)]="logo3" ng-reflect-name="fixed"
+                        (change)="star3($event,i)" class="ng-untouched ng-pristine ng-valid">
+                      <span class="checkbox-material"></span>
+                      <img src="../../assets/img/StarRating3.png" title="" class="sidrbar-rating">
+                    </label>
+
+                  </div>
+                </li>
+                <li>
+
+                  <div _ngcontent-c0="" class="checkbox">
+                    <label _ngcontent-c0="" class="checkbox-font">
+
+                      <input name="logo2" type="checkbox" value="logo2" [(ngModel)]="logo2" ng-reflect-name="fixed"
+                        (change)="star2($event,i)" class="ng-untouched ng-pristine ng-valid">
+                      <span class="checkbox-material"></span>
+                      <img src="../../assets/img/StarRating2.png" title="" class="sidrbar-rating">
+                    </label>
+
+                  </div>
+                </li>
+                <li>
+
+                  <div _ngcontent-c0="" class="checkbox">
+                    <label _ngcontent-c0="" class="checkbox-font">
+
+                      <input name="logo1" type="checkbox" value="logo1" [(ngModel)]="logo1" ng-reflect-name="fixed"
+                        (change)="star1($event,i)" class="ng-untouched ng-pristine ng-valid">
+                      <span class="checkbox-material"></span>
+                      <img src="../../assets/img/StarRating1.png" title="" class="sidrbar-rating">
+                    </label>
+
+                  </div>
+                </li>
+
+              </ul>
+              <input type="hidden" value="" id="rating_total" name="rating_total">
+
+            </li>
+
+
+
+
+
+
+
+            <li>
+
+              <div class="panel-title" style="margin-top: 0px;">
+                <a>
+                  <h5 class="color-red">Product per Page
+                    <i class="color-black fa fa-info-circle float" aria-hidden="true"
+                    title="How many rows of products should be shown per page?"></i>
+
+                  </h5>
+                </a>
+              </div>
+              <mat-form-field class="margin-up">
+                <mat-select class="" placeholder="" selected="10" (change)="checked18($event,i,items)" value="item"
+                  required [(ngModel)]="items" name="items">
+                  <mat-option value="10"  selected="true">10 PER PAGE</mat-option>
+                  <mat-option value="20">20 PER PAGE</mat-option>
+                  <mat-option value="40">40 PER PAGE</mat-option>
+                  <!-- <mat-option value="556">SEE ALL</mat-option> -->
+                </mat-select>
+              </mat-form-field>
+
+            </li>
+            <li>
+              <div class="text-center" style="margin-top: -18px;">
+                <button type="button" class="btn-fill sidebar-serch-btn" (click)="setPage(1)" style="margin: 0px; padding: 5px 0px;">
+                  Refresh Results
+                  <!-- <i class="material-icons" title="Use these filters to set your preferences. Get rid of the plans you don’t want to see and only show those that fit your needs.">search</i> -->
+                </button>
+              </div>
+              <!-- <div class="text-center">
+              <button type="button" class="btn-fill sidebar-serch-btn" (click)="setPage(1)" style="margin: 0px; text-transform: capitalize; padding: 5px 0px;">
+                Refresh Results
+                    </button>
+            </div> -->
+            </li>
+            <!-- <li>
+      <h5>Ranging from</h5>
+      <mat-slider thumbLabel min="0" max="100" step="5" value="0"></mat-slider>
+      </li> -->
+          </ul>
+        </nav>
+      </div>
+    </div>
+
+    <div class="col-lg-offset-2 col-md-offset-2 col-lg-10 pull-right custom-padding sh-top-menu-fix">
+      <!-- <div class="container-fluid"> -->
+      <!--<div class="row"></div>-->
+
+      <button class="w3-button w3-teal w3-xlarge w3-hide-large" (click)="w3_open()">&#9776;</button>
+
+      <ng-template #no_data_temp2>
+
+        <!-- <img src="../../assets/img/no_Record.png" style="width: 250px;height:200px" > -->
+        <h1 class="result-not-found">
+
+          <b>No Record Found</b>
+        </h1>
+      </ng-template>
+      <div class="product-main">
+
+        <div class="products-area-products">
+
+          <div class="position" *ngIf="product">
+            <div class="card sort-bar-height">
+              <div class="product-page-bar row sh-top-pagination">
+
+                <div class="col-lg-4 col-md-6 col-sm-5 col-xs-12 align padding">
+                  <label class="product-label ">SORT BY:</label>
+                  <button class="sort-btn " [(ngModel)]="sort" name="sort" value="sort" type="button" (click)="checked20($event,i)">
+                    RENEWABLE
+                    <i class="fa fa-sort-down down-icon"></i>
+
+                  </button>
+                  <button class="sort-btn " [(ngModel)]="sort" name="sort" value="sort" type="button" (click)="checked20($event,i)">
+                    Price KW/h
+                    <i class="fa fa-sort-down down-icon"></i>
+
+                  </button>
+                  <button class="sort-btn " [(ngModel)]="sort" name="sort" value="sort" type="button" (click)="checked20($event,i)">
+                    Company
+                    <i class="fa fa-sort-down down-icon"></i>
+
+                  </button>
+                </div>
+                <ul class="col-lg-4 col-md-6 col-sm-12 col-xs-12 pagination" *ngIf="pager.pages && pager.pages.length">
+
+
+                  <li [ngClass]="{hide:pager.currentPage === 1}">
+                    <a (click)="setPage(pager.currentPage - 1)" class="view-1s" class="btn btn-fill">
+                      <i class="fa fa-angle-left"></i>
+                    </a>
+                  </li>
+                  <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
+                    <a onclick="topFunction()" (click)="setPage(page)" class="view-plan-details">{{page}}</a>
+                  </li>
+
+                  <li [ngClass]="{hide:pager.currentPage === pager.totalPages}" *ngIf="(pager.startPage  + 3) <= pager.totalPages">
+                    <a onclick="topFunction()" (click)="setPage(pager.currentPage + 3)">...</a>
+                  </li>
+                  <li [ngClass]="{hide:pager.currentPage === pager.totalPages}"> <a>OF</a></li>
+                  <li [ngClass]="{hide:pager.currentPage === pager.totalPages}">
+                    <a onclick="topFunction()" (click)="setPage(pager.totalPages)" class="view-plan-details" type="Last">{{pager.totalPages}}</a>
+                  </li>
+                  <li *ngIf="pager.currentPage === pager.totalPages"> <a>OF</a></li>
+                  <li *ngIf="pager.currentPage === pager.totalPages">
+                    <a onclick="topFunction()" (click)="setPage(pager.totalPages)" class="view-plan-details" type="Last">{{pager.totalPages}}</a>
+                  </li>
+                  <li [ngClass]="{hide:pager.currentPage === pager.totalPages}">
+                    <a onclick="topFunction()" (click)="setPage(pager.currentPage + 1)" class="view-plan-details" class="btn bd-color" type="Next">
+                      <i class="fa fa-angle-right top-set"></i>
+                    </a>
+                  </li>
+
+                </ul>
+                <!-- <ul class="col-lg-3 col-md-3 col-sm-12 pagination" *ngIf="pager.pages && pager.pages.length">
+                  <li [ngClass]="{hide:pager.currentPage === 1}">
+                    <a (click)="setPage(pager.currentPage - 1)" class="view-plan-details" class="btn bd-color">
+                      <i class="fa fa-angle-left"></i>
+                    </a>
+                  </li>
+
+
+                  <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
+                    <a (click)="setPage(page)" class="view-plan-details">{{page}}</a>
+                  </li>
+
+                  <li *ngIf="(pager.totalPages - pager.startPage) > 3 ">
+                    <a (click)="setPage(pager.startPage + 3)">...</a>
+                  </li>
+
+                  <li [ngClass]="{hide:pager.currentPage === pager.totalPages}">
+                    <a (click)="setPage(pager.currentPage + 1)" class="view-plan-details" class="btn bd-color" type="Next">
+                      <i class="fa fa-angle-right"></i>
+                    </a>
+                  </li>
+
+                </ul> -->
+
+                <div class="col-lg-2 col-md-6 col-sm-4 col-xs-6 prod-select-list sec-list">
+
+                    <div class="dropdown view-drop">
+                        <!-- <h4>native html select</h4>
+                        <mat-form-field>
+                          <mat-label>Select your car (required)</mat-label>
+                          <select matNativeControl required [formControl]="selectFormControl" selected="10" (change)="checked18($event,i,items)"
+                          value="item" required [(ngModel)]="items" name="items">
+                            <option label="--select something --"></option>
+                            <option value="30">30</option>
+                            <option value="40">40</option>
+                            <option value="50">50</option>
+                          </select>
+                          <mat-error *ngIf="selectFormControl.hasError('required')">
+                            This field is required
+                          </mat-error>
+                          <mat-hint>You can pick up your favorite car here</mat-hint>
+                        </mat-form-field> -->
+                        <!-- <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                         View
+                        </button>
+                        <div class="dropdown-menu" placeholder="20 Per page" selected="20" (change)="checked18($event,i,items)"
+                        value="item" required [(ngModel)]="items" name="items" aria-labelledby="dropdownMenuButton">
+                          <a class="dropdown-item" value="20" selected="true">20 Per Page</a>
+                          <a class="dropdown-item" value="40">40 Per Page</a>
+                          <a class="dropdown-item" value="50">50 Per Page</a>
+                        </div> -->
+                      </div>
+                      <!-- <label class="product-label" style="margin: 11px 10px 0px 0px;">View:</label>
+                      <select class="view-drop" placeholder="20 Per Page" selected="10" (change)="checked18($event,i,items)"
+                      value="item" required [(ngModel)]="items" name="items" aria-labelledby="dropdownMenuButton">
+
+                          <option value="20">20 PER PAGE</option>
+                          <option value="40">40 PER PAGE</option>
+                          <option value="50">50 PER PAGE</option>
+                        </select> -->
+
+                   <label class="product-label" style="margin: 9px 10px 0px 0px;">View:</label>
+                  <mat-form-field>
+
+                    <mat-select class="width-sec" placeholder="20 Per Page" selected="20" (change)="checked18($event,i,items)"
+                      value="item"  [(ngModel)]="items" name="items">
+                      <mat-option value="30" selected="true">30 Per Page</mat-option>
+                      <mat-option value="40">40 Per Page</mat-option>
+                      <mat-option value="50">50 Per Page</mat-option>
+                  </mat-select>
+                  </mat-form-field>
+
+
+
+                </div>
+
+                <div class="col-lg-2 col-md-6 col-sm-2 col-xs-6 compare-print">
+                  <button class="print btn-fill" (click)="print()">
+                    <i class="fas fa-print"></i>
+                  </button>
+                  <button class="print btn-fill" title="Export results to Excel" (click)="exportAsXLSX()">
+                    <i class="far fa-file-excel" style="color:white"></i>
+                  </button>
+                  <button class="Compare btn-fill"   (click)="Comapreproduct(1)"  >Compare</button>
+
+
+
+                </div>
+
+
+              </div>
+
+            </div>
+          </div>
+
+          <div *ngIf="sg['plan']" class="slidr-m sh-fix">
+            <div class="sh-popular-plan">
+              <h1 class="hd-most-popular-plans">Most Popular Plans</h1>
+            </div>
+            <ngx-slick class="carousel" #slickModal="slick-modal" [config]="slideConfig">
+              <div class="mustafa" style="width:1100px;border-radius:20px" ngxSlickItem *ngFor="let data of sg['plan']; let i = index"
+                class="slide">
+                <div class="prod-slide">
+                  <div class="featured-plan-text">{{data.title}}</div>
+                  <div class="slider-img">
+                    <a (click)="move(data.title)">
+                      <img class="img2" src="{{data.profile_logo}}" onerror="this.src='../../assets/img/ChoiceGenie-logo2.png'"
+                        alt="Card image cap" />
+                    </a>
+                  </div>
+                  <div class="text-center slider-price">
+                    500 Kwh
+                    <p><strong>{{data.price_500_kwh }}¢</strong></p>
+                  </div>
+                  <h2 class="view-plan-details" (click)="btnEditClick(data.id,data.title,data.sign_up,data.phone,data.terms_of_service,data.fact_sheet,data.cancelation_fee,data.price_1000_kwh,data.price_500_kwh,data.price_2000_kwh,data.plan_information,data.rating_logo,data.profile_logo,data.profileurl,data.specialterms); getreview(data.id); avereview(data.id)"
+                    data-toggle="modal" data-target="#myModal2">Plan Details
+                  </h2>
+                  <!--<h2 class="view-plan-details" (click)="btnDeleteClick(data.id,data.title,data.profileurl,data.profile_logo)"-->
+                    <!--data-toggle="modal" data-target="#myModal3"> Leave a Review-->
+                  <!--</h2>-->
+                </div>
+              </div>
+            </ngx-slick>
+            <!-- <div class="homeSlider" *ngIf="sg['plan']">
+            <div class="mustafa" style="width:1100px;border-radius:20px" *ngFor="let data of sg['plan']; let i = index">
+              <div class="prod-slide">
+                <a (click)="move(data.title)">
+                  <img class="img2" src="{{data.profile_logo}}" onerror="this.src='../../assets/img/ChoiceGenie-logo2.png'" alt="Card image cap" />
+                </a>
+                <h2 class="view-plan-details" (click)="btnEditClick(data.id,data.title,data.sign_up,data.phone,data.terms_of_service,data.fact_sheet,data.cancelation_fee,data.price_1000_kwh,data.price_500_kwh,data.price_2000_kwh,data.plan_information,data.rating_logo,data.profile_logo,data.profileurl); getreview(data.id); avereview(data.id)"
+                    data-toggle="modal" data-target="#myModal2">Plan Information
+                </h2>
+                <h2 class="view-plan-details" (click)="btnDeleteClick(data.id,data.title,data.profileurl,data.profile_logo)" data-toggle="modal"
+                    data-target="#myModal3"> Leave a Review
+                </h2>
+              </div>
+
+
+            </div>
+          </div> -->
+          </div>
+
+          <div class="col-md-12" style="padding: 0px; text-align:center;">
+            <!-- <h1 style="margin:-7px 0px; font-size: 45px;">Search Plans</h1> -->
+          </div>
+          <div class="found-div sh-products-fix" *ngIf="product">
+            We found <strong>{{noresult}}</strong> residential plans for
+            <strong>{{city?.City}},&nbsp;{{city?.State}}&nbsp;{{city?.Res.zipcode}}</strong>
+            <small *ngIf="name"> for </small><strong> {{name}}</strong>
+
+
+
+
+          </div>
+
+          <div *ngIf="noresult != '0';else no_data_temp2" class="sh-products-fix">
+            <div class="custom card up-margin sh-card-fix" *ngFor="let data of product; let i = index">
+              <div class="row">
+
+                <div class="col-sm-12" style="padding: 0px 10px 11px 10px;">
+                  <div class="card-header sh card-header-text position-abs cards-itme" data-background-color="rose">
+                    <!-- {{data.id}}  -->
+                    <h4 class="card-title">{{data.title}} </h4>
+
+                  </div>
+                  <!-- <input type="checkbox" name="comp"  #comp (change)="checked(data.id,i)">{{data.id}} -->
+                  <div class="card-content row" style="padding: 0px; margin: 0 !important;">
+                    <div class="col-md-3  col-sm-6 col-xs-6 plan-detail text-center logo-div  sh-pos-rel">
+                      <div class="check-box mob-view-hide">
+                        <input type="checkbox" (change)="checked($event,data.id,i);hits($event)" >
+
+                      </div>
+                      <!-- <input type="checkbox" value="{{data.id}}" name="comp"  > -->
+                      <a href="{{data.profileurl}}" target="_blank" class="display-b margin-top">
+
+                        <img src="{{data.profile_logo}}" alt="{{data.title}}" onerror="this.src='../../assets/img/ChoiceGenie-logo2.png'"
+                          class="product-icons" />
+                      </a>
+                      <img src="{{data.rating_logo}}" alt="{{data.title}}" class="rating-stars" />
+
+
+
+
+
+
+
+                      <a class="sh-pos-abso sh-pos-abso-logo">
+                        <!-- *ngIf="check_login();" -->
+                        <label class="view-plan-details mob-view-hide" style="padding-bottom: 0px; margin-bottom: 0px;" (click)="btnDeleteClick(data.id,data.title,data.profileurl,data.profile_logo,data.serviceareaname)"
+                          data-toggle="modal" data-target="#myModal3"> Leave a Review
+                        </label>
+                      </a>
+                      <div  class="modal fade" id="myModal3" role="dialog">
+                        <div class="modal-dialog">
+
+                          <!-- Modal content-->
+                          <div class="modal-content popupmodel">
+                            <!-- <div class="modal-header">
+
+
+    </div> -->
+                            <div  class="modal-body model-box">
+                              <div class="popup-close-button" data-dismiss="modal">X</div>
+                              <div class="row">
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 " style="border-bottom: 1px #4f4f4f solid;">
+                                  <p class=" modal-v2__main-heading"> {{comtitle}}</p>
+
+                                </div>
+                                <!-- <div class="col-lg-3 col-md-3 col-sm-3 col-xs-4" style="border-bottom: 1px #4f4f4f solid;">
+                                  <div class="popup-image">
+                                    <a href="{{profileurl}}" target="_blank" class="display-b margin-top">
+                                      <img src="{{profile_logo}}" onerror="this.src='../../assets/img/ChoiceGenie-logo2.png'" />
+                                    </a>
+                                  </div>
+                                </div> -->
+                                <div style="width: 100%;">
+
+                                  <h4 class="modal-title body-heading">Help others make good choices.<br/>
+                                      Based on your experience, how would you rate this company? </h4>
+
+
+                                  <div class="rating-starts">
+                                    <fieldset class="ratingq move-to-center">
+                                      <input type="radio" id="star5q" name="rating" value="5" (click)="get(5)" />
+                                      <label class="full" for="star5q" title="Awesome - 5 stars"></label>
+                                      <input type="radio" id="star4halfq" name="rating" value="4.5" (click)="get(4.5)" />
+                                      <label class="half" for="star4halfq" title="Pretty good - 4.5 stars"></label>
+                                      <input type="radio" id="starq" name="rating" value="4" (click)="get(4)" />
+                                      <label class="full" for="starq" title="Pretty good - 4 stars"></label>
+                                      <input type="radio" id="star3halfq" name="rating" value="3.5" (click)="get(3.5)" />
+                                      <label class="half" for="star3halfq" title="Meh - 3.5 stars"></label>
+                                      <input type="radio" id="star3q" name="rating" value="3" (click)="get(3)" />
+                                      <label class="full" for="star3q" title="Meh - 3 stars"></label>
+                                      <input type="radio" id="star2halfq" name="rating" value="2.5" (click)="get(2.5)" />
+                                      <label class="half" for="star2halfq" title="Kinda bad - 2.5 stars"></label>
+                                      <input type="radio" id="star2q" name="rating" value="2" (click)="get(2)" />
+                                      <label class="full" for="star2q" title="Kinda bad - 2 stars"></label>
+                                      <input type="radio" id="star1halfq" name="rating" value="1.5" (click)="get(1.5)" />
+                                      <label class="half" for="star1halfq" title="Meh - 1.5 stars"></label>
+                                      <input type="radio" id="star1q" name="rating" value="1" (click)="get(1)" />
+                                      <label class="full" for="star1q" title="Sucks big time - 1 star"></label>
+                                      <input type="radio" id="starhalfq" name="rating" value="0.5" (click)="get(0.5)" />
+                                      <label class="half" for="starhalfq" title="Sucks big time - 0.5 stars"></label>
+                                    </fieldset>
+                                  </div>
+
+                                </div>
+                                <div class="modal-title" style="text-align: center;margin: 0 auto;">
+                                  <!-- <h3 style="
+
+    font-size: 30px;">Why Did You Leaving This Review?</h3> -->
+                                </div>
+
+                                <mat-form-field  class="padding-L-R txt-area">
+                                  <textarea matInput placeholder="Write a review"
+                                    matAutosizeMinRows="10" matAutosizeMaxRows="5" style="height: 130px !important;width:100% !important;"
+                                    name="comt" [(ngModel)]="comt">
+
+
+
+    </textarea>
+
+                                </mat-form-field>
+                                <input matInput placeholder="date" hidden="true" [value]="today | date: 'yyyy-MM-dd'"
+                                  #date name="date">
+
+
+                              </div>
+                              <!--<p>Your review will be publicly visible within 1 Second.</p>-->
+                            </div>
+
+                            <div class="modal-footer">
+
+                              <button type="button" class="btn btn-fill" data-dismiss="modal" >Cancel</button>
+                              <button type="button" class="btn btn-fill" (click)="reviews(rating,comt,id,date.value)" data-dismiss="modal">Done</button>
+
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-3  col-sm-6 col-xs-6 plan-detail text-center margin-up sh-pos-rel">
+                      <h3 class="mob-view-hide" style=" text-align: center">
+                        <b> Price/KWh</b>
+                      </h3>
+                      <!-- <div class="holder white"> -->
+                      <!--class="product-price"-->
+                      <div class="sh-top-price" *ngIf="value1==500">
+                        {{value1 }}Kwh
+                        <b class="price-style-1"> {{data.price_500_kwh | slice:0:-1  }}¢</b>
+
+                      </div>
+                      <div style="text-align:center; font-weight: bold; margin:10px 0px 11px; font-size: 20px;" *ngIf="value1==1000">
+                        {{value1}}Kwh
+                        <b class="price-style-1"> {{data.price_1000_kwh | slice:0:-1 }}¢</b>
+
+                      </div>
+                      <div style="text-align:center; font-weight: bold; margin:10px 0px 11px; font-size: 20px;" *ngIf="value1==2000">
+                        {{value1}}Kwh
+                        <b class="price-style-1"> {{data.price_2000_kwh| slice:0:-1}}¢</b>
+
+                      </div>
+                      <div class="add-price grid-element" *ngIf="value1==500">
+                        <div class="unit">1,000 kWh
+                          <span class="price-style"> {{data.price_1000_kwh | slice:0:-1}}¢ </span>
+                        </div>
+                        <div class="unit">2,000 kWh
+                          <span class="price-style"> {{data.price_2000_kwh | slice:0:-1 }}¢ </span>
+                        </div>
+
+                      </div>
+                      <div class="add-price grid-element" *ngIf="value1==1000">
+                        <div class="unit">500 kWh
+                          <span class="price-style"> {{data.price_500_kwh | slice:0:-1}}¢ </span>
+                        </div>
+                        <div class="unit">2,000 kWh
+                          <span class="price-style"> {{data.price_2000_kwh | slice:0:-1}}¢ </span>
+                        </div>
+
+                      </div>
+                      <div class="add-price grid-element" *ngIf="value1==2000">
+                        <div class="unit">500 kWh
+                          <span class="price-style"> {{data.price_500_kwh | slice:0:-1}}¢ </span>
+                        </div>
+                        <div class="unit">1000 kWh
+                          <span class="price-style"> {{data.price_1000_kwh | slice:0:-1}}¢ </span>
+                        </div>
+
+                      </div>
+                      <h3 class="text-center font " style="margin: 0px;">
+                        <!-- <a href="tel:1-832-975-1000"> -->
+
+                        <a href="tel:+1{{data.phone}}" class="mob-v-call-no">
+                          <!-- <input type="text" id="phone" value="{{data.phone}}"  name="phone"  > -->
+                          +1{{data.phone}}
+                        </a>
+                      </h3>
+                      <a class="sh-pos-abso sh-pos-abso-logo">
+                        <label class="view-plan-details mob-view-hide margin-l" (click)="btnEditClick(data.id,data.title,data.sign_up,data.phone,data.terms_of_service,data.fact_sheet,data.cancelation_fee,data.price_1000_kwh,data.price_500_kwh,data.price_2000_kwh,data.plan_information,data.rating_logo,data.profile_logo,data.profileurl,data.specialterms); getreview(data.id); avereview(data.id)"
+                          data-toggle="modal" data-target="#myModal2" >Plan Details</label>
+                      </a>
+                    </div>
+                    <div class="col-md-3 col-sm-6 col-xs-12 rate plan-detail margin-up mob-view-hide " style="text-align:center">
+                      <h3 style=" text-align: center">
+                        <b> Plan Details</b>
+                      </h3>
+                      <div style="text-align:center; padding-top:10px;">
+
+
+                        <p *ngFor="let item of data.plan_information" class="items-detail">
+                          {{item}}
+                        </p>
+
+                      </div>
+                      <!-- <div>
+                        <a style="color:rgba(0,0,0, 0.87)" href="{{fact_sheet}}" target="_blank">
+                          <i style="color:#c00" class="material-icons">picture_as_pdf</i>
+                          <a>Fact Sheet</a>
+                        </a>
+                        <a style="color:rgba(0,0,0, 0.87)" href="{{terms_of_service}}" target="_blank">
+                          <i style="color:#c00" class="material-icons">picture_as_pdf</i>
+                          Terms of service
+                        </a>
+                      </div> -->
+                      <div>
+                        <a style="color:rgba(0,0,0, 0.87)" href="{{data.fact_sheet}}" target="_blank">
+                          <i style="color:#c00" class="material-icons">picture_as_pdf</i>
+                          <a>Fact Sheet</a>
+                        </a>
+                        <!-- {{data.specialterms}} -->
+                        <a style="color:rgba(0,0,0, 0.87)" href="{{data.terms_of_service}}" target="_blank">
+                          <i style="color:#c00" class="material-icons">picture_as_pdf</i>
+                          Terms of service
+                        </a>
+                      </div>
+
+
+                    </div>
+                    <div class="col-md-3 col-sm-6 col-xs-12 term text-center mob-view-hide sh-pos-rel">
+
+                      <h3 class="text-center" style="margin-top: -7px !important;">
+                        <b> Call Now</b>
+                      </h3>
+                      <h3 class="text-center font" style="margin: 0px;">
+                        <!-- <a href="tel:1-832-975-1000"> -->
+
+                        <a href="tel:+1{{data.phone}}" style="display: block">
+                          <!-- <input type="text" id="phone" value="{{data.phone}}"  name="phone"  > -->
+                          +1{{data.phone}}
+                        </a>
+
+                        <span>OR</span>
+                      </h3>
+
+                      <!-- (click)="openDialog(data.id)" -->
+                      <button class="btn btn-fill sh-signup-btn">
+                        <a style="color:white" href="{{data.profileurl}}" target="_blank">Signup </a>
+                        <!-- <i class="material-icons">bubble_chart</i> -->
+                      </button>
+                      <a class="sh-pos-abso" (click)="submit(data.id,data.title)">
+                        <label class="view-plan-details">Reviews</label>
+                      </a>
+
+
+                    </div>
+                    <div class="mob-v-product col-xs-12">
+                    <a class="mob-v-btn-products btn-fill" (click)="btnDeleteClick(data.id,data.title,data.profileurl,data.profile_logo,data.serviceareaname)"
+                          data-toggle="modal" data-target="#myModal3">Review
+                    </a>
+                    <!-- <h2 class="view-plan-details" (click)="btnEditClick(data.id,data.title,data.sign_up,data.phone,data.terms_of_service,data.fact_sheet,data.cancelation_fee,data.price_1000_kwh,data.price_500_kwh,data.price_2000_kwh,data.plan_information,data.rating_logo,data.profile_logo,data.profileurl); getreview(data.id); avereview(data.id)"
+                    data-toggle="modal" data-target="#myModal2">Plan Information
+                  </h2> -->
+                    <a (click)="btnEditClick(data.id,data.title,data.sign_up,data.phone,data.terms_of_service,data.fact_sheet,data.cancelation_fee,data.price_1000_kwh,data.price_500_kwh,data.price_2000_kwh,data.plan_information,data.rating_logo,data.profile_logo,data.profileurl); getreview(data.id); avereview(data.id)"
+                    data-toggle="modal" data-target="#myModal2" class="mob-v-btn-products btn-fill">Detail</a>
+                    <a href="{{data.sign_up}}" target="_blank" class="mob-v-btn-products btn-fill">Signup</a>
+                    </div>
+                    <!-- <div class="col-md-3 col-sm-3 col-xs-7 term top-margin-25">
+    (click)="signUp(data.product_id)"
+
+
+
+    </div> -->
+                    <div class="col-sm-12">
+                      <!-- <a href="#p-pane-{{i}}" class="view-more collapsed" data-toggle="collapse">
+    View more
+    <i class="material-icons">arrow_drop_down</i>
+    </a> -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="modal fade" id="myModal2" role="dialog">
+                <div class="modal-dialog">
+                  <!-- Modal content-->
+                  <div class="modal-content popupmodel">
+
+                    <div class="modal-body model-box">
+                      <div class="popup-close-button" data-dismiss="modal">X</div>
+                      <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 " style="border-bottom: 1px #4f4f4f solid;">
+                          <p class=" modal-v2__main-heading"> {{comtitle}}</p>
+
+                        </div>
+                        <!-- <div class="col-lg-3 col-md-3 col-sm-3 col-xs-4" style="border-bottom: 1px #4f4f4f solid;">
+                          <div class="popup-image">
+                            <a href="{{profileurl}}" target="_blank" class="display-b margin-top">
+                              <img src="{{profile_logo}}" onerror="this.src='../../assets/img/ChoiceGenie-logo2.png'" />
+                            </a>
+                          </div>
+                        </div> -->
+                        <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                          <div class="plan-information__heading">Price/KWh</div>
+                          <table>
+                            <tbody>
+                              <tr class="plan-information__row">
+                                <td class="plan-information__cell">Price 500 kwh</td>
+                                <td class="plan-information__cell plan-information__cell--last ">{{price_500_kwh | slice:0:-1}}¢</td>
+                              </tr>
+                              <tr class="plan-information__row">
+                                <td class="plan-information__cell">Price 1000 kwh</td>
+                                <td class="plan-information__cell plan-information__cell--last ">{{price_1000_kwh | slice:0:-1}}¢</td>
+                              </tr>
+                              <tr class="plan-information__row">
+                                <td class="plan-information__cell">Price 2000 kwh</td>
+                                <td class="plan-information__cell plan-information__cell--last ">{{price_2000_kwh | slice:0:-1}}¢</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                          <table>
+                            <tbody>
+
+
+                              <tr class="plan-information__row plan-information__row--last">
+                                <td class="plan-information__cell">Documents</td>
+                                <td class="plan-information__cell plan-information__cell--last">
+                                  <a style="color:rgba(0,0,0, 0.87)" href="{{fact_sheet}}" target="_blank">
+                                    <i style="color:#c00" class="material-icons">picture_as_pdf</i>
+                                    <a>Fact Sheet</a>
+                                    <br>
+                                  </a>
+                                  <a style="color:rgba(0,0,0, 0.87)" href="{{terms_of_service}}" target="_blank">
+                                    <i style="color:#c00" class="material-icons">picture_as_pdf</i>
+                                    Terms of service
+                                  </a>
+
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+
+
+                        </div>
+                        <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                          <div class="plan-description">
+                            <div class="plan-description__heading">Plan Details</div>
+                            <div class="plan-description__content">
+                              <ul>
+                                <li *ngFor="let data of plan_information">{{data}}</li>
+                                <!-- {{temp.split(',')[0]}} -->
+                              </ul>
+
+                            </div>
+                          </div>
+                        </div>
+                        <!-- <div class="row"> -->
+                        <div class="col-lg-12">
+                            <div class="plan-description">
+                              <div class="plan-description__heading" >Special Terms</div>
+
+                              <div class="plan-description__content" *ngIf="specialterms;else no_data_temp2">
+                                  {{specialterms}}
+
+                                <ng-template #no_data_temp2>
+
+                                  <!-- <img src="../../assets/img/no_Record.png" style="width: 250px;height:200px" > -->
+                                  <h4>&nbsp;&nbsp;&nbsp;&nbsp; There is no Special Term in this plan</h4>
+                                </ng-template>
+                                <!-- <p class="ng-binding">A great low rate with guaranteed price protection for 1 full year. Exclusive online offer available to new customers.</p> -->
+                              </div>
+                            </div>
+                          </div>
+                        <!-- </div> -->
+
+                        <div class="col-lg-12">
+                          <div class="plan-description">
+                            <div class="plan-description__heading" *ngIf="cancelation;else no_data_temp2">Cancellation Fee: {{cancelation.split(' ',3000)[2]}}</div>
+
+                            <div class="plan-description__content">
+
+                              <ng-template #no_data_temp2>
+                                <h4>&nbsp;&nbsp;&nbsp;&nbsp;-  </h4>
+                              </ng-template>
+                              <!-- <p class="ng-binding">A great low rate with guaranteed price protection for 1 full year. Exclusive online offer available to new customers.</p> -->
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div style="display:inline-block; text-align:center;">
+                      <a href="{{sign_up}}" target="_blank">
+                        <button class="btn btn-fill">Signup Now</button>
+                      </a>
+                      <div style="display:inline-block; padding:24px;">
+                        <span style="font-size:21px; font-weight:600px">OR CALL
+                          <b>
+                            <a href="tel:{{phone}}">
+                              <!-- <input type="text" id="phone" value="{{data.phone}}"  name="phone"  > -->
+                              {{phone}}</a>
+
+
+                          </b>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- <div class="clearfix"></div> -->
+
+
+              </div>
+            </div>
+          </div>
+          <span>
+            <ng-template #no_data_templ>
+
+              <!-- <img src="../../assets/img/no_Record.png" style="width: 250px;height:200px" > -->
+              <h1 class="result-not-found">
+
+                <!-- <b>No Record Found</b> -->
+              </h1>
+            </ng-template>
+          </span>
+
+          <div class="card custom-width sort-bar-height" *ngIf="product">
+            <div class="product-page-bar row sh-top-pagination">
+
+              <div class="col-lg-4 col-md-6 col-sm-5 col-xs-12 align padding">
+                <label class="product-label ">SORT BY:</label>
+
+                <button class="sort-btn " [(ngModel)]="sort" name="sort" value="sort" type="button" (click)="checked20($event,i)">
+                  RENEWABLE
+                  <i class="fa fa-sort-down down-icon"></i>
+
+                </button>
+                <button class="sort-btn " [(ngModel)]="sort" name="sort" value="sort" type="button" (click)="checked20($event,i)">
+                  Price KW/h
+                  <i class="fa fa-sort-down down-icon"></i>
+
+                </button>
+                <button class="sort-btn " [(ngModel)]="sort" name="sort" value="sort" type="button" (click)="checked20($event,i)">
+                  Company
+                  <i class="fa fa-sort-down down-icon"></i>
+
+                </button>
+              </div>
+              <ul class="col-lg-4 col-md-6 col-sm-12 col-xs-12 pagination" *ngIf="pager.pages && pager.pages.length">
+
+                <li [ngClass]="{hide:pager.currentPage === 1}">
+                  <a (click)="setPage(pager.currentPage - 1)" class="view-1s" class="btn btn-fill">
+                    <i class="fa fa-angle-left"></i>
+                  </a>
+                </li>
+                <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
+                  <a onclick="topFunction()" (click)="setPage(page)" class="view-plan-details">{{page}}</a>
+                </li>
+
+                <li [ngClass]="{hide:pager.currentPage === pager.totalPages}" *ngIf="(pager.startPage  + 3) <= pager.totalPages">
+                  <a onclick="topFunction()" (click)="setPage(pager.currentPage + 3)">...</a>
+                </li>
+                <li [ngClass]="{hide:pager.currentPage === pager.totalPages}"> <a>OF</a></li>
+                <li [ngClass]="{hide:pager.currentPage === pager.totalPages}">
+                  <a onclick="topFunction()" (click)="setPage(pager.totalPages)" class="view-plan-details" type="Last">{{pager.totalPages}}</a>
+                </li>
+                <li *ngIf="pager.currentPage === pager.totalPages"> <a>OF</a></li>
+                <li *ngIf="pager.currentPage === pager.totalPages">
+                  <a onclick="topFunction()" (click)="setPage(pager.totalPages)" class="view-plan-details" type="Last">{{pager.totalPages}}</a>
+                </li>
+                <li [ngClass]="{hide:pager.currentPage === pager.totalPages}">
+                  <a onclick="topFunction()" (click)="setPage(pager.currentPage + 1)" class="view-plan-details" class="btn bd-color" type="Next">
+                    <i class="fa fa-angle-right top-set"></i>
+                  </a>
+                </li>
+              </ul>
+              <!-- <ul class="col-lg-3 col-md-3 col-sm-12 pagination" *ngIf="pager.pages && pager.pages.length">
+              <li [ngClass]="{hide:pager.currentPage === 1}">
+                <a (click)="setPage(pager.currentPage - 1)" class="view-plan-details" class="btn bd-color">
+                  <i class="fa fa-angle-left"></i>
+                </a>
+              </li>
+
+
+              <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
+                <a (click)="setPage(page)" class="view-plan-details">{{page}}</a>
+              </li>
+
+              <li *ngIf="(pager.totalPages - pager.startPage) > 3 ">
+                <a (click)="setPage(pager.startPage + 3)">...</a>
+              </li>
+
+              <li [ngClass]="{hide:pager.currentPage === pager.totalPages}">
+                <a (click)="setPage(pager.currentPage + 1)" class="view-plan-details" class="btn bd-color" type="Next">
+                  <i class="fa fa-angle-right"></i>
+                </a>
+              </li>
+
+            </ul> -->
+
+              <div class="col-lg-2 col-md-6 col-sm-4 col-xs-6 prod-select-list sec-list">
+
+                  <!-- <label class="product-label" style="margin: 11px 10px 0px 0px;">View:</label>
+                  <select class="view-drop" placeholder="20 Per page" selected="20" (change)="checked18($event,i,items)"
+                  value="item" required [(ngModel)]="items" name="items" aria-labelledby="dropdownMenuButton">
+
+                      <option value="20">20 PER PAGE</option>
+                      <option value="40">40 PER PAGE</option>
+                      <option value="50">50 PER PAGE</option>
+                    </select> -->
+                    <label class="product-label" style="margin: 9px 10px 0px 0px;">View:</label>
+                    <mat-form-field>
+
+                      <mat-select class="width-sec" placeholder="20 Per Page" selected="20" (change)="checked18($event,i,items)"
+                        value="item"  [(ngModel)]="items" name="items">
+                        <mat-option value="30" selected="true">30 Per Page</mat-option>
+                        <mat-option value="40">40 Per Page</mat-option>
+                        <mat-option value="50">50 Per Page</mat-option>
+                    </mat-select>
+                    </mat-form-field>
+
+
+
+
+
+
+              </div>
+
+              <div class="col-lg-2 col-md-6 col-sm-2 col-xs-6 compare-print">
+                <button class="print btn-fill" (click)="print()">
+                  <i class="fa fa-print"></i>
+                </button>
+                <button class="print btn-fill" title="Export results to Excel" (click)="exportAsXLSX()">
+                  <i class="far fa-file-excel" style="color:white"></i>
+                </button>
+                <button class="Compare btn-fill" (click)="Comapreproduct(1)" id="chkdemo">Compare</button>
+
+
+
+              </div>
+
+
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+
+    </div>
+
+  </div>
+</div>
+

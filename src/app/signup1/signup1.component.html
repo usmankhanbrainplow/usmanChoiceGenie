@@ -1,0 +1,211 @@
+<div class="container-fluid">
+  <div class="container" style="padding:12px 0px 15px 0px">
+
+
+
+    <!--<h3 class="text-center" style="margin: 0px !important;">Tell Us About-->
+      <!--<strong>Yourself</strong></h3>-->
+
+    <!-- <div class="vander-signup-heading" data-notify="container">
+      <span data-notify="message">Any Enrollment Request including move-in or a switch can only be made by service applicant or the applicant's authorized
+      agent.
+      <br> If you are not an authorized individual, please do not submit your request using this portal.
+    </span>
+    </div> -->
+
+
+
+<div class="card-content card-content-fixed" style="padding-top: 1px;">
+  <form [formGroup]="signupForm" *ngIf="signupForm">
+
+    <!-- <div class="signup-form-fixed" data-background-color="rose">
+      <i class="material-icons">mail_outline</i>
+    </div> -->
+
+
+    <div class="card-content">
+
+
+      <!-- <div  class="signin-form-1-header">
+        <h3>Vendor Registration Form </h3>
+
+      </div> -->
+      
+      <h1 class="signup-heading">VENDOR INFORMATION</h1>
+      <p class="signup-tagline">Okay, lets get started!  First, tell us about yourself and the address we're going to help you with.</p>
+      
+      <!--<h4 class="title-05"> Vendor Registration Form </h4>-->
+      <ng-template matStepLabel>About</ng-template>
+
+
+
+      <div class="row sh-signup-form-fix">
+
+        <div class="col-sm-4">
+          <div class="margin-t">
+            <mat-form-field>
+              <input matInput placeholder="REP Name" [formControl]="signupForm.controls['repname']" #repname required [(ngModel)]="model.repname" class="text-transform">
+              <mat-icon matSuffix (click)="hide = !hide">account_circle </mat-icon>
+              <mat-error *ngIf="signupForm.controls['repname'].value == '' || !signupForm.controls['repname'].value"><strong>This Field cannot be empty</strong></mat-error>
+
+            </mat-form-field>
+          </div>
+        </div>
+        <br class="clearfix" />
+        <div class="col-sm-4">
+          <div class="margin-t">
+            <mat-form-field>
+              <input matInput placeholder="REP Certificate #" [formControl]="signupForm.controls['repid']" #REP_certificate_id1 (ngModelChange)="Checkzipcode(REP_certificate_id1.value)" required [(ngModel)]="model.repid">
+              <mat-icon matSuffix (click)="hide = !hide" >card_giftcard</mat-icon>
+              <mat-error *ngIf="signupForm.controls['repid'].value == '' || !signupForm.controls['repid'].value"><strong>This Field cannot be empty</strong></mat-error>
+              <mat-error *ngIf="signupForm.controls['repid'].hasError('pattern')">
+                  Only Numbers
+                </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        <br class="clearfix" />
+        <div class="col-sm-4">
+          <div class="form-group margin-t">
+
+            <mat-form-field>
+              <input matInput placeholder="Email" required [formControl]="signupForm.controls['email']" #email1 (ngModelChange)="emailCheck(email1.value)"
+                [(ngModel)]="model.email" />
+              <mat-icon matSuffix (click)="hide = !hide" >email</mat-icon>
+                <mat-error *ngIf="signupForm.controls['email'].value == '' || !signupForm.controls['email'].value"><strong>This Field cannot be empty</strong></mat-error>
+                <mat-error *ngIf="signupForm.controls['email'].invalid"><strong>Please enter a valid email address</strong></mat-error>
+
+            </mat-form-field>
+            <div *ngIf="emailexist!=true" class="alert alert-danger">
+              This email already exist.
+            </div>
+
+          </div>
+        </div>
+
+        <br class="clearfix" />
+        <div class="col-sm-4">
+          <div class="form-group margin-t">
+
+            <mat-form-field>
+              <input matInput placeholder="Contact Email" required [formControl]="signupForm.controls['contact_email']" [(ngModel)]="model.contact_email" />
+              <mat-icon matSuffix (click)="hide = !hide" >email</mat-icon>
+                <mat-error *ngIf="signupForm.controls['contact_email'].value == '' || !signupForm.controls['contact_email'].value"><strong>This Field cannot be empty</strong></mat-error>
+                <mat-error *ngIf="signupForm.controls['contact_email'].invalid"><strong>Please enter a valid email address</strong></mat-error>
+
+            </mat-form-field>
+            <!-- <div *ngIf="emailexist!=true" class="alert alert-danger">
+              This email already exist.
+            </div> -->
+
+          </div>
+        </div>
+
+        <br class="clearfix" />
+        <div class="col-sm-4">
+          <div class="form-group margin-t ">
+            <mat-form-field>
+              <input matInput [textMask]="{mask: phoneMask}" placeholder="Contact No." [formControl]="signupForm.controls['contactphone']" required [(ngModel)]="model.contactphone">
+              <mat-icon matSuffix (click)="hide = !hide" >settings_phone</mat-icon>
+              <mat-error *ngIf="signupForm.controls['contactphone'].value == '' || !signupForm.controls['contactphone'].value"><strong>This Field cannot be empty</strong></mat-error>
+
+            </mat-form-field>
+          </div>
+        </div>
+
+        <br class="clearfix" />
+        <div class="col-sm-4">
+          <div class="form-group margin-t ">
+            <mat-form-field>
+              <input matInput placeholder="Contact Name" [formControl]="signupForm.controls['contactname']" required [(ngModel)]="model.contactname">
+              <mat-icon matSuffix (click)="hide = !hide" >account_box</mat-icon>
+              <mat-error *ngIf="signupForm.controls['contactname'].value == '' || !signupForm.controls['contactname'].value"><strong>This Field cannot be empty</strong></mat-error>
+            </mat-form-field>
+
+          </div>
+        </div>
+
+        <br class="clearfix" />
+        <div class="col-sm-4">
+          <div class="form-group margin-t ">
+            <mat-form-field>
+
+              <input matInput placeholder="Company User Name" [formControl]="signupForm.controls['username']" (ngModelChange)="usernameCheck(username1.value)"
+                #username1 required [(ngModel)]="model.username">
+              <mat-icon matSuffix (click)="hide = !hide" >account_balance</mat-icon>
+              <mat-error *ngIf="signupForm.controls['username'].value == '' || !signupForm.controls['username'].value"><strong>This Field cannot be empty</strong></mat-error>
+                <mat-error *ngIf="signupForm.controls['username'].hasError('pattern')">
+                    Invalid Username
+                  </mat-error>
+            </mat-form-field>
+            <div *ngIf="usernameexist!= true" class="alert alert-danger">
+              This username already exist.
+            </div>
+            <!-- <ng-template #no_data_temp1>
+<div class="alert alert-danger"> This username already exist. </div>
+
+
+            </ng-template> -->
+          </div>
+        </div>
+        <br class="clearfix" />
+        <div class="col-sm-4">
+          <div class="form-group margin-t ">
+            <mat-form-field>
+              <input matInput placeholder="Password" type="password" [type]="hide ? 'password' : 'text'"  [formControl]="signupForm.controls['password']" required [(ngModel)]="model.password">
+              <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+              <mat-error *ngIf="signupForm.controls['password'].value == '' || !signupForm.controls['password'].value"><strong>This Field cannot be empty</strong></mat-error>
+
+              <!-- <mat-error *ngIf="signupForm.control.password.errors?.minlength">
+                  Password must be at least 6 characters long.
+                </mat-error>           -->
+                </mat-form-field>
+          </div>
+        </div>
+        <br class="clearfix" />
+        <div class="col-sm-4">
+          <div class="form-group margin-t ">
+            <mat-form-field>
+              <input matInput placeholder="Confirm Password" type="password"[type]="hide ? 'password' : 'text'" [formControl]="signupForm.controls['confirmpassword']" [(ngModel)]="model.confirmpassword" required>
+              <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+              <mat-error *ngIf="signupForm.controls['confirmpassword'].value == '' || !signupForm.controls['confirmpassword'].value"><strong>This Field cannot be empty</strong></mat-error>
+              <mat-error *ngIf="(signupForm.controls.confirmpassword.value != signupForm.controls.password.value) || signupForm.controls.confirmpassword.value == ''"><strong>Password must match
+              </strong></mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="col-lg-6 recaptcha-box recaptcha-top">
+
+            <blackgeeks-recaptcha ></blackgeeks-recaptcha>
+            <div class="" *ngIf="isequal==false">
+                <p class="col-lg-12 errormessage" style="color: #c00">Invalid Answer</p>
+              </div>      <!-- <blackgeeks-recaptcha></blackgeeks-recaptcha> -->
+        </div>
+
+        <div class="col-lg-6 form-footer text-center">
+            <div class="">
+                <label class="acknowladge" for="AcknowledgeTerms">
+                    <input data-val="true" data-val-required="The AcknowledgeTerms field is required." id="AcknowledgeTerms" name="AcknowledgeTerms" tabindex="11" type="checkbox" value="true">
+                    <input name="AcknowledgeTerms" type="hidden" value="false">
+                    I authorize Energy Ogre to request historical usage data for <span id="blockProperty">my property</span>, and affirm that I agree to the <a href="javascript:showTerms();">ChoiceGenie Terms of Use</a>
+                </label>
+            </div>
+          <div class="form-group">
+            <button class="btn btn-fill" style="width:100%; border-radius:50px;font-size:24px !important;" type="submit"
+              (click)="signupuserdata()">Register</button>
+          </div>
+        </div>
+      </div>
+
+      </div>
+
+
+
+
+  </form>
+
+</div>
+
+</div>
+</div>

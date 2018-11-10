@@ -1,0 +1,374 @@
+<div class="new-product-holder">
+    <div class="page-title">
+
+      <h3 class="text-center" style="margin: 0px !important;">Narrow Your Search</h3>
+
+    </div>
+
+    <!--<h3 class="text-center">ADD NEW PRODUCT</h3>-->
+    <!--<hr />-->
+
+    <div class="row">
+      <!-- <form   *ngif="signupForm"> -->
+
+      <form method="" action="" (ngSubmit)="onSubmit(f)" #f="ngForm" novalidate>
+        <mat-horizontal-stepper [linear]="isLinear" class="mat-tabs-bar" style="background: none">
+          <mat-step [stepControl]="signupForm">
+            <div [formGroup]="signupForm" style="padding: 3px;">
+              <ng-template matStepLabel>Average Monthly Use</ng-template>
+              <ng-template matStepLabel></ng-template>
+              <div class="card tabs-content-box" style="padding: 15px;">
+                <!--<div class="card-header card-header-icon" data-background-color="rose" style="margin-top: -35px;">-->
+                  <!--<i class="material-icons">mail_outline</i>-->
+                <!--</div>-->
+                <div class="card-content">
+                  <!--<h4 class="card-title"></h4>-->
+                  <h2 class="f-sackers-medium">
+                    <span class="plansfound">{{product}}</span> PLANS FOUND FOR <span class="zipcode-edit" data-type="editable" data-for=".zipcode-input" style="display: inline;">{{zip_code}}</span>
+                    <input class="zipcode-input" maxlength="5" style="display: none;">
+                    <input type="hidden" value="75001" id="zip_code" name="zip_code">
+                  </h2>
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <h3 class="f-sackers-heavy">
+                        <em>1.</em>
+                        <span>On average, how much electricity do you use in a month?</span>
+                      </h3>
+                      <div class="form-group">
+                        <!--<li style="margin-bottom: 0px;">-->
+                          <div class="panel-title">
+                            <a>
+                              <h5 class="color-red margin-zero padding-zero">Estimated Usage
+                                <!--<i class="color-black fa fa-info-circle float" aria-hidden="true" title="If you choose a plan with a long contract period, you may be subject to an early cancellation fee if you decide to change plans prior to the expiration of the contract period.  Plans that are shorter give you more flexibility to switch, but they only lock in your set rate for a short amount of time.Month-to-Month plans are usually Variable or Indexed offers."></i>-->
+                              </h5>
+                            </a>
+                          </div>
+                          <mat-form-field class="margin-up" style="border-top: 0px !important;">
+                            <!-- <label class="control-label"style="font-size: 18px">KWh</label> -->
+                            <!-- placeholder="Kwh" -->
+                            <mat-select required [(ngModel)]="price" formControlName="price">
+
+                              <mat-option value="500" style="font-size: 20px">500 kWh</mat-option>
+                              <mat-option value="1000" style="font-size: 20px">1000 kWh</mat-option>
+                              <mat-option value="2000" style="font-size: 20px">2000 kWh</mat-option>
+                            </mat-select>
+                          </mat-form-field>
+
+                        <!--</li>-->
+                      </div>
+
+                      <div class="">
+                        <button mat-button matStepperNext class="btn btn-fill">Next
+                          <i class="fa fa-angle-right" style="font-size: 26px; margin: -9px 0px 0px 3px;"></i>
+                        </button>
+                      </div>
+                      <!-- <a (click)="submit()" class="view-plans">
+                        View Plans
+                      </a> -->
+                      <!-- <mat-error *ngIf="firstFormGroup.controls['serviceType'].invalid"><strong>One statement must be selected</strong></mat-error> -->
+                    </div>
+                    <div class="col-sm-6 col-right">
+                      <div class="">
+                        <h3 class="f-sackers-heavy color-red"><span>DID YOU KNOW?</span></h3>
+                        <ul class="info-list">
+                          <li>Check past bills to estimate your average electricity use. Usage may be higher during very hot or cold months, so look at several bills to get an idea of your average usage.</li>
+                          <li>A kilowatt-hour is equivalent to 1 kilowatt (1kW) of power used for 1 hour (1h) of time. One 100-watt light bulb burning for 10 hours uses 1,000 watt-hours or 1 kilowatt-hour. </li>
+                          <li>Most households use an average of 1,000 kWh per month.</li>
+                          <li>The total amount of electricity used per month can affect the rate you pay.</li>
+                          <li>Many electric companies require that you use a minimum amount of electricity each month. Our shopping tool allows you to see if a company requires a minimum usage and if there is an associated fee or credit.</li><p></p>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+
+
+                </div>
+
+              </div>
+            </div>
+
+          </mat-step>
+          <mat-step [stepControl]="secondFormGroup">
+            <div [formGroup]="secondFormGroup" style="padding: 10px;">
+              <ng-template matStepLabel>Plan Types</ng-template>
+              <ng-template matStepLabel></ng-template>
+              <div class="card tabs-content-box" style="padding: 15px;">
+                <!--<div class="card-header card-header-icon" data-background-color="rose" style="margin-top: -35px;">-->
+                  <!--<i class="material-icons">mail_outline</i>-->
+                <!--</div>-->
+                <div class="card-content">
+                  <h2 class="f-sackers-medium">
+                      <span class="plansfound">{{product}}</span> PLANS FOUND FOR <span class="zipcode-edit" data-type="editable" data-for=".zipcode-input" style="display: inline;">{{zip_code}}</span>                    <input class="zipcode-input" maxlength="5" style="display: none;">
+                    <input type="hidden" value="75001" id="zip_code" name="zip_code">
+                  </h2>
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <h3 class="f-sackers-heavy">
+                        <em>2.</em>
+                        <span>WHAT PLAN TYPES ARE YOU INTERESTED IN?</span>
+                      </h3>
+                      <div class="form-group">
+                      <!--<li>-->
+                        <div class="panel-title">
+                          <a>
+                            <h5 class="color-red margin-zero padding-zero">Plan Type
+                              <!--<i class="color-black fa fa-info-circle float" aria-hidden="true" title="Prepaid plans provide service on a “pay-as-you-go” basis. These plans require close monitoring or accurately estimating your monthly electric use to avoid disconnection.."></i>-->
+                            </h5>
+                          </a>
+                        </div>
+                        <div class="checkbox">
+                          <label class="checkbox-font">
+
+                            <input type="checkbox" formControlName="fixed" [(ngModel)]=fixed value="fixed" (change)="checked8($event,i)"> Fixed Rate
+
+                          </label>
+                        </div>
+                        <div class="checkbox">
+                          <label class="checkbox-font">
+                            <input type="checkbox" formControlName="vari" [(ngModel)]=vari value="vari" (change)="checked9($event,i)"> Variable
+                            <small>(changing rate)</small>
+                          </label>
+                        </div>
+                        <div class="checkbox" style="margin-bottom: 20px !important;">
+                          <label class="checkbox-font">
+                            <input type="checkbox" [(ngModel)]=market formControlName="market" value="market" (change)="checked10($event,i)"> Indexed
+                            <small>(market rate)</small>
+                          </label>
+                        </div>
+                        <!--<hr style="background: #000000">-->
+                      <!--</li>-->
+
+
+                    </div>
+                      <div class="">
+                        <button mat-button matStepperPrevious class="btn btn-fill">
+                          <i class="fa fa-angle-left" style="font-size: 26px; margin: -9px 3px 0px 0px;"></i>
+                          Back
+                        </button>
+                        <button mat-button matStepperNext class="btn btn-fill">Next
+                          <i class="fa fa-angle-right" style="font-size: 26px; margin: -9px 0px 0px 3px;"></i>
+                        </button>
+                      </div>
+                      <!-- <a (click)="submit()" class="view-plans">
+                        View Plans
+                      </a> -->
+                    </div>
+
+                    <div class="col-sm-6 col-right">
+                      <div class="">
+                        <h3 class="f-sackers-heavy color-red"><span>DID YOU KNOW?</span></h3>
+                        <ul class="info-list">
+                          <li><strong>Fixed-Rate Plan</strong>
+                            A fixed-rate plan has a set rate that doesn't change throughout the contract period, with minor exceptions. If you choose a plan with a fixed rate, your price per kWh will not change during your contract period except for changes in Transmission and Distribution fees, changes in ERCOT or Texas Regional Entity administrative fees, or changes resulting from federal, state or local laws that impose fees beyond your REP’s control. This may help your household budgeting, but if market prices fall you may have to wait until your contract ends to enjoy a lower price.
+                          </li>
+                          <li><strong>Indexed Rate Plan</strong>
+                            An indexed rate plan (also called market rate plan) is similar to a variable plan in that the price per kWh can go up or down each month. The difference is that the rates for these plans are directly tied to a pricing formula connected to a publicly available index. If the index rises, your monthly rate will also, but if the index falls, your rates will be lower.
+                            <br><br>With an indexed plan, the price per kWh can change substantially each month, giving benefits and risks similar to those of variable rate plans. The difference is that the rates for indexed rate plans are tied to a publicly available index. Customers considering these plans should ask the electric company for specifics about the pricing formula as well as how and when they will receive notifications of changes to the index.
+                          </li>
+                          <li><strong>Variable Rate Plans</strong>
+                            Variable rate plans have no monthly contract or cancellation fee, but the rate you pay per kWh can vary from month to month. Your rate can go up or down based on the market and the discretion of your electric company. Variable plans allow customers to benefit from falling market prices, but they also have an increased risk for higher rates if electricity prices spike due to natural disasters, cold winters, or adverse market conditions. The rates different companies charge each month varies, but because customers can switch any time, companies have an incentive to keep their rates low.
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              </div>
+          </mat-step>
+          <mat-step [stepControl]="thirdFormGroup">
+            <div [formGroup]="thirdFormGroup" style="padding: 10px;">
+              <ng-template matStepLabel>Price Range</ng-template>
+              <ng-template matStepLabel></ng-template>
+              <div class="card tabs-content-box" style="padding: 15px;">
+                <div class="card-content">
+                  <h2  class="f-sackers-medium">
+                      <span class="plansfound">{{product}}</span> PLANS FOUND FOR <span class="zipcode-edit" data-type="editable" data-for=".zipcode-input" style="display: inline;">{{zip_code}}</span>                    <input  class="zipcode-input" maxlength="5" style="display: none;">
+                    <input  id="zip_code" name="zip_code" type="hidden" value="75001">
+                  </h2>
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <h3 class="f-sackers-heavy">
+                        <em>3.</em>
+                        <span>HOW LONG DO YOU WANT YOUR PRICE RANGE?</span>
+                      </h3>
+                      <div class="form-group">
+                      <!--<li>-->
+                        <div class="panel-title">
+                          <a>
+                            <h5 class="cat-title color-red margin-zero padding-zero"> Price Range
+                              <!--<i class="color-black fa fa-info-circle float" aria-hidden="true" title="Price per kilowatt hour: A kilowatt hour is equal to 1 kilowatt (1kW) of power used for 1 hour (1h) of time."></i>-->
+                            </h5>
+                          </a>
+                        </div>
+
+
+
+                        <div class="pric-range-box" style="margin-bottom: 20px;">
+                          <span class="f-size">¢</span>
+                          <input type="text" class="ng-valid ng-dirty ng-touched" required formControlName="min" [(ngModel)]="min" style="text-align: left; font-size: 20px;border-radius: 5px;">
+                          <span class="f-size">to</span>
+                          <span class="f-size">¢</span>
+                          <input type="text" class="ng-valid ng-dirty ng-touched" required formControlName="max" [(ngModel)]="max" style="text-align: left; font-size:20px;border-radius: 5px;">
+
+                          <!--<button class="price-range-submit btn-fill" (click)="pricerate(min,max,price)">-->
+                            <!--<i class="fa fa-chevron-right" style="color: #ffffff"></i>-->
+                          <!--</button>-->
+
+                        </div>
+                        <!--<hr style="margin-top: 20px !important; background: #000000">-->
+                      <!--</li>-->
+                    </div>
+
+                      <div class=""     >
+                        <button mat-button matStepperPrevious class="btn btn-fill">
+                          <i class="fa fa-angle-left" style="font-size: 26px; margin: -9px 3px 0px 0px;"></i>
+                          Back
+                        </button>
+                        <button mat-button matStepperNext class="btn btn-fill">Next
+                          <i class="fa fa-angle-right" style="font-size: 26px; margin: -9px 0px 0px 3px;"></i>
+                        </button>
+                      </div>
+                      <!-- <a (click)="submit()" class="view-plans">
+                        View Plans
+                      </a> -->
+                    </div>
+
+                    <div class="col-sm-6 col-right">
+
+                            <div class="">
+                              <h3 class="f-sackers-heavy color-red"><span>DID YOU KNOW?</span></h3>
+                              <ul class="info-list">
+                                <li>Check past bills to estimate your average electricity use. Usage may be higher during very hot or cold months, so look at several bills to get an idea of your average usage.</li>
+                                <li>A kilowatt-hour is equivalent to 1 kilowatt (1kW) of power used for 1 hour (1h) of time. One 100-watt light bulb burning for 10 hours uses 1,000 watt-hours or 1 kilowatt-hour. </li>
+                                <li>Most households use an average of 1,000 kWh per month.</li>
+                                <li>The total amount of electricity used per month can affect the rate you pay.</li>
+                                <li>Many electric companies require that you use a minimum amount of electricity each month. Our shopping tool allows you to see if a company requires a minimum usage and if there is an associated fee or credit.</li><p></p>
+                              </ul>
+                            </div>
+
+                    </div>
+
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </mat-step>
+          <mat-step [stepControl]="fourthFormGroup">
+            <div [formGroup]="fourthFormGroup" style="padding: 10px;">
+              <ng-template matStepLabel>Contract Length</ng-template>
+              <ng-template matStepLabel></ng-template>
+              <div class="card tabs-content-box" style="padding: 15px;">
+                <!--<div class="card-header card-header-icon" data-background-color="rose" style="margin-top: -35px;">-->
+                  <!--<i class="material-icons">mail_outline</i>-->
+                <!--</div>-->
+                <div class="card-content">
+                  <h2  class="f-sackers-medium">
+                      <span class="plansfound">{{product}}</span> PLANS FOUND FOR <span class="zipcode-edit" data-type="editable" data-for=".zipcode-input" style="display: inline;">{{zip_code}}</span>                    <input  class="zipcode-input" maxlength="5" style="display: none;">
+                    <input  id="zip_code" name="zip_code" type="hidden" value="75001">
+                  </h2>
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <h3 class="f-sackers-heavy">
+                        <em>4.</em>
+                        <span>HOW LONG DO YOU WANT YOUR CONTRACT TO LAST?</span>
+                      </h3>
+                      <div class="form-group">
+                        <!--<li>-->
+                          <div class="panel-title">
+                            <a>
+                              <h5 class="color-red margin-zero padding-zero"> Contract Length
+                                <!--<i class="color-black fa fa-info-circle float" aria-hidden="true" title="Price per kilowatt hour: A kilowatt hour is equal to 1 kilowatt (1kW) of power used for 1 hour (1h) of time."></i>-->
+                              </h5>
+                            </a>
+                          </div>
+
+                          <div class="checkbox">
+                            <label class="checkbox-font">
+                              <input type="checkbox" formControlName="months1" [(ngModel)]=months1 value="months1" (change)="checked1($event,i)">36 Months
+                            </label>
+
+                          </div>
+                          <!-- end ngRepeat: term in filters.terms -->
+                          <div class="checkbox">
+                            <label class="checkbox-font">
+                              <input type="checkbox" formControlName="months2" [(ngModel)]=months2 value="months2" (change)="checked2($event,i)">24 Months
+                            </label>
+
+                          </div>
+                          <div class="checkbox">
+                            <label class="checkbox-font">
+                              <input type="checkbox" formControlName="months3" [(ngModel)]=months3 value="months3" (change)="checked3($event,i)">18 Months
+                            </label>
+
+                          </div>
+                          <!-- end ngRepeat: term in filters.terms -->
+                          <div class="checkbox">
+                            <label class="checkbox-font">
+                              <input type="checkbox" formControlName="months4" [(ngModel)]=months4 value="months4" (change)="checked4($event,i)">14 Months
+                            </label>
+
+                          </div>
+
+                          <div class="checkbox">
+                            <label class="checkbox-font">
+                              <input type="checkbox" formControlName="months5" [(ngModel)]=months5 value="months5" (change)="checked5($event,i)">12 Months
+                            </label>
+
+                          </div>
+                          <!-- end ngRepeat: term in filters.terms -->
+                          <div class="checkbox">
+                            <label class="checkbox-font">
+                              <input type="checkbox" formControlName="months6" [(ngModel)]=months6 value="months6" (change)="checked6($event,i)">6 Months
+                            </label>
+
+                          </div>
+                          <!-- end ngRepeat: term in filters.terms -->
+                          <div class="checkbox" style="margin-bottom: 20px !important;">
+                            <label class="checkbox-font">
+                              <input type="checkbox" formControlName="months7" [(ngModel)]=months7 value="months7" (change)="checked7($event,i)">5 Months
+                            </label>
+
+
+                          </div>
+
+                          <!--<hr style="background: #000000">-->
+                        <!--</li>-->
+
+                      </div>
+                      <div class="">
+                        <button mat-button matStepperPrevious class="btn btn-fill">
+                          <i class="fa fa-angle-left" style="font-size: 26px; margin: -9px 3px 0px 0px;"></i>
+                          Back
+                        </button>
+                        <button type="submit" mat-button matStepperNext class="btn btn-fill" (click)="submit()">View Results</button>
+                      </div>
+                    </div>
+
+                    <div class="col-sm-6 col-right">
+                      <div  class="">
+                        <h3  class="f-sackers-heavy color-red"><span >DID YOU KNOW?</span></h3>
+                        <ul  class="info-list">
+                          <li >If you choose a plan with a long contract period, you may be subject to an early cancellation fee if you decide to change plans prior to the expiration of the contract period.</li>
+                          <li >Plans that are shorter give you more flexibility to switch, but they only lock in your set rate for a short amount of time.</li>
+                          <li >Month-to-Month plans are usually Variable or Indexed offers.</li>
+                        </ul>
+                      </div>
+                    </div>
+
+
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </mat-step>
+
+        </mat-horizontal-stepper>
+
+
+      </form>
+
+      </div>
+    </div>

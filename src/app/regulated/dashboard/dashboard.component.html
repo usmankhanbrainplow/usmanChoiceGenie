@@ -1,0 +1,617 @@
+<div class="products-area" *ngIf="prod_loaded">
+
+
+    <div class="row">
+        <div class="search-bar1 col-lg-12 sh-signup-form-fix">
+
+            <div class="col-lg-3 col-xs-12">
+                <!--<label class="date-lable">Effective from date</label>-->
+
+              <mat-form-field class="margin-t-15">
+                <input matInput [matDatepicker]="startPicker" [(ngModel)]="Inactivedate" placeholder="Effective from date"/>
+                <mat-datepicker-toggle matSuffix [for]="startPicker"></mat-datepicker-toggle> <mat-datepicker #startPicker></mat-datepicker>
+              </mat-form-field>
+              <!-- <input type="date" placeholder="Inactive Date" required name="Inactivedate" [(ngModel)]="Inactivedate" style="    padding: 2px 0px; font-size: 16px;    font-weight: bold;"> -->
+
+            </div>
+
+              <div class="col-lg-3 col-xs-12">
+                  <!--<label class="date-lable">Effective to date</label>-->
+                <mat-form-field class="margin-t-15">
+                  <input matInput [matDatepicker]="startPicker1" [(ngModel)]="publishdate" placeholder="Effective to date"/>
+                  <mat-datepicker-toggle matSuffix [for]="startPicker1"></mat-datepicker-toggle><mat-datepicker #startPicker1></mat-datepicker>
+                </mat-form-field>
+
+                <!-- <input type="date" placeholder="Publish Date" required name="publishdate" [(ngModel)]="publishdate" style="    padding: 2px 0px; font-size: 16px; font-weight: bold;"> -->
+
+              </div>
+
+                <div class="col-lg-3 cus-font col-xs-12">
+                  <mat-form-field class="margin-t-15">
+                      <!--<label class="date-lable">Service Area Name</label>-->
+                    <mat-select class="search-select" placeholder="Service Area Name" required [(ngModel)]="name" name="name">
+                      <mat-option value="AEP TEXAS NORTH DIVISION" style="font-size: 20px">AEP TEXAS NORTH DIVISION</mat-option>
+                      <mat-option value="CENTERPOINT ENERGY HOUSTON ELECTRIC LLC" style="font-size: 20px">CENTERPOINT ENERGY HOUSTON ELECTRIC LLC</mat-option>
+                      <mat-option value="TEXAS-NEW MEXICO POWER COMPANY" style="font-size: 20px">TEXAS-NEW MEXICO POWER COMPANY</mat-option>
+                      <mat-option value="AEP TEXAS CENTRAL" style="font-size: 20px">AEP TEXAS CENTRAL</mat-option>
+                      <mat-option value="ONCOR ELECTRIC DELIVERY COMPANY" style="font-size: 20px">ONCOR ELECTRIC DELIVERY COMPANY</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+
+
+                <button class="col-lg-3 col-xs-12 search-btn btn-fill" (click)="search(1)">Search</button>
+        </div>
+        <div class="found-div" style="    margin-bottom: 9px; width: 100%;">
+          We found <strong style="display: inline-block">{{noresult}}</strong> residential plans
+          <!-- “<strong style="display: inline-block">{{zipdet}}</strong>” -->
+
+
+
+        </div>
+        <ng-template #no_data_temp2>
+
+            <!-- <img src="../../assets/img/no_Record.png" style="width: 250px;height:200px" > -->
+            <h1 class="result-not-found">
+
+              <b>No Record Found</b>
+            </h1>
+          </ng-template>
+        <div *ngIf="noresult != '0';else no_data_temp2">
+        <div class="card" *ngFor="let data of allItems; let i = index">
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="card-header card-header-text padding-btm" data-background-color="rose">
+                <h4 class="card-title" style="padding: 0px;">{{data.title}} </h4>
+              </div>
+              <div class="card-content">
+                <div class="col-md-3  col-sm-3 col-xs-12 plan-detail text-center display">
+                  <a href="{{data.profileurl}}" target="_blank" class="margin-top">
+
+                    <img src="{{data.profile_logo}}" alt="{{data.title}}" />
+                  </a>
+                  <div class="modal fade" id="myModal3" role="dialog">
+                    <div class="modal-dialog">
+                      <div class="modal-content popupmodel">
+
+                        <div class="modal-body" style="font-size: 18px;
+                                                  background: #ffffff;
+                                                  padding: 20px;
+                                                  margin: 15px;
+                                                  position: relative;">
+                          <div class="popup-close-button" data-dismiss="modal">X</div>
+                          <div class="row">
+                            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 " style="border-bottom: 1px #4f4f4f solid;">
+                              <p class=" modal-v2__main-heading"> {{data.title}}</p>
+
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3" style="border-bottom: 1px #4f4f4f solid;">
+                              <div class="popup-image">
+                                <a href="{{data.profileurl}}" target="_blank" class="display-b margin-top">
+                                  <img src="{{data.profile_logo}}" />
+                                </a>
+                              </div>
+                            </div>
+                            <div style="width: 100%">
+                                <!-- <mat-form-field>
+                                    <input matInput [matDatepicker]="startPicker" [(ngModel)]="date" placeholder="Choose a start date"/>
+                                    <mat-datepicker-toggle matSuffix [for]="startPicker"></mat-datepicker-toggle>               <mat-datepicker #startPicker></mat-datepicker>
+                                  </mat-form-field> -->
+
+                                   <md-input-container class="block" hidden=true>
+                                          <input mdInput placeholder="Title" [ngModel]="date | date:'yyyy-MM-dd'" >
+                                      </md-input-container>
+
+                                      <md-input-container class="block" hidden=true>
+                                          <input mdInput placeholder="Title" [ngModel]="nowdate | date:'yyyy-MM-dd'" >
+                                      </md-input-container>
+                                                        <!-- <mat-form-field>
+                                                          <input matInput [matDatepicker]="picker" placeholder="Choose a date" [(ngModel)]="date">
+                                                          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                                          <mat-datepicker #picker></mat-datepicker>
+                                                        </mat-form-field> -->
+                              <div class="col-lg-6 date-box">
+                                <label>Effective From Date</label>
+                                <input type="date" required name="nowdate" [(ngModel)]="nowdate" style="    padding: 10px 0px; font-size: 20px;">
+                              </div>
+                              <div class="col-lg-6 date-box">
+                                <label>Effective To Date</label>
+                                <input type="date" required name="date" [(ngModel)]="date" style="    padding: 10px 0px; font-size: 20px;">
+                              </div>
+
+                            </div>
+                            <!--<p style="margin: 12px auto -12px;">Do you want to Inactive this Product till this date?</p>-->
+
+                          </div>
+                        </div>
+                        <div class="modal-footer">
+                          <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+
+                              <!-- <input matInput placeholder="date" [value]="today | date: 'yyyy-MM-dd'" #mydate name="mydate"> -->
+
+                            <input matInput placeholder="Title" readonly name="title" value="{{title}}" [hidden]="true" required #updatedtitle/>
+
+                            <input matInput placeholder="Profile url" readonly name="profileurl" value="{{profileurl}}" [hidden]="true" #updatedprofileurl/>
+
+
+                            <input matInput placeholder="Status" readonly name="active" [value]="status" [hidden]="true" #upactive/>
+
+
+                            <input matInput placeholder="Profile Logo" readonly name="profile_logo" [hidden]="true" value="{{profile_logo}}" #updatedprofile_logo
+                            />
+
+
+                            <input matInput placeholder="Rating_logo" [hidden]="true" readonly name="rating_logo" value="{{rating_logo}}" #updatedrating_logo
+                            />
+
+
+                            <input matInput placeholder="Plan_Information" name="plan_information" [hidden]="true" value="{{plan_information}}" #updatedplan_information
+                            />
+
+
+                            <input matInput placeholder="price 500 kwh" name="price_500_kwh" value="{{price_500_kwh}}" [hidden]="true" #updatedprice500kwh/>
+
+
+                            <input matInput placeholder="price 1000 kwh" name="price_1000_kwh" value="{{price_1000_kwh}}" [hidden]="true" #updatedprice1000kwh/>
+
+
+                            <input matInput placeholder="price 2000 kwh" name="price_2000_kwh" value="{{price_2000_kwh}}" [hidden]="true" #updatedprice2000kwh/>
+
+
+                            <input matInput placeholder="Cancelation Fee" readonly name="cancelation_fee" value="{{cancelation_fee}}"[hidden]="true" #updatedcancelation_fee/>
+
+                            <input matInput placeholder="Fact Sheet" readonly name="fact_sheet" value="{{fact_sheet}}" [hidden]="true" #updatedfact_sheet/>
+
+
+                            <input matInput placeholder="Term of Service" readonly name="terms_of_service" [hidden]="true" value="{{terms_of_service}}"
+                              #updatedterms_of_service />
+
+                            <input matInput placeholder="Phone No" name="phone" readonly [hidden]="true" value="{{phone}}" #updatedphone/>
+
+
+                            <input matInput placeholder="Sign Up" name="sign_up" readonly [hidden]="true" value="{{sign_up}}" #updatedsign_up />
+
+                            <div class=" text-center">
+                              <button type="submit" class="btn btn-fill" (click)="activeClick(nowdate,date,updatedtitle.value,updatedsign_up.value,updatedphone.value,updatedterms_of_service.value,updatedfact_sheet.value,updatedcancelation_fee.value,updatedprice500kwh.value,updatedprice1000kwh.value,updatedprice2000kwh.value,updatedplan_information.value,updatedrating_logo.value,updatedprofile_logo.value,updatedprofileurl.value,upactive.value)"
+                                data-dismiss="modal">Inactive</button>
+
+                              <button type="button" class="btn btn-fill" data-dismiss="modal">Cancel</button>
+
+                            </div>
+                          </form>
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-3 col-sm-5 col-xs-12 rate margin-up sh-pos-rel" style="text-align:center">
+                  <h3 style=" text-align: center">
+                    <b> Price Detail</b>
+                  </h3>
+
+                  <div class="sh-top-price">
+                    Price 500 kwh
+                    <span class="price-style-1"> {{data.price_500_kwh}}¢</span>
+
+                  </div>
+                  <div class="add-price grid-element">
+                    <div class="unit">Price 1000 kwh
+                      <span class="price-style"> {{data.price_1000_kwh}}¢ </span>
+                    </div>
+                    <div class="unit">Price 2000 kwh
+                      <span class="price-style"> {{data.price_2000_kwh}}¢ </span>
+                    </div>
+
+                  </div>
+                  <a style="margin-top: 10px;" class="sh-pos-abso">
+                    <label class="view-plan-details" (click)="btnshowClick(data.id,data.title,data.sign_up,data.phone,data.terms_of_service,data.fact_sheet,data.cancelation_fee,data.price_1000_kwh,data.price_500_kwh,data.price_2000_kwh,data.plan_information,data.rating_logo,data.profile_logo,data.profileurl)"
+                      data-toggle="modal" data-target="#myModal4">Plan Information</label>
+                  </a>
+
+
+
+                </div>
+
+                <div class="col-md-3 col-sm-6 col-xs-12 rate plan-detail margin-up sh-pos-rel" style="text-align:center">
+                  <h3 style=" text-align: center;">
+                    <b>Plan Details</b>
+                  </h3>
+                  <div style="text-align:center; padding-top:10px;">
+                    <p *ngFor="let item of data.plan_information" class="items-detail" style="line-height: 18px;">
+                    {{item}}
+                    </p>
+                  </div>
+                  <a (click)="submit(data.id,data.title)" style="color:white;text-align: center;" class="sh-pos-abso">
+                    <label class="view-plan-details" style="padding-bottom: 0px; margin-bottom: 0px;">Reviews</label>
+                  </a>
+                </div>
+          <div class="modal fade" id="myModal2" role="dialog">
+                  <div class="modal-dialog">
+                    <!-- Modal content-->
+                    <div class="modal-content popupmodel">
+                      <div class="modal-header">
+                      </div>
+                      <div class="modal-body" style="font-size: 18px;
+                                                background: #ffffff;
+                                                padding: 20px 20px 0px;
+                                                margin: 15px;
+                                                position: relative;">
+                        <div class="popup-close-button" data-dismiss="modal">X</div>
+                        <div class="row">
+                          <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 " style="border-bottom: 1px #4f4f4f solid;">
+                            <p class=" modal-v2__main-heading"> {{data.title}}</p>
+
+                          </div>
+                          <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3" style="border-bottom: 1px #4f4f4f solid;">
+                            <div class="popup-image">
+                              <a href="{{data.profileurl}}" target="_blank" class="display-b margin-top">
+                                <img src="{{data.profile_logo}}" />
+                              </a>
+                            </div>
+                          </div>
+                          <md-input-container class="block" hidden=true>
+                              <input mdInput placeholder="Title" [ngModel]="date | date:'yyyy-MM-dd'" >
+                          </md-input-container>
+      <input type="date" required name="date" [(ngModel)]="date" hidden="true">
+                          <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+                              <!-- <input matInput placeholder="date" hidden="true" [value]="today | date: 'yyyy-MM-dd'" #mydate name="mydate"> -->
+
+      <input matInput placeholder="date" hidden="true" [value]="today | date: 'yyyy-MM-dd'" #mydate name="mydate">
+
+                             <div class="col-md-6 col-sm-6">
+                              <div class="input-group">
+                                  <mat-form-field>
+                                  <input matInput placeholder="Title" readonly name="title" value="{{title}}" required #updatedtitle/>
+
+                                </mat-form-field>
+                              </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                              <div class="input-group" hidden=true>
+
+                                <mat-form-field>
+                                  <input matInput placeholder="Profile url" readonly name="profileurl" value="{{profileurl}}" #updatedprofileurl/>
+
+                                </mat-form-field>
+                              </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                              <div class="input-group" hidden=true>
+
+                                <mat-form-field>
+                                  <input matInput placeholder="Status" readonly name="active" value="{{active}}" #upactive/>
+
+                                </mat-form-field>
+                              </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                              <div class="input-group" hidden=true>
+
+                                <mat-form-field>
+                                  <input matInput placeholder="Profile Logo" readonly name="profile_logo" value="{{profile_logo}}" #updatedprofile_logo />
+
+                                </mat-form-field>
+                              </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                              <div class="input-group" hidden=true>
+                                <mat-form-field>
+                                  <input matInput placeholder="Rating_logo" readonly name="rating_logo" value="{{rating_logo}}" #updatedrating_logo />
+
+                                </mat-form-field>
+                              </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                              <div class="input-group">
+
+                                <mat-form-field>
+                                  <input matInput placeholder="Plan_Information" name="plan_information" value="{{plan_information}}" #updatedplan_information
+                                  />
+
+                                </mat-form-field>
+                              </div>
+                            </div>
+
+                            <div class="col-md-6 col-sm-6">
+                              <div class="input-group margin-zero1">
+
+                                <mat-form-field>
+                                  <input matInput placeholder="price 500 kwh" name="price_500_kwh" value="{{price_500_kwh}}" #updatedprice500kwh/>
+
+                                </mat-form-field>
+                              </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                              <div class="input-group margin-zero1">
+
+                                <mat-form-field>
+                                  <input matInput placeholder="price 1000 kwh" name="price_1000_kwh" value="{{price_1000_kwh}}" #updatedprice1000kwh/>
+
+                                </mat-form-field>
+                              </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                              <div class="input-group margin-zero1">
+                                <mat-form-field>
+                                  <input matInput placeholder="price 2000 kwh" name="price_2000_kwh" value="{{price_2000_kwh}}" #updatedprice2000kwh/>
+
+                                </mat-form-field>
+                              </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                              <div class="input-group margin-zero1" hidden=true>
+                                <mat-form-field>
+                                  <input matInput placeholder="Cancelation Fee" readonly name="cancelation_fee" value="{{cancelation_fee}}" #updatedcancelation_fee/>
+
+                                </mat-form-field>
+                              </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                              <div class="input-group margin-zero1" hidden=true>
+
+                                <mat-form-field>
+                                  <input matInput placeholder="Fact Sheet" readonly name="fact_sheet" value="{{fact_sheet}}" #updatedfact_sheet/>
+
+                                </mat-form-field>
+                              </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                              <div class="input-group margin-zero1" hidden=true>
+
+                                <mat-form-field>
+                                  <input matInput placeholder="Term of Service" readonly name="terms_of_service" value="{{terms_of_service}}" #updatedterms_of_service
+                                  />
+
+                                </mat-form-field>
+                              </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                              <div class="input-group margin-zero1" hidden=true>
+                                <mat-form-field>
+                                  <input matInput placeholder="Phone No" name="phone" readonly value="{{phone}}" #updatedphone/>
+
+                                </mat-form-field>
+                              </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                              <div class="input-group margin-zero1" hidden=true>
+
+                                <mat-form-field>
+                                  <input matInput placeholder="Sign Up" name="sign_up" readonly value="{{sign_up}}" #updatedsign_up />
+
+                                </mat-form-field>
+                              </div>
+                            </div>
+
+
+
+                            <div class="col-md-12 col-sm-12">
+
+                            <div class=" text-center" style="margin-top: -21px;">
+                              <button type="submit" class="btn btn-fill" (click)="editClick(mydate.value,date,updatedtitle.value,updatedsign_up.value,updatedphone.value,updatedterms_of_service.value,updatedfact_sheet.value,updatedcancelation_fee.value,updatedprice500kwh.value,updatedprice1000kwh.value,updatedprice2000kwh.value,updatedplan_information.value,updatedrating_logo.value,updatedprofile_logo.value,updatedprofileurl.value)"
+                                data-dismiss="modal">Update</button>
+
+                              <button type="button" class="btn btn-fill" data-dismiss="modal">Cancel</button>
+
+                            </div>
+                            </div>
+
+
+                          </form>
+                        </div>
+                      </div>
+                      <div style="display:inline-block; text-align:center;">
+                        <a href="{{data.sign_up}}" target="_blank">
+                          <button class="btn btn-fill">Order Online</button>
+                        </a>
+                        <div style="display:inline-block; padding:24px;">
+                          <span style="font-size:24px; font-weight:600px">OR
+                              <a href="tel:{{data.phone}}">
+                                  <!-- <input type="text" id="phone" value="{{data.phone}}"  name="phone"  > -->
+                                  {{data.phone}}</a>
+                            <!-- <b> {{data.phone}} </b> -->
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <br>
+                <div class="col-md-3 col-sm-3 col-xs-12 term text-center">
+
+                  <h3 class="text-center">
+                    <b> Call now</b>
+                  </h3>
+                  <h3 class="text-center font">
+                      <a href="tel:{{data.phone}}" style="display: block">
+                          <!-- <input type="text" id="phone" value="{{data.phone}}"  name="phone"  > -->
+                          {{data.phone}}</a></h3>
+                  <!-- (click)="openDialog(data.id)" -->
+                  <div class="text-center">
+                    <button class="btn btn-fill button-social">
+                      <a style="color:white;text-align: center;" href="{{data.profileurl}}" target="_blank">Signup </a>
+                      <i class="material-icons">bubble_chart</i>
+                    </button>
+
+                  </div>
+
+                  <div class="text-center">
+
+                    <button class="fa fa-edit edit-del-btn" type="submit" value="Edit" type="submit" (click)="btnEditClick(data.id,data.title,data.sign_up,data.phone,data.terms_of_service,data.fact_sheet,data.cancelation_fee,data.price_1000_kwh,data.price_500_kwh,data.price_2000_kwh,data.plan_information,data.rating_logo,data.profile_logo,data.profileurl,data.active)"
+                      data-toggle="modal" data-target="#myModal2" style="margin-right: 20px;"><span style="font-size: 19px;"> Edit </span>
+                    </button>
+
+                    <button class="edit-del-btn2"  type="submit" type="submit" (click)="btnactiveClick(data.id,data.title,data.sign_up,data.phone,data.terms_of_service,data.fact_sheet,data.cancelation_fee,data.price_1000_kwh,data.price_500_kwh,data.price_2000_kwh,data.plan_information,data.rating_logo,data.profile_logo,data.profileurl)"
+                      data-toggle="modal" data-target="#myModal3">
+                      <span style="font-size: 19px;"> Inactive </span>
+                      <i class="fa fa-times inactive"></i>
+                    </button>
+                  </div>
+
+                  <!-- <a href="Review/{{data.id}}" style="color:white;text-align: center;">
+                    <label class="view-plan-details" style="padding-bottom: 0px; margin-bottom: 0px;">Reviews</label>
+                  </a> -->
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div class="modal fade" id="myModal4" role="dialog">
+            <div class="modal-dialog">
+              <!-- Modal content-->
+              <div class="modal-content popupmodel">
+
+                <div class="modal-body" style="font-size: 18px;
+                                            background: #ffffff;
+                                            padding: 20px 20px 0px;
+                                            margin: 15px;
+                                            position: relative;">
+                  <div class="popup-close-button" data-dismiss="modal">X</div>
+                  <div class="row">
+                    <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 " style="border-bottom: 1px #4f4f4f solid;">
+                      <p class=" modal-v2__main-heading"> {{title}}</p>
+
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3" style="border-bottom: 1px #4f4f4f solid;">
+                      <div class="popup-image">
+                        <a href="{{profileurl}}" target="_blank" class="display-b margin-top">
+                          <img src="{{profile_logo}}" />
+                        </a>
+                      </div>
+                    </div>
+                    <div class="col-lg-6 col-md-5 col-sm-5 col-xs-5">
+                      <div class="plan-information__heading">Price Rate</div>
+                      <table>
+                        <tbody>
+                          <tr class="plan-information__row">
+                            
+                            <td class="plan-information__cell">Price 1000 kwh</td>
+                            <td class="plan-information__cell plan-information__cell--last ">{{price_1000_kwh}}¢</td>
+                          </tr>
+                          <tr class="plan-information__row">
+                            <td class="plan-information__cell">Price 500 kwh</td>
+                            <td class="plan-information__cell plan-information__cell--last ">{{price_500_kwh}}¢</td>
+                          </tr>
+                          <tr class="plan-information__row">
+                            <td class="plan-information__cell">Price 2000 kwh</td>
+                            <td class="plan-information__cell plan-information__cell--last ">{{price_2000_kwh}}¢</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      <table>
+                        <tbody>
+
+
+                          <tr class="plan-information__row plan-information__row--last">
+                            <td class="plan-information__cell">Documents</td>
+                            <td class="plan-information__cell plan-information__cell--last">
+                              <a style="color:rgba(0,0,0, 0.87)" href="{{fact_sheet}}" target="_blank">
+                                <i style="color:#25B7D3" class="material-icons">picture_as_pdf</i>
+                                <a>Fact Sheet</a>
+                                <br>
+                              </a>
+                              <a style="color:rgba(0,0,0, 0.87)" href="{{terms_of_service}}" target="_blank">
+                                <i style="color:#25B7D3" class="material-icons">picture_as_pdf</i>
+                                Terms of service
+                              </a>
+
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+
+                    </div>
+                    <div class="col-lg-6 col-md-7 col-sm-7 col-xs-7">
+                      <div class="plan-description">
+                        <div class="plan-description__heading">Plan Information</div>
+                        <div class="plan-description__content">
+                          <ul>
+                            <li *ngFor="let data of plan_information">{{data}}</li>
+                          </ul>
+                          </div>
+                      </div>
+                    </div>
+
+                    <div class="col-lg-12">
+                        <div class="plan-description">
+                            <div class="plan-description__heading"  *ngIf="cancelation_fee;else no_data_temp2">Cancellation Fee:  {{cancelation_fee.split(' ',3000)[6]}}</div>
+                            <div class="plan-description__content">
+
+                              <!-- <h4 *ngIf="cancelation_fee;else no_data_temp2">
+                                &nbsp;&nbsp;&nbsp;&nbsp; {{cancelation_fee.split(' ',3000)[6]}}
+                                </h4> -->
+                                <!-- &nbsp;&nbsp;&nbsp;&nbsp; {{cancelation_fee.split(' ',3000)[2]}} -->
+                              <!-- </h4> -->
+
+                              <ng-template #no_data_temp2>
+
+                                <h4>&nbsp;&nbsp;&nbsp;&nbsp; ---</h4>
+                              </ng-template>
+
+                            </div>
+                          </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div style="display:inline-block; text-align:center;">
+                  <a href="{{sign_up}}" target="_blank">
+                    <button class="btn btn-fill">Order Online</button>
+                  </a>
+                  <div style="display:inline-block; padding:24px;">
+                    <span style="font-size:24px; font-weight:600px; display: flex">OR CALL
+                      <b>  <a href="tel:{{phone}}" >
+                            <!-- <input type="text" id="phone" value="{{data.phone}}"  name="phone"  > -->
+                             {{phone}}</a></b>
+                      <!-- <b> {{phone}} </b> -->
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  <span>
+    <ng-template #no_data_templ>
+
+      <h1 style="height:1000px;width:1000px;padding:200px">
+      </h1>
+    </ng-template>
+  </span>
+
+
+  <div class="text-center">
+    <div class="products-area" *ngIf="prod_loaded">
+      <ng-container class="card" *ngFor="let data of sg['products']; let i = index">
+        <div *ngIf="i<1">
+          <div *ngFor="let item of pagedItems">{{item.name}}</div>
+
+          <!-- pager -->
+          <ul *ngIf="pager.pages && pager.pages.length" class="pagination">
+            <li [ngClass]="{hide:pager.currentPage === 1}">
+              <a (click)="setPage(1)" class="btn btn-fill">First</a>
+            </li>
+            <li [ngClass]="{hide:pager.currentPage === 1}">
+              <a (click)="setPage(data.title.trim(),pager.currentPage - 1)" class="btn btn-fill">Previous</a>
+            </li>
+            <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
+              <a (click)="setPage(data.title.trim(),page)" class="btn btn-fill">{{page}}</a>
+            </li>
+            <li [ngClass]="{hide:pager.currentPage === pager.totalPages}">
+              <a (click)="setPage(data.title.trim(),pager.currentPage + 1)" class="btn btn-fill" type="Next">Next</a>
+            </li>
+            <li [ngClass]="{hide:pager.currentPage === pager.totalPages}">
+              <a (click)="setPage(data.title.trim(),pager.totalPages)" class="btn btn-fill" type="Last">Last</a>
+            </li>
+          </ul>
+        </div>
+      </ng-container>
+    </div>
+  </div>

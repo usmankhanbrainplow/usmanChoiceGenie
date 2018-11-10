@@ -1,0 +1,236 @@
+
+
+<div class="container-fluid pose-rlt  affix-top" data-spy="affix" data-offset-top="197" data-offset-bottom="350">
+
+  <ng-container>
+      <mat-sidenav-container class="example-container ">
+          <!-- <mat-sidenav #sidenav mode="side" opened class="example-sidenav affix-top" data-spy="affix" data-offset-top="197" data-offset-bottom="350"
+                       [fixedInViewport]="options.value.fixed" [fixedTopGap]="options.value.top"
+                       [fixedBottomGap]="options.value.bottom">
+
+
+              <div class="sidebar-holder" [ngClass]="{'active': isClassVisible }">
+                  <div class="sidebar-admin">
+                      <div class="user-sidebar">
+                          <a class="list-group-item active">
+                              <img src="../../assets/img/logo.png" alt="RFPGurus">
+                          </a>
+                          <ul>
+                              <li><a routerLink="/profile" routerLinkActive="active-route">
+                                  <i class="fa fa-th-large fa-laptop"></i>Edit Profile</a>
+                              </li>
+
+                              <li><a routerLink="/change-password" routerLinkActive="active-route" >
+                                  <i class="fa fa-clone"></i>Change Password</a>
+                              </li>
+
+                              <li><a routerLink="/purchase-history" routerLinkActive="active-route">
+                                  <i class="fa fa-file"></i>Subscription</a>
+                              </li>
+
+                              <li><a (click)="logout()">
+                                  <i class="fa fa-book"></i>Sign out</a>
+                              </li>
+
+                          </ul>
+
+                      </div>
+                  </div>
+              </div>
+
+          </mat-sidenav> -->
+
+          <mat-sidenav-content [formGroup]="options" class="main-bg">
+              <!-- <div><p id="click_advance" class="dp-inline "><button class="cstm-toggle-button btn btn-rose"  (click)="sidenav.toggle()"><i class="fa fa-arrow-left arw-toggle " aria-hidden="true"></i>
+              </button></p>
+              </div> -->
+
+              <div class="row margin-0">
+                  <div class="col-lg-10 col-md-12 col-xs-12 center-admin-form" id="display_advance" style="min-height: 500px;">
+                    <div class="history-header text-center">
+                        <h2>Subscription History</h2>
+                        <!-- {{record.activeplan }} -->
+                    </div>
+                      <div  *ngIf ="!pkgsub"  class=" history-heading">
+                          
+                          <table class="table table-striped history-table purchase-table">
+                                            <thead *ngIf="!nofound" class="">
+                                              <tr>
+                                                  <th> Subscription Name</th>
+                                                  <th>Price</th>
+                                                  <th>Start Date</th>
+                                                  <th>Expiry Date</th>
+                                                  <th>Status</th>
+                                              </tr>
+                                              </thead>
+                                              <tbody>
+                                                <tr *ngIf="!nofound">
+                                                  <!-- <td > {{record.package_type }}</td> -->
+                                                  <td *ngIf="record.package_type == 'monthly'">Monthly PLAN</td>
+                                                  <td *ngIf="record.package_type== 'Yearly'"> Yearly PLAN</td>
+                                                  <td *ngIf="record.package_type == 'free'"> Free PLAN</td>
+                                                  <td><span>$</span>{{record.pkg_price}} </td>
+                                                  <td>{{record.log_pay_date }}</td>
+                                                  <td>{{record.log_end_date }}</td>
+                                                  <td *ngIf="record.is_subscribe == true"><button style="cursor:text" class="btn btn-fill" title="Active">Active </button></td>
+                                                  <td *ngIf="record.is_subscribe == false" ><button (click)=" prv_stepdetail( pkgList.pkg_type,pkgList.duration)" title="Subscribe Package" class="btn btn-fill">Subscribe Now <i class="fa fa-thumbtack"></i></button></td>
+                                              </tr>
+                                              <tr *ngIf="nofound">
+                                                  <td  colspan="4"> <h3><span class="no-pkg">Plans</span> you subscribe appear here.</h3></td>
+                                              </tr>
+                                              </tbody>
+                                          </table>
+
+
+                      </div>
+                      <!--2nd step-->
+                      <!-- <div  *ngIf ="pkgsub" data-wow-delay=".5s">
+                          <div class="row">
+                              <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 container">
+
+                                  <div class="dropdown mydropdown">
+
+                                      <select (change)="next_stepdetail($event)" class="btn btn-success record-btn-mail dropdown-toggle text-left"
+                                              data-toggle="dropdown" placeholder="Select Package">
+                                          <option value="" disabled selected>Select Package</option>
+                                          <option value="BM">Basic - Monthly</option>
+                                          <option value="PY">Professional - Yearly</option>
+                                      </select>
+
+                                  </div>
+                                  <div class="clearfix"></div>
+
+                                  <div  class="package-detail">
+                                      <h2>PACKAGE DETAILS</h2>
+                                      <table class="table projects table-bordered table-responsive">
+                                          <tbody>
+                                          <tr>
+                                              <td>Package Type</td>
+
+                                              <td>{{pkg_detail['type']}}</td>
+                                          </tr>
+                                          <tr>
+                                              <td>Duration</td>
+                                              <td>{{pkg_detail['dur']}}</td>
+                                          </tr>
+                                   
+
+                                          </tbody>
+                                      </table>
+                                  </div>
+
+                              </div>
+                              <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
+                                  <div class="checkout">
+                                      <div [className]="flipclass">
+                                          <div class="flip">
+                                              <div class="front">
+                                                  <div class="chip"></div>
+                                                  <div class="logo">
+                                                      <svg version="1.1" id="visa" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                                           width="47.834px" height="47.834px" viewBox="0 0 47.834 47.834" style="enable-background:new 0 0 47.834 47.834;">
+                                                          <g>
+                                                              <g>
+                                                              </g>
+                                                          </g>
+                                                      </svg>
+                                                  </div>
+                                                  <div class="number"> {{cardnumber1}} {{cardnumber2}} {{cardnumber3}} {{cardnumber4}}</div>
+                                                  <div class="card-holder">
+                                                      <label>Card holder</label>
+                                                      <div>{{cardholdername}}</div>
+                                                  </div>
+                                                  <div class="card-expiration-date">
+                                                      <label>Expires</label>
+                                                      <div>{{expmonth}}/{{expyear}}</div>
+                                                  </div>
+                                              </div>
+                                              <div class="back">
+                                                  <div class="strip"></div>
+                                                  <div class="logo">
+                                                      <svg version="1.1" id="visa" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                                           width="47.834px" height="47.834px" viewBox="0 0 47.834 47.834" style="enable-background:new 0 0 47.834 47.834;">
+                                                          <g>
+                                                              <g>
+
+                                                              </g>
+                                                          </g>
+                                                      </svg>
+
+                                                  </div>
+                                                  <div class="ccv">
+                                                      <label>CCV</label>
+                                                      <div>{{ccv}}</div>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                      </div>
+                                      <form class="form" autocomplete="off" novalidate>
+                                          <fieldset>
+                                              <label for="card-number" style="font-size:20px;">Card Number</label>
+                                              <input type="num" id="card-number" class="input-cart-number" name="cardnumber1" [(ngModel)]="cardnumber1" [textMask]="{mask: mask}"
+                                              />
+                                              <input type="num" id="card-number-1" class="input-cart-number" name="cardnumber2" [(ngModel)]="cardnumber2" [textMask]="{mask: mask}"
+                                              />
+                                              <input type="num" id="card-number-2" class="input-cart-number" name="cardnumber3" [(ngModel)]="cardnumber3" [textMask]="{mask: mask}"
+                                              />
+                                              <input type="num" id="card-number-3" class="input-cart-number" name="cardnumber4" [(ngModel)]="cardnumber4" [textMask]="{mask: mask}"
+                                              />
+                                          </fieldset>
+                                          <fieldset>
+                                              <label for="card-holder" style="font-size:20px;">Card holder</label>
+                                              <input type="text" name="cardholdername" [(ngModel)]="cardholdername" id="card-holder" />
+                                          </fieldset>
+                                          <fieldset class="fieldset-expiration">
+                                              <label for="card-expiration-month" style="font-size:20px;">Expiration date</label>
+                                              <div class="select text-center">
+                                                  <select id="card-expiration-month" name="expmonth" [(ngModel)]="expmonth">
+                                                      <option value="" disabled selected>Month</option>
+                                                      <option>01</option>
+                                                      <option>02</option>
+                                                      <option>03</option>
+                                                      <option>04</option>
+                                                      <option>05</option>
+                                                      <option>06</option>
+                                                      <option>07</option>
+                                                      <option>08</option>
+                                                      <option>09</option>
+                                                      <option>10</option>
+                                                      <option>11</option>
+                                                      <option>12</option>
+                                                  </select>
+                                              </div>
+                                              <div class="select text-center">
+                                                  <select id="card-expiration-year" name="expyear" [(ngModel)]="expyear">
+                                                      <option value="" disabled selected>Year</option>
+                                                      <option>2016</option>
+                                                      <option>2017</option>
+                                                      <option>2018</option>
+                                                      <option>2019</option>
+                                                      <option>2020</option>
+                                                      <option>2021</option>
+                                                      <option>2022</option>
+                                                      <option>2023</option>
+                                                      <option>2024</option>
+                                                      <option>2025</option>
+                                                  </select>
+                                              </div>
+                                          </fieldset>
+                                          <fieldset class="fieldset-ccv">
+                                              <label for="card-ccv" style="font-size:20px;">CCV</label>
+                                              <input type="text" id="card-ccv" maxlength="3" name="ccv" (focusout)="flipagain()" (focus)="flip()" [(ngModel)]="ccv" />
+                                          </fieldset>
+                                          <button class="btn" (click)="proceed()" title="Submit">
+                                              <i class="fa fa-lock"></i> Submit</button>
+                                      </form>
+                                  </div>
+                              </div>
+                          </div>
+                      </div> -->
+                  </div>
+              </div>
+              <div class="clearfix"></div>
+          </mat-sidenav-content>
+      </mat-sidenav-container>
+  </ng-container>
+</div>

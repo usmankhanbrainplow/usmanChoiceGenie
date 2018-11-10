@@ -1,0 +1,153 @@
+<div>
+  <div style="padding: 25px 0px">
+
+
+      <!-- <div  class="page-title">
+
+          <h3 _ngcontent-c0="" class="text-center choiecegenie-offers wow fadeInLeft">Tell Us About Yourself</h3>
+
+        </div> -->
+
+
+    <!-- <div class="vander-signup-heading" data-notify="container">
+      <span data-notify="message">Any Enrollment Request including move-in or a switch can only be made by service applicant or the applicant's authorized
+      agent.
+      <br> If you are not an authorized individual, please do not submit your request using this portal.
+    </span>
+    </div> -->
+
+<div class="card-content card-content-fixed card-content-dash" style="margin-top: 20px; padding-top: 4px;">
+  <form [formGroup]="signupForm" *ngIf="signupForm">
+
+
+
+
+    <div class="card-content">
+      <!-- <h4 class="card-title card-title-fixed">Registration Form </h4> -->
+      <ng-template matStepLabel>About</ng-template>
+
+      <input matInput placeholder="id"  value = "{{data.id}}"  #updateid hidden="true" required >
+      <h1 class="signup-heading">Edit Profile</h1>
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group">
+            <mat-form-field>
+              <input matInput placeholder="Name"  value = "{{data.Name}}" #updatename required >
+            </mat-form-field>
+          </div>
+        </div>
+        <br class="clearfix" />
+        <div class="col-sm-6">
+          <div class="form-group">
+            <mat-form-field>
+              <input matInput placeholder="Contact #" value = "{{data.phone_no}}" #updatecontact required>
+
+            </mat-form-field>
+          </div>
+        </div>
+
+
+
+
+        <br class="clearfix" />
+        <div class="col-sm-6">
+          <div class="form-group margin-up">
+            <mat-form-field>
+              <input matInput placeholder="Service Address" value = "{{data.service_address}}" #updateserviceaddress required  >
+
+            </mat-form-field>
+          </div>
+        </div>
+
+        <!-- <input matInput placeholder="status" [formControl]="signupForm.controls['status']" required [value]="status" [(ngModel)]="model.status" hidden="true"> -->
+        <br class="clearfix" />
+        <div class="col-sm-6">
+          <div class="form-group margin-up">
+            <mat-form-field>
+              <input matInput placeholder="Service State "  value = "{{data.service_state}}" #updateservicestate  required>
+              <!-- <mat-error *ngIf="secondFormGroup.controls.Country.dirty && !secondFormGroup.controls.Country.value"> Special characters not allowed</mat-error> -->
+            </mat-form-field>
+
+          </div>
+        </div>
+        <br class="clearfix" />
+        <div class="col-sm-6">
+          <div class="form-group margin-up">
+            <mat-form-field>
+              <input matInput placeholder="Service city " value = "{{data.service_city}}" #updateservicecity  required  >
+              <!-- <mat-error *ngIf="secondFormGroup.controls.Country.dirty && !secondFormGroup.controls.Country.value"> Special characters not allowed</mat-error> -->
+            </mat-form-field>
+
+          </div>
+        </div>
+        <br class="clearfix" />
+        <div class="col-sm-6">
+          <div class="form-group margin-up">
+            <mat-form-field>
+              <input matInput placeholder="Service Zip " value = "{{data.service_zip}}" #updateservicezipcode    required  >
+              <!-- <mat-error *ngIf="secondFormGroup.controls.Country.dirty && !secondFormGroup.controls.Country.value"> Special characters not allowed</mat-error> -->
+            </mat-form-field>
+
+          </div>
+        </div>
+        <!-- <br class="clearfix" />
+        <div class="col-sm-6">
+          <div class="form-group">
+            <mat-form-field>
+              <input matInput placeholder="Billing Address "  value = "{{data.billing_address}}" #updatebillingaddress  required>
+               </mat-form-field>
+
+          </div>
+        </div> -->
+        <!-- <br class="clearfix" />
+        <div class="col-sm-6">
+          <div class="form-group">
+            <mat-form-field>
+              <input matInput placeholder="Billing city " value = "{{data.billing_city}}" #updatebillingcity  required>
+               </mat-form-field>
+
+          </div>
+        </div> -->
+        <!-- <br class="clearfix" />
+        <div class="col-sm-6">
+          <div class="form-group">
+            <mat-form-field>
+              <input matInput placeholder="Billing state" value = "{{data.billing_state}}" #updatebillingstate   required>
+               </mat-form-field>
+
+          </div>
+        </div> -->
+        <!-- <br class="clearfix" />
+        <div class="col-sm-6">
+          <div class="form-group">
+            <mat-form-field>
+              <input matInput placeholder="Billing Zip" value = "{{data.billing_zip}}" #updatebillingZipcode required>
+              </mat-form-field>
+
+          </div>
+        </div> -->
+        <input matInput placeholder="code authentication" value = "{{data.authentication_code}}" hidden ="true" #updateauthenticationcode required>
+        <input matInput placeholder="Billing Zip" value = "{{data.AcountActive}}" hidden="true" #updateacountactive required>
+        <input matInput placeholder="Billing Zip" value = "{{data.user}}" hidden="true" #updateuserid required>
+
+
+      </div>
+
+
+
+      <div class="form-footer text-right">
+<!-- //data.billing_address,data.billing_city,data.billing_state,data.billing_zip -->
+        <div class="" style="text-align: center;">
+          <button class="btn btn-fill update-button" type="submit" (click)="btnEditClick(data.id,data.name,data.phone_no,data.service_address,data.service_state,data.service_city,data.service_zip,data.authentication_code,data.AcountActive,data.user);
+          editClick(updateid.value,updatename.value,updatecontact.value,updateserviceaddress.value,updateservicestate.value,updateservicecity.value,updateservicezipcode.value,
+          updateauthenticationcode.value,updateacountactive.value,updateuserid.value)"
+            >Update Now </button>
+        </div>
+      </div>
+    </div>
+  </form>
+
+</div>
+
+</div>
+</div>

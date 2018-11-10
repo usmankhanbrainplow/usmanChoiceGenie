@@ -1,0 +1,75 @@
+<div class="login-form-1-img">
+  <div class="container">
+    <div class="login-form-1-center">
+      <!-- <form [formGroup]="login" class="login-form-1"> -->
+        <form (submit)="loginUser($event)" class="login-form-1">
+                  <div class="login-form-1-header">
+          <h3>Log In to Your Account</h3>
+          <!-- <ul class="logic-from-1-sl">
+            <li><a href=""><i class="fa fa-facebook"></i></a></li>
+            <li><a href=""><i class="fa fa-twitter"></i></a></li>
+            <li><a href=""><i class="fa fa-google-plus"></i></a></li>
+          </ul> -->
+        </div>
+        <div class="login-form-1-body">
+          <mat-form-field [ngClass]="displayFieldCss(login, 'username')">
+            <input matInput id="username" placeholder="Enter Username">
+          </mat-form-field>
+          <mat-form-field [ngClass]="displayFieldCss(login, 'password')">
+              <!-- <input matInput type="password" id="password" [type]="hide ? 'password' : 'text'"  placeholder="Enter Your Password" formControlName="password" [(ngModel)]="password"> -->
+
+            <input matInput type="password" id="password" [type]="hide ? 'password' : 'text'"  placeholder="Enter Your Password"  >
+            <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </mat-form-field>
+          <div class="float-left">
+              <label >
+                  <input type="checkbox" [(ngModel)]="staySignedIn" formControlName="staySignedIn" value="staySignedIn" (change)="checked($event,i)" checked="true">
+                  <!-- <input [(ngModel)]="staySignedIn" type="checkbox" checked="true" name="stay-signed" value="Stay Sign In"> -->
+                  <div class="float-r">Stay Signed In</div>
+                  <!-- <mat-checkbox checked="true">Stay Signed In</mat-checkbox> -->
+              </label>
+            </div>
+          <blackgeeks-recaptcha class="float-r margin-right-bottom" ></blackgeeks-recaptcha>
+          <!-- </div> -->
+          <div class="" *ngIf="isequal==false">
+            <p class="col-lg-12 errormessage" style="color: #c00">Invalid Answer</p>
+          </div>
+           <button class="btn btn-fill" type="submit" (click)="loginUser(e)" >Login</button>
+          <!-- <a  value="Delete" data-toggle="modal" data-target="#myModal3">Forgot Password?</a> -->
+          <!-- <div class="modal fade" id="myModal3" role="dialog">
+            <div class="modal-dialog">
+
+              <div class="modal-content" style="margin-top:25%; width:119%;">
+                <div class="modal-header">
+
+                </div>
+                <div class="modal-body" style="font-size: 18px;
+                text-align: center;">
+
+                <h3>Enter Your Email</h3>
+                <input type="text" placeholder="Enter Your Email" class="form-control" [(ngModel)]="Email" name="Email" style="font-size: 20px">
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-rose"  data-dismiss="modal" style="
+                color: white;
+
+                width: 20%;
+                height: 45px;
+                font-size: 18px;" (click)="forgetpass(Email)">Submit</button>
+                  <button type="button" class="btn btn-rose" data-dismiss="modal" style="
+                color: white;
+
+                width: 20%;
+                height: 45px;
+                font-size: 18px;">Cancel</button>
+                </div>
+              </div>
+            </div>
+          </div> -->
+          <!-- <div>Don't have an account?<a routerLink="/register"> Sign Up </a></div> -->
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+

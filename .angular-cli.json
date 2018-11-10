@@ -1,0 +1,108 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "project": {
+    "name": "PlugExp"
+  },
+  "apps": [
+    {
+      "root": "src",
+      "outDir": "dist/browser",
+      "assets": [
+        "assets",
+        "favicon.ico",
+        "sitemap.xml"
+            ],
+      "index": "index.html",
+      "main": "main.ts",
+      "polyfills": "polyfills.ts",
+      "test": "test.ts",
+      "tsconfig": "tsconfig.app.json",
+      "testTsconfig": "tsconfig.spec.json",
+      "prefix": "app",
+      "styles": [  
+        "styles.scss",
+        "../node_modules/bootstrap/dist/css/bootstrap.css",
+        "./assets/sass/material-dashboard.scss",
+        "../node_modules/slick-carousel/slick/slick.css",
+        "../node_modules/animate.css/animate.css"
+      ],
+      "scripts": [
+        "../node_modules/jquery/dist/jquery.js",
+        "../node_modules/slick-carousel/slick/slick.min.js",
+        "../node_modules/bootstrap/dist/js/bootstrap.js",
+        "../node_modules/bootstrap-material-design/dist/js/ripples.min.js",
+        "../node_modules/bootstrap-material-design/dist/js/material.min.js",
+        "../node_modules/arrive/src/arrive.js",
+        "../node_modules/moment/moment.js",
+        "../node_modules/chartist-plugin-zoom/dist/chartist-plugin-zoom.js",
+        "../node_modules/twitter-bootstrap-wizard/jquery.bootstrap.wizard.js",
+        "../node_modules/bootstrap-notify/bootstrap-notify.js",
+        "../node_modules/eonasdan-bootstrap-datetimepicker/src/js/bootstrap-datetimepicker.js",
+        "../node_modules/nouislider/distribute/nouislider.min.js",
+        "../node_modules/bootstrap-select/dist/js/bootstrap-select.js",
+        "../node_modules/datatables/media/js/jquery.dataTables.js",
+        "../node_modules/datatables.net-bs/js/dataTables.bootstrap.js",
+        "../node_modules/datatables.net-responsive/js/dataTables.responsive.js",
+        "../node_modules/fullcalendar/dist/fullcalendar.js",
+        "../node_modules/bootstrap-tagsinput/dist/bootstrap-tagsinput.js",
+        "../node_modules/jasny-bootstrap/dist/js/jasny-bootstrap.min.js",
+        "../node_modules/jvectormap/jquery-jvectormap.min.js",
+        "../node_modules/jvectormap/lib/jquery-mousewheel.js",
+        "../node_modules/jvectormap/tests/assets/jquery-jvectormap-map.js",
+        "../node_modules/jvectormap/tests/assets/jquery-jvectormap-world-mill-en.js",
+        "../node_modules/jquery-validation/dist/jquery.validate.min.js"
+      ],
+      "environmentSource": "environments/environment.ts",
+      "environments": {
+        "dev": "environments/environment.ts",
+        "prod": "environments/environment.prod.ts"
+      }
+    },
+    {
+      "platform": "server",
+      "root": "src",
+      "outDir": "dist/server",
+      "assets": [],
+      "index": "index.html",
+      "main": "main.server.ts",
+      "test": "test.ts",
+      "tsconfig": "tsconfig.server.json",
+      "testTsconfig": "tsconfig.spec.json",
+      "prefix": "app",
+      "scripts": [],
+      "environmentSource": "environments/environment.ts",
+      "environments": {
+        "dev": "environments/environment.ts",
+        "prod": "environments/environment.prod.ts"
+      }
+    }
+  ],
+  "e2e": {
+    "protractor": {
+      "config": "./protractor.conf.js"
+    }
+  },
+  "lint": [
+    {
+      "project": "src/tsconfig.app.json",
+      "exclude": "**/node_modules/**"
+    },
+    {
+      "project": "src/tsconfig.spec.json",
+      "exclude": "**/node_modules/**"
+    },
+    {
+      "project": "e2e/tsconfig.e2e.json",
+      "exclude": "**/node_modules/**"
+    }
+  ],
+  "test": {
+    "karma": {
+      "config": "./karma.conf.js"
+    }
+  },
+  "defaults": {
+    "styleExt": "scss",
+    "component": {}
+  }
+}

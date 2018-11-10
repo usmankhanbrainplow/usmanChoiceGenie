@@ -1,0 +1,314 @@
+<!-- <app-loader></app-loader> -->
+
+
+<section *ngIf="!pkgsub" class="section pricing2-section" style="padding: 0px;">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+                <h2>Our Unbeatable Pricing Model </h2>
+                <p class="pricing-p">Unbeatable Pricing. One-Package-Includes-All Features. Subscribe to our Yearly and Custom pricing packages. With a transparent pricing model, ChoiceGenie helps the consumer to purchase the desired energy plan with the best reviews at the lowest price possible. We propel our customers to the next level up in Energy Automation & Efficiency.</p>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 pricing-table2 featured " data-wow-delay="0.5s">
+                <div class="single-pricing-2">
+                    <span class="plan-name text-center">
+                        Monthly Plan
+                    </span>
+                    <p class="plan-price">
+                        <sup class="currency">$</sup>
+                        <strong>699.00</strong>
+                    </p>
+                    <ul class="list-pricing home-list-pricing">
+                        <li>
+                            <i class="fa fa-check"></i> Best Plan Matching Artificial Intelligence (AI)
+                        </li>
+                        <li>
+                            <i class="fa fa-check"></i> Upcoming Best Plan
+                        </li>
+                        <!-- <li>
+                            <i class="fa fa-check"></i> State &amp; Local Agency Bids
+                        </li> -->
+                        <!-- <li>
+                            <i class="fa fa-check"></i> Federal Agency Bids
+                        </li> -->
+                        <li>
+                            <i class="fa fa-check"></i> Daily Email  Alerts &amp; Notifications
+                        </li>
+                        <li>
+                            <i class="fa fa-check"></i> Search Engine
+                        </li>
+                        <li>
+                            <i class="fa fa-check"></i> Android Mobile App
+                        </li>
+                        <li>
+                            <i class="fa fa-check"></i> iOS Mobile App
+                        </li>
+                        <!-- <li>
+                            <i class="fa fa-check"></i> Electronic Bid Submission
+                        </li> -->
+                        <!-- <li> -->
+                            <!-- <i class="fa fa-check"></i> Winning Bidder Insight -->
+                        <!-- </li> -->
+                        <li>
+                            <i class="fa fa-check"></i> Technical Support Chat
+                        </li>
+                        <li>
+                            <i class="fa fa-check"></i> Choice Genie as a Service*
+                        </li>
+                    </ul>
+
+                    <div class="pricing2-button">
+                        <a  onclick="topFunction()" *ngIf="check_login(); else pkg1" routerLink='/usersignup' class="btn btn-fill" title="Subscribe Package">Register Now</a>
+                        <ng-template #pkg1>
+                            <a onclick="topFunction()" (click)=" firststep('BM')" class="btn btn-fill" title="Select Plan">Select Plan</a>
+                        </ng-template>
+
+                    </div>
+                </div>
+            </div>
+            <!---->
+            <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 pricing-table2 premium wow animated bounceInUp" data-wow-delay="0.6s">
+                <div class="single-pricing-2">
+                    <span class="plan-name text-center">
+                        Yearly Plan
+                    </span>
+                    <p class="plan-price">
+                        <sup class="currency">$</sup>
+                        <strong>64.00</strong>
+                    </p>
+                    <ul class="list-pricing home-list-pricing">
+                        <li>
+                            <i class="fa fa-check"></i> Best Plan Matching Artificial Intelligence (AI)
+                        </li>
+                        <li>
+                            <i class="fa fa-check"></i> Upcoming Best Plan
+                        </li>
+                        <!-- <li>
+                            <i class="fa fa-check"></i> State &amp; Local Agency Bids
+                        </li> -->
+                        <!-- <li>
+                            <i class="fa fa-check"></i> Federal Agency Bids
+                        </li> -->
+                        <li>
+                            <i class="fa fa-check"></i> Daily Email  Alerts &amp; Notifications
+                        </li>
+                        <li>
+                            <i class="fa fa-check"></i> Search Engine
+                        </li>
+                        <li>
+                            <i class="fa fa-check"></i> Android Mobile App
+                        </li>
+                        <li>
+                            <i class="fa fa-check"></i> iOS Mobile App
+                        </li>
+                        <!-- <li>
+                            <i class="fa fa-check"></i> Electronic Bid Submission
+                        </li> -->
+                        <!-- <li> -->
+                            <!-- <i class="fa fa-check"></i> Winning Bidder Insight -->
+                        <!-- </li> -->
+                        <li>
+                            <i class="fa fa-check"></i> Technical Support Chat
+                        </li>
+                        <li>
+                            <i class="fa fa-check"></i> Choice Genie as a Service*
+                        </li>
+                    </ul>
+
+                    <div class="pricing2-button">
+                        <a onclick="topFunction()" *ngIf="check_login(); else pkg4" routerLink='/usersignup' class="btn btn-fill" title="Subscribe Package">Register Now</a>
+                        <ng-template #pkg4>
+                            <a onclick="topFunction()" (click)="firststep('PY')" class="btn btn-fill" title="Select Plan">Select Plan</a>
+                        </ng-template>
+                    </div>
+                </div>
+            </div>
+            <!---->
+            <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 pricing-table2 premium wow animated bounceInRight" data-wow-delay="0.6s">
+                <div class="single-pricing-2 custom-package">
+                    <span class="plan-name text-center">
+                        Free Plan                    </span>
+                    <p class="plan-price custome-price" style="background-color: black !important;">
+                        <sup class="currency">Chocie Genie </sup>
+                        <strong>Offers</strong>
+                    </p>
+                    <ul class="list-unstyled">
+                        <!-- <li> -->
+                            <!-- <strong>Anio</strong> &amp; pricing</li> -->
+                           
+                            <li>
+                                <i class="fa fa-check"></i> Android Mobile App
+                            </li>
+                            <li>
+                                <i class="fa fa-check"></i> iOS Mobile App
+                            </li>
+                            <li>
+                                <i class="fa fa-check"></i> New Plans
+                            </li>
+                            
+                        <!-- <li> -->
+                            <!-- <strong>organization's </strong> specific</li> -->
+                        <!-- <li>requirements and needs</li> -->
+                    </ul>
+                    <div class="pricing2-button" *ngIf="hide != 'free'" >
+                        <a onclick="topFunction()" *ngIf="check_login();else pkg4" routerLink='/usersignup' class="btn btn-fill" title="Subscribe Package">Register Now</a>
+                        <ng-template #pkg4>
+                            <a onclick="topFunction()" (click)="Totalfreepackage();" class="btn btn-fill" title="Select Plan">Select Plan</a>
+                        </ng-template>
+                    </div>
+                   
+                    <!-- <div class="pricing2-button">
+                        <a class="btn btn-fill" routerLink="/contact-us">
+                            <i class="fa fa-phone" style="margin-right: 5px; top: 1px;"></i>Establish Contact</a>
+                    </div> -->
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!--3rd step-->
+<div *ngIf="pkgsub" data-wow-delay=".5s" >
+    <div class="row">
+        <!-- <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 container">
+
+            <div class="dropdown mydropdown">
+
+                <select (change)="next_stepdetail($event)" class="btn btn-success record-btn-mail dropdown-toggle text-left"
+                        data-toggle="dropdown" placeholder="Select Package">
+                    <option value="" disabled selected>Select Package</option>
+                    <option value="BM">Basic - Monthly</option>
+                    <option value="PY">Professional - Yearly</option>
+                </select>
+
+            </div>
+
+            <div class="clearfix"></div>
+
+            <div  class="package-detail">
+                <h2>PACKAGE DETAILS</h2>
+                <table class="table projects table-bordered table-responsive">
+                    <tbody>
+                    <tr>
+                        <td>Package Type</td>
+
+                        <td>{{pkg_detail['type']}}</td>
+                    </tr>
+
+                    <tr>
+                        <td>Duration</td>
+                        <td>{{pkg_detail['dur']}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div> -->
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="checkout">
+        <div [className]="flipclass">
+            <div class="flip">
+                <div class="front">
+                    <div class="chip"></div>
+                    <div class="logo">
+                        <svg version="1.1" id="visa" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                            width="47.834px" height="47.834px" viewBox="0 0 47.834 47.834" style="enable-background:new 0 0 47.834 47.834;">
+                            <g>
+                                <g>
+
+                                </g>
+                            </g>
+                        </svg>
+                    </div>
+                    <div class="number"> {{cardnumber1}} {{cardnumber2}} {{cardnumber3}} {{cardnumber4}}</div>
+                    <div class="card-holder">
+                        <label>Card holder</label>
+                        <div>{{cardholdername}}</div>
+                    </div>
+                    <div class="card-expiration-date">
+                        <label>Expires</label>
+                        <div>{{expmonth}}/{{expyear}}</div>
+                    </div>
+                </div>
+                <div class="back">
+                    <div class="strip"></div>
+                    <div class="logo">
+                        <svg version="1.1" id="visa" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                            width="47.834px" height="47.834px" viewBox="0 0 47.834 47.834" style="enable-background:new 0 0 47.834 47.834;">
+                            <g>
+                                <g>
+                                </g>
+                            </g>
+                        </svg>
+    
+                    </div>
+                    <div class="ccv">
+                        <label>CCV</label>
+                        <div>{{ccv}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <form class="form" autocomplete="off" novalidate>
+            <fieldset>
+                <label for="card-number" style="font-size:20px;">Card Number</label>
+                <input type="num" id="card-number" class="input-cart-number" name="cardnumber1" [(ngModel)]="cardnumber1" [textMask]="{mask: mask}"
+                />
+                <input type="num" id="card-number-1" class="input-cart-number" name="cardnumber2" [(ngModel)]="cardnumber2" [textMask]="{mask: mask}"
+                />
+                <input type="num" id="card-number-2" class="input-cart-number" name="cardnumber3" [(ngModel)]="cardnumber3" [textMask]="{mask: mask}"
+                />
+                <input type="num" id="card-number-3" class="input-cart-number" name="cardnumber4" [(ngModel)]="cardnumber4" [textMask]="{mask: mask}"
+                />
+            </fieldset>
+            <fieldset>
+                <label for="card-holder" style="font-size:20px;">Card holder</label>
+                <input type="text" name="cardholdername" [(ngModel)]="cardholdername" id="card-holder" style="    height: 19px;"/>
+            </fieldset>
+            <fieldset class="fieldset-expiration">
+                <label for="card-expiration-month" style="font-size:20px;">Expiration date</label>
+                <div class="select text-center">
+                    <select id="card-expiration-month" name="expmonth" [(ngModel)]="expmonth">
+                        <option value="" disabled selected>Month</option>
+                        <option>01</option>
+                        <option>02</option>
+                        <option>03</option>
+                        <option>04</option>
+                        <option>05</option>
+                        <option>06</option>
+                        <option>07</option>
+                        <option>08</option>
+                        <option>09</option>
+                        <option>10</option>
+                        <option>11</option>
+                        <option>12</option>
+                    </select>
+                </div>
+                <div class="select text-center">
+                    <select id="card-expiration-year" name="expyear" [(ngModel)]="expyear">
+                        <option value="" disabled selected>Year</option>
+                        <option>2016</option>
+                        <option>2017</option>
+                        <option>2018</option>
+                        <option>2019</option>
+                        <option>2020</option>
+                        <option>2021</option>
+                        <option>2022</option>
+                        <option>2023</option>
+                        <option>2024</option>
+                        <option>2025</option>
+                    </select>
+                </div>
+            </fieldset>
+            <fieldset class="fieldset-ccv">
+                <label for="card-ccv" style="font-size:20px;">CCV</label>
+                <input type="text" id="card-ccv" maxlength="3" name="ccv" (focusout)="flipagain()" (focus)="flip()" [(ngModel)]="ccv" style="height: 19px;"/>
+            </fieldset>
+            <button class="btn btn-fill" (click)="proceed()">
+                <i class="fa fa-lock"></i> submit</button>
+        </form>
+    </div>
+    </div>
+    </div>
+</div>

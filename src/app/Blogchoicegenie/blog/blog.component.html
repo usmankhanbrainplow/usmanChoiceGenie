@@ -1,0 +1,75 @@
+<!-- <div class="container" >
+<div class="blog-bar">
+  <div class="blog-inner">
+    <h1>BLOG</h1>
+    <div class="card" >
+      <a routerLink="/blog1" style="cursor: pointer" class="font-main font-weight-normal color-additional">
+        <img src="/assets/img/Texas-Electricity-Companies.jpg">
+      </a>
+      <div class="detail">
+        <h2>Become Energy Efficient with these 4 Smart Hacks</h2>
+        <p>Who couldn’t use a little extra cash?In this economy, people are seen saving a buck or two wherever possible.All those small savings add up over time and come handy when faced with a nasty electric bill! </p>
+        <a routerLink="/blog1">Read More</a>
+      </div>
+    </div>
+  </div>
+</div>
+</div> -->
+
+
+
+<!-- <section class="pw-solutions">
+  <div class="container-fluid">
+      <h3 class="text-center choiecegenie-offers wow fadeInLeft"> BLOG </h3>
+    <div class="row">
+    <ul class="card-box" *ngFor="let item of data;let i=index">
+      <li class="col-lg-3 col-md-3 col-sm-6 col-xs-6"  routerLink="/blog1/{{item.heading1}}">
+        <div class="holder icons wow  fadeInRight cg-offers">
+          <a routerLink="/blog1/{{item.heading1}}" style="cursor: pointer" class="font-main font-weight-normal color-additional">
+            <img src="{{item.Ch_image}}">
+          </a>
+          <div class="detail">
+            <h3>{{item.heading1}}</h3>
+            <div class="txt-holder">
+              <p>{{item.content1 | slice:0:100}}...</p>
+            </div>
+            <a target="" class="element element_2 read_more" routerLink="/blog1/{{item.heading1}}">
+            <button class="btn btn-rose" style="text-align:center">
+           Read more
+          </button>
+        </a>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+  </div>
+</section> -->
+
+
+<app-loader></app-loader>
+
+<div class="container-fluid padding-l-r-70">
+  <div  class="">
+
+    <h3  class="text-center blog-heading">
+      <span style="color: #333;border-bottom: 3px solid #c00;padding-bottom: 3px;">ChoiceGenie Blog</span>
+      <br> <span style="border-bottom: 3px solid #c00;padding-bottom: 3px;">Where You Save Money On Electricity Rates</span></h3>
+
+  </div>
+<div class="row">
+  <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12 margin-b mydiv" *ngFor="let data of data;let i=index">
+    <div class="layer-content">
+      <div>
+        <img src="https://storage.choicegenie.com/images/{{data.blog_image}}" onerror="this.src='../../assets/img/ChoiceGenie-logo2.png'"  alt="ChoiceGenie">
+      </div>
+      <div class="blog-layout-content">
+        <a (click)="fun(data.heading)"  target="_blank"  ><h2>{{data.heading}}</h2></a>
+        <div [innerHTML]="data.content1 | slice:0:130"></div>
+        <a (click)="fun(data.heading)"  target="_blank"  >
+        <button class="btn btn-fill margin-zero1" type="submit"  target="_blank" >Read more</button></a>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

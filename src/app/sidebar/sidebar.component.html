@@ -1,0 +1,204 @@
+<!--&lt;!&ndash;<div class="logo">&ndash;&gt;-->
+<!--&lt;!&ndash;<div class="logo-normal">&ndash;&gt;-->
+<!--&lt;!&ndash;<a class="logo" routerLink="/">&ndash;&gt;-->
+<!--&lt;!&ndash;<img src="../../assets/img/logofinal.gif" alt="ChoiceGenie" style=" position: relative"/>&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash; <img src="../../assets/img/Choice_logo.png" alt="PlugEXP" /> &ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;</a>&ndash;&gt;-->
+<!--&lt;!&ndash;</div>&ndash;&gt;-->
+
+<!--&lt;!&ndash;&lt;!&ndash; <div class="logo-img">&ndash;&gt;-->
+<!--&lt;!&ndash;<img src="../../assets/img/logofinal.gif"/>&ndash;&gt;-->
+<!--&lt;!&ndash;</div> &ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;</div>&ndash;&gt;-->
+
+
+<!--<div class="sidebar-wrapper">-->
+<!--<aside id="sidebar" class="column-left">-->
+
+<!--<header>-->
+<!--<a class="logo" routerLink="/">-->
+<!--<img src="../../assets/img/logofinal.gif" alt="ChoiceGenie" style=" position: relative"/>-->
+<!--&lt;!&ndash; <img src="../../assets/img/Choice_logo.png" alt="PlugEXP" /> &ndash;&gt;-->
+<!--</a>-->
+<!--</header>-->
+
+<!--<nav id="mainnav">-->
+
+<!--<ng-container class="card" *ngFor="let data of sg['products']; let i = index">-->
+<!--<div *ngIf="i<1" class="sidebar-profile-img">-->
+<!--<a href="/dashboard/{{data.title}}"><img src="{{data.profile_logo}}"  ></a>-->
+<!--</div>-->
+<!--</ng-container>-->
+
+<!--<ul>-->
+<!--<li class="forms-text">-->
+<!--<input type="text" [value]="username">-->
+
+<!--</li>-->
+<!--<li>-->
+<!--<a href="/new-product">Add New Product</a>-->
+<!--</li>-->
+<!--<li>-->
+<!--<a href="/ChangePassword" >Change Password</a>-->
+<!--</li>-->
+<!--</ul>-->
+<!--</nav>-->
+<!--</aside>-->
+<!--</div>-->
+
+<!--<div class="user">-->
+<!--&lt;!&ndash; <div class="photo">-->
+<!--<img src="../assets/img/faces/avatar.jpg" />-->
+<!--</div> &ndash;&gt;-->
+<!--<div class="info">-->
+<!--<a data-toggle="collapse" href="#collapseExample" class="collapsed" aria-expanded="false">-->
+<!--&lt;!&ndash; <span>-->
+<!--Vandor Profile-->
+<!--<b class="caret"></b>-->
+<!--</span> &ndash;&gt;-->
+<!--</a>-->
+
+<!--&lt;!&ndash; <div class="collapse" id="collapseExample">-->
+<!--<ul class="nav">-->
+<!--<li>-->
+<!--<a href="#">-->
+<!--<span class="sidebar-mini-icon">MP</span>-->
+<!--<span class="sidebar-normal">My Profile</span>-->
+<!--</a>-->
+<!--</li>-->
+<!--<li>-->
+<!--<a href="#">-->
+<!--<span class="sidebar-mini-icon">EP</span>-->
+<!--<span class="sidebar-normal">Edit Profile</span>-->
+<!--</a>-->
+<!--</li>-->
+<!--<li>-->
+<!--<a href="#">-->
+<!--<span class="sidebar-mini-icon">S</span>-->
+<!--<span class="sidebar-normal">  Settings</span>-->
+<!--</a>-->
+<!--</li>-->
+<!--</ul>-->
+<!--</div> &ndash;&gt;-->
+<!--&lt;!&ndash; <div class="products-area" *ngIf="prod_loaded;else no_data_templ"> &ndash;&gt;-->
+
+
+<!--<ul>-->
+
+<!--<li>-->
+<!--<ng-container class="card" *ngFor="let data of sg['products']; let i = index">-->
+<!--<div *ngIf="i<1" class="sidebar-profile-img">-->
+<!--<a href="/dashboard/{{data.title}}"><img src="{{data.profile_logo}}"  ></a>-->
+<!--</div>-->
+<!--</ng-container>-->
+
+<!--</li>-->
+<!--<li>-->
+<!--<input type="text" [value]="username" style="color:white;font-size:150%;text-align:center" >-->
+<!--</li>-->
+
+
+
+
+<!--<li>-->
+<!--<a href="/new-product">-->
+
+<!--<span class="sidebar-normal">Add New Product</span>-->
+<!--</a>-->
+<!--</li>-->
+<!--<li>-->
+<!--<a href="/ChangePassword" >Change Password</a>-->
+
+<!--</li>-->
+<!--</ul>-->
+
+
+<!--</div>-->
+
+<!--</div>-->
+
+
+<section id="body" class="width">
+  <aside id="sidebar sticky" class="column-left" style="padding:0px">
+    <div class="admin-heding text-center">
+      <!-- <h2>Vendor Panel</h2> -->
+    </div>
+
+    <!-- <header class="con-sidebar">
+      <ng-container class="card" *ngFor="let data of sg['products']; let i = index">
+        <div *ngIf="i<1" class="sidebar-profile-img">
+          <a (click)="moving()">
+
+            <img src="{{data.profile_logo}}" onerror="this.src='../../assets/img/ChoiceGenie-logo2.png'" >
+          </a>
+        </div>
+      </ng-container>
+    </header> -->
+    <div class="sidebar-input">
+     <input type="text" [value]="user" readonly>
+    </div>
+    <nav id="mainnav">
+      <ul class="super-sidebar-list">
+        <!-- <li>
+          <input type="text" [value]="user" readonly> 
+        </li> -->
+        <li>
+          <a (click)="moving()">
+            <i class="material-icons">
+              web
+            </i>
+            <span class="sidebar-normal">DashBoard</span>
+          </a>
+        </li>
+        <li>
+          <a (click)="profilelink()">
+            <i _ngcontent-c6="" class="material-icons dash-icons">
+              account_circle
+            </i>
+            <span class="sidebar-normal">My Profile</span>
+          </a>
+        </li>
+        <li>
+          <a  (click)="pro()">
+            <i class="material-icons">
+              exit_to_app
+            </i>
+            <span class="sidebar-normal">
+              Add New Product</span>
+          </a>
+        </li>
+        <li>
+
+          <a routerLink="/ChangePassword1">
+            <i _ngcontent-c6="" class="material-icons dash-icons">
+              edit
+            </i>
+            Change Password
+          </a>
+
+        </li>
+        <li>
+          <a (click)="move()">
+            <i class="material-icons">
+              pageview
+            </i>
+            Inactive Products
+          </a>
+
+        </li>
+        <li>
+          <a (click)="logout()">
+            <i _ngcontent-c6="" class="material-icons dash-icons">
+              arrow_back
+            </i>
+            Signout
+          </a>
+
+        </li>
+      </ul>
+    </nav>
+
+
+
+  </aside>
+</section>
