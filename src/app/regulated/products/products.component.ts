@@ -362,7 +362,7 @@ export class ProductsComponent implements OnInit, AfterViewInit, OnDestroy {
         console.log(this.servicearea);
         // alert(this.servicearea)
         console.log('id : ' + this.id, this.title);
-        return true;
+        //return true;
         }
         else {
             swal(
