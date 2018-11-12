@@ -319,7 +319,10 @@ export class ProductsComponent implements OnInit, AfterViewInit, OnDestroy {
         // this.featuredplan();
 
     }
-
+    goToEnroll() {
+        console.log("Enroll");
+        this.router.navigate(['/search-plan'])
+    }
     exportAsXLSX() {
         this.excelService.exportAsExcelFile(this.product, 'ChoiceGenie Vendor Detail');
     }

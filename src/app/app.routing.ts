@@ -15,6 +15,9 @@ import { Authgaurd4Service } from './_guards/authgaurd4.service';
 
 import { ProductComponent } from './Deregulated/product/product.component';
 import {ProductsComponent} from './regulated/products/products.component'
+// import { WebenrollmentComponent } from './webenrollment/webenrollment.component';
+import { PlanSearchComponent, WebenrollmentComponent } from './webenrollment/webenrollment.component';
+import { EnrollmentSuccessPageComponent } from './webenrollment/enrollment-success-page.component';
 export const AppRoutes: Routes = [
    
     {path: "", component: HomeComponent},
@@ -24,6 +27,10 @@ export const AppRoutes: Routes = [
     // },
  
 
+    { path: 'enroll', component: WebenrollmentComponent },
+    { path: 'search-plan/:PromoCode', component: PlanSearchComponent },
+    { path: 'search-plan', component: PlanSearchComponent },
+    { path: 'enrollsuccess', component: EnrollmentSuccessPageComponent},
     {
         path: '',
         component: CustomerLayoutComponent,
@@ -81,10 +88,10 @@ export const AppRoutes: Routes = [
             path: 'pricing',
             loadChildren: './price/price.module#priceModule'
         },
-        {
-            path: 'enrollment',
-            loadChildren: './webenrollment/webenrollment.module#PrivacyModule'
-        },
+        // {
+        //     path: 'enrollment',
+        //     loadChildren: './webenrollment/webenrollment.module#PrivacyModule'
+        // },
         {
             path: 'blog',
             loadChildren: './Blogchoicegenie/blog/blog.module#BlogModule'

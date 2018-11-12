@@ -1,0 +1,101 @@
+<section class="residential-main">
+    <div class="heading">
+        <h1>Enter Your Credentials to Enroll </h1>
+    </div>
+    <div class="enrolled">
+        <form [formGroup]=enrollProcessForm (ngSubmit)="submit()">
+            <mat-card class="enrol mat-elevation-z8">
+                <div class="enroll-main">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Street Address</mat-label>
+                        <input matInput placeholder="Please Enter Street Address" formControlName=service_address>
+                        <mat-icon matSuffix>person_pin_circle</mat-icon>
+                        <mat-error *ngIf="enrollProcessForm.controls.service_address.errors?.required">Service Address is required</mat-error>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline">
+                        <mat-label>City</mat-label>
+                        <input matInput placeholder="Please Enter City" formControlName=city>
+                        <mat-icon matSuffix>location_city</mat-icon>
+                        <mat-error *ngIf="enrollProcessForm.controls.city.errors?.required">City is required</mat-error>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Zip Code</mat-label>
+                        <input matInput placeholder="Please Enter Zip Code" formControlName="zip_code">
+                        <mat-icon matSuffix>place</mat-icon>
+                    </mat-form-field>
+                </div>
+                <div class="enroll-or">
+                    <label>OR</label>
+                </div>
+                <div class="enroll-main">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Premise/ESID</mat-label>
+                        <input matInput placeholder="Please Enter Premise/ESID" name="premise_id" formControlName='premise_id' [(ngModel)]=ESID>
+                        <mat-icon matSuffix>my_location</mat-icon>
+                        <mat-error *ngIf="enrollProcessForm.controls.premise_id.errors?.required">Premise/ESID is required</mat-error>
+                        <mat-hint align="start">e.g: 121315263748907</mat-hint>
+                    </mat-form-field>
+                </div>
+                <button mat-raised-button type="submit">Search</button>
+                <div style="display:flex;flex-direction:column">
+                    <b style="margin-top:10px;"><i class="fa fa-warning" style="font-size:18px;color:#dcc70b;margin:5px;"></i>Note:If you are unable to locate your address or have a special request contact us at 1-888-545-4687 and we will be happy to assist you!</b>
+                    <b style="margin-top:10px;text-align:center;font-weight:bold;color:red">{{errorMessagee}}</b>
+                </div>
+            </mat-card>
+        </form>
+        <div *ngIf="summary">
+            <div class="enroll-plan" *ngFor="let value of products;index as i;">
+                <div class="pro">
+                    <h4>Product Information</h4>
+                </div>
+
+                <h2>{{value.product_info}}</h2>
+                <mat-card>
+                    <p>
+                        Rates are the average price per kWh based on monthly usage of 1000 kWh.
+                    </p>
+                </mat-card>
+                <div class="rateSheet">
+                    <div>
+                        <h4>Rate: {{value.rate}} <span>¢ per kWh</span> </h4>
+                        <span>Term: {{value.term}}</span>
+                        <span>Early Termination Fee: ${{value.display_termination_fee}}</span>
+                        <span>Utility Provider: <b>{{value.utility_provider}}</b></span>
+                    </div>
+                </div>
+                <div class="pdf">
+                    <a [href]=value.tos target="_blank"> TOS </a>
+                    <span>|</span>
+                    <a [href]=value.efl target="_blank"> EFL </a>
+                    <span>|</span>
+                    <a href="http://www.ourenergyllc.com/prodox/yrac.pdf" target="_blank">YRAC</a>
+                </div>
+
+                <div class="lable">
+                    <label>{{value.product_id}}</label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="len > 1">
+        <h2 style="text-align: center; margin-bottom: 20px;" *ngIf="len > 0" #premises>Found {{ len }} Premises</h2>
+        <mat-card class="multiplePremise" *ngFor="let value of multiplePremise; let ind = index">
+            <div class="item">
+                <span>{{value.address1}}</span>
+                <span>{{value.city}} {{value.state}} {{value.zip}}</span>
+            </div>
+            <div class="item">
+                <span>{{value.premise_id}} </span>
+                <span>{{value.provider_name}}</span>
+            </div>
+            <div class="item">
+                <button mat-raised-button [disabled]="selectProductBtnDisabled" (click)="SelectPremise(ind)" type="button">Select</button>
+            </div>
+        </mat-card>
+    </div>
+    <div class="spinner" *ngIf="showSpinner" style="margin-top: 30px;">
+        <img src="../../../assets/img/fidget_red.gif" width="150" height="150" alt="logo">
+    </div>
+    <button matStepperNext style="display:none" id="nextBtn"></button>
+    <!-- <span *ngFor="let value of multiplePremise">{{value.premise_id}}</span> -->
+</section>

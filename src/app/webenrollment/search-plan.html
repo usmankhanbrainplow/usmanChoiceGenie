@@ -1,0 +1,115 @@
+<app-header></app-header>
+<div class="main-content">
+    <div class="container-fluid container">
+        <section class="residential-main">
+            <div class="heading">
+                <h1>SEARCH YOUR PLAN</h1>
+            </div>
+            <form class="plan-main mat-elevation-z8">
+                <mat-form-field appearance="outline">
+                    <mat-label>Zip Code</mat-label>
+                    <input matInput placeholder="Please Enter Zip Code" #input maxlength="9" [formControl]="zip_code" name="zip" [(ngModel)]='ZipCode'>
+                    <mat-icon matSuffix>place</mat-icon>
+                    <mat-error *ngIf="zip_code.hasError('pattern')">
+                        Invalid Zip Code
+                    </mat-error>
+                    <mat-error *ngIf="zip_code.hasError('required')">
+                        Zip Code is required
+                    </mat-error>
+                    <mat-hint align="end">{{input.value?.length || 0}}/9</mat-hint>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Promo Code</mat-label>
+                    <input matInput placeholder="Please Enter Promo Code" name="promo" [(ngModel)]="promoCode">
+                    <mat-icon matSuffix>my_location</mat-icon>
+                </mat-form-field>
+                <button mat-raised-button [disabled]="submitBtnDisabled" (click)="submit()">Search</button>
+            </form>
+            <!-- <button mat-raised-button (click)="test()">Test</button>
+            <button mat-raised-button (click)="show()">Show</button> -->
+        </section>
+    </div>
+</div>
+<br>
+<div class="showError" *ngIf="showError">
+    <mat-error><b><h4>{{error}}</h4></b></mat-error>
+</div>
+<div class="spinner" *ngIf="showSpinner" style="margin-top: 30px;">
+    <img src="../../../assets/img/fidget_red.gif" width="150" height="150" alt="logo">
+</div>
+
+<div *ngIf="Errors" class="errormessage">
+    <span>{{errormessage}}</span>
+</div>
+<div *ngIf="showPlans">
+    <div style="margin-left: 100px; margin-right: 100px;">
+        <div class="row">
+            <div *ngFor="let value of products;index as i;">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <br>
+                    <div class="search-plan">
+                        <h2 class="productName">{{value.product_name}}</h2>
+                        <p style="font-weight: bold; text-align: center; margin-top: 20px;">
+                            {{value.product_info}}
+                        </p>
+                        <div class="main">
+                            <div class="text-center inner">
+                                <a mat-fab color="primary" [href]=value.product_tos_url target="_blank"><b>TOS</b></a>
+                                <br>
+                                <a mat-fab color="primary" href="https://www.ourenergyllc.com/prodox/yrac.pdf" target="_blank"><b>YRAC</b></a> &nbsp;
+                                <a mat-fab color="primary" [href]=value.product_efl_url target="_blank"><b>EFL</b></a>
+                            </div>
+                            <div class="bar"></div>
+                            <div class="inner">
+                                <div class="rateSheet">
+                                    <div style="padding-left: 15px; padding-right: 15px;">
+                                        <span style="font-size: 18px !important">Terms: {{value.display_term}} months</span><br>
+                                        <span style="font-size: 18px !important">Termination fee: ${{value.display_termination_fee}}</span><br>
+                                        <span style="font-size: 18px !important"><b>TDSP: {{value.vendor_company}}</b></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bar"></div>
+                            <div class="text-center inner">
+                                <div>
+                                    <b style="font-size: 18px;">1000 kWh</b>
+                                    <h3 style="color:#cd0000">{{value.tariff_1000}}¢</h3>
+                                </div>
+                                <div style="display: flex; flex-direction: row;">
+                                    <div style="flex: 1">
+                                        <b style="font-size: 18px;">500 kWh</b>
+                                        <h3 style="color:#cd0000">{{value.tariff_500}}¢</h3>
+                                    </div>
+                                    <div style="flex: 1">
+                                        <b style="font-size: 18px;">2000 kWh</b>
+                                        <h3 style="color:#cd0000">{{value.tariff_2000}}¢</h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bar"></div>
+                            <div class="text-center inner">
+                                <div class="selectBtn">
+                                    <button mat-button [disabled]="selectProductBtnDisabled" (click)="enroll(i)">Select</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="showTdsp">
+    <h2 class="text-center">Multiple Providers found serving your area! Please choose your Provider.</h2>
+    <div class="container text-center">
+        <div *ngFor="let value of tdsps;index as i;">
+            <div class="text-center inner">
+                <div class="selectBtn">
+                    <button style="width: 450px;" mat-button (click)="searchPlansByTdsps(value.provider_id)">{{value.provider_name}}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-footer-cmp></app-footer-cmp>

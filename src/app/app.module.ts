@@ -111,11 +111,14 @@ import { NotifierModule, NotifierOptions } from 'angular-notifier';
 import { MyfilterPipe } from './myfilter.pipe';
 import { UserguideComponent } from './userguide/userguide.component';
 import { PriceComponent } from './price/price.component';
-import { WebenrollmentComponent } from './webenrollment/webenrollment.component';
+// import { WebenrollmentComponent } from './webenrollment/webenrollment.component';
 import { PricingService } from './price/pricing.service';
 import { TextMaskModule } from 'angular2-text-mask';
 import { HistorypurchaseComponent } from './historypurchase/historypurchase.component';
 import { HistorypurchaseService } from './historypurchase/historypurchase.service';
+import { EnrollmentService } from './webenrollment/enrollment.service';
+import { EnrollmentSuccessPageComponent } from './webenrollment/enrollment-success-page.component';
+import { WebenrollmentComponent, PlanSearchComponent, EnrollProcessComponent, DespositPopup } from './webenrollment/webenrollment.component';
 const customNotifierOptions: NotifierOptions = {
   position: {
 		horizontal: {
@@ -235,6 +238,12 @@ export class MaterialModule { }
     HomeComponent,
     SuperadminComponent,
     // HomeComponent,
+    // WebenrollmentComponent,
+    WebenrollmentComponent,
+    PlanSearchComponent,
+    EnrollProcessComponent,
+    EnrollmentSuccessPageComponent,
+    DespositPopup,
     HeaderComponent,
     UserSidebarComponent,
     SupersiderbarComponent,
@@ -291,6 +300,7 @@ export class MaterialModule { }
     RandomService,
     DeletegetuserService,
     UpdategetuserService,
+    EnrollmentService,
     HistorypurchaseService
     // MyfilterPipe,
   ],

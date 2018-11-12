@@ -1,0 +1,34 @@
+
+<form [formGroup]="sendingData" (ngSubmit)="submit()">
+    <div mat-dialog-content class="row">
+        <mat-form-field class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+            <mat-select placeholder="Credit Card Type" formControlName="deposit_card_type">
+                <mat-option [value]="">--</mat-option>
+                <mat-option [value]="cardtype" *ngFor="let cardtype of cards">{{cardtype}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+            <input matInput placeholder="Card #" formControlName="deposit_cc_no" maxlength="16">
+        </mat-form-field>
+        <mat-form-field class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+            <input matInput placeholder="CCV" formControlName="deposit_security_code" maxlength="3">
+        </mat-form-field>
+        <mat-form-field class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+            <mat-select placeholder="Expiry Month" formControlName="deposit_expiry_MM">
+                <mat-option [value]="">--</mat-option>
+                <mat-option [value]="x.value" *ngFor="let x of months">{{x.viewValue}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+            <mat-select placeholder="Expiry Year" formControlName="deposit_expiry_YYYY">
+                <mat-option [value]="">--</mat-option>
+                <mat-option [value]="y" *ngFor="let y of years">{{y}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-slide-toggle class="col-lg-3 col-md-3 col-sm-12 col-xs-12" formControlName="deposit_autopay">Auto Pay</mat-slide-toggle>
+    </div>
+    <div class="text-center">
+        <button mat-raised-button [disabled]="btnDisabled" type="submit">Pay Now</button>
+        <button mat-raised-button [disabled]="btnDisabled" type="button" (click)="cancel()">I'll pay later</button>
+    </div>
+</form>

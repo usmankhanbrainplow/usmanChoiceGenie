@@ -1,0 +1,365 @@
+.enroll-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    h1 {
+        color: #2b2a2a;
+        font-weight: 700 !important;
+        text-align: center;
+    }
+    h3 {
+        color: #494949;
+        font-weight: bold;
+        text-align: center;
+        font-size: 22px;
+    }
+    .cart {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        i {
+            font-size: 38px;
+            cursor: pointer;
+        }
+    }
+    .inner {
+        width: 80%;
+        mat-card {
+            background-color: #f8f8f8;
+            margin-bottom: 10px;
+            p {
+                font-size: 18px;
+                font-weight: 600 !important;
+                color: #646464;
+                margin-left: 3px;
+            }
+        }
+        .note {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            color: #4d4949;
+            font-weight: 800 !important;
+            font-size: 18px;
+            i {
+                font-size: 38px;
+                color: #000;
+            }
+        }
+    }
+}
+
+.body {
+    width: 80%;
+    mat-card {
+        background-color: #f8f8f8;
+        margin-bottom: 10px;
+        mat-card-title {
+            font-weight: 600 !important;
+            color: #fff;
+            border-bottom-right-radius: 18px;
+            border-top-left-radius: 18px;
+            text-align: center;
+            background-color: #282828;
+            padding: 10px;
+        }
+        p {
+            font-size: 18px;
+            font-weight: 600 !important;
+            color: #646464;
+        }
+        button {
+            background-color: #000;
+            color: #fff;
+            padding: 5px 30px;
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            border-radius: 25px;
+        }
+    }
+    .note {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        color: #4d4949;
+        font-weight: 800 !important;
+        font-size: 18px;
+        i {
+            font-size: 38px;
+            color: #000;
+        }
+    }
+    .form {
+        display: flex;
+        flex-direction: column;
+        .separator {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            p {
+                background-color: #cd0000;
+                border-radius: 50px;
+                padding: 15px;
+                color: #fff;
+            }
+        }
+        mat-form-field {
+            width: 100%;
+            font-size: 20px;
+            font-weight: bolder;
+        }
+        mat-checkbox {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+        .radio-group {
+            display: inline-flex;
+            flex-direction: column;
+        }
+        .radio-button {
+            margin: 5px;
+            font-size: 18px;
+        }
+        .mat-radio.label {
+            white-space: normal !important;
+        }
+        label {
+            font-size: 20px;
+            font-weight: 600 !important;
+            color: #47474b;
+            span {
+                color: #000;
+            }
+        }
+    }
+    .form1 {
+        display: flex;
+        flex-direction: row;
+        .separator {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            p {
+                background-color: #cd0000;
+                border-radius: 50px;
+                padding: 15px;
+                color: #fff;
+            }
+        }
+        .leftSider {
+            flex-direction: column;
+            flex: 3
+        }
+        .rightSider {
+            flex-direction: column;
+            flex: 1
+        }
+        mat-form-field {
+            width: 100%;
+            font-size: 20px;
+            font-weight: bolder;
+        }
+        mat-checkbox {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+        .radio-group {
+            display: inline-flex;
+            flex-direction: column;
+        }
+        .radio-button {
+            margin: 5px;
+            font-size: 18px;
+        }
+        .mat-radio.label {
+            white-space: normal !important;
+        }
+        label {
+            font-size: 20px;
+            font-weight: 600 !important;
+            color: #47474b;
+            span {
+                color: #000;
+            }
+        }
+    }
+    .form>* {
+        width: 100%;
+    }
+    mat-horizontal-stepper {
+        .stepperbutton {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+        }
+        button {
+            background-color: rgb(7, 7, 7);
+            color: #fff;
+            padding: 5px 30px;
+            font-size: 20px;
+            border-radius: 25px;
+            font-weight: bold;
+            margin: 2px;
+        }
+    }
+}
+
+.mat-horizontal-stepper-header {
+    display: flex;
+    height: 72px;
+    overflow: hidden;
+    align-items: center;
+    padding: 0 9px !important;
+}
+
+.enroll-plan {
+    border-radius: 10px;
+    padding: 10px 20px;
+    margin-right: 10px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    width: 500px;
+    box-shadow: 0px 5px 15px 0 rgba(0, 0, 0, 0.7);
+    .pro {
+        text-align: left;
+        border-bottom: 5px ridge #000;
+        font-weight: bold;
+    }
+    p {
+        font-size: 16px;
+    }
+    span {
+        font-size: 14px;
+    }
+    h2,
+    h4 {
+        font-weight: bold;
+        font-size: 20px;
+    }
+    mat-card {
+        padding: 5px;
+        background-color: #e8e8e8;
+    }
+    .lable {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        font-style: italic;
+        color: #6c6a6a;
+    }
+    .rateSheet {
+        display: flex;
+        flex-direction: row;
+        padding: 5px;
+        div {
+            display: inherit;
+            flex-direction: column;
+        }
+        span {
+            font-size: 16px;
+            font-weight: bold;
+        }
+    }
+    .pdf {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        margin-top: 10px;
+        a {
+            font-size: 16px;
+            margin: 3px 10px;
+            font-weight: bold;
+        }
+    }
+}
+
+.mat-list .mat-list-item {
+    height: 40px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+:host ::ng-deep .mat-list .mat-list-item .mat-list-item-content {
+    padding: 0 1px;
+}
+
+.enrol {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+@media only screen and (max-width: 1000px) {
+    .enroll-container .inner {
+        width: 100%;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container {
+        width: 1450px;
+    }
+}
+
+@media (max-width: 1466px) {
+    .enrol {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+}
+
+::ng-deep .mat-step-header {
+    display: flex;
+    flex-direction: column;
+}
+
+::ng-deep .mat-step-header .mat-step-label.mat-step-label-active {
+    padding-top: 5px;
+}
+
+.hintMsg {
+    margin-top: 10px;
+    margin-left: 35px
+}
+
+th {
+    padding-right: 10px;
+    font-size: 16px;
+}
+
+.subRow {
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+
+.dataRow {
+    text-align: center
+}
+
+.headingDiv {
+    font-size: 15px !important;
+}
+
+.dataDiv {
+    font-size: 18px !important;
+    font-weight: bold !important;
+    padding-bottom: 5px !important;
+}
+
+#pricing th {
+    border-top: 1px solid #333;
+    border-bottom: 1px solid #333;
+}
+
+.mainDiv {
+    display: flex;
+    flex-direction: row;
+}
+
+.innerDiv {
+    flex: 1
+}
