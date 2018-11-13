@@ -15,7 +15,7 @@
                     </span>
                     <p class="plan-price">
                         <sup class="currency">$</sup>
-                        <strong>699.00</strong>
+                        <strong>6.99</strong>
                     </p>
                     <ul class="list-pricing home-list-pricing">
                         <li>
@@ -59,7 +59,10 @@
                     <div class="pricing2-button">
                         <a  onclick="topFunction()" *ngIf="check_login(); else pkg1" routerLink='/usersignup' class="btn btn-fill" title="Subscribe Package">Register Now</a>
                         <ng-template #pkg1>
-                            <a onclick="topFunction()" (click)=" firststep('BM')" class="btn btn-fill" title="Select Plan">Select Plan</a>
+                            <a onclick="topFunction()" *ngIf="hide != 'monthly' ;else pkg5" (click)=" firststep('BM')" class="btn btn-fill" title="Select Plan">Select Plan</a>
+                        </ng-template>
+                        <ng-template #pkg5>
+                            <a onclick="topFunction()"  class="btn btn-fill" title="Select Plan">You have already Subscribe this plan</a>
                         </ng-template>
 
                     </div>
@@ -117,7 +120,10 @@
                     <div class="pricing2-button">
                         <a onclick="topFunction()" *ngIf="check_login(); else pkg4" routerLink='/usersignup' class="btn btn-fill" title="Subscribe Package">Register Now</a>
                         <ng-template #pkg4>
-                            <a onclick="topFunction()" (click)="firststep('PY')" class="btn btn-fill" title="Select Plan">Select Plan</a>
+                            <a onclick="topFunction()" *ngIf="hide != 'yearly';else pkg7"   (click)="firststep('PY')" class="btn btn-fill" title="Select Plan">Select Plan</a>
+                        </ng-template>
+                        <ng-template #pkg7>
+                            <a onclick="topFunction()"  class="btn btn-fill" title="Select Plan">You have already Subscribe this plan</a>
                         </ng-template>
                     </div>
                 </div>
@@ -149,10 +155,13 @@
                             <!-- <strong>organization's </strong> specific</li> -->
                         <!-- <li>requirements and needs</li> -->
                     </ul>
-                    <div class="pricing2-button" *ngIf="hide != 'free'" >
+                    <div class="pricing2-button"  >
                         <a onclick="topFunction()" *ngIf="check_login();else pkg4" routerLink='/usersignup' class="btn btn-fill" title="Subscribe Package">Register Now</a>
                         <ng-template #pkg4>
-                            <a onclick="topFunction()" (click)="Totalfreepackage();" class="btn btn-fill" title="Select Plan">Select Plan</a>
+                            <a onclick="topFunction()" *ngIf="hide != 'free';else pkg8" (click)="Totalfreepackage();" class="btn btn-fill" title="Select Plan">Select Plan</a>
+                        </ng-template>
+                        <ng-template #pkg8>
+                            <a onclick="topFunction()" class="btn btn-fill" title="Select Plan">You have already Subscribe this plan</a>
                         </ng-template>
                     </div>
                    
