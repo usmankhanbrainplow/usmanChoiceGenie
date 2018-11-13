@@ -97,7 +97,7 @@ month;
 
 next_stepdetail(event: any){
   if (event.target.value == "BM") {
-      this.prv_stepdetail("699")
+      this.prv_stepdetail("6.99")
 
   } else if (event.target.value == "PY") {
       this.prv_stepdetail("64");
@@ -108,9 +108,9 @@ next_stepdetail(event: any){
 firststep(value){
   console.log(value)
 if (value == "BM") {
-  this.pricepackage="699"
+  this.pricepackage="6.99"
   this.month="monthly"
-   this.prv_stepdetail("699")
+   this.prv_stepdetail("6.99")
 
 } else if (value == "PY") {
   this.pricepackage="64"

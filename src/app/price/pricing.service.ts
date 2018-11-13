@@ -88,7 +88,7 @@ Toatlpakkage_free(username,pkgdetail){
     // let headers = new Headers({'Authorization': 'JWT ' + this.currentUser.token});
     headers.append('Content-Type', 'application/json');
    // if(pkgdetail.type == 'F') {
-        return this._http5.post("http://192.168.30.164:8000/paid_subscription/",
+        return this._http5.post(Config.api+"paid_subscription/",
         JSON.stringify({            
             'user': username,  
             'pkg_type': pkgdetail.type,

@@ -66,7 +66,7 @@ export class PriceComponent implements OnInit {
       //
       next_stepdetail(event: any){
           if (event.target.value == "BM") {
-              this.prv_stepdetail("699")
+              this.prv_stepdetail("6.99")
   
           } else if (event.target.value == "PY") {
               this.prv_stepdetail("64");
@@ -76,9 +76,9 @@ export class PriceComponent implements OnInit {
   firststep(value){
         console.log(value)
       if (value == "BM") {
-        this.pricepackage="699"
+       (this.pricepackage='6.99')
         this.month="monthly"
-         this.prv_stepdetail("699")
+         this.prv_stepdetail("6.99")
   
       } else if (value == "PY") {
         this.pricepackage="64"
@@ -120,14 +120,15 @@ export class PriceComponent implements OnInit {
       this.hide=localStorage.getItem('package_type')
    
   }
+
   Totalfreepackage() {
     this.month= 'free';
     this.pkg_detail['type']=this.month;
     
     console.log(this.month,"month")
-    // this.pkg_detail['expdate']= this.expmonth + '/' + this.expyear
+     
     this.local = localStorage.getItem('username');
-    // let pars = this.local ;
+     
     this.uname =this.local.username
     this._serv.Toatlpakkage_free(this.local,this.pkg_detail).subscribe(
       data =>{
@@ -138,12 +139,11 @@ export class PriceComponent implements OnInit {
                 '',
                 'success'
               )
-              //let url = '/';
-              // this._nav.navigate([url]);
+              
                
       },
       error => {
-              // console.log(error);
+              
               swal(
                 'Oops...',
                 'Something went wrong!',
@@ -188,7 +188,7 @@ export class PriceComponent implements OnInit {
     this.pkg_detail['credit']=this.cardnumber1 + this.cardnumber2 +
     this.cardnumber3 + this.cardnumber4
     this.pkg_detail['ccv']=this.ccv
-    this.pkg_detail['price']=this.pricepackage
+  this.pkg_detail['price']=parseFloat(this.pricepackage)
 
     console.log(this.pricepackage,"price package")
     this.pkg_detail['type']=this.month
@@ -206,7 +206,7 @@ console.log(this.month,"month")
                 '',
                 'success'
               )
-              let url = '/';
+              let url = '/userprofile';
               this._nav.navigate([url]);
                
       },

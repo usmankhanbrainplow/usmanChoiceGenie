@@ -54,8 +54,10 @@
                       <div  *ngIf ="!pkgsub"  class=" history-heading">
                           
                           <table class="table table-striped history-table purchase-table">
-                                            <thead *ngIf="!nofound" class="">
-                                              <tr>
+                                        
+                            
+                            <thead *ngIf="!nofound" class="">
+                                              <tr *ngIf="!nofound">
                                                   <th> Subscription Name</th>
                                                   <th>Price</th>
                                                   <th>Start Date</th>
@@ -67,9 +69,14 @@
                                                 <tr *ngIf="!nofound">
                                                   <!-- <td > {{record.package_type }}</td> -->
                                                   <td *ngIf="record.package_type == 'monthly'">Monthly PLAN</td>
-                                                  <td *ngIf="record.package_type== 'Yearly'"> Yearly PLAN</td>
+                                                  <td *ngIf="record.package_type== 'yearly'"> Yearly PLAN</td>
                                                   <td *ngIf="record.package_type == 'free'"> Free PLAN</td>
+                                                  <td *ngIf="record.package_type == 'monthly'"><span>$</span>6.99 </td>
+                                                  <td *ngIf="record.package_type == 'yearly'"><span>$</span>64 </td>
+                                                  <td *ngIf="record.package_type == 'free'"><span>$</span>0 </td>
+                                                  <!-- <td><span>$</span>{{record.pkg_price}} </td>
                                                   <td><span>$</span>{{record.pkg_price}} </td>
+                                                  <td><span>$</span>{{record.pkg_price}} </td> -->
                                                   <td>{{record.log_pay_date }}</td>
                                                   <td>{{record.log_end_date }}</td>
                                                   <td *ngIf="record.is_subscribe == true"><button style="cursor:text" class="btn btn-fill" title="Active">Active </button></td>
