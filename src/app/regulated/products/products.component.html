@@ -951,6 +951,8 @@
                           <i style="color:#c00" class="material-icons">picture_as_pdf</i>
                           Terms of service
                         </a>
+                        <h2 class="view-plan-details" (click)="goToEnroll()" >Enroll Now
+                  </h2>
                       </div>
 
 
@@ -976,7 +978,9 @@
                         <a style="color:white" href="{{data.profileurl}}" target="_blank">Signup </a>
                         <!-- <i class="material-icons">bubble_chart</i> -->
                       </button>
-                      <button class="btn btn-fill sh-signup-btn" (click)="goToEnroll()">Enroll</button>
+                      <!-- <button class="btn btn-fill sh-signup-btn" >Enroll</button>
+                      <br/>
+                      <br/> -->
                       <a class="sh-pos-abso" (click)="submit(data.id,data.title)">
                         <label class="view-plan-details">Reviews</label>
                       </a>

@@ -355,8 +355,8 @@ export class ProductsComponent implements OnInit, AfterViewInit, OnDestroy {
     
 
     btnDeleteClick(id, title, profileurl, profile_logo, servicearea) {
-        if (localStorage.getItem('username')) {
-            let local = localStorage.getItem('username');
+        if (localStorage.getItem('role')=='USER') {
+           // let local = localStorage.getItem('username');
         this.id = id;
         this.comtitle = title.trim();
         this.profileurl = profileurl;
@@ -367,22 +367,22 @@ export class ProductsComponent implements OnInit, AfterViewInit, OnDestroy {
         console.log('id : ' + this.id, this.title);
         //return true;
         }
-        else {
+        else  {
             swal(
-                'User must login First!',
+                'please login First!',
                 '',
                 'error',
               )
-              let url = 'userlogin';
-              this.router.navigate([url]);
+              this.router.navigate(['/inactive-products']);
+            //   let url = '/userlogin';
+            //   this.router.navigate([url]);
                
             // swal(
             //     'Invalid',
             //     'User must login First!',
             //     'error',
             // )
-            // this.router.navigate(['/userlogin/']);
-            // return false;
+            // this.route.navigate([])            // return false;
             
         }
     }
