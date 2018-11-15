@@ -104,7 +104,7 @@ body {
 }
 .sh-pos-abso{
   position: absolute;
-  bottom: 0;
+  bottom: -5px;
   left: 40%;
 }
 .sh-pos-abso-logo{
@@ -5424,9 +5424,9 @@ padding: 0 10px;
 }
 .price-style {
   display: block;
-  text-align: center;
-  font: bold 30px/24px Georgia, "Times New Roman", Times, serif;
-  font-size: 20px;
+    text-align: center;
+    font: 600 30px/24px Georgia, "Times New Roman", Times, serif;
+    font-size: 1.4em;
 }
 .price-style-1 {
   display: block;
@@ -5445,6 +5445,8 @@ padding: 0 10px;
   float: left;
   width: 50%;
   text-align: center;
+  font-weight: normal;
+  margin-bottom: 5px;
 }
 
 .layer-content {
@@ -5812,7 +5814,7 @@ background: linear-gradient(to bottom, #ededed 0%,#c1bfbf 100%); /* W3C, IE10+, 
   align-items: center;
 }
 .why-our .leftSideContent p {
-  font-size: 22px;
+  font-size: 20px;
     text-align: left;
     color: #333;
     font-weight: 400!important;
@@ -6087,7 +6089,7 @@ background: linear-gradient(to bottom, #ededed 0%,#c1bfbf 100%); /* W3C, IE10+, 
 
 .items-detail{
   line-height: 23px;
-  font-weight: 600;
+  /* font-weight: 600; */
   font-size: 15px;
 }
 .height-items-detail{
@@ -6098,7 +6100,7 @@ background: linear-gradient(to bottom, #ededed 0%,#c1bfbf 100%); /* W3C, IE10+, 
   height: auto;
 }
 .plan-detail{
-  /* min-height: 205px !important; */
+  min-height: 172px !important;
     border-right: 1px solid #ccc;
 }
 .min-hight{
@@ -6249,6 +6251,7 @@ background: linear-gradient(to bottom, #ededed 0%,#c1bfbf 100%); /* W3C, IE10+, 
 .check-box{
   float: left;
   margin-top: 15px;
+  position: absolute;
 }
 .check-box input{
   width: 17px;
@@ -8090,7 +8093,7 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
 }
 .sh-top-price{
   text-align:center;
-  font-weight: bold;
+  /* font-weight: bold; */
   margin:0px 0 5px;
   font-size: 15px;
 }
