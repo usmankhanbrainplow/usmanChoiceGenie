@@ -81,6 +81,17 @@ export class NavbarComponent implements OnInit {
           return false;
         }
       }
+      checked_changepassword(){
+        if (localStorage.getItem('role') == "Not Deregulatedstate Vendor") {
+         this.router.navigate(['/changepassword1']);
+       }
+       else if (localStorage.getItem('role') == "Deregulatedstate Vendor") {
+         this.router.navigate(['/changepassword1']);
+       }
+       else if(localStorage.getItem('role') =="USER"){
+         this.router.navigate(['/ChangePassword']);
+       }
+     }
          
   checked_price() {
     if (localStorage.getItem('role')=='Deregulatedstate Vendor') {

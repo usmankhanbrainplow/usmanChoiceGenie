@@ -66,6 +66,17 @@ googleTranslateElementInit() {
     }
     
   }
+  checked_changepassword(){
+     if (localStorage.getItem('role') == "Not Deregulatedstate Vendor") {
+      this.router.navigate(['/ChangePassword1']);
+    }
+    else if (localStorage.getItem('role') == "Deregulatedstate Vendor") {
+      this.router.navigate(['/ChangePassword1']);
+    }
+    else if(localStorage.getItem('role') =="USER"){
+      this.router.navigate(['/ChangePassword']);
+    }
+  }
     
   checked_price() {
     if (localStorage.getItem('role')=='Deregulatedstate Vendor') {

@@ -372,37 +372,33 @@ export class ProductsComponent implements OnInit, AfterViewInit, OnDestroy {
                 'please login First!',
                 '',
                 'error',
+                
               )
-              this.router.navigate(['/inactive-products']);
+             // this.router.navigate(['/inactive-products']);
             //   let url = '/userlogin';
-            //   this.router.navigate([url]);
-               
-            // swal(
-            //     'Invalid',
-            //     'User must login First!',
-            //     'error',
-            // )
-            // this.route.navigate([])            // return false;
+            this.router.navigate(['/userlogin'])
+           
+            // this.route.navigate([])            // return false; 
             
         }
     }
 
-    checked_login() {
-        if (localStorage.getItem('username')) {
-            let local = localStorage.getItem('username');
-            return true;
-        }
-        else {
-            // swal(
-            //     'Invalid',
-            //     'User must login First!',
-            //     'error'
-            // )
-            // this.router.navigate(['/userlogin']);
-            return false;
+    // checked_login() {
+    //     if (localStorage.getItem('username')) {
+    //         let local = localStorage.getItem('username');
+    //         return true;
+    //     }
+    //     else {
+    //         // swal(
+    //         //     'Invalid',
+    //         //     'User must login First!',
+    //         //     'error'
+    //         // )
+    //         // this.router.navigate(['/userlogin']);
+    //         return false;
             
-        }
-    }
+    //     }
+    // }
     usman;
     zipwithcity() {
 
@@ -499,7 +495,7 @@ export class ProductsComponent implements OnInit, AfterViewInit, OnDestroy {
                 'User must login First!',
                 'error'
             )
-            this.router.navigate(['/userlogin']);
+           // this.router.navigate(['/userlogin']);
         }
     }
 

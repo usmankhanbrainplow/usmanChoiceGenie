@@ -214,7 +214,7 @@
 
         <li class="vanders" *ngIf="!checked_login() && !check_login1()">
 
-          <a routerLink="/usersignup">
+          <a onclick="topFunction()" routerLink="/usersignup">
             <i class="fas fa-unlock-alt"></i>
             Sign up
             <!-- <i class="fa fa-caret-down"></i> -->
@@ -245,13 +245,13 @@
         </li>
 
         <li class="">
-          <a href="https://play.google.com/store/apps/details?id=com.brainplow.choicegenie&hl=en" target="_blank">
+          <a onclick="topFunction()" href="https://play.google.com/store/apps/details?id=com.brainplow.choicegenie&hl=en" target="_blank">
 
             <i class="fab fa-android"></i>
           </a>
         </li>
         <li class="">
-          <a href="https://itunes.apple.com/us/app/choicegenie/id1391027521?platform=ipad&preserveScrollPosition=true&platform=ipad#platform/ipad&platform=ipad"
+          <a onclick="topFunction()" href="https://itunes.apple.com/us/app/choicegenie/id1391027521?platform=ipad&preserveScrollPosition=true&platform=ipad#platform/ipad&platform=ipad"
             target="_blank">
             <i class="fab fa-apple"></i>
           </a>
@@ -278,7 +278,7 @@
         </li> -->
         <li class="vanders" *ngIf="check_login1()">
 
-          <a (click)="moving1()">
+          <a onclick="topFunction()" (click)="moving1()">
             <i class="material-icons">
               account_circle</i>{{admin}}
             <!-- <i class="fa fa-caret-down"></i> -->
@@ -286,7 +286,7 @@
           <div class="drop-downs right-drop">
             <ul class="nav-vanders  why-choiegenie-sublist">
               <li>
-                  <a (click)="moving1()" style="cursor: pointer;">
+                  <a onclick="topFunction()" (click)="moving1()" style="cursor: pointer;">
                       Dashboard
                     </a>
               </li>
@@ -303,7 +303,7 @@
 
         <li class="vanders" *ngIf="checked_login()">
 
-            <a (click)="moving()">
+            <a onclick="topFunction()" (click)="moving()">
               <i class="material-icons">
                 account_circle</i>{{username}}
               <!-- <i class="fa fa-caret-down"></i> -->
@@ -311,23 +311,23 @@
             <div class="drop-downs right-drop1">
               <ul class="nav-vanders  why-choiegenie-sublist">
                   <li>
-                      <a (click)="getprofile()">
+                      <a onclick="topFunction()" (click)="getprofile()">
                           <i class="material-icons">lock</i>My Profile
                         </a>
                   </li>
                   <li>
-                      <a routerLink="/ChangePassword1">
+                      <a onclick="topFunction()" (click)="checked_changepassword()">
                           <i class="material-icons">lock</i>Change Password
                         </a>
                   </li>
                   <li>
-                      <a routerLink="/contactus">
+                      <a onclick="topFunction()" routerLink="/contactus">
                           <i class="material-icons">lock</i>Feed back
                         </a>
                   </li>
   
                   <li>
-                      <a (click)="logout()">
+                      <a onclick="topFunction()" (click)="logout()">
                           <i class="material-icons">lock</i>Logout
                         </a>
                   </li>
@@ -472,12 +472,12 @@
               <span class="caret"></span></button>
               <ul class="dropdown-menu">
                   <li>
-                      <a (click)="moving1()" style="cursor: pointer;">
+                      <a onclick="topFunction()" (click)="moving1()" style="cursor: pointer;">
                         Dashboard
                       </a>
                     </li>
                     <li>
-                      <a (click)="logout()">
+                      <a onclick="topFunction()" (click)="logout()">
                         <i class="fas fa-lock"></i>Logout
                       </a>
                     </li>
@@ -492,13 +492,13 @@
                 <span class="caret"></span></button>
                 <ul class="dropdown-menu">
                     <li>
-                        <a (click)="moving()" style="cursor: pointer;">
+                        <a onclick="topFunction()" (click)="moving()" style="cursor: pointer;">
                           Dashboard
                         </a>
                       </li>
         
                       <li>
-                        <a (click)="logout()">
+                        <a onclick="topFunction()" (click)="logout()">
                           <i class="fas fa-lock"></i>Logout
                         </a>
                       </li>
