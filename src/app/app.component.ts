@@ -17,6 +17,12 @@ export class AppComponent implements OnInit {
     constructor(private router: Router, @Inject(DOCUMENT,) private document: any) {}
 
     ngOnInit() {
+        // $('html, body').animate({scrollTop:0},800);
+        // $('html, body').animate({ scrollTop: 0 });
+        window.onbeforeunload = function () {
+            $(this).scrollTop(0);
+          }
+
         window.onbeforeunload = function() {
             if(localStorage.getItem('signed')){
             localStorage.clear();

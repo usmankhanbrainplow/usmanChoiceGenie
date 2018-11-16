@@ -83,10 +83,10 @@ export class NavbarComponent implements OnInit {
       }
       checked_changepassword(){
         if (localStorage.getItem('role') == "Not Deregulatedstate Vendor") {
-         this.router.navigate(['/changepassword1']);
+         this.router.navigate(['/ChangePassword1']);
        }
        else if (localStorage.getItem('role') == "Deregulatedstate Vendor") {
-         this.router.navigate(['/changepassword1']);
+         this.router.navigate(['/ChangePassword1']);
        }
        else if(localStorage.getItem('role') =="USER"){
          this.router.navigate(['/ChangePassword']);

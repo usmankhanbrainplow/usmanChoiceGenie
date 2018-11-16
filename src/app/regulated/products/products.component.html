@@ -122,7 +122,7 @@
                 </button>
 
               </div>
-              <hr style="margin-top: 10px !important; background: #000000">
+              <hr style="margin-top: 10px !important; background: #eee">
             </li>
 
 
@@ -191,7 +191,7 @@
 
               </div>
 
-              <hr style="background: #000000">
+              <hr style="background: #eee">
             </li>
 
             <li>
@@ -221,7 +221,7 @@
                 </label>
               </div>
 
-              <hr style="background: #000000">
+              <hr style="background: #eee">
             </li>
             <li>
               <div class="panel-title">
@@ -242,7 +242,7 @@
                     <!-- [(ngModel)]=fixed value="fixed" -->
                     <!-- checked="true" -->
                    
-                  <input type="checkbox" name="fixed"  ng-Model="fixed" checked="true" value="fixed"   (change)="checked8($event,i)">
+                  <input type="checkbox" name="fixed"  [(ngModel)]="fixed"  value="fixed"   (change)="checked8($event,i)">
                   Fixed Rate
 
                 </label>
@@ -261,7 +261,7 @@
                   <small>(market rate)</small>
                 </label>
               </div>
-              <hr style="background: #000000">
+              <hr style="background: #eee">
             </li>
             <li>
               <div class="panel-title">
@@ -291,7 +291,7 @@
                   Do not show Prepaid Plans
                 </label>
               </div>
-              <hr style="background: #000000">
+              <hr style="background: #eee">
             </li>
             <li>
               <div class="panel-title">
@@ -323,7 +323,7 @@
                 </label>
               </div>
 
-              <hr style="background: #000000">
+              <hr style="background: #eee">
             </li>
             <li>
               <div class="panel-title">
@@ -673,7 +673,7 @@
           </div>
 
           <div *ngIf="sg['plan']" class="slidr-m sh-fix">
-            <div class="sh-popular-plan">
+            <div class="sh-popular-plan text-center">
               <h1 class="hd-most-popular-plans">Most Popular Plans</h1>
             </div>
             <ngx-slick class="carousel" #slickModal="slick-modal" [config]="slideConfig">
@@ -908,11 +908,12 @@
                       </div>
                       <h3 class="text-center font " style="margin: 0px;">
                         <!-- <a href="tel:1-832-975-1000"> -->
-
+<!-- <i class="fa fa-phone-square" aria-hidden="true"> -->
                         <a href="tel:+1{{data.phone}}" class="mob-v-call-no">
                           <!-- <input type="text" id="phone" value="{{data.phone}}"  name="phone"  > -->
                           +1{{data.phone}}
                         </a>
+                        <!-- </i> -->
                       </h3>
 
                       <a style="color:rgba(0,0,0, 0.87)" href="{{data.fact_sheet}}" target="_blank">
@@ -925,10 +926,10 @@
                         Terms of service
                       </a>
 
-                      <a class="sh-pos-abso sh-pos-abso-logo">
+                      <!-- <a class="sh-pos-abso sh-pos-abso-logo">
                         <label class="view-plan-details mob-view-hide margin-l" (click)="btnEditClick(data.id,data.title,data.sign_up,data.phone,data.terms_of_service,data.fact_sheet,data.cancelation_fee,data.price_1000_kwh,data.price_500_kwh,data.price_2000_kwh,data.plan_information,data.rating_logo,data.profile_logo,data.profileurl,data.specialterms); getreview(data.id); avereview(data.id)"
                           data-toggle="modal" data-target="#myModal2" >Plan Details</label>
-                      </a>
+                      </a> -->
                     </div>
                     <div class="col-md-3 col-sm-6 col-xs-12 rate plan-detail margin-up mob-view-hide " style="text-align:center">
                       <h3 style=" text-align: center">
@@ -962,10 +963,18 @@
                           <i style="color:#c00" class="material-icons">picture_as_pdf</i>
                           Terms of service
                         </a> -->
-                        <a class="sh-pos-abso">
+                        <a _ngcontent-c0="" class="sh-pos-abso sh-pos-abso-logo">
+                            <h2 class="view-plan-details mob-view-hide margin-l" (click)="btnEditClick(data.id,data.title,data.sign_up,data.phone,data.terms_of_service,data.fact_sheet,data.cancelation_fee,data.price_1000_kwh,data.price_500_kwh,data.price_2000_kwh,data.plan_information,data.rating_logo,data.profile_logo,data.profileurl,data.specialterms); getreview(data.id); avereview(data.id)"
+                            data-toggle="modal" data-target="#myModal2">Plan Details
+                          </h2>
+                            <!-- <label _ngcontent-c0="" class="view-plan-details mob-view-hide margin-l"
+                             data-target="#myModal2" data-toggle="modal" (click)="btnEditClick(data.id,data.title,data.sign_up,data.phone,data.terms_of_service,data.fact_sheet,data.cancelation_fee,data.price_1000_kwh,data.price_500_kwh,data.price_2000_kwh,data.plan_information,data.rating_logo,data.profile_logo,data.profileurl,data.specialterms); getreview(data.id); avereview(data.id)" >Plan Details</label>
+                          </a> -->
+                        </a>
+                        <!-- <a class="sh-pos-abso">
                           <label class="view-plan-details" (click)="goToEnroll()" >Enroll Now
                           </label>
-                        </a>
+                        </a> -->
                       </div>
 
 
@@ -980,7 +989,9 @@
 
                         <a href="tel:+1{{data.phone}}" style="display: block">
                           <!-- <input type="text" id="phone" value="{{data.phone}}"  name="phone"  > -->
-                          +1{{data.phone}}
+                        <i class="fa fa-phone-square" aria-hidden="true">
+                           +1{{data.phone}}
+                           </i>
                         </a>
 
                         <span>OR</span>

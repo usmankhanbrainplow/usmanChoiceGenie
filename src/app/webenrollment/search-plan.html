@@ -2,12 +2,13 @@
 <div class="main-content">
     <div class="container-fluid container">
         <section class="residential-main">
-            <div class="heading">
-                <h1>SEARCH YOUR PLAN</h1>
+            <div class="text-center">
+                <h1 class="heading">SEARCH YOUR PLAN</h1>
             </div>
-            <form class="plan-main mat-elevation-z8">
+            <form class="plan-main sh-signup-form-fix">
+                <label class="web-label">Zip Code</label>
                 <mat-form-field appearance="outline">
-                    <mat-label>Zip Code</mat-label>
+                    <!-- <mat-label>Zip Code</mat-label> -->
                     <input matInput placeholder="Please Enter Zip Code" #input maxlength="9" [formControl]="zip_code" name="zip" [(ngModel)]='ZipCode'>
                     <mat-icon matSuffix>place</mat-icon>
                     <mat-error *ngIf="zip_code.hasError('pattern')">
@@ -18,8 +19,9 @@
                     </mat-error>
                     <mat-hint align="end">{{input.value?.length || 0}}/9</mat-hint>
                 </mat-form-field>
+                <label class="web-label">Promo Code</label>
                 <mat-form-field appearance="outline">
-                    <mat-label>Promo Code</mat-label>
+                    <!-- <mat-label>Promo Code</mat-label> -->
                     <input matInput placeholder="Please Enter Promo Code" name="promo" [(ngModel)]="promoCode">
                     <mat-icon matSuffix>my_location</mat-icon>
                 </mat-form-field>

@@ -7,6 +7,7 @@ import { ErrorStateMatcher, MAT_DIALOG_DATA, MatDialog, MatDialogRef } from "@an
 import { NgForm, FormControl, Validators, FormGroupDirective } from "@angular/forms";
 import { SimpleGlobal } from 'ng2-simple-global';
 import { DataService } from '../../data.service';
+
 import * as _ from 'underscore';
 import { PagerService } from '../../pager.service';
 import { Pipe, PipeTransform } from "@angular/core";
@@ -504,7 +505,7 @@ export class ProductsComponent implements OnInit, AfterViewInit, OnDestroy {
     btnEditClick(id, title, sign_up, phone, terms_of_service, fact_sheet, cancelation_fee, price_1000_kwh, price_500_kwh, price_2000_kwh, plan_information, rating_logo, profile_logo, profileurl, specialterms) {
         this.catagoryId = id;
 
-        console.log(this.plan_information)
+        console.log(this.plan_information,'plan information pop')
         this.comtitle = title;
         this.sign_up = sign_up;
         this.phone = phone;
