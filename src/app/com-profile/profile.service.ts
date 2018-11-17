@@ -8,7 +8,7 @@ export class ProfileService {
   private authentication=localStorage.getItem('token');
 
   constructor(private http: Http) { }
-  updata(updatedid,updatedREP,updatedREPid,updatedName,updatedphone,updatedmarket,updatedstatus,updateduser) {
+  updata(updatedid,updatedREP,updatedREPid,updatedName,updatedphone,updatedmarket,updatedstatus,updateduser,updatedemail) {
   
     console.log()
     const headers = new Headers();
@@ -26,7 +26,8 @@ export class ProfileService {
       "Contact_Phone": updatedphone,
       "Market": updatedmarket,
       "status": updatedstatus,
-      "user": updateduser
+      "user": updateduser,
+      "contact_email":updatedemail
       
     }), 
     {headers: headers}).map((response: Response) => response.json());

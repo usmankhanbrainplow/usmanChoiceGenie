@@ -119,6 +119,7 @@ import { HistorypurchaseService } from './historypurchase/historypurchase.servic
 import { EnrollmentService } from './webenrollment/enrollment.service';
 import { EnrollmentSuccessPageComponent } from './webenrollment/enrollment-success-page.component';
 import { WebenrollmentComponent, PlanSearchComponent, EnrollProcessComponent, DespositPopup } from './webenrollment/webenrollment.component';
+
 const customNotifierOptions: NotifierOptions = {
   position: {
 		horizontal: {

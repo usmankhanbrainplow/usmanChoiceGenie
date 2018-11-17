@@ -58,11 +58,14 @@ export class NewProductsComponent implements OnInit {
   fourthFormGroup: FormGroup;
   constructor(private https:Http,public router: Router, private fb: FormBuilder, private http: Http, private route: ActivatedRoute, private sg: SimpleGlobal) { }
 title;
+titlevendor;
 
   public user;
   ngOnInit() {
     this.user = localStorage.getItem('user')
     this.username = localStorage.getItem('username')
+    this.titlevendor=localStorage.getItem('title');
+    // title
     console.log(this.username)
    this. fetchProducts()
     console.log(this.username)
@@ -105,7 +108,7 @@ title;
     const headers = new Headers();
     headers.append('Content-Type', 'application/json');
     
-    this.https.get(Config.api+'titlescompanies/'+ this.username  ,{ headers: headers })
+    this.https.get(Config.api+'titlescompanies/'+ this.titlevendor  ,{ headers: headers })
     .subscribe(Res => {
     this.sg['products'] = Res.json()['Results'];
     this.data=this.sg['products'];

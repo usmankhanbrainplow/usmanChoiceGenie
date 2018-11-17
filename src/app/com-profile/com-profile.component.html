@@ -59,11 +59,22 @@
 
                             </div>
                         </div>
+                        <div class="col-sm-6 margin-t">
+                            <div>
+
+                                <mat-form-field class="margin">
+                                    <input matInput placeholder="Contact Phone" type="text" value="{{data.contact_email}}" #updatedemail>
+
+
+                                </mat-form-field>
+
+                            </div>
+                        </div>
                     </div>
 <div class="form-footer text-right row">
 
     <div class="form-group col-lg-6" style="margin: 0 auto;">
-        <button type="submit" style="width:100%; border-radius:50px; margin: 0px;" class="btn btn-lrg btn-fill btn-wd" (click)="onRegister(updatedid.value,updatedREP.value,updatedREPid.value,updatedName.value,updatedphone.value,updatedmarket.value,updatedstatus.value,updateduser.value)">Update</button>
+        <button type="submit" style="width:100%; border-radius:50px; margin: 0px;" class="btn btn-lrg btn-fill btn-wd" (click)="onRegister(updatedid.value,updatedREP.value,updatedREPid.value,updatedName.value,updatedphone.value,updatedmarket.value,updatedstatus.value,updateduser.value,updatedemail.value)">Update</button>
     </div>
 </div>
 </div>
