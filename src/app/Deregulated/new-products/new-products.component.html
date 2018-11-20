@@ -23,7 +23,7 @@
               <!--</div>-->
               <div class="">
                 <h4 class="card-title"></h4>
-                <div class="row">
+                <div class="row sh-signup-form-fix">
                     <div class="col-sm-6">
                         <div class="form-group">
                           <mat-form-field>
@@ -94,7 +94,7 @@
                 <!--<i class="material-icons">mail_outline</i>-->
               <!--</div>-->
               <div class="">
-                <div class="row">
+                <div class="row sh-signup-form-fix">
 
                         <div class="form-group" hidden="false">
                           <mat-form-field>
@@ -130,7 +130,7 @@
                   <div class="col-sm-6">
                     <div class="form-group">
                       <mat-form-field>
-                        <input matInput currencyMask placeholder="Price Details" [(ngModel)]="price_rate" formControlName="price_rate">
+                        <input matInput currencyMask placeholder="Price Details" [(ngModel)]="price_rate" formControlName="price_rate" style="text-align: left">
                         <mat-error *ngIf="secondFormGroup.controls['price_rate'].value == '' || !secondFormGroup.controls['price_rate'].value"><strong>This Field cannot be empty</strong></mat-error>
                       </mat-form-field>
                     </div>
@@ -139,7 +139,7 @@
                   <div class="col-sm-6">
                       <div class="form-group">
                           <mat-form-field class="margin">
-                            <input matInput currencyMask placeholder="Cancelation Fee" required [(ngModel)]="cancelation_fee" formControlName="cancelation_fee">
+                            <input matInput currencyMask placeholder="Cancellation Fee" required [(ngModel)]="cancelation_fee" formControlName="cancelation_fee" style="text-align: left">
                             <mat-error *ngIf="secondFormGroup.controls['cancelation_fee'].value == '' || !secondFormGroup.controls['cancelation_fee'].value"><strong>This Field cannot be empty</strong></mat-error>
                           </mat-form-field>
                         </div>
@@ -167,7 +167,7 @@
                 <!--<i class="material-icons">mail_outline</i>-->
               <!--</div>-->
               <div class="">
-                <div class="row">
+                <div class="row sh-signup-form-fix">
                     <div class="col-sm-4">
                       <div class="form-group">
                       <mat-form-field>
@@ -227,9 +227,9 @@
                       </div>
                     </div> -->
 
-                  <div class="col-sm-6">
+                  <div class="col-sm-4">
                     <div class="form-group">
-                      <mat-form-field class="margin">
+                      <mat-form-field class="">
                         <input matInput currencyMask placeholder="Minimum Usage Fee" [(ngModel)]="minimum_usage_fee" formControlName="minimum_usage_fee">
                         <mat-error *ngIf="thirdFormGroup.controls['minimum_usage_fee'].value == '' || !thirdFormGroup.controls['minimum_usage_fee'].value"><strong>This Field cannot be empty</strong></mat-error>
 
@@ -239,9 +239,9 @@
 
 
                   </div>
-                  <div class="col-sm-6">
+                  <div class="col-sm-4">
                     <div class="form-group">
-                      <mat-form-field class="margin">
+                      <mat-form-field class="">
                         <input matInput placeholder="Renewable price" [(ngModel)]="renewable" formControlName="renewable">
                         <mat-error *ngIf="thirdFormGroup.controls['renewable'].value == '' || !thirdFormGroup.controls['renewable'].value"><strong>This Field cannot be empty</strong></mat-error>
 
@@ -273,7 +273,7 @@
                 <!--<i class="material-icons">mail_outline</i>-->
               <!--</div>-->
               <div class="">
-                <div class="row">
+                <div class="row sh-signup-form-fix">
                   <div class="col-sm-6">
 
 

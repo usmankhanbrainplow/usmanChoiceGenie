@@ -413,7 +413,7 @@
           </div>
 
           <br>
-          <div class="col-md-3 col-sm-3 col-xs-12 term text-center">
+          <div class="col-md-3 col-sm-3 col-xs-12 term text-center sh-pos-rel">
 
             <h3 class="text-center">
               <b> Call now</b>
@@ -423,15 +423,15 @@
                     <!-- <input type="text" id="phone" value="{{data.phone}}"  name="phone"  > -->
                     {{data.phone}}</a></h3>
             <!-- (click)="openDialog(data.id)" -->
-            <div class="text-center">
-              <button class="btn btn-fill button-social">
+            <div class="text-center" style="margin-top: 10px;">
+              <button class="btn btn-fill sh-signup-btn">
                 <a style="color:white;text-align: center;" href="{{data.sign_up}}" target="_blank">Signup </a>
                 <i class="material-icons">bubble_chart</i>
               </button>
 
             </div>
 
-            <div class="text-center">
+            <div class="text-center sh-pos-abso-2">
 
               <button class="fa fa-edit edit-del-btn" type="submit" value="Edit" type="submit" (click)="btnEditClick(data.id,data.title,data.sign_up,data.phone,data.terms_of_service,data.fact_sheet,data.cancelation_fee,data.price_rate,data.plan_information,data.rating_logo,data.profile_logo,data.profileurl,data.active)"
                 data-toggle="modal" data-target="#myModal2" style="margin-right: 20px;"><span style="font-size: 19px;"> Edit </span>
