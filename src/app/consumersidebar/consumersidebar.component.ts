@@ -102,6 +102,8 @@ export class ConsumersidebarComponent implements OnInit {
   record;
   nofound : boolean = false;
   module;
+  public title;
+  data:any=[];
   isMobileMenu() {
       if ($(window).width() > 991) {
           return false;
@@ -133,10 +135,14 @@ export class ConsumersidebarComponent implements OnInit {
             console.log(error)
         })
 }
+
   ngOnInit() {
      this.mainFunction();
+    //  this.profile();
      
-          this.user = localStorage.getItem('username')
+          this.user = localStorage.getItem('username');
+          
+
        
       this.menuItems = ROUTES.filter(menuItem => menuItem);
       

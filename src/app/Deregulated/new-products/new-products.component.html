@@ -49,9 +49,9 @@
                   <div class="col-sm-6">
                     <div class="form-group">
                       <mat-form-field>
-                        <input matInput placeholder="Contact Email" required [(ngModel)]="contact_email" formControlName="contact_email">
-                        <mat-error *ngIf="signupForm.controls['contact_email'].value == '' || !signupForm.controls['contact_email'].value"><strong>This Field cannot be empty</strong></mat-error>
-                        <mat-error *ngIf="signupForm.controls['contact_email'].invalid"><strong>Please enter a valid email address</strong></mat-error>
+                        <input matInput placeholder="Contact Email"  [(ngModel)]="contact_email" value="{{comprofile.contact_email}}" formControlName="contact_email">
+                        <!-- <mat-error *ngIf="signupForm.controls['contact_email'].value == '' || !signupForm.controls['contact_email'].value"><strong>This Field cannot be empty</strong></mat-error>
+                        <mat-error *ngIf="signupForm.controls['contact_email'].invalid"><strong>Please enter a valid email address</strong></mat-error> -->
                       </mat-form-field>
                     </div>
                   </div>
@@ -123,24 +123,24 @@
                     <div class="form-group">
                       <mat-form-field>
                         <input matInput placeholder="Plan Information" [(ngModel)]="plan_information" formControlName="plan_information">
-                        <mat-error *ngIf="secondFormGroup.controls['plan_information'].value == '' || !secondFormGroup.controls['plan_information'].value"><strong>This Field cannot be empty</strong></mat-error>
+                        <!-- <mat-error *ngIf="secondFormGroup.controls['plan_information'].value == '' || !secondFormGroup.controls['plan_information'].value"><strong>This Field cannot be empty</strong></mat-error> -->
                       </mat-form-field>
                     </div>
                   </div>
-                  <div class="col-sm-6">
+                  <!-- <div class="col-sm-6">
                     <div class="form-group">
                       <mat-form-field>
-                        <input matInput currencyMask placeholder="Price Details" [(ngModel)]="price_rate" formControlName="price_rate" style="text-align: left">
+                        <input matInput currencyMask placeholder="Price Details" [(ngModel)]="price_rate" formControlName="price_rate" style="text-align: left" hidden="true">
                         <mat-error *ngIf="secondFormGroup.controls['price_rate'].value == '' || !secondFormGroup.controls['price_rate'].value"><strong>This Field cannot be empty</strong></mat-error>
                       </mat-form-field>
                     </div>
-                  </div>
+                  </div> -->
 
                   <div class="col-sm-6">
                       <div class="form-group">
                           <mat-form-field class="margin">
                             <input matInput currencyMask placeholder="Cancellation Fee" required [(ngModel)]="cancelation_fee" formControlName="cancelation_fee" style="text-align: left">
-                            <mat-error *ngIf="secondFormGroup.controls['cancelation_fee'].value == '' || !secondFormGroup.controls['cancelation_fee'].value"><strong>This Field cannot be empty</strong></mat-error>
+                            <!-- <mat-error *ngIf="secondFormGroup.controls['cancelation_fee'].value == '' || !secondFormGroup.controls['cancelation_fee'].value"><strong>This Field cannot be empty</strong></mat-error> -->
                           </mat-form-field>
                         </div>
                     </div>
@@ -338,7 +338,7 @@
                   <button mat-button matStepperPrevious class="btn btn-fill">
                     <i _ngcontent-c0="" class="fa fa-angle-left" style="font-size: 26px; margin: -9px 3px 0px 0px;"></i>
                     Back</button>
-                  <button type="submit" mat-button matStepperNext (click)="signupuserdata(zipcode,utilityarea,contact_email,title.value,profileurl.value,profile_logo.value,plan_information,price_rate,cancelation_fee,fact_sheet,terms_of_service,phone,sign_up.value,minimum_usage_fee,renewable,spectialterms,price_1000_kwh,price_500_kwh,price_2000_kwh)" class="btn btn-fill">Done</button>
+                  <button type="submit" mat-button matStepperNext (click)="signupuserdata(zipcode,utilityarea,contact_email,title.value,profileurl.value,profile_logo.value,plan_information,cancelation_fee,fact_sheet,terms_of_service,phone,sign_up.value,minimum_usage_fee,renewable,spectialterms,price_1000_kwh,price_500_kwh,price_2000_kwh)" class="btn btn-fill">Done</button>
                 </div>
               </div>
             </div>

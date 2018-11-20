@@ -86,7 +86,8 @@ export class SidebarComponent implements OnInit {
     public products: any;
     rating;
     closeResult: string;
-  
+    public title;
+    data:any=[];
     
     isMobileMenu() {
         if ($(window).width() > 991) {
@@ -138,6 +139,31 @@ export class SidebarComponent implements OnInit {
         });
         
         } 
+        email;
+        profile() {
+ 
+            let headers = new Headers();
+            headers.append('Content-Type', 'application/json');
+            // headers.append('Authorization', 'JWT ' +  this.authentication);
+            headers.append('Authorization', 'JWT ' + localStorage.getItem('token'));
+            console.log('pofile', localStorage.getItem('token'));
+        
+            this.http.get(Config.api + 'comprofile/' + this.title.trim() + '/', { headers: headers })
+            
+            .subscribe(Res => {
+            // this.data=Res.json();
+            this.data = Res.json();
+            this.data= this.email.contact_email;
+        
+        
+            // this.record= data[0].package_type;
+             localStorage.setItem('contact_email',this.email.contact_email)
+            // localStorage.getItem('package_type');
+        
+            console.log(this.data);
+            });
+            
+            }
     private Sub: Subscription;
     public massage;
     // pro(){
@@ -150,7 +176,9 @@ export class SidebarComponent implements OnInit {
        
         this.user = localStorage.getItem('username')
         this.username = localStorage.getItem('username')
+        this.title = localStorage.getItem('title');
         console.log(this.username)
+        //this.profile();
        this. fetchProducts()
     }
 }

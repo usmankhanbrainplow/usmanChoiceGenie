@@ -68,16 +68,18 @@ titlevendor;
     // title
     console.log(this.username)
    this. fetchProducts()
+   this.profile();
+
     console.log(this.username)
     this.signupForm = this.fb.group({
       'zipcode': ['', Validators.compose([Validators.required])],
       'utilityarea': ['', Validators.compose([Validators.required])],
-     'contact_email':['', Validators.compose([Validators.required, Validators.pattern(this.email)])],
+     'contact_email':[''],
 
     });
     this.secondFormGroup = this.fb.group({
       'plan_information': ['', Validators.compose([Validators.required])],
-      'price_rate': ['', Validators.compose([Validators.required])],
+     // 'price_rate': [''],
       'cancelation_fee': ['', Validators.compose([Validators.required])],
     });
     this.thirdFormGroup = this.fb.group({
@@ -103,55 +105,108 @@ titlevendor;
   prologo;
   sign;
   word2 :any=[];
+  
   fetchProducts() {
-       
-    const headers = new Headers();
+
+    let headers = new Headers();
     headers.append('Content-Type', 'application/json');
-    
-    this.https.get(Config.api+'titlescompanies/'+ this.titlevendor  ,{ headers: headers })
-    .subscribe(Res => {
-    this.sg['products'] = Res.json()['Results'];
-    this.data=this.sg['products'];
-    console.log(this.data);
-this.word=this.data[5];
-this.prourl=this.word.profileurl;
-console.log(this.prourl,'company')
+    // headers.append('Authorization', 'JWT ' +  this.authentication);
+    headers.append('Authorization', 'JWT ' + localStorage.getItem('token'));
+    console.log('new product', localStorage.getItem('token'));
+    this.https.get(Config.api + 'check_role/' + this.username + '/', { headers: headers })
+      .subscribe(Res => {
+        this.sg['products'] = Res.json()['Results'];
+        this.data = this.sg['products'];
+        console.log(this.data);
+        this.word = this.data[0];
+        this.prourl = this.word.profileurl;
+        console.log(this.prourl,'url')
 
-this.prologo=this.word.profile_logo;
-console.log(this.prologo,'link')
-alert(this.prologo)
-this.word2=this.data[0];
-this.sign=this.word2.sign_up;
-console.log(this.sign,"company sign up")
+        this.prologo = this.word.profile_logo;
+        console.log(this.prologo,'profile ')
 
-this.tit=this.word.title;
-this.only=this.tit
-console.log(this.tit)
-    });
+        this.sign = this.word.sign_up;
+        console.log(this.sign,'company sign in ')
+
+        this.tit = this.word.title;
+        this.only = this.tit.trim()
+        console.log(this.tit,'company name')
+      });
+
+  }
+//   fetchProducts() {
+       
+//     const headers = new Headers();
+//     headers.append('Content-Type', 'application/json');
     
-    } 
+//     this.https.get(Config.api+'titlescompanies/'+ this.titlevendor.trim()  ,{ headers: headers })
+//     .subscribe(Res => {
+//     this.sg['products'] = Res.json()['Results'];
+//     this.data=this.sg['products'];
+//     console.log(this.data);
+// this.word=this.data[5];
+// this.prourl=this.word.profileurl;
+// console.log(this.prourl,'company')
+
+// this.prologo=this.word.profile_logo;
+// console.log(this.prologo,'link')
+// alert(this.prologo)
+// this.word2=this.data[0];
+// this.sign=this.word2.sign_up;
+// console.log(this.sign,"company sign up")
+
+// this.tit=this.word.title;
+// this.only=this.tit
+// console.log(this.tit)
+//     });
+    
+//     } 
 
     onSubmit(f) {
       f.resetForm();
     }
-  signupuserdata(zipcode,utilityarea,contact_email,title,profileurl,profile_logo,plan_information,price_rate,cancelation_fee,fact_sheet,terms_of_service,phone,sign_up,minimum_usage_fee,renewable,specialterms,price_1000_kwh,price_500_kwh,price_2000_kwh) {
-    console.log(utilityarea,contact_email,title,profileurl,profile_logo,plan_information,price_rate,cancelation_fee,fact_sheet,terms_of_service,phone,sign_up,minimum_usage_fee,renewable,specialterms,price_1000_kwh,price_500_kwh,price_2000_kwh);
+    comprofile;
+    profile() {
+ 
+      let headers = new Headers();
+      headers.append('Content-Type', 'application/json');
+      // headers.append('Authorization', 'JWT ' +  this.authentication);
+      headers.append('Authorization', 'JWT ' + localStorage.getItem('token'));
+      console.log('pofile', localStorage.getItem('token'));
+  
+      this.http.get(Config.api + 'comprofile/' + this.titlevendor.trim() + '/', { headers: headers })
+      
+      .subscribe(Res => {
+        //alert(this.comprofile)
+      this.comprofile=Res.json();
+      // this.data = Res;
+      // this.data= this.email.contact_emai;
+  
+  
+      // this.record= data[0].package_type;
+      // localStorage.getItem('package_type');
+  
+      console.log(this.comprofile,'company email');
+      });
+      
+      }
+  signupuserdata(zipcode,utilityarea,contact_email,title,profileurl,profile_logo,plan_information,cancelation_fee,fact_sheet,terms_of_service,phone,sign_up,minimum_usage_fee,renewable,specialterms,price_1000_kwh,price_500_kwh,price_2000_kwh) {
+    console.log(zipcode,utilityarea,contact_email,title,profileurl,profile_logo,plan_information,cancelation_fee,fact_sheet,terms_of_service,phone,sign_up,minimum_usage_fee,renewable,specialterms,price_1000_kwh,price_500_kwh,price_2000_kwh);
    
-    const headers = new Headers();
+    let headers = new Headers();
     headers.append('Content-Type', 'application/json');
     // headers.append('Authorization', 'JWT ' +  this.authentication);
     headers.append('Authorization', 'JWT ' + localStorage.getItem('token'));
     console.log('pofile', localStorage.getItem('token'));
    
       
-   return this.http.post(Config.api+'deregulated_add_product/',JSON.stringify({
+   this.http.post(Config.api+'deregulated_add_product/',JSON.stringify({
       "zipcode":zipcode,
       "serviceareaname":utilityarea,
       "title":title,
       "profileurl":profileurl,
       "profile_logo":profile_logo,
       "plan_information":plan_information,
-      "price_rate":price_rate,
       "cancelation_fee":cancelation_fee,
       "fact_sheet":fact_sheet,
       "terms_of_service":terms_of_service,
@@ -172,7 +227,7 @@ console.log(this.tit)
         text: "Successfully Added!",
         title: "Choice Genie",
         type: "success",
-        showConfirmButton: false,
+        showConfirmButton: true,
         timer: 1200,
         confirmButtonText: "OK",
 
@@ -183,6 +238,7 @@ console.log(this.tit)
 
         error => {
           console.log(error);
+          console.log(zipcode,utilityarea,contact_email,title,profileurl,profile_logo,plan_information,cancelation_fee,fact_sheet,terms_of_service,phone,sign_up,minimum_usage_fee,renewable,specialterms,price_1000_kwh,price_500_kwh,price_2000_kwh);
     
           swal(
           'Invalid',
