@@ -80,20 +80,24 @@ titlevendor;
     this.secondFormGroup = this.fb.group({
       'plan_information': ['', Validators.compose([Validators.required])],
      // 'price_rate': [''],
-      'cancelation_fee': ['', Validators.compose([Validators.required])],
+     
     });
     this.thirdFormGroup = this.fb.group({
      'fact_sheet': ['', Validators.compose([Validators.required])],
       'terms_of_service': ['', Validators.compose([Validators.required])],
       'phone': ['', Validators.compose([Validators.required])],
-      'minimum_usage_fee': ['', Validators.compose([Validators.required])],
-      'renewable': ['', Validators.compose([Validators.required])],
+      
+     
     });
     this.fourthFormGroup = this.fb.group({
       'specialterms': ['', Validators.compose([Validators.required])],
       'price_1000_kwh': ['', Validators.compose([Validators.required])],
       'price_500_kwh': ['', Validators.compose([Validators.required])],
       'price_2000_kwh': ['', Validators.compose([Validators.required])],
+      'cancelation_fee': ['', Validators.compose([Validators.required])],
+      'minimum_usage_fee': ['', Validators.compose([Validators.required])],
+      'renewable': ['', Validators.compose([Validators.required])],
+
     });
   }
   check(e){}

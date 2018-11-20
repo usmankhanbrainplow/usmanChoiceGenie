@@ -34,7 +34,10 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: #cc0000;
 }
-
+.height-textarea{
+    height: 115px;
+    resize: none !important;
+}
 
 /*Start Sweet alerts*/
 .swal2-show{
@@ -4512,7 +4515,7 @@ nav#mainnav li.selected-item a:hover {
   background: #D20000;
 }
 nav#mainnav li a i{
-  color: #c00;
+  color: #000;
 }
 nav#mainnav li a:hover {
   /* background:#d20000;
@@ -6150,7 +6153,7 @@ background: linear-gradient(to bottom, #ededed 0%,#c1bfbf 100%); /* W3C, IE10+, 
     /* margin: 0 40px; */
     /*font-size: 16px;*/
     font-size: 15px;
-    font-weight: bold;
+    /* font-weight: bold; */
     margin: 0;
     /*margin-left: 19px;*/
   margin-left: 6px;

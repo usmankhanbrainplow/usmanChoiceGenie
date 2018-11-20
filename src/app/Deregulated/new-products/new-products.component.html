@@ -1,7 +1,7 @@
 <div class="new-product-holder">
   <div class="page-title">
 
-    <h3 class="text-center choiecegenie-offers wow fadeInLeft" style="margin-bottom: 13px !important;">ADD NEW PRODUCT</h3>
+    <h3 class="text-center choiecegenie-offers wow fadeInLeft" style="margin-bottom: 13px !important;">Add New PRODUCT</h3>
 
   </div>
 
@@ -119,10 +119,10 @@
 
                   </div> -->
                   <br class="clearfix" />
-                  <div class="col-sm-6">
+                  <div class="col-sm-12">
                     <div class="form-group">
                       <mat-form-field>
-                        <input matInput placeholder="Plan Information" [(ngModel)]="plan_information" formControlName="plan_information">
+                        <textarea class="height-textarea" matInput placeholder="Plan Information" [(ngModel)]="plan_information" formControlName="plan_information"></textarea>
                         <!-- <mat-error *ngIf="secondFormGroup.controls['plan_information'].value == '' || !secondFormGroup.controls['plan_information'].value"><strong>This Field cannot be empty</strong></mat-error> -->
                       </mat-form-field>
                     </div>
@@ -136,14 +136,14 @@
                     </div>
                   </div> -->
 
-                  <div class="col-sm-6">
+                  <!-- <div class="col-sm-4">
                       <div class="form-group">
-                          <mat-form-field class="margin">
+                          <mat-form-field class="">
                             <input matInput currencyMask placeholder="Cancellation Fee" required [(ngModel)]="cancelation_fee" formControlName="cancelation_fee" style="text-align: left">
                             <!-- <mat-error *ngIf="secondFormGroup.controls['cancelation_fee'].value == '' || !secondFormGroup.controls['cancelation_fee'].value"><strong>This Field cannot be empty</strong></mat-error> -->
-                          </mat-form-field>
+                          <!-- </mat-form-field>
                         </div>
-                    </div>
+                    </div> --> 
 
                 </div>
                 <div class="text-right">
@@ -168,7 +168,7 @@
               <!--</div>-->
               <div class="">
                 <div class="row sh-signup-form-fix">
-                    <div class="col-sm-4">
+                    <div class="col-sm-6">
                       <div class="form-group">
                       <mat-form-field>
                         <input matInput placeholder="Terms of Service " [(ngModel)]="terms_of_service"  formControlName="terms_of_service">
@@ -177,11 +177,7 @@
                       </mat-form-field>
                       </div>
                     </div>
-
-
-
-
-                    <div class="col-sm-4" >
+                     <div class="col-sm-6" >
                       <div class="form-group">
                       <mat-form-field>
                         <input matInput placeholder="Fact Sheet " [(ngModel)]="fact_sheet"  formControlName="fact_sheet">
@@ -193,7 +189,7 @@
 
 
                   </div>
-                  <div class="col-sm-4">
+                  <div class="col-sm-6">
                     <div class="form-group">
                         <!-- <input class="input-phone" type='text' phone-input ng-model="phone"/> -->
 
@@ -207,13 +203,7 @@
 
 
                   </div>
-                  <div class="col-sm-4">
-                    <div class="form-group" >
-                      <mat-form-field>
-                        <input matInput placeholder="Sign up Company" [value]="sign" name="sign_up" #sign_up>
-                      </mat-form-field>
-                    </div>
-</div>
+                  
                   <!-- <div class="col-sm-6">
                       <div class="form-group">
                         <label class="control-label">Security Question</label>
@@ -227,30 +217,15 @@
                       </div>
                     </div> -->
 
-                  <div class="col-sm-4">
-                    <div class="form-group">
-                      <mat-form-field class="">
-                        <input matInput currencyMask placeholder="Minimum Usage Fee" [(ngModel)]="minimum_usage_fee" formControlName="minimum_usage_fee">
-                        <mat-error *ngIf="thirdFormGroup.controls['minimum_usage_fee'].value == '' || !thirdFormGroup.controls['minimum_usage_fee'].value"><strong>This Field cannot be empty</strong></mat-error>
-
+                  
+                  <div class="col-sm-6">
+                    <div class="form-group" >
+                      <mat-form-field>
+                        <input matInput placeholder="Sign up Company" [value]="sign" name="sign_up" #sign_up>
                       </mat-form-field>
                     </div>
-
-
-
                   </div>
-                  <div class="col-sm-4">
-                    <div class="form-group">
-                      <mat-form-field class="">
-                        <input matInput placeholder="Renewable price" [(ngModel)]="renewable" formControlName="renewable">
-                        <mat-error *ngIf="thirdFormGroup.controls['renewable'].value == '' || !thirdFormGroup.controls['renewable'].value"><strong>This Field cannot be empty</strong></mat-error>
-
-                      </mat-form-field>
-                    </div>
-
-
-
-                  </div>
+                  
                 </div>
                 <div class="text-right">
                   <button mat-button matStepperPrevious class="btn btn-fill">
@@ -274,7 +249,7 @@
               <!--</div>-->
               <div class="">
                 <div class="row sh-signup-form-fix">
-                  <div class="col-sm-6">
+                  <div class="col-sm-12">
 
 
                     <div class="form-group">
@@ -287,7 +262,7 @@
 
                   </div>
 
-                  <div class="col-sm-6">
+                  <div class="col-sm-4">
                     <div class="form-group">
                       <mat-form-field>
                         <input matInput currencyMask placeholder="Price of 500 KWH"   required [(ngModel)]="price_500_kwh" formControlName="price_500_kwh">
@@ -303,9 +278,9 @@
 
                   </div>
 
-                  <div class="col-sm-6">
+                  <div class="col-sm-4">
                     <div class="form-group">
-                      <mat-form-field class="margin">
+                      <mat-form-field class="">
                         <input matInput currencyMask placeholder="Price of 1000 KWH"   required [(ngModel)]="price_1000_kwh" formControlName="price_1000_kwh">
                         <mat-error *ngIf="fourthFormGroup.controls['price_1000_kwh'].value == '' || !fourthFormGroup.controls['price_1000_kwh'].value"><strong>This Field cannot be empty</strong></mat-error>
                         <!-- <mat-error *ngIf="fourthFormGroup.controls['price_1000_kwh'].hasError('pattern')">
@@ -318,9 +293,9 @@
                     </div>
 
                   </div>
-                  <div class="col-sm-6">
+                  <div class="col-sm-4">
                     <div class="form-group">
-                      <mat-form-field class="margin">
+                      <mat-form-field class="">
                         <input matInput currencyMask placeholder="Price of 2000 KWH"   required [(ngModel)]="price_2000_kwh" formControlName="price_2000_kwh">
                         <mat-error *ngIf="fourthFormGroup.controls['price_2000_kwh'].value == '' || !fourthFormGroup.controls['price_2000_kwh'].value"><strong>This Field cannot be empty</strong></mat-error>
                         <!-- <mat-error *ngIf="fourthFormGroup.controls['price_2000_kwh'].hasError('pattern')">
@@ -332,6 +307,38 @@
                       </mat-form-field>
                     </div>
 
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="form-group">
+                      <mat-form-field class="">
+                        <input matInput currencyMask placeholder="Minimum Usage Fee" [(ngModel)]="minimum_usage_fee" formControlName="minimum_usage_fee">
+                        <mat-error *ngIf="fourthFormGroup.controls['minimum_usage_fee'].value == '' || !fourthFormGroup.controls['minimum_usage_fee'].value"><strong>This Field cannot be empty</strong></mat-error>
+
+                      </mat-form-field>
+                    </div>
+
+
+
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="form-group">
+                      <mat-form-field class="">
+                        <input matInput placeholder="Renewable price" [(ngModel)]="renewable" formControlName="renewable">
+                        <mat-error *ngIf="fourthFormGroup.controls['renewable'].value == '' || !fourthFormGroup.controls['renewable'].value"><strong>This Field cannot be empty</strong></mat-error>
+
+                      </mat-form-field>
+                    </div>
+
+
+
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="form-group">
+                        <mat-form-field class="">
+                          <input matInput currencyMask placeholder="Cancellation Fee" required [(ngModel)]="cancelation_fee" formControlName="cancelation_fee" style="text-align: left">
+                          <!-- <mat-error *ngIf="secondFormGroup.controls['cancelation_fee'].value == '' || !secondFormGroup.controls['cancelation_fee'].value"><strong>This Field cannot be empty</strong></mat-error> -->
+                        </mat-form-field>
+                      </div>
                   </div>
                 </div>
                 <div class="text-right">
