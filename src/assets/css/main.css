@@ -69,7 +69,7 @@ body {
   bottom: 18px
 }
 .sh-signup-form-fix .mat-input-wrapper {
-  padding-bottom: 8px
+  padding-bottom: 8px !important;
 }
 .sh-signup-form-fix .mat-error {
   font-size: 14px;
@@ -83,7 +83,8 @@ body {
   text-align: left !important;
 }
 .sh-signup-form-fix .mat-form-field-can-float.mat-form-field-should-float .mat-form-field-placeholder {
-  font-size: 16px!important
+  font-size: 18px !important;
+  color: #c00;
 }
 .sh-signup-form-fix.edit-profile .form-group {
   padding-bottom: 0!important;
@@ -117,7 +118,7 @@ body {
 }
 .sh-pos-abso-2{
   position: absolute;
-  bottom: 0px !important;
+  bottom: -1px !important;
   left: 21%;
 }
 .sh-pos-abso-logo{
@@ -992,12 +993,12 @@ background: goldenrod;
   .products-area .card {
     padding: 0 15px 20px;
     margin: 15px 0;}
-    .products-area .plan-detail img {
+    /* .products-area .plan-detail img {
       width: 170px;
       margin-bottom: 22px;
       height: auto;
 
-    }
+    } */
     .products-area .card .card-content {
       overflow: hidden;
       display: -webkit-box;
@@ -1799,7 +1800,7 @@ h3 {
   right: -258px;
 }
 .vanders:hover .right-drop1{
-  right: -191px;
+  right: -182px;
 }
 .vanders:hover .drop-downs-l{
   display: block !important;
@@ -3587,7 +3588,7 @@ li.pinterest:hover {
 
 /* header css fixed start*/
 .navbar-nav > li > a {
-  font-size:15px;
+  font-size:14px;
 }
 .navbar-nav > li > a:hover {
   color: #c00;
@@ -4670,6 +4671,7 @@ footer p a:hover { color:#333; border-bottom-color: #333; }
   font-family: "Open Sans",sans-serif;
   font-weight: 600;
   font-size: 32px;
+  text-align: center;
   /* float: left; */
   margin-bottom: 0;
 
@@ -4691,8 +4693,8 @@ footer p a:hover { color:#333; border-bottom-color: #333; }
 }
 .popupmodel1 {
   /* margin-top: 25%; */
-  width: 728px !important;
-  right: 22%;
+  width: 550px !important;
+    right: -2%;
   background: #ebebeb !important;
 }
 
@@ -4703,24 +4705,24 @@ footer p a:hover { color:#333; border-bottom-color: #333; }
   font-size: 40px
 }
 .popup-close-button {
-  width: 50px;
-  height: 50px;
-  border-radius: 38px;
-  background: #000000;
-  position: absolute;
-  top: -30px;
-  right: -30px;
-  cursor: pointer;
-  -webkit-transition: all .1s ease-in-out;
-  -o-transition: all .1s ease-in-out;
-  transition: all .1s ease-in-out;
-  color: #fff;
-  font-size: 26px;
-  font-family: "Open Sans",sans-serif;
-  font-weight: 500;
-  text-align: center;
-  line-height: 50px;
-  z-index: 1;
+    width: 35px;
+    height: 35px;
+    border-radius: 38px;
+    background: #000000;
+    position: absolute;
+    top: -22px;
+    right: -21px;
+    cursor: pointer;
+    -webkit-transition: all .1s ease-in-out;
+    -o-transition: all .1s ease-in-out;
+    transition: all .1s ease-in-out;
+    color: #fff;
+    font-size: 22px;
+    font-family: "Open Sans",sans-serif;
+    font-weight: 500;
+    text-align: center;
+    line-height: 37px;
+    z-index: 1;
 }
 .popup-close-button:hover{
   background-color:#CC0000;
@@ -5209,6 +5211,9 @@ canvas {
 .btn-fill:hover i{
   color: #fff;
 }
+.btn-style{
+  padding: 6px 19px !important;
+}
 /***** CSS Magic to Highlight Stars on Hover *****/
 
 .ratingp > input:checked ~ label, /* show gold star when clicked */
@@ -5236,7 +5241,7 @@ canvas {
 }
 .date-box label{
   color: #c00;
-  font-size: 20px;
+  font-size: 18px;
   text-align: left;
   font-weight: bold;
   margin: 5px 0 0 0;
@@ -5408,7 +5413,7 @@ padding: 0 10px;
 }
 .edit-del-btn{
   /*padding:center;*/
-  font-size: 29px;
+  font-size: 19px;
   color: #000;
   background: #fff;
    border: none;
@@ -7154,9 +7159,10 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
 }
 .inactive{
   border: 1px solid;
-  border-radius: 100%;
-  width: 25px;
-  font-size: 22px;
+    border-radius: 100%;
+    width: 20px;
+    font-size: 17px;
+    padding: 0px 2px;
 }
 .input-group .mat-form-field-can-float.mat-form-field-should-float .mat-form-field-placeholder, .mat-form-field-empty.mat-form-field-placeholder, mat-form-field.mat-form-field{
   margin-top: 0;
@@ -8134,6 +8140,7 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
   margin: 0 auto !important;
   padding: 5px 16px !important;
   font-size: 16px !important;
+  text-transform: capitalize !important;
 }
 .sh-top-price{
   text-align:center;
@@ -9267,8 +9274,9 @@ font-size: 33px;
   .panel-heading{
     padding: 8px 0 0 15px !important;
   }
-  .popup-image img{
+  .popup-image a img{
     width: 100% !important;
+    margin-bottom: 0px !important;
   }
   .modal-v2__main-heading{
     font-size: 18px;

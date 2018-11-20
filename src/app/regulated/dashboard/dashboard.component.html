@@ -72,26 +72,26 @@
                   </a>
                   <div class="modal fade" id="myModal3" role="dialog">
                     <div class="modal-dialog">
-                      <div class="modal-content popupmodel">
+                      <div class="modal-content popupmodel1">
 
                         <div class="modal-body" style="font-size: 18px;
                                                   background: #ffffff;
-                                                  padding: 20px;
+                                                  padding: 0px;
                                                   margin: 15px;
                                                   position: relative;">
                           <div class="popup-close-button" data-dismiss="modal">X</div>
                           <div class="row">
-                            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 " style="border-bottom: 1px #4f4f4f solid;">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="border-bottom: 1px #4f4f4f solid;">
                               <p class=" modal-v2__main-heading"> {{data.title}}</p>
 
                             </div>
-                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3" style="border-bottom: 1px #4f4f4f solid;">
+                            <!-- <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3" style="border-bottom: 1px #4f4f4f solid;">
                               <div class="popup-image">
                                 <a href="{{data.profileurl}}" target="_blank" class="display-b margin-top">
                                   <img src="{{data.profile_logo}}" />
                                 </a>
                               </div>
-                            </div>
+                            </div> -->
                             <div style="width: 100%">
                                 <!-- <mat-form-field>
                                     <input matInput [matDatepicker]="startPicker" [(ngModel)]="date" placeholder="Choose a start date"/>
@@ -124,7 +124,7 @@
 
                           </div>
                         </div>
-                        <div class="modal-footer">
+                        <div class="">
                           <form (ngSubmit)="onSubmit(f)" #f="ngForm">
 
                               <!-- <input matInput placeholder="date" [value]="today | date: 'yyyy-MM-dd'" #mydate name="mydate"> -->
@@ -172,10 +172,10 @@
                             <input matInput placeholder="Sign Up" name="sign_up" readonly [hidden]="true" value="{{sign_up}}" #updatedsign_up />
 
                             <div class=" text-center">
-                              <button type="submit" class="btn btn-fill" (click)="activeClick(nowdate,date,updatedtitle.value,updatedsign_up.value,updatedphone.value,updatedterms_of_service.value,updatedfact_sheet.value,updatedcancelation_fee.value,updatedprice500kwh.value,updatedprice1000kwh.value,updatedprice2000kwh.value,updatedplan_information.value,updatedrating_logo.value,updatedprofile_logo.value,updatedprofileurl.value,upactive.value)"
+                              <button type="submit" class="btn btn-fill btn-style" (click)="activeClick(nowdate,date,updatedtitle.value,updatedsign_up.value,updatedphone.value,updatedterms_of_service.value,updatedfact_sheet.value,updatedcancelation_fee.value,updatedprice500kwh.value,updatedprice1000kwh.value,updatedprice2000kwh.value,updatedplan_information.value,updatedrating_logo.value,updatedprofile_logo.value,updatedprofileurl.value,upactive.value)"
                                 data-dismiss="modal">Inactive</button>
 
-                              <button type="button" class="btn btn-fill" data-dismiss="modal">Cancel</button>
+                              <button type="button" class="btn btn-fill btn-style" data-dismiss="modal">Cancel</button>
 
                             </div>
                           </form>
@@ -205,7 +205,7 @@
                     </div>
 
                   </div>
-                  <a style="margin-top: 10px;" class="sh-pos-abso">
+                  <a class="sh-pos-abso sh-pos-abso-logo">
                     <label class="view-plan-details" (click)="btnshowClick(data.id,data.title,data.sign_up,data.phone,data.terms_of_service,data.fact_sheet,data.cancelation_fee,data.price_1000_kwh,data.price_500_kwh,data.price_2000_kwh,data.plan_information,data.rating_logo,data.profile_logo,data.profileurl)"
                       data-toggle="modal" data-target="#myModal4">Plan Information</label>
                   </a>
@@ -230,37 +230,35 @@
           <div class="modal fade" id="myModal2" role="dialog">
                   <div class="modal-dialog">
                     <!-- Modal content-->
-                    <div class="modal-content popupmodel">
-                      <div class="modal-header">
-                      </div>
+                    <div class="modal-content popupmodel1">
                       <div class="modal-body" style="font-size: 18px;
                                                 background: #ffffff;
-                                                padding: 20px 20px 0px;
+                                                padding:0px;
                                                 margin: 15px;
                                                 position: relative;">
                         <div class="popup-close-button" data-dismiss="modal">X</div>
                         <div class="row">
-                          <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 " style="border-bottom: 1px #4f4f4f solid;">
+                          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="border-bottom: 1px #4f4f4f solid;">
                             <p class=" modal-v2__main-heading"> {{data.title}}</p>
 
                           </div>
-                          <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3" style="border-bottom: 1px #4f4f4f solid;">
+                          <!-- <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3" style="border-bottom: 1px #4f4f4f solid;">
                             <div class="popup-image">
                               <a href="{{data.profileurl}}" target="_blank" class="display-b margin-top">
                                 <img src="{{data.profile_logo}}" />
                               </a>
                             </div>
-                          </div>
+                          </div> -->
                           <md-input-container class="block" hidden=true>
                               <input mdInput placeholder="Title" [ngModel]="date | date:'yyyy-MM-dd'" >
                           </md-input-container>
       <input type="date" required name="date" [(ngModel)]="date" hidden="true">
-                          <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+                          <form (ngSubmit)="onSubmit(f)" #f="ngForm" class="sh-signup-form-fix">
                               <!-- <input matInput placeholder="date" hidden="true" [value]="today | date: 'yyyy-MM-dd'" #mydate name="mydate"> -->
 
       <input matInput placeholder="date" hidden="true" [value]="today | date: 'yyyy-MM-dd'" #mydate name="mydate">
 
-                             <div class="col-md-6 col-sm-6">
+                             <div class="col-md-12 col-sm-12">
                               <div class="input-group">
                                   <mat-form-field>
                                   <input matInput placeholder="Title" readonly name="title" value="{{title}}" required #updatedtitle/>
@@ -268,7 +266,7 @@
                                 </mat-form-field>
                               </div>
                             </div>
-                            <div class="col-md-6 col-sm-6">
+                            <div class="col-md-12 col-sm-12">
                               <div class="input-group" hidden=true>
 
                                 <mat-form-field>
@@ -277,7 +275,7 @@
                                 </mat-form-field>
                               </div>
                             </div>
-                            <div class="col-md-6 col-sm-6">
+                            <div class="col-md-12 col-sm-12">
                               <div class="input-group" hidden=true>
 
                                 <mat-form-field>
@@ -286,7 +284,7 @@
                                 </mat-form-field>
                               </div>
                             </div>
-                            <div class="col-md-6 col-sm-6">
+                            <div class="col-md-12 col-sm-12">
                               <div class="input-group" hidden=true>
 
                                 <mat-form-field>
@@ -295,7 +293,7 @@
                                 </mat-form-field>
                               </div>
                             </div>
-                            <div class="col-md-6 col-sm-6">
+                            <div class="col-md-12 col-sm-12">
                               <div class="input-group" hidden=true>
                                 <mat-form-field>
                                   <input matInput placeholder="Rating_logo" readonly name="rating_logo" value="{{rating_logo}}" #updatedrating_logo />
@@ -303,7 +301,7 @@
                                 </mat-form-field>
                               </div>
                             </div>
-                            <div class="col-md-6 col-sm-6">
+                            <div class="col-md-12 col-sm-12">
                               <div class="input-group">
 
                                 <mat-form-field>
@@ -314,7 +312,7 @@
                               </div>
                             </div>
 
-                            <div class="col-md-6 col-sm-6">
+                            <div class="col-md-12 col-sm-12">
                               <div class="input-group margin-zero1">
 
                                 <mat-form-field>
@@ -323,7 +321,7 @@
                                 </mat-form-field>
                               </div>
                             </div>
-                            <div class="col-md-6 col-sm-6">
+                            <div class="col-md-12 col-sm-12">
                               <div class="input-group margin-zero1">
 
                                 <mat-form-field>
@@ -332,7 +330,7 @@
                                 </mat-form-field>
                               </div>
                             </div>
-                            <div class="col-md-6 col-sm-6">
+                            <div class="col-md-12 col-sm-12">
                               <div class="input-group margin-zero1">
                                 <mat-form-field>
                                   <input matInput placeholder="price 2000 kwh" name="price_2000_kwh" value="{{price_2000_kwh}}" #updatedprice2000kwh/>
@@ -340,7 +338,7 @@
                                 </mat-form-field>
                               </div>
                             </div>
-                            <div class="col-md-6 col-sm-6">
+                            <div class="col-md-12 col-sm-12">
                               <div class="input-group margin-zero1" hidden=true>
                                 <mat-form-field>
                                   <input matInput placeholder="Cancelation Fee" readonly name="cancelation_fee" value="{{cancelation_fee}}" #updatedcancelation_fee/>
@@ -348,7 +346,7 @@
                                 </mat-form-field>
                               </div>
                             </div>
-                            <div class="col-md-6 col-sm-6">
+                            <div class="col-md-12 col-sm-12">
                               <div class="input-group margin-zero1" hidden=true>
 
                                 <mat-form-field>
@@ -357,7 +355,7 @@
                                 </mat-form-field>
                               </div>
                             </div>
-                            <div class="col-md-6 col-sm-6">
+                            <div class="col-md-12 col-sm-12">
                               <div class="input-group margin-zero1" hidden=true>
 
                                 <mat-form-field>
@@ -367,7 +365,7 @@
                                 </mat-form-field>
                               </div>
                             </div>
-                            <div class="col-md-6 col-sm-6">
+                            <div class="col-md-12 col-sm-12">
                               <div class="input-group margin-zero1" hidden=true>
                                 <mat-form-field>
                                   <input matInput placeholder="Phone No" name="phone" readonly value="{{phone}}" #updatedphone/>
@@ -375,7 +373,7 @@
                                 </mat-form-field>
                               </div>
                             </div>
-                            <div class="col-md-6 col-sm-6">
+                            <div class="col-md-12 col-sm-12">
                               <div class="input-group margin-zero1" hidden=true>
 
                                 <mat-form-field>
@@ -390,10 +388,10 @@
                             <div class="col-md-12 col-sm-12">
 
                             <div class=" text-center" style="margin-top: -21px;">
-                              <button type="submit" class="btn btn-fill" (click)="editClick(mydate.value,date,updatedtitle.value,updatedsign_up.value,updatedphone.value,updatedterms_of_service.value,updatedfact_sheet.value,updatedcancelation_fee.value,updatedprice500kwh.value,updatedprice1000kwh.value,updatedprice2000kwh.value,updatedplan_information.value,updatedrating_logo.value,updatedprofile_logo.value,updatedprofileurl.value)"
+                              <button type="submit" class="btn btn-fill btn-style" (click)="editClick(mydate.value,date,updatedtitle.value,updatedsign_up.value,updatedphone.value,updatedterms_of_service.value,updatedfact_sheet.value,updatedcancelation_fee.value,updatedprice500kwh.value,updatedprice1000kwh.value,updatedprice2000kwh.value,updatedplan_information.value,updatedrating_logo.value,updatedprofile_logo.value,updatedprofileurl.value)"
                                 data-dismiss="modal">Update</button>
 
-                              <button type="button" class="btn btn-fill" data-dismiss="modal">Cancel</button>
+                              <button type="button" class="btn btn-fill btn-style" data-dismiss="modal">Cancel</button>
 
                             </div>
                             </div>
@@ -402,7 +400,7 @@
                           </form>
                         </div>
                       </div>
-                      <div style="display:inline-block; text-align:center;">
+                      <!-- <div style="display:inline-block; text-align:center;">
                         <a href="{{data.sign_up}}" target="_blank">
                           <button class="btn btn-fill">Order Online</button>
                         </a>
@@ -410,17 +408,17 @@
                           <span style="font-size:24px; font-weight:600px">OR
                               <a href="tel:{{data.phone}}">
                                   <!-- <input type="text" id="phone" value="{{data.phone}}"  name="phone"  > -->
-                                  {{data.phone}}</a>
+                                  <!-- {{data.phone}}</a> -->
                             <!-- <b> {{data.phone}} </b> -->
-                          </span>
-                        </div>
-                      </div>
+                          <!-- </span>
+                        </div> -->
+                      <!-- </div> --> 
                     </div>
                   </div>
                 </div>
 
                 <br>
-                <div class="col-md-3 col-sm-3 col-xs-12 term text-center">
+                <div class="col-md-3 col-sm-3 col-xs-12 term text-center sh-pos-rel">
 
                   <h3 class="text-center">
                     <b> Call now</b>
@@ -431,22 +429,22 @@
                           {{data.phone}}</a></h3>
                   <!-- (click)="openDialog(data.id)" -->
                   <div class="text-center">
-                    <button class="btn btn-fill button-social">
+                    <button class="btn btn-fill sh-signup-btn" style="margin-top: 10px">
                       <a style="color:white;text-align: center;" href="{{data.profileurl}}" target="_blank">Signup </a>
                       <i class="material-icons">bubble_chart</i>
                     </button>
 
                   </div>
 
-                  <div class="text-center">
+                  <div class="text-center sh-pos-abso-2">
 
                     <button class="fa fa-edit edit-del-btn" type="submit" value="Edit" type="submit" (click)="btnEditClick(data.id,data.title,data.sign_up,data.phone,data.terms_of_service,data.fact_sheet,data.cancelation_fee,data.price_1000_kwh,data.price_500_kwh,data.price_2000_kwh,data.plan_information,data.rating_logo,data.profile_logo,data.profileurl,data.active)"
-                      data-toggle="modal" data-target="#myModal2" style="margin-right: 20px;"><span style="font-size: 19px;"> Edit </span>
+                      data-toggle="modal" data-target="#myModal2" style="margin-right: 20px;"><span style="font-size: 15px;"> Edit </span>
                     </button>
 
                     <button class="edit-del-btn2"  type="submit" type="submit" (click)="btnactiveClick(data.id,data.title,data.sign_up,data.phone,data.terms_of_service,data.fact_sheet,data.cancelation_fee,data.price_1000_kwh,data.price_500_kwh,data.price_2000_kwh,data.plan_information,data.rating_logo,data.profile_logo,data.profileurl)"
                       data-toggle="modal" data-target="#myModal3">
-                      <span style="font-size: 19px;"> Inactive </span>
+                      <span style="font-size: 15px;"> Inactive </span>
                       <i class="fa fa-times inactive"></i>
                     </button>
                   </div>
@@ -466,22 +464,22 @@
 
                 <div class="modal-body" style="font-size: 18px;
                                             background: #ffffff;
-                                            padding: 20px 20px 0px;
+                                            padding:0px;
                                             margin: 15px;
                                             position: relative;">
                   <div class="popup-close-button" data-dismiss="modal">X</div>
                   <div class="row">
-                    <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 " style="border-bottom: 1px #4f4f4f solid;">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="border-bottom: 1px #4f4f4f solid;">
                       <p class=" modal-v2__main-heading"> {{title}}</p>
 
                     </div>
-                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3" style="border-bottom: 1px #4f4f4f solid;">
+                    <!-- <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3" style="border-bottom: 1px #4f4f4f solid;">
                       <div class="popup-image">
                         <a href="{{profileurl}}" target="_blank" class="display-b margin-top">
                           <img src="{{profile_logo}}" />
                         </a>
                       </div>
-                    </div>
+                    </div> -->
                     <div class="col-lg-6 col-md-5 col-sm-5 col-xs-5">
                       <div class="plan-information__heading">Price Rate</div>
                       <table>
