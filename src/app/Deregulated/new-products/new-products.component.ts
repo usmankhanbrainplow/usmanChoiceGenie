@@ -237,6 +237,7 @@ titlevendor;
 
         })
         console.log(this.model);
+        // this.router.navigate(['']);
 
       },
 

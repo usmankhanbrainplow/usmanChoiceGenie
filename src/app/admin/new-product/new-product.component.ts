@@ -54,15 +54,17 @@ export class NewProductComponent implements OnInit {
   secondFormGroup: FormGroup;
   thirdFormGroup: FormGroup;
   fourthFormGroup: FormGroup;
-  constructor(private https: Http, public router: Router, private fb: FormBuilder, private http: HttpClient, private route: ActivatedRoute, private sg: SimpleGlobal) { }
+  constructor(private https: Http, public router: Router, private fb: FormBuilder, private http: Http, private route: ActivatedRoute, private sg: SimpleGlobal) { }
   title;
-
+  titlevendor;
   public user;
   ngOnInit() {
     this.user = localStorage.getItem('user')
     this.username = localStorage.getItem('username')
+    this.titlevendor =localStorage.getItem('title')
     console.log(this.username)
     this.fetchProducts()
+    this.profile();
     console.log(this.username)
     this.signupForm = this.fb.group({
       'zipcode': ['', Validators.compose([Validators.required])],
@@ -72,7 +74,7 @@ export class NewProductComponent implements OnInit {
     });
     this.secondFormGroup = this.fb.group({
       'plan_information': ['', Validators.compose([Validators.required])],
-      'price_rate': ['', Validators.compose([Validators.required])],
+      // 'price_rate': ['', Validators.compose([Validators.required])],
       'cancelation_fee': ['', Validators.compose([Validators.required])],
     });
     this.thirdFormGroup = this.fb.group({
@@ -127,12 +129,36 @@ export class NewProductComponent implements OnInit {
       });
 
   }
+  comprofile;
+  profile() {
 
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    // headers.append('Authorization', 'JWT ' +  this.authentication);
+    headers.append('Authorization', 'JWT ' + localStorage.getItem('token'));
+    console.log('pofile', localStorage.getItem('token'));
+
+    this.http.get(Config.api + 'comprofile/' + this.titlevendor.trim() + '/', { headers: headers })
+    
+    .subscribe(Res => {
+      //alert(this.comprofile)
+    this.comprofile=Res.json();
+    // this.data = Res;
+    // this.data= this.email.contact_emai;
+
+
+    // this.record= data[0].package_type;
+    // localStorage.getItem('package_type');
+
+    console.log(this.comprofile,'company email');
+    });
+    
+    }
   onSubmit(f) {
     f.resetForm();
   }
-  signupuserdata(zipcode,utilityarea, contact_email, title, profileurl, profile_logo, plan_information, price_rate, cancelation_fee, fact_sheet, terms_of_service, phone, sign_up, minimum_usage_fee, renewable, specialterms, price_1000_kwh, price_500_kwh, price_2000_kwh) {
-    console.log(utilityarea, title, profileurl, profile_logo, plan_information, price_rate, cancelation_fee, fact_sheet, terms_of_service, phone, sign_up, minimum_usage_fee, renewable, specialterms, price_1000_kwh, price_500_kwh, price_2000_kwh);
+  signupuserdata(zipcode,utilityarea, contact_email, title, profileurl, profile_logo, plan_information,  cancelation_fee, fact_sheet, terms_of_service, phone, sign_up, minimum_usage_fee, renewable, specialterms, price_1000_kwh, price_500_kwh, price_2000_kwh) {
+    console.log(utilityarea, title, profileurl, profile_logo, plan_information,  cancelation_fee, fact_sheet, terms_of_service, phone, sign_up, minimum_usage_fee, renewable, specialterms, price_1000_kwh, price_500_kwh, price_2000_kwh);
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
     // headers.append('Authorization', 'JWT ' +  this.authentication);
@@ -145,7 +171,7 @@ export class NewProductComponent implements OnInit {
       "profileurl": profileurl,
       "profile_logo": profile_logo,
       "plan_information": plan_information,
-      "price_rate": price_rate,
+      // "price_rate": price_rate,
       "cancelation_fee": cancelation_fee,
       "fact_sheet": fact_sheet,
       "terms_of_service": terms_of_service,
@@ -166,7 +192,7 @@ export class NewProductComponent implements OnInit {
           text: "Successfully Added!",
           title: "Choice Genie",
           type: "success",
-          showConfirmButton: false,
+          showConfirmButton: true,
           timer: 1200,
           confirmButtonText: "OK",
 
@@ -191,7 +217,7 @@ export class NewProductComponent implements OnInit {
 
   company() {
 
-    let headers = new HttpHeaders();
+    let headers = new Headers();
     headers.append('Content-Type', 'application/json');
 
 
