@@ -117,7 +117,7 @@ body {
 .sh-pos-abso-1{
   position: absolute;
   bottom: 0px !important;
-  left: 34%;
+  left: 38%;
 }
 .sh-pos-abso-2{
   position: absolute;
@@ -4518,10 +4518,13 @@ nav#mainnav li a i{
   color: #000;
 }
 nav#mainnav li a:hover {
-  /* background:#d20000;
+  background:#cc0000;
   color: #ffffff;
-  text-decoration:none; */
+  /* text-decoration:none; */
   border-left: 4px solid #c00;
+}
+nav#mainnav li a:hover i{
+  color: #ffffff;
 }
 nav#mainnav li a {
   color: #000000;
@@ -4536,6 +4539,7 @@ nav#mainnav li a {
   -o-transition: 0.5s;
   transition: 0.5s;
   font-size: 16px;
+  border-bottom: 1px solid #ccc;
 }
 
 aside#sidebar h4 {
@@ -5362,9 +5366,11 @@ section#boody{
   font-size: 31px;
 }
 .sidebar-profile-img{
-  width: 55%;
+  /* width: 55%; */
   /* height: 55%; */
   /*padding: 60px 0;*/
+  width: 100px;
+  height: 100px;
   text-align: center;
   margin: 0 auto;
   border-radius: 100%;
@@ -5374,10 +5380,11 @@ section#boody{
   /*margin-top: 25px !important;*/
 }
 .sidebar-profile-img >a >img{
-  width: 77%;
+  width: 100%;
+  /* width: 77%; */
   /* margin: 36% 5%; */
   /*height: 32px;*/
-  margin: 38px auto;
+  /* margin: 38px auto; */
 }
 .sidebar-input{
 padding: 0 10px;
