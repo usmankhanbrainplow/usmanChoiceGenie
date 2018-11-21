@@ -39,12 +39,22 @@
                   <div class="col-sm-6">
 
                     <div class="form-group">
-                      <mat-form-field>
-                        <input matInput placeholder="Utility Area" required [(ngModel)]="utilityarea" formControlName="utilityarea">
-                        <mat-error *ngIf="signupForm.controls['utilityarea'].value == '' || !signupForm.controls['utilityarea'].value"><strong>This Field cannot be empty</strong></mat-error>
+                        <mat-form-field >
 
-                      </mat-form-field>
-                    </div>
+                            <mat-select class="search-select" placeholder="Service Area Name"  required [(ngModel)]="utilityarea" name="utilityarea">
+                                <mat-option *ngFor="let data of utilityarea" [value]="data.serviceareaname">
+                                    {{data.serviceareaname}}
+            
+                                  </mat-option>
+            
+                            </mat-select>
+                          </mat-form-field>
+                      <!-- <mat-form-field>
+                        <input matInput placeholder="Utility Area" required [(ngModel)]="utilityarea" formControlName="utilityarea">
+                         <mat-error *ngIf="signupForm.controls['utilityarea'].value == '' || !signupForm.controls['utilityarea'].value"><strong>This Field cannot be empty</strong></mat-error> -->
+
+                      <!-- </mat-form-field> --> 
+                                        </div>
 
 
 

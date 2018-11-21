@@ -65,11 +65,12 @@ export class NewProductComponent implements OnInit {
     console.log(this.username)
     this.fetchProducts()
     this.profile();
+    this.companystates();
     console.log(this.username)
     this.signupForm = this.fb.group({
       'zipcode': ['', Validators.compose([Validators.required])],
-      'utilityarea': ['', Validators.compose([Validators.required])],
-      'contact_email': ['', Validators.compose([Validators.required, Validators.pattern(this.email)])],
+      'utilityarea': [''],
+      'contact_email': [''],
 
     });
     this.secondFormGroup = this.fb.group({
@@ -153,6 +154,15 @@ export class NewProductComponent implements OnInit {
     console.log(this.comprofile,'company email');
     });
     
+    }
+    companystates() {
+      let headers = new Headers();
+      headers.append('Content-Type', 'application/json');
+      this.http.get(Config.api + 'deregulated_utility/', { headers: headers })
+        .subscribe(Res => {
+          this.utilityarea = Res.json();
+          console.log(this.utilityarea)
+        });
     }
   onSubmit(f) {
     f.resetForm();

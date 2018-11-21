@@ -9,12 +9,14 @@ import {NewProductsComponent} from "./new-products.component";
 import {NewProducts} from './new-products.routing';
 import { TextMaskModule } from 'angular2-text-mask';
 import { CurrencyMaskModule } from "ng2-currency-mask";
+import { LoaderModule } from '../../loader/loader.module';
 @NgModule({
     imports: [
         CommonModule,
         RouterModule.forChild(NewProducts),
         FormsModule,CurrencyMaskModule,
-        MaterialModule,ReactiveFormsModule,TextMaskModule
+        MaterialModule,ReactiveFormsModule,TextMaskModule,
+        LoaderModule
     ],
     declarations: [
       NewProductsComponent,

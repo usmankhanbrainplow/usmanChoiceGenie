@@ -475,13 +475,19 @@
                 </a>
               </div>
               <mat-form-field class="margin-up">
-                <mat-select class="" placeholder="" selected="10" (change)="checked18($event,i,items)" value="item"
+                  <mat-select class="" placeholder="20 Per Page" selected="20" (change)="checked18($event,i,items)"
+                  value="item"  [(ngModel)]="items" name="items">
+                  <mat-option value="30" selected="true">30 Per Page</mat-option>
+                  <mat-option value="40">40 Per Page</mat-option>
+                  <mat-option value="50">50 Per Page</mat-option>
+              </mat-select>
+                <!-- <mat-select class="" placeholder="" selected="10" (change)="checked18($event,i,items)" value="item"
                   required [(ngModel)]="items" name="items">
                   <mat-option value="10"  selected="true">10 PER PAGE</mat-option>
                   <mat-option value="20">20 PER PAGE</mat-option>
                   <mat-option value="40">40 PER PAGE</mat-option>
                   <!-- <mat-option value="556">SEE ALL</mat-option> -->
-                </mat-select>
+                <!-- </mat-select> --> 
               </mat-form-field>
 
             </li>

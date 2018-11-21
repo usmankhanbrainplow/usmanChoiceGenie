@@ -9,6 +9,7 @@ import { ResponseContentType } from '@angular/http/src/enums';
 import { FormBuilder, Validators, NgControl, RadioControlValueAccessor, FormControl, FormGroup } from '@angular/forms';
 // import { HttpClient, HttpResponse, HttpHeaders } from "@angular/common/http";
  import swal from 'sweetalert2';
+ import { HttpService } from '../../serv/http-service';
 import { MatSelect } from '@angular/material';
 
 import { modelGroupProvider } from '@angular/forms/src/directives/ng_model_group';
@@ -56,7 +57,7 @@ export class NewProductsComponent implements OnInit {
   secondFormGroup: FormGroup;
   thirdFormGroup: FormGroup;
   fourthFormGroup: FormGroup;
-  constructor(private https:Http,public router: Router, private fb: FormBuilder, private http: Http, private route: ActivatedRoute, private sg: SimpleGlobal) { }
+  constructor(private https:HttpService,public router: Router, private fb: FormBuilder, private http: Http, private route: ActivatedRoute, private sg: SimpleGlobal) { }
 title;
 titlevendor;
 
@@ -69,11 +70,12 @@ titlevendor;
     console.log(this.username)
    this. fetchProducts()
    this.profile();
+   this.companystates();
 
     console.log(this.username)
     this.signupForm = this.fb.group({
       'zipcode': ['', Validators.compose([Validators.required])],
-      'utilityarea': ['', Validators.compose([Validators.required])],
+      'utilityarea': [''],
      'contact_email':[''],
 
     });
@@ -169,6 +171,15 @@ titlevendor;
     onSubmit(f) {
       f.resetForm();
     }
+    companystates() {
+      let headers = new Headers();
+      headers.append('Content-Type', 'application/json');
+      this.http.get(Config.api + 'deregulated_utility/', { headers: headers })
+        .subscribe(Res => {
+          this.utilityarea = Res.json();
+          console.log(this.utilityarea)
+        });
+    }
     comprofile;
     profile() {
  
@@ -178,7 +189,7 @@ titlevendor;
       headers.append('Authorization', 'JWT ' + localStorage.getItem('token'));
       console.log('pofile', localStorage.getItem('token'));
   
-      this.http.get(Config.api + 'comprofile/' + this.titlevendor.trim() + '/', { headers: headers })
+      this.https.get(Config.api + 'comprofile/' + this.titlevendor.trim() + '/', { headers: headers })
       
       .subscribe(Res => {
         //alert(this.comprofile)
