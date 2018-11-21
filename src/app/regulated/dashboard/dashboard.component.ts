@@ -125,7 +125,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
             this.noresult = Res.json()['Total Result'];
             for (let prod of this.sg['products']) {
                 prod["plan_information"] = prod["plan_information"].split(',,', 3000);
-                prod["price_rate"] = prod["price_rate"].split('..', 3000);
+                // prod["price_rate"] = prod["price_rate"].split('..', 3000);
 
             }
             this.allItems = this.sg['products'];
@@ -151,7 +151,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
             console.log(this.sg['products']);
             for (let prod of this.sg['products']) {
                 prod["plan_information"] = prod["plan_information"].split(',,', 3000);
-                prod["price_rate"] = prod["price_rate"].split('..', 3000);
+                // prod["price_rate"] = prod["price_rate"].split('..', 300);
 
             }
 
