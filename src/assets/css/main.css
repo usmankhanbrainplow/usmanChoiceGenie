@@ -3187,13 +3187,14 @@ section {
 
 .login-form-1-body > div{
   text-align: center;
-  margin: 10px 0 5px 0;
+  margin: 0;
   font-size: 18px;
   font-weight: bold;
+  width: 100%;
 }
 .login-form-1-body > div label{
   float: left;
-  margin-top: 5px;
+  margin-top: -3px;
   font-size: 20px;
 }
 .login-form-1-body > div label input{
@@ -3202,13 +3203,13 @@ section {
   zoom: 2;
 }
 blackgeeks-recaptcha p{
-  font-size: 25px !important;
+  font-size: 24px !important;
 }
 .login-form-1-body > div > a{
   color: #CC0000;
 }
 .margin-right-bottom{
-  margin: 0 0 20px 0;
+  margin: 0 0 20px 0 !important;
 }
 .login-form-1-body > div > a:hover{
   /*color: #25B7D3;*/
@@ -4268,7 +4269,12 @@ input[type=text]{
 .recaptcha-top{
   top: 30px;
 }
-
+.recaptcha-wrap i:before {
+  margin-top: 26px !important;
+}
+.recaptcha-wrap p{
+  float: left !important;
+}
 
 /*Signup Form Fixeddd End*/
 
@@ -4970,9 +4976,10 @@ h1.page-header {
   /*margin-bottom: 20px;*/
 }
 .easypiechart-panel h4{
-  font-size: 27px;
+  font-size: 20px;
   margin-bottom: 0;
   line-height: 30px;
+  color: #000;
 }
 .easypiechart {
   position: relative;
@@ -5020,9 +5027,9 @@ canvas {
 }
 .panel-heading {
   font-size: 26px !important;
-  font-weight: 500 !important;
-  color: #c00 !important;
-  letter-spacing: 0.025em;
+  font-weight: bold !important;
+  color: #000 !important;
+  letter-spacing: 0;
   height: 60px;
   background-color: #fff;
   padding: 21px 0 0 15px !important;
@@ -7248,7 +7255,7 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
 }
 .con-sidebar{
   background: #eceff4;
-  padding: 17px 0;
+  padding: 32px 0;
 }
 
 /*End Dashboards */

@@ -190,16 +190,29 @@
 
           <div class="col-md-3  col-sm-6 col-xs-12 plan-detail text-center margin-up sh-pos-rel">
               <h3 style=" text-align: center;">
-                <b> Price Rate</b>
+                <b> Price Detail</b>
               </h3>
+              <div class="sh-top-price">
+                  Price 500 kwh
+                  <span class="price-style-1"> {{data.price_500_kwh}}¢</span>
 
+                </div>
+                <div class="add-price grid-element">
+                  <div class="unit">Price 1000 kwh
+                    <span class="price-style"> {{data.price_1000_kwh}}¢ </span>
+                  </div>
+                  <div class="unit">Price 2000 kwh
+                    <span class="price-style"> {{data.price_2000_kwh}}¢ </span>
+                  </div>
+
+                </div>
               <!-- <div class="holder white"> -->
               <!--class="product-price"-->
-              <div style="text-align:center;  margin-top: 25px;">
+              <!-- <div style="text-align:center;  margin-top: 25px;">
 
                 <b class="price-style-1"> {{data.price_rate}}¢</b>
 
-              </div>
+              </div> -->
 
               <a class="sh-pos-abso sh-pos-abso-logo">
                 <label class="view-plan-details" (click)="btnderagulateClick(data.id,data.title,data.sign_up,data.phone,data.terms_of_service,data.fact_sheet,data.cancelation_fee,data.price_rate,data.plan_information,data.rating_logo,data.profile_logo,data.profileurl)"

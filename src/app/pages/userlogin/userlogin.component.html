@@ -25,15 +25,16 @@
             </mat-form-field>
    
           <div class="float-left">
-              <a  value="Delete" data-toggle="modal" data-target="#myModal3">Forgot Password?</a>
               <label >
-                
-                  <input type="checkbox" [(ngModel)]="staySignedIn" formControlName="staySignedIn" value="staySignedIn" (change)="checked($event,i)" checked="true">
+                <input type="checkbox" [(ngModel)]="staySignedIn" formControlName="staySignedIn" value="staySignedIn" (change)="checked($event,i)" checked="true">
                 <!-- <input [(ngModel)]="staySignedIn" type="checkbox" checked="true" name="stay-signed" value="Stay Sign In"> -->
                 <div class="float-r">Stay Signed In</div>
               </label>
+              <a class="float-r" value="Delete" data-toggle="modal" data-target="#myModal3">Forgot Password?</a>
             </div>
-            <blackgeeks-recaptcha class="float-r margin-right-bottom" ></blackgeeks-recaptcha>
+            <div class="col-lg-12 text-center margin-right-bottom">
+              <blackgeeks-recaptcha class="" ></blackgeeks-recaptcha>
+            </div>
             <div class="invalid-ans" *ngIf="isequal==false">
               <p class="col-lg-12 errormessage" style="color: #CC0000">Invalid Answer</p>
             </div>
