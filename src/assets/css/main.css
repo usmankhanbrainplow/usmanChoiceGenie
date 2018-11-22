@@ -112,7 +112,7 @@ body {
 .sh-pos-abso{
   position: absolute;
   bottom: -3px;
-  left: 42%;
+  left: 41%;
 }
 .sh-pos-abso-1{
   position: absolute;
@@ -5875,6 +5875,7 @@ background: linear-gradient(to bottom, #ededed 0%,#c1bfbf 100%); /* W3C, IE10+, 
 }
 .why-img img{
   width: 100%;
+  margin-top: 10px;
 }
 .why-heading h2{
   font-size: 48px;
