@@ -40,8 +40,18 @@
 
                     <div class="form-group">
                         <mat-form-field >
+                            <!-- <mat-select (change)="checked17($event,i,name)" value="name" required [(ngModel)]="name" name="name">
 
-                            <mat-select class="search-select" placeholder="Service Area Name"  required [(ngModel)]="utilityarea" name="utilityarea">
+                                <mat-option  (click)="checked17($event,i,name)"  >ALL</mat-option>
+                              <mat-option *ngFor="let data of title" [value]="data.title">
+                                {{data.title}}
+            
+                              </mat-option>
+            
+            
+                            </mat-select> -->
+            
+                            <mat-select class="search-select" placeholder="Service Area Name"  required [(ngModel)]="utilityarea"  value="utilityarea" name="utilityarea">
                                 <mat-option *ngFor="let data of utilityarea" [value]="data.serviceareaname">
                                     {{data.serviceareaname}}
             

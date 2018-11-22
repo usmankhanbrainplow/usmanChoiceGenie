@@ -98,7 +98,7 @@ body {
   -ms-transform: translateY(5px) scale(.75)!important
 }
 .sh-signup-form-fix .mat-form-field-prefix .mat-icon {
-  font-size: 125%!important
+  font-size: 125%!important;
 }
 .sh-signup-form-fix.edit-profile .mat-input-placeholder.mat-empty {
   top: 1.28125em!important
@@ -112,7 +112,7 @@ body {
 .sh-pos-abso{
   position: absolute;
   bottom: -3px;
-  left: 40%;
+  left: 42%;
 }
 .sh-pos-abso-1{
   position: absolute;
@@ -125,10 +125,11 @@ body {
   left: 21%;
 }
 .sh-pos-abso-logo{
-  left: 31%;
+  left: 32%;
 }
 .margin-l{
   margin-left: 17px;
+  margin-bottom: 0px ;
 }
 .signup-heading{
   margin: 0;
@@ -4122,7 +4123,7 @@ h1, .entry-title-2 {
   border-radius: 10px;
   border:none !important;
   /*width: 96% !important;*/
-  width: 63% !important;
+  width: 85% !important;
   /*height: 70px;*/
   margin: 0 auto;
   /*webkit-transition: all 0.3s ease-out;*/
@@ -6353,7 +6354,7 @@ background: linear-gradient(to bottom, #ededed 0%,#c1bfbf 100%); /* W3C, IE10+, 
 }
 .prod-slide {
   background: #fff;
-  width: 75% !important;
+  width: 90% !important;
   -webkit-transition: all .3s ease-out;
   -o-transition: all .3s ease-out;
   transition: all .3s ease-out;
@@ -8498,7 +8499,7 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
 
 
   .position{
-    margin: -37px 14px 0 1px;
+    margin: -37px 14px 0 3px;
     padding: 0 !important;
     width: 80%;
   }

@@ -142,8 +142,8 @@ export class ProductComponent implements OnInit,OnDestroy {
     myID;
     status:any=true;
     slideConfig = {
-      "slidesToShow": 4,
-      "slidesToScroll": 4,
+      "slidesToShow": 5,
+      "slidesToScroll": 1,
       autoplay:'true',
       prevArrow: '<button class="leftRs slick-arrow leftArrow btn-slider btn-slider-left" style="display: block;"><i class="fa fa-chevron-left"></i></button>',
       nextArrow: '<button class="rightRs slick-arrow leftArrow btn-slider btn-slider-right" style="display: block;"><i class="fa fa-chevron-right"></i></button>',

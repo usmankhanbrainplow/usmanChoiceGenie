@@ -530,20 +530,22 @@
           <ngx-slick class="carousel" #slickModal="slick-modal" [config]="slideConfig">
               <div class="mustafa" style="width:1100px;border-radius:20px" ngxSlickItem *ngFor="let data of sg['plan']; let i = index" class="slide">
                   <div class="prod-slide">
+                      <div class="featured-plan-text">{{data.title}}</div>
                     <div class="slider-img">
                       <a (click)="move(data.title)">
                         <img class="img2" src="{{data.profile_logo}}" onerror="this.src='../../assets/img/ChoiceGenie-logo2.png'" alt="{{data.title}}" alt="Card image cap" />
                       </a>
                     </div>
                     <div class="text-center slider-price">
-                      <p><strong>{{data.price_rate}}</strong> per kwh</p>
+                        500 Kwh
+                      <p><strong>{{data.price_rate}}</strong></p>
                     </div>
                       <h2 class="view-plan-details" (click)="btnderagulateClick(data.id,data.title,data.sign_up,data.phone,data.terms_of_service,data.fact_sheet,data.cancelation_fee,data.price_rate,data.plan_information,data.rating_logo,data.profile_logo,data.profileurl)"
                           data-toggle="modal" data-target="#myModal6" style="    padding-bottom: 0px; margin-bottom: 0px;">Plan Information</h2>
 
-                      <h2 class="view-plan-details" style="padding-bottom: 0px; margin-bottom: 0px;" (click)="btnratingClick(data.id,data.title,data.profileurl,data.profile_logo,data.serviceareaname)"
+                      <!-- <h2 class="view-plan-details" style="padding-bottom: 0px; margin-bottom: 0px;" (click)="btnratingClick(data.id,data.title,data.profileurl,data.profile_logo,data.serviceareaname)"
                           data-toggle="modal" data-target="#myModal4"> Leave a Review
-                      </h2>
+                      </h2> -->
                     </div>
               </div>
           </ngx-slick>
@@ -830,13 +832,15 @@
                           <tr class="plan-information__row plan-information__row--last">
                             <td class="plan-information__cell">Documents</td>
                             <td class="plan-information__cell plan-information__cell--last">
-                              <a *ngIf="fact_sheet" style="color:rgba(0,0,0, 0.87)" href="{{fact_sheet}}" target="_blank">
-                                <i style="color:#25B7D3" class="material-icons">picture_as_pdf</i>
+                              <a *ngIf="fact_sheet" style="color:#000000)" href="{{fact_sheet}}" target="_blank">
+                                <!-- <i style="color:#25B7D3" class="material-icons">picture_as_pdf</i> -->
+                                <i class="fas fa-file" ></i>
                                 <a>Fact Sheet</a>
                                 <br>
                               </a>
-                              <a *ngIf="terms_of_service" style="color:rgba(0,0,0, 0.87)" href="{{terms_of_service}}" target="_blank">
-                                <i style="color:#25B7D3" class="material-icons">picture_as_pdf</i>
+                              <a *ngIf="terms_of_service" style="color:#000000" href="{{terms_of_service}}" target="_blank">
+                                <!-- <i style="color:#25B7D3" class="material-icons">picture_as_pdf</i> -->
+                                <i class="fas fa-file" ></i>
                                 Terms of service
                               </a>
 

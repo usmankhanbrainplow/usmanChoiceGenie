@@ -28,8 +28,8 @@
                 <th class="text-center">Phone #</th>
                 <th class="text-center">Email</th>
                 <th class="text-center">Status</th>
-                <th class="text-center">Active</th>
-                <th class="text-center">Un Active</th>
+                <!-- <th class="text-center"></th> -->
+                <!-- <th class="text-center">Un Active</th> -->
 
               </tr>
             </thead>
@@ -41,10 +41,10 @@
                 <td style="font-size: 16px;">{{item.Contact_Name}}</td>
                 <td style="font-size: 16px;">{{item.Contact_Phone}}</td>
                 <td style="font-size: 16px; word-wrap: break-word;">{{item.contact_email}}</td>
-                <td style="font-size: 16px;"  hidden="true">{{item.Market}}</td>
+                <!-- <td style="font-size: 16px;"  >{{item.Market}}</td> -->
                 <td style="font-size: 16px;">{{item.status}}</td>
                 <!-- <td style="font-size: 20px;">{{item.user}}</td> -->
-                <td style="font-size: 20px;">
+                <td *ngIf="!item.status" style="font-size: 20px;"  >
                   <form (ngSubmit)="onSubmit(f)" #f="ngForm">
 
                       <!-- id.value,updatedzipcode.value,updatedutilityarea.value,updatedtitle.value,updatedphone.value,updatedstate.value,updatedcountry.value,updatedstatus.value,updateduser.value -->
@@ -79,9 +79,10 @@
                        <button type="submit" class="btn btn-default" style="background-color: #ffffff !important;  width: 100%; height: 100%"  (click)="btnEditClick(item.id,item.REP_name,item.REP_certificate_id,item.Contact_Name,item.Contact_Phone,item.Market,item.status,item.user,item.contact_email);updateeditClick(updatedrepname.value,updaterepcertificateid.value,updatedcontactname.value,updatedcontactphone.value,updatedmarket.value,updatedstatus.value,updateduser.value,updatedcontact_email.value)"><i class="fa fa-check"></i> </button>
                   </form>
                 </td> -->
-                <td >
+                <td *ngIf="item.status" >
                   <button style=" width: 80%; height: 100%; color: red; background-color: #ffffff !important; " class="btn btn-default" type="submit" value="Delete" (click)="btnDeleteClick(item.id)" data-toggle="modal" data-target="#myModal3">
-                    <i class="fa fa-times"></i> </button>
+                    <i class="fa fa-times"></i> 
+                  </button>
                 </td>
 
 

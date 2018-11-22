@@ -58,6 +58,7 @@ export class NewProductComponent implements OnInit {
   title;
   titlevendor;
   public user;
+  servicearea;
   ngOnInit() {
     this.user = localStorage.getItem('user')
     this.username = localStorage.getItem('username')
