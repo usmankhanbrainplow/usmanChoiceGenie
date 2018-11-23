@@ -184,6 +184,7 @@ export const AppRoutes: Routes = [
             path: 'forget_password/:qurey',
             loadChildren: './forget_password/forget_password.module#ForgetpasswordModule'
         },
+       
         // {
         //     path: 'ChangePassword',
         //     loadChildren: './changepassword/changepassword.module#ChangePasswordModule'
@@ -282,6 +283,17 @@ export const AppRoutes: Routes = [
             {
                 path: 'dashboard/:username',canActivate: [AuthguardService],
                 loadChildren: './regulated/dashboard/dashboard.module#DashboardModule',
+               // canActivate: [AuthguardService]
+            },
+            {
+                path: 'vendordashboard',
+                loadChildren: './regulated/maindashboard/maindashboard.module#InactiveProductModule',
+               // canActivate: [AuthguardService]
+            },
+            
+            {
+                path: 'vendordashboards',
+                loadChildren: './Deregulated/maindashboards/maindashboards.module#vendorsModule',
                // canActivate: [AuthguardService]
             },
             {
