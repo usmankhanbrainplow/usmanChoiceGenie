@@ -6373,7 +6373,7 @@ background: linear-gradient(to bottom, #ededed 0%,#c1bfbf 100%); /* W3C, IE10+, 
 }
 .prod-slide1 {
   background: #fff;
-  width: 75% !important;
+  width: 85% !important;
   -webkit-transition: all .3s ease-out;
   -o-transition: all .3s ease-out;
   transition: all .3s ease-out;
@@ -7261,6 +7261,108 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
 }
 
 /*End Dashboards */
+
+
+/* Start Dashboard  */
+.white-box {
+  background: #fff;
+  padding: 25px;
+  margin-bottom: 15px;
+}
+.white-box .box-title {
+  margin: 0 !important;
+  font-weight: 500 !important;
+  text-transform: uppercase;
+  font-size: 14px !important;
+  padding: 0;
+}
+/* .m-t-30 {
+  margin-top: 30px !important;
+} */
+.text-info0-1{
+  color: #008efa;
+  font-size: 36px;
+  font-weight: 300 !important;
+  margin: 0;
+  padding: 0;
+}
+.text-muted {
+  color: #8d9ea7;
+}
+.m-r-5 {
+  margin-right: 5px!important;
+}
+.dash-list{
+  margin: 0;
+}
+.dash-list li{
+  margin: 0;
+}
+.dash-list li p{
+  margin: 0;
+  font-size: 14px;
+  font-weight: 300;
+}
+.message-center a {
+  border-bottom: 1px solid rgba(120,130,140,.21);
+  display: block;
+  padding: 9px 15px;
+}
+.message-center .user-img {
+  width: 40px;
+  float: left;
+  position: relative;
+  margin: 0 10px 15px 0;
+}
+.message-center .user-img img {
+  width: 100%;
+}
+.message-center .user-img .online {
+  background: #00c292;
+}
+.message-center .user-img .busy {
+  background: #f75b36;
+}
+.message-center .user-img .away, .message-center .user-img .offline {
+  background: #f8c255;
+}
+.message-center .user-img .profile-status {
+  border: 2px solid #fff;
+  border-radius: 50%;
+  display: inline-block;
+  height: 10px;
+  left: 30px;
+  position: absolute;
+  top: 1px;
+  width: 10px;
+}
+.message-center .mail-contnet h5 {
+  margin: 0;
+  font-weight: 400;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  padding: 0;
+}
+.message-center .mail-contnet .mail-desc {
+  font-size: 12px;
+  display: block;
+  margin: 5px 0;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  color: #3e4d6c;
+  margin: 0;
+}
+.message-center .mail-contnet .time {
+  display: block;
+  font-size: 10px;
+  color: #3e4d6c;
+}
+/* End Dashboard */
+
+
+
 /*Start product*/
 .card .card-header{
   z-index: 0 !important;
@@ -8500,9 +8602,9 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
 
 
   .position{
-    margin: -37px 14px 0 3px;
+    margin: -37px 14px 0 -1px;
     padding: 0 !important;
-    width: 80%;
+    width: 81%;
   }
   .sh-btm-pagination {
     margin: 10px 0 10px 0 !important;
