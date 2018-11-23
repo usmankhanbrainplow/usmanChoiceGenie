@@ -4012,9 +4012,9 @@ h1, .entry-title-2 {
   color: #c00;
 }
 .choiecegenie-offers{
-  font-size: 42px !important;
+  font-size: 37px !important;
     line-height: 32px;
-    font-weight: 700 !important;
+    font-weight: bold !important;
     /* text-shadow: 0 6px 10px #aeaeae; */
     color: #000;
     margin: -5px 0 12px !important;
