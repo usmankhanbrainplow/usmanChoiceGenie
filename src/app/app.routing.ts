@@ -286,13 +286,13 @@ export const AppRoutes: Routes = [
                // canActivate: [AuthguardService]
             },
             {
-                path: 'vendordashboard',
+                path: 'vendordashboard',canActivate: [AuthguardService],
                 loadChildren: './regulated/maindashboard/maindashboard.module#InactiveProductModule',
                // canActivate: [AuthguardService]
             },
             
             {
-                path: 'vendordashboards',
+                path: 'vendordashboards',canActivate: [AuthguardService],
                 loadChildren: './Deregulated/maindashboards/maindashboards.module#vendorsModule',
                // canActivate: [AuthguardService]
             },

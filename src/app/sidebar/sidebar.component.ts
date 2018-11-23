@@ -124,6 +124,13 @@ export class SidebarComponent implements OnInit {
                 this.router.navigate(['/inactive-products']);
             }
       }
+      dashboardmove(){
+        if(localStorage.getItem('role') == "Not Deregulatedstate Vendor"){
+            this.router.navigate(['/vendordashboard']);}
+            else if(localStorage.getItem('role') == "Deregulatedstate Vendor"){
+                this.router.navigate(['/vendordashboards']);
+            }
+      }
     fetchProducts() {
        
         let headers = new Headers();
