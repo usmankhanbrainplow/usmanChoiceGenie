@@ -66,7 +66,7 @@ export class NewProductComponent implements OnInit {
     console.log(this.username)
     this.fetchProducts()
     this.profile();
-    this.companystates();
+    // this.companystates();
     console.log(this.username)
     this.signupForm = this.fb.group({
       'zipcode': ['', Validators.compose([Validators.required])],

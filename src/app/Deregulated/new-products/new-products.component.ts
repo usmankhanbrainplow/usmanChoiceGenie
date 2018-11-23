@@ -33,7 +33,7 @@ export class NewProductsComponent implements OnInit {
   flag = true;
   date = new FormControl(new Date());
   zipcode;
-  utilityarea;
+ utilityarea;
   profileurl;
   profile_logo;
   rating_logo;
@@ -60,7 +60,12 @@ export class NewProductsComponent implements OnInit {
   constructor(private https:HttpService,public router: Router, private fb: FormBuilder, private http: Http, private route: ActivatedRoute, private sg: SimpleGlobal) { }
 title;
 titlevendor;
+get(value){
+// this.utilityarea=value;
+console.log(value,'valueeeeeeeeee')
 
+}
+utility= new FormControl;
   public user;
   ngOnInit() {
     this.user = localStorage.getItem('user')
@@ -70,7 +75,7 @@ titlevendor;
     console.log(this.username)
    this. fetchProducts()
    this.profile();
-   this.companystates();
+  //  this.companystates();
 
     console.log(this.username)
     this.signupForm = this.fb.group({
@@ -171,6 +176,8 @@ titlevendor;
     onSubmit(f) {
       f.resetForm();
     }
+    //  utilityarea;
+    // area;
     companystates() {
       let headers = new Headers();
       headers.append('Content-Type', 'application/json');
