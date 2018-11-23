@@ -4014,10 +4014,10 @@ h1, .entry-title-2 {
 .choiecegenie-offers{
   font-size: 37px !important;
     line-height: 32px;
-    font-weight: bold !important;
+    font-weight: 500 !important;
     /* text-shadow: 0 6px 10px #aeaeae; */
     color: #000;
-    margin: -5px 0 12px !important;
+    margin: -5px 0 0px !important;
 }
 .title-02 span {
   font-weight: 500;
