@@ -3826,7 +3826,7 @@ h1, .entry-title-2 {
   overflow: hidden;
 }
 #main-bg-slider .item img{
-  height: 442px;
+  height: auto;
   width: 100%;
   overflow: hidden;
 }
@@ -5713,7 +5713,7 @@ padding: 0 10px;
   padding: 0 100px !important;
 }
 .height-slider{
-  height: 442px;
+  height: 425px;
 }
 .text-red{
   color: #C00;
