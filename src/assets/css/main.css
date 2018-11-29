@@ -3822,7 +3822,7 @@ h1, .entry-title-2 {
 
 /*slider css start*/
 #main-bg-slider .item{
-  height: 455px;
+  height: 500px;
   overflow: hidden;
 }
 #main-bg-slider .item img{
@@ -5713,7 +5713,7 @@ padding: 0 10px;
   padding: 0 100px !important;
 }
 .height-slider{
-  height: 455px;
+  height: 500px;
 }
 .text-red{
   color: #C00;
