@@ -380,11 +380,10 @@ app-header {
   width: 250px;
   display: block; }
 .logo img {
-  width: 100%;
-  padding: 1px 0 15px 5px;
-margin-top: 11px;
+  width: 89%;
+  padding: 1px 0 6px 5px;
+  margin-top: 5px;
 }
-
 .nav-home ul {
       margin-right: 19px !important;
       font-weight: 700;

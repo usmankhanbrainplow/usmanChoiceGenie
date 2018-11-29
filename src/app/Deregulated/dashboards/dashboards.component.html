@@ -192,12 +192,13 @@
               <h3 style=" text-align: center;">
                 <b> Price Detail</b>
               </h3>
-              <div class="sh-top-price">
+              <span class="price-style-1"  *ngIf="data.price_500_kwh == null && data.price_1000_kwh == null && data.price_2000_kwh == null || !data.price_500_kwh == null && !data.price_1000_kwh == null && !data.price_2000_kwh == null "> {{data.price_rate}}¢</span>
+              <div class="sh-top-price" *ngIf="data.price_rate == 'NULL' ||!data.price_rate =='NULL' " >
                   Price 500 kwh
                   <span class="price-style-1"> {{data.price_500_kwh}}¢</span>
 
                 </div>
-                <div class="add-price grid-element">
+                <div class="add-price grid-element" *ngIf="data.price_rate == 'NULL' || !data.price_rate =='NULL' ">
                   <div class="unit">Price 1000 kwh
                     <span class="price-style"> {{data.price_1000_kwh}}¢ </span>
                   </div>
