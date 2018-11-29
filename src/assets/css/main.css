@@ -423,7 +423,7 @@ app-header {
   max-width: 600px;
   opacity: 0.8;
   /*margin-top: 40px !important;*/
-  margin-top: -5px !important;
+  margin-top: 0px !important;
 }
 .zip-inputs{
   width: 100%;
@@ -3822,11 +3822,11 @@ h1, .entry-title-2 {
 
 /*slider css start*/
 #main-bg-slider .item{
-  height: 442px;
+  height: 455px;
   overflow: hidden;
 }
 #main-bg-slider .item img{
-  height: auto;
+  height: 100%;
   width: 100%;
   overflow: hidden;
 }
@@ -5713,7 +5713,7 @@ padding: 0 10px;
   padding: 0 100px !important;
 }
 .height-slider{
-  height: 425px;
+  height: 455px;
 }
 .text-red{
   color: #C00;
