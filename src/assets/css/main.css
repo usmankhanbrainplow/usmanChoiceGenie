@@ -423,7 +423,7 @@ app-header {
   max-width: 600px;
   opacity: 0.8;
   /*margin-top: 40px !important;*/
-  margin-top: -5px !important;
+  margin-top: 0px !important;
 }
 .zip-inputs{
   width: 100%;
