@@ -756,7 +756,7 @@
 
                       </div>
                       <!-- <input type="checkbox" value="{{data.id}}" name="comp"  > -->
-                      <a href="{{data.profileurl}}" target="_blank" class="display-b margin-top">
+                      <a href="{{data.profileurl}}"  class="display-b margin-top">
 
                         <img src="{{data.profile_logo}}" alt="{{data.title}}" onerror="this.src='../../assets/img/ChoiceGenie-logo2.png'"
                           class="product-icons" />
@@ -922,13 +922,13 @@
                         <!-- </i> -->
                       </h3>
 
-                      <a class="pdf-icon" href="{{data.fact_sheet}}" target="_blank">
+                      <a class="pdf-icon" href="{{data.fact_sheet}}" >
                         <!-- <i style="color:#c00" class="material-icons">picture_as_pdf</i> -->
                         <i class="fas fa-file" ></i>
                         <a>Fact Sheet</a>
                       </a>
                       <!-- {{data.specialterms}} -->
-                      <a class="pdf-icon" href="{{data.terms_of_service}}" target="_blank">
+                      <a class="pdf-icon" href="{{data.terms_of_service}}">
                         <!-- <i style="color:#c00" class="material-icons">picture_as_pdf</i> -->
                         <i class="fas fa-file" ></i>
                         Terms of service
@@ -1008,7 +1008,7 @@
 
                       <!-- (click)="openDialog(data.id)" -->
                       <button class="btn btn-fill sh-signup-btn">
-                        <a style="color:white" href="{{data.profileurl}}" target="_blank">Signup </a>
+                        <a style="color:white" href="{{data.profileurl}}" >Signup </a>
                         <!-- <i class="material-icons">bubble_chart</i> -->
                       </button>
                       <!-- <button class="btn btn-fill sh-signup-btn" >Enroll</button>
@@ -1029,7 +1029,7 @@
                   </h2> -->
                     <a (click)="btnEditClick(data.id,data.title,data.sign_up,data.phone,data.terms_of_service,data.fact_sheet,data.cancelation_fee,data.price_1000_kwh,data.price_500_kwh,data.price_2000_kwh,data.plan_information,data.rating_logo,data.profile_logo,data.profileurl); getreview(data.id); avereview(data.id)"
                     data-toggle="modal" data-target="#myModal2" class="mob-v-btn-products btn-fill">Detail</a>
-                    <a href="{{data.sign_up}}" target="_blank" class="mob-v-btn-products btn-fill">Signup</a>
+                    <a href="{{data.sign_up}}"  class="mob-v-btn-products btn-fill">Signup</a>
                     </div>
                     <!-- <div class="col-md-3 col-sm-3 col-xs-7 term top-margin-25">
     (click)="signUp(data.product_id)"
@@ -1094,13 +1094,13 @@
                               <tr class="plan-information__row plan-information__row--last">
                                 <td class="plan-information__cell">Documents</td>
                                 <td class="plan-information__cell plan-information__cell--last">
-                                  <a class="pdf-icon" href="{{fact_sheet}}" target="_blank">
+                                  <a class="pdf-icon" href="{{fact_sheet}}" >
                                     <!-- <i style="color:#c00" class="material-icons">picture_as_pdf</i> -->
                                     <i class="fas fa-file" ></i>
                                     <a>Fact Sheet</a>
                                     <br>
                                   </a>
-                                  <a class="pdf-icon" href="{{terms_of_service}}" target="_blank">
+                                  <a class="pdf-icon" href="{{terms_of_service}}" >
                                     <!-- <i style="color:#c00" class="material-icons">picture_as_pdf</i> -->
                                     <i class="fas fa-file" ></i>
                                     Terms of service
@@ -1161,7 +1161,7 @@
                     </div>
 
                     <div style="display:inline-block; text-align:center;">
-                      <a href="{{sign_up}}" target="_blank">
+                      <a href="{{sign_up}}" >
                         <button class="btn btn-fill">Signup Now</button>
                       </a>
                       <div style="display:inline-block; padding:24px;">
