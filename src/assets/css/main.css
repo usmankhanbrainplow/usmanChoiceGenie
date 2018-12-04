@@ -5618,6 +5618,26 @@ padding: 0 10px;
 
 
 /*Start header*/
+.play-store-icons-wrapper2 {
+  position: relative;
+  margin: 0;
+}
+.play-store-img2 {
+  margin: 0;
+  position: absolute;
+  bottom: 0px;
+  left: 36%;
+}
+.play-store-img2 li {
+  display: inline;
+  padding-right: 10px;
+}
+.iosBadge {
+  max-width: 25%;
+}
+.androidBadge {
+  max-width: 28%;
+}
 .sidenav {
   height: 100%;
   width: 0;
