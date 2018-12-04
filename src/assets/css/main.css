@@ -3007,9 +3007,9 @@ section {
   background-color: #ffffff;
 }
 .about-title {
-  font-size: 35px;
-  color: #f80000;
-  text-align: center;
+  font-size: 32px;
+  color: #000000;
+  text-align: le;
   font-weight: 700;
 }
 .font-size{
@@ -3019,13 +3019,19 @@ section {
  line-height: 24px;
 }
 .about-text {
-  font-size: 18px;
+  /* font-size: 18px;
   text-align: left;
   font-weight: 500;
-  /*padding-left: 20px;*/
   width: 100%;
   margin: 0;
-  line-height: 27px;
+  line-height: 27px; */
+  text-align: left;
+  color: #333;
+  font-weight: 400!important;
+  line-height: 29px;
+  font-size: 21px;
+  line-height: 1.2381;
+  letter-spacing: .016em;
 }
 .about-section >p {
   margin: 0 0 10px;
@@ -3351,7 +3357,7 @@ li.pinterest:hover {
   font-size: 42px;
   font-weight: 600;
   position: relative;
-  text-shadow: 2px 2px 7px #a6a6a7;
+  /* text-shadow: 2px 2px 7px #a6a6a7; */
 }
 
 
