@@ -96,7 +96,7 @@ body {
   margin: 0!important
 }
 .sh-signup-form-fix .mat-form-field-can-float.mat-form-field-should-float .mat-form-field-placeholder {
-  transform: translateY(-10px) scale(.75) perspective(100px) translateZ(0)!important;
+  transform: translateY(-17px) scale(.75) perspective(100px) translateZ(0)!important;
   -ms-transform: translateY(5px) scale(.75)!important
 }
 .sh-signup-form-fix .mat-form-field-prefix .mat-icon {
@@ -260,7 +260,9 @@ body {
 .l-height{
   line-height: 66px !important;
 }
-
+.display-block{
+  display: block;
+}
 app-my-app:after,
 router-outlet:after,
 app-home:after,
@@ -3049,7 +3051,7 @@ section {
 .login-form-1{
   background: #fff;
   width: 100%;
-  padding: 30px;
+  padding: 30px 30px 20px;
   border-radius: 5px;
   -webkit-box-shadow: 0 0 25px #ccc;
           box-shadow: 0 0 25px #ccc;
@@ -3171,6 +3173,7 @@ section {
   padding: 15px;
   font-weight: 500;
   margin-top: 10px;
+  margin-bottom: 8px;
 }
 
 .login-form-1-body button:hover{
@@ -3224,7 +3227,12 @@ blackgeeks-recaptcha p{
   /*color: #25B7D3;*/
   text-decoration: underline;
 }
-
+.login-link{
+  margin: 10px 0 0 !important;
+}
+.login-link a{
+color: #3c4858 !important;
+}
 mat-form-field.mat-form-field{
   width: 100%;
   margin-top: 15px;
@@ -5900,7 +5908,7 @@ background: linear-gradient(to bottom, #ededed 0%,#c1bfbf 100%); /* W3C, IE10+, 
   line-height: 29px;
 }
 .hover-img1{
-  background: url(../img/bottom1.png) no-repeat 0px 0px;
+  background: url(../img/3.1bottom.png) no-repeat 0px 0px;
   width: 114px;
   height: 114px;
   margin: 0 auto;
@@ -5908,14 +5916,14 @@ background: linear-gradient(to bottom, #ededed 0%,#c1bfbf 100%); /* W3C, IE10+, 
   cursor: pointer;
 }
 .hover-img1:hover{
-  background: url(../img/bottom1h.png) no-repeat 0px 0px;
+  background: url(../img/3bottom.png) no-repeat 0px 0px;
   width: 114px;
   height: 114px;
   margin: 0 auto;
   transform: rotate(360deg);
 }
 .hover-img2{
-  background: url(../img/bottom2.png) no-repeat 0px 0px;
+  background: url(../img/2.2bottom.png) no-repeat 0px 0px;
   width: 114px;
   height: 114px;
   margin: 0 auto;
@@ -5923,14 +5931,14 @@ background: linear-gradient(to bottom, #ededed 0%,#c1bfbf 100%); /* W3C, IE10+, 
   cursor: pointer;
 }
 .hover-img2:hover{
-  background: url(../img/bottom2h.png) no-repeat 0px 0px;
+  background: url(../img/2bottom.png) no-repeat 0px 0px;
   width: 114px;
   height: 114px;
   margin: 0 auto;
   transform: rotate(360deg);
 }
 .hover-img3{
-  background: url(../img/bottom3.png) no-repeat 0px 0px;
+  background: url(../img/1.1bottom.png) no-repeat 0px 0px;
   width: 114px;
   height: 114px;
   margin: 0 auto;
@@ -5938,7 +5946,7 @@ background: linear-gradient(to bottom, #ededed 0%,#c1bfbf 100%); /* W3C, IE10+, 
   cursor: pointer;
 }
 .hover-img3:hover{
-  background: url(../img/bottom3h.png) no-repeat 0px 0px;
+  background: url(../img/1bottom.png) no-repeat 0px 0px;
   width: 114px;
   height: 114px;
   margin: 0 auto;
@@ -7121,6 +7129,10 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
 }
 .blog3-read-btn{
   padding: 13px 19px !important;
+}
+#myDiv p{
+  line-height: 27px;
+  margin: 0;
 }
 /*end Blog3*/
 

@@ -42,7 +42,7 @@
           <!-- <re-captcha (resolved)="resolved($event)" siteKey="6Lc4418UAAAAAPxDwXhjAF3a2sdRn2RIoMQxF9D9
           " style="transform:scale(0.77);-webkit-transform:scale(0.77);transform-origin:0 0;-webkit-transform-origin:0 0;"></re-captcha>
            -->
-          <button type="submit" (click)="onLogin()"  class="btn-fill">SIGN IN</button>
+          <button type="submit" (click)="onLogin()"  class="btn-fill">Sign In</button>
           <!-- <a  value="Delete" data-toggle="modal" data-target="#myModal3">Forgot Password?</a> -->
           <div class="modal fade" id="myModal3" role="dialog">
             <div class="modal-dialog">
@@ -75,7 +75,13 @@
               </div>
             </div>
           </div>
-          <div>Don't have an account?<a routerLink="/register"> Sign Up </a></div>
+          <div>Don't have an account?<a routerLink="/register"> Sign Up </a>
+          </div>
+
+          <div class="login-link margin-t">
+            <a onclick="topFunction()" target="_blank" ng-reflect-target="_blank" ng-reflect-router-link="/Terms-of-use-and-Privacy" href="/Terms-of-use-and-Privacy">Terms &amp; Conditions</a><span class="footer-link-border"></span>
+            <a onclick="topFunction()" target="_blank" ng-reflect-target="_blank" ng-reflect-router-link="/privacy" href="/privacy">Privacy Policy</a> 
+          </div>
         </div>
       </form>
     </div>
