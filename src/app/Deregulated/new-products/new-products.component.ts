@@ -215,11 +215,11 @@ utility= new FormControl;
       }
       // publish_product_date ;
       // product_inactive_date;
-      publishdate;
-  Inactivedate;
+  //     publishdate;
+  // Inactivedate;
   signupuserdata(zipcode,utilityarea,contact_email,title,profileurl,profile_logo,plan_information,cancelation_fee,fact_sheet,terms_of_service,phone,sign_up,minimum_usage_fee,renewable,specialterms,price_1000_kwh,price_500_kwh,price_2000_kwh,publishdate,Inactivedate) {
     console.log(zipcode,utilityarea,contact_email,title,profileurl,profile_logo,plan_information,cancelation_fee,fact_sheet,terms_of_service,phone,sign_up,minimum_usage_fee,renewable,specialterms,price_1000_kwh,price_500_kwh,price_2000_kwh,publishdate,Inactivedate);
-   console.log(this.publishdate,this.Inactivedate)
+  //  console.log(this.spublishdate,this.Inactivedate)
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
     // headers.append('Authorization', 'JWT ' +  this.authentication);
@@ -246,12 +246,13 @@ utility= new FormControl;
       "price_500_kwh":price_500_kwh,
       "price_2000_kwh":price_2000_kwh,
       "contact_email":contact_email,
-      "publish_product_date": this.publishdate,
-      "product_inactive_date":this.Inactivedate
+      "publish_product_date": publishdate,
+      "product_inactive_date":Inactivedate
+    
     }), { headers: headers })
       .subscribe(Res => {
         console.log(Res);
-        console.log(this.publishdate)
+        // console.log(this.publishdate)
         console.log(this.model);
         swal({
         text: "Successfully Added!",

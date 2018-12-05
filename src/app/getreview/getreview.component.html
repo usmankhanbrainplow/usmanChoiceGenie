@@ -135,7 +135,7 @@
           </div>
           <div class="widget custom-widget course-pricing clearfix" style="padding: 10px !important;">
             <div class="customwidget text-left">
-              <div style="margin-bottom: 0px !important;">
+              <!-- <div style="margin-bottom: 0px !important;">
                 <h3 style="margin-bottom: 0px !important; color: #c00; padding: 0px;">
                   <strong>Plan Price:</strong>
                 </h3>
@@ -153,46 +153,38 @@
                   </div>
 
                 </div>
-              </div>
+              </div> -->
 
-              <h4 class="text-center"></h4>
+              <!-- <h4 class="text-center"></h4> -->
 
-              <br>
-              <br>
-              <hr/>
+              <!-- <br>
+              <br> -->
+              <!-- <hr/>
               <h3 style="margin-bottom: 0px !important; color: #c00; padding: 0;">
                 <strong>Plan Details:</strong>
-              </h3>
-              <p class="items-detail" *ngFor="let item of plan">
-                {{item}}</p>
-              <!-- <br > -->
-
+              </h3> -->
+              <!-- <p class="items-detail" *ngFor="let item of plan">
+                {{item}}</p> -->
+               
 
               <div class="course-meta clearfix">
-                <hr>
+                <!-- <hr> -->
                 <p class="course-category">
                   <span style="color: #c00;"> Title: </span>
                   <a>{{pro.title}}</a>
                 </p>
-                <hr>
-                <div class="rating">
+                <!-- <hr> -->
+                <!-- <div class="rating">
                   <p>
                     <span style="color: #c00;">Reviews:</span> &nbsp;
                     <img src="{{pro.rating_logo}}" alt="{{pro.title}}" class="reviews-stars" />
                   </p>
-                </div>
-                <hr>
-                <p class="course-time" *ngIf="pro.cancelation_fee;else no_data_temp2">
+                </div> -->
+                <!-- <hr> -->
+                <!-- <p class="course-time" *ngIf="pro.cancelation_fee;else no_data_temp2">
                   <span style="color: #c00;"> Cancelation Fee:</span> {{pro.cancelation_fee.split(' ',3000)[2]}}
-                </p>
-                <!-- <hr>
-                <p class="course-time" *ngIf="hit;else no_data_temp2">
-                  <span style="color: #c00;"> No of Hits:</span> {{hit}}
-                </p>
-                <ng-template #no_data_temp2>
-
-                  <h4>&nbsp;&nbsp;&nbsp;&nbsp; ---</h4>
-                </ng-template> -->
+                </p> -->
+               
                 <hr>
                 <p>
                   <span style="color: #c00;">Call Now:</span> &nbsp;
@@ -203,9 +195,9 @@
 
               </div>
               <div class="sidebar-btn">
-                <!---->
+                 
                 <a class="button ng-star-inserted" style="margin: 0" type="" href="{{pro.profileurl}}" target="_blank"> Signup Now </a>
-                <!---->
+               
               </div>
             </div>
           </div>

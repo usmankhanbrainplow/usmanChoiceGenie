@@ -134,7 +134,7 @@
                     <span class="plan-name text-center">
                         Free Plan                    </span>
                     <p class="plan-price custome-price" style="background-color: black !important;">
-                        <sup class="currency">Choice Genie </sup>
+                        <sup class="currency">ChoiceGenie </sup>
                         <strong>Offers</strong>
                     </p>
                     <ul class="list-unstyled">
@@ -158,7 +158,7 @@
                     <div class="pricing2-button"  >
                         <a onclick="topFunction()" *ngIf="check_login();else pkg4" routerLink='/usersignup' class="btn btn-fill" title="Subscribe Package">Register Now</a>
                         <ng-template #pkg4>
-                            <a onclick="topFunction()" *ngIf="hide != 'free';else pkg8" (click)="Totalfreepackage();" class="btn btn-fill" title="Select Plan">Select Plan</a>
+                            <a onclick="topFunction()" *ngIf="hide != 'free';else pkg8" (click)="Totalfreepackage();" class="btn btn-fill" title="Select Plan">Free Subscribe</a>
                         </ng-template>
                         <ng-template #pkg8>
                             <a onclick="topFunction()" class="btn btn-fill" title="Select Plan">You have already Subscribe this plan</a>
