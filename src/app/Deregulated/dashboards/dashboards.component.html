@@ -13,7 +13,8 @@
           <!--<label class="date-lable">Effective from Date</label>-->
           <mat-form-field class="margin-t-15">
               <input matInput [matDatepicker]="startPicker" [(ngModel)]="Inactivedate" placeholder="Effective from Date"/>
-              <mat-datepicker-toggle matSuffix [for]="startPicker"></mat-datepicker-toggle>               <mat-datepicker #startPicker></mat-datepicker>
+              <mat-datepicker-toggle matSuffix [for]="startPicker"></mat-datepicker-toggle>         
+                    <mat-datepicker #startPicker></mat-datepicker>
             </mat-form-field>
 
         </div>

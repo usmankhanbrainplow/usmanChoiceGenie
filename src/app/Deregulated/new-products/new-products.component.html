@@ -152,6 +152,26 @@
                       </mat-form-field>
                     </div>
                   </div>
+                  <div class="col-sm-12">
+                   
+        <div class="col-lg-3 col-xs-12">
+          <!--<label class="date-lable">Effective from Date</label>-->
+          <mat-form-field class="margin-t-15">
+              <input matInput [matDatepicker]="startPicker" [(ngModel)]="Inactivedate" placeholder="Effective from Date"/>
+              <mat-datepicker-toggle matSuffix [for]="startPicker"></mat-datepicker-toggle>         
+                    <mat-datepicker #startPicker></mat-datepicker>
+            </mat-form-field>
+
+        </div>
+
+          <div class="col-lg-3 col-xs-12">
+              <!--<label class="date-lable">Effective to Date</label>-->
+            <mat-form-field class="margin-t-15">
+              <input matInput [matDatepicker]="startPicker1"  [(ngModel)]="publishdate" placeholder="Effective to Date"/>
+              <mat-datepicker-toggle matSuffix [for]="startPicker1"></mat-datepicker-toggle><mat-datepicker #startPicker1></mat-datepicker>
+            </mat-form-field>
+          </div>
+                  </div>
                   <!-- <div class="col-sm-6">
                     <div class="form-group">
                       <mat-form-field>
@@ -370,7 +390,8 @@
                   <button mat-button matStepperPrevious class="btn btn-fill">
                     <i _ngcontent-c0="" class="fa fa-angle-left" style="font-size: 26px; margin: -9px 3px 0px 0px;"></i>
                     Back</button>
-                  <button type="submit" mat-button matStepperNext (click)="signupuserdata(zipcode,utilityarea,contact_email.value,title.value,profileurl.value,profile_logo.value,plan_information,cancelation_fee,fact_sheet,terms_of_service,phone,sign_up.value,minimum_usage_fee,renewable,spectialterms,price_1000_kwh,price_500_kwh,price_2000_kwh)" class="btn btn-fill">Done</button>
+                  <button type="submit" mat-button matStepperNext (click)="signupuserdata(zipcode,utilityarea,contact_email.value,title.value,profileurl.value,profile_logo.value,plan_information,cancelation_fee,fact_sheet,terms_of_service,phone,sign_up.value,minimum_usage_fee,renewable,spectialterms,price_1000_kwh,price_500_kwh,price_2000_kwh,publishdate,Inactivedate)" class="btn btn-fill">Done</button>
+                  
                 </div>
               </div>
             </div>
