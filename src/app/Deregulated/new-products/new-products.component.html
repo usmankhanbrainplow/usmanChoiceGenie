@@ -153,27 +153,28 @@
                     </div>
                   </div>
                   <div class="col-sm-12">
-                      <input type="date" required name="date" [(ngModel)]="Inactivedate" style="    padding: 10px 0px; font-size: 20px;">
-                     <br/>
-                      <input type="date" required name="date" [(ngModel)]="publishdate" style="    padding: 10px 0px; font-size: 20px;">
-
-        <!-- <div class="col-lg-3 col-xs-12">
+                   
+                      <!-- <input type="date" required name="date" [(ngModel)]="publish_product_date" style="    padding: 10px 0px; font-size: 20px;">
+<br/>
+                      <input type="date" required name="date" [(ngModel)]="product_inactive_date" style="    padding: 10px 0px; font-size: 20px;"> -->
+                     <!-- <br/> -->
+        <div class="col-lg-3 col-xs-12">
           
           <mat-form-field class="margin-t-15">
-              <input matInput [matDatepicker]="startPicker" [(ngModel)]="Inactivedate" placeholder="Effective from Date"/>
+              <input matInput [matDatepicker]="startPicker"formControlName="publish_product_date" [(ngModel)]="publish_product_date" placeholder="Effective from Date"/>
               <mat-datepicker-toggle matSuffix [for]="startPicker"></mat-datepicker-toggle>         
                     <mat-datepicker #startPicker></mat-datepicker>
             </mat-form-field>
 
-        </div> -->
+        </div>
 
-          <!-- <div class="col-lg-3 col-xs-12">
+          <div class="col-lg-3 col-xs-12">
                
             <mat-form-field class="margin-t-15">
-              <input matInput [matDatepicker]="startPicker1"  [(ngModel)]="publishdate" placeholder="Effective to Date"/>
+              <input matInput [matDatepicker]="startPicker1" formControlName="product_inactive_date"  [(ngModel)]="product_inactive_date" placeholder="Effective to Date"/>
               <mat-datepicker-toggle matSuffix [for]="startPicker1"></mat-datepicker-toggle><mat-datepicker #startPicker1></mat-datepicker>
             </mat-form-field>
-          </div> -->
+          </div>
                   </div>
                   <!-- <div class="col-sm-6">
                     <div class="form-group">
@@ -393,7 +394,7 @@
                   <button mat-button matStepperPrevious class="btn btn-fill">
                     <i _ngcontent-c0="" class="fa fa-angle-left" style="font-size: 26px; margin: -9px 3px 0px 0px;"></i>
                     Back</button>
-                  <button type="submit" mat-button matStepperNext (click)="signupuserdata(zipcode,utilityarea,contact_email.value,title.value,profileurl.value,profile_logo.value,plan_information,cancelation_fee,fact_sheet,terms_of_service,phone,sign_up.value,minimum_usage_fee,renewable,spectialterms,price_1000_kwh,price_500_kwh,price_2000_kwh,publishdate,Inactivedate)" class="btn btn-fill">Done</button>
+                  <button type="submit" mat-button matStepperNext (click)="signupuserdata(zipcode,utilityarea,contact_email.value,title.value,profileurl.value,profile_logo.value,plan_information,cancelation_fee,fact_sheet,terms_of_service,phone,sign_up.value,minimum_usage_fee,renewable,spectialterms,price_1000_kwh,price_500_kwh,price_2000_kwh,publish_product_date,product_inactive_date)" class="btn btn-fill">Done</button>
                   
                 </div>
               </div>

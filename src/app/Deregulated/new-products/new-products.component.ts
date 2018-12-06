@@ -87,6 +87,9 @@ utility= new FormControl;
     });
     this.secondFormGroup = this.fb.group({
       'plan_information': ['', Validators.compose([Validators.required])],
+      'publish_product_date': [''],
+      'product_inactive_date': [''],
+      
      // 'price_rate': [''],
      
     });
@@ -217,8 +220,8 @@ utility= new FormControl;
       // product_inactive_date;
   //     publishdate;
   // Inactivedate;
-  signupuserdata(zipcode,utilityarea,contact_email,title,profileurl,profile_logo,plan_information,cancelation_fee,fact_sheet,terms_of_service,phone,sign_up,minimum_usage_fee,renewable,specialterms,price_1000_kwh,price_500_kwh,price_2000_kwh,publishdate,Inactivedate) {
-    console.log(zipcode,utilityarea,contact_email,title,profileurl,profile_logo,plan_information,cancelation_fee,fact_sheet,terms_of_service,phone,sign_up,minimum_usage_fee,renewable,specialterms,price_1000_kwh,price_500_kwh,price_2000_kwh,publishdate,Inactivedate);
+  signupuserdata(zipcode,utilityarea,contact_email,title,profileurl,profile_logo,plan_information,cancelation_fee,fact_sheet,terms_of_service,phone,sign_up,minimum_usage_fee,renewable,specialterms,price_1000_kwh,price_500_kwh,price_2000_kwh, publish_product_date,product_inactive_date) {
+    console.log(zipcode,utilityarea,contact_email,title,profileurl,profile_logo,plan_information,cancelation_fee,fact_sheet,terms_of_service,phone,sign_up,minimum_usage_fee,renewable,specialterms,price_1000_kwh,price_500_kwh,price_2000_kwh, publish_product_date,product_inactive_date);
   //  console.log(this.spublishdate,this.Inactivedate)
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
@@ -246,10 +249,9 @@ utility= new FormControl;
       "price_500_kwh":price_500_kwh,
       "price_2000_kwh":price_2000_kwh,
       "contact_email":contact_email,
-      "publish_product_date": publishdate,
-      "product_inactive_date":Inactivedate
-    
-    }), { headers: headers })
+      "publish_product_date": moment(publish_product_date).format("YYYY/MM/DD"),
+      "product_inactive_date": moment(product_inactive_date).format("YYYY/MM/DD")
+        }), { headers: headers })
       .subscribe(Res => {
         console.log(Res);
         // console.log(this.publishdate)
@@ -259,7 +261,7 @@ utility= new FormControl;
         title: "Choice Genie",
         type: "success",
         showConfirmButton: true,
-        timer: 1200,
+        timer: 2500,
         confirmButtonText: "OK",
 
         })
