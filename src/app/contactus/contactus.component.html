@@ -36,11 +36,16 @@
               <!--</textarea>-->
             <!--</mat-form-field>-->
             <mat-form-field>
-              <textarea matInput placeholder="Enter Your Messege" style="height: 265px !important;"></textarea>
+              <textarea matInput placeholder="Enter Your Messege" style="height: 265px !important;" name="msg" required #msg></textarea>
             </mat-form-field>
 
             <input matInput placeholder="date" hidden="true" value="{{today | date: 'yyyy-MM-dd'}}" #date name="date">
 
+            <div class="col-lg-12 text-center margin-right-bottom">
+                <blackgeeks-recaptcha class="" ></blackgeeks-recaptcha>
+              </div><div class="" *ngIf="isequal==false">
+                  <p class="col-lg-12 errormessage" style="color: #c00">Invalid Answer</p>
+                </div>
             <button class="btn  pull-right btn-fill" style="background-color: #e53935" (click)="Contactuserdata(name,mobno,email,msg.value,date.value,subject)">Send Messege</button>
           </div>
         </div>

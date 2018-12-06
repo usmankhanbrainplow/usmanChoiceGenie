@@ -128,6 +128,27 @@
 
 
                       </div>
+                      <div class="col-lg-3 col-xs-12">
+                          <!--<label class="date-lable">Effective from date</label>-->
+                         
+                        <mat-form-field class="margin-t-15">
+                          <input matInput [matDatepicker]="startPicker" [(ngModel)]="product_inactive_date" formControlName="product_inactive_date" placeholder="Effective from date"/>
+                          <mat-datepicker-toggle matSuffix [for]="startPicker"></mat-datepicker-toggle> <mat-datepicker #startPicker></mat-datepicker>
+                        </mat-form-field>
+                        <!-- <input type="date" placeholder="Inactive Date" required name="Inactivedate" [(ngModel)]="Inactivedate" style="    padding: 2px 0px; font-size: 16px;    font-weight: bold;"> -->
+          
+                      </div>
+          
+                        <div class="col-lg-3 col-xs-12">
+                            <!--<label class="date-lable">Effective to date</label>-->
+                          <mat-form-field class="margin-t-15">
+                            <input matInput [matDatepicker]="startPicker1" [(ngModel)]="publish_product_date" formControlName="publish_product_date"placeholder="Effective to date"/>
+                            <mat-datepicker-toggle matSuffix [for]="startPicker1"></mat-datepicker-toggle><mat-datepicker #startPicker1></mat-datepicker>
+                          </mat-form-field>
+          
+                          <!-- <input type="date" placeholder="Publish Date" required name="publishdate" [(ngModel)]="publishdate" style="    padding: 2px 0px; font-size: 16px; font-weight: bold;"> -->
+          
+                        </div>
 
                     <div class="form-group" hidden="true">
                       <mat-form-field>
@@ -336,7 +357,7 @@
                   <button mat-button matStepperPrevious class="btn btn-fill">
                     <i _ngcontent-c0="" class="fa fa-angle-left" style="font-size: 26px; margin: -9px 3px 0px 0px;"></i>
                     Back</button>
-                  <button type="submit" mat-button matStepperNext (click)="signupuserdata(zipcode,utilityarea,contact_email.value,title.value,profileurl.value,profile_logo.value,plan_information,cancelation_fee,fact_sheet,terms_of_service,phone,sign_up.value,minimum_usage_fee,renewable,spectialterms,price_1000_kwh,price_500_kwh,price_2000_kwh)" class="btn btn-fill">Done</button>
+                  <button type="submit" mat-button matStepperNext (click)="signupuserdata(zipcode,utilityarea,contact_email.value,title.value,profileurl.value,profile_logo.value,plan_information,cancelation_fee,fact_sheet,terms_of_service,phone,sign_up.value,minimum_usage_fee,renewable,spectialterms,price_1000_kwh,price_500_kwh,price_2000_kwh, publish_product_date,product_inactive_date)" class="btn btn-fill">Done</button>
                 </div>
               </div>
             </div>

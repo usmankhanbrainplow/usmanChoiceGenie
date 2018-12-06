@@ -256,15 +256,20 @@ utility= new FormControl;
         console.log(Res);
         // console.log(this.publishdate)
         console.log(this.model);
-        swal({
-        text: "Successfully Added!",
-        title: "Choice Genie",
-        type: "success",
-        showConfirmButton: true,
-        timer: 2500,
-        confirmButtonText: "OK",
+        swal(
+          'Successfully Added!',
+          'ChoiceGenie',
+          'success'
+        )
+        // swal({
+        // text: "Successfully Added!",
+        // title: "Choice Genie",
+        // type: "success",
+        // showConfirmButton: true,
+        // timer: 2500,
+        // confirmButtonText: "OK",
 
-        })
+        // })
         console.log(this.model);
         // this.router.navigate(['']);
 

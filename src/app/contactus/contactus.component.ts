@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { AgmCoreModule } from '@agm/core';
 import { Headers, Http, Response } from '@angular/http';
@@ -10,8 +10,7 @@ import { SimpleGlobal } from 'ng2-simple-global';
 import { FormBuilder, Validators, NgControl, RadioControlValueAccessor, FormControl, FormGroup } from '@angular/forms';
 import { HttpClient, HttpResponse, HttpHeaders } from "@angular/common/http";
 import swal from 'sweetalert2';
-
-
+import { RecaptchaComponent } from 'recaptcha-blackgeeks';
 
 const EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 const NAME_REGEX = /^[a-zA-Z _.]+$/;
@@ -22,6 +21,9 @@ const PHONE_REGEX = /^[0-9]+$/;
   styleUrls: ['./contactus.component.scss']
 })
 export class ContactusComponent implements OnInit {
+  @ViewChild(RecaptchaComponent) captcha: RecaptchaComponent;
+  isCaptcha=false;
+  statuslogin: any;
 //  date = new Date(1992, 3, 15);
 today = Date.now();
 date;
@@ -33,6 +35,7 @@ date;
   private next: any;
    name;
   mobno;
+  isequal;
   email;
   msg;
   // date;
@@ -40,6 +43,7 @@ date;
   model: any = {};
   normalPattern = '[a-zA-Z0-9_.-]+?';
   digitsOnly = '^[0-9,-]+$';
+ // subject
   // email = '^\\w+([\\.-]?\\w+)*@\\w+([\\.-]?\\w+)*(\\.\\w{2,3})+$';
 
   flag = true;
@@ -113,10 +117,24 @@ date;
 onSubmit(f) {
   f.resetForm();
 }
+clear(){
+  this.name ="",
+  this.mobno="",
+  this.email="",
+  this.msg="",
+  // date,
+  this.subject ="";
+}
 Contactuserdata(name,mobno,email,msg,date,subject) {
+  
   console.log(name,mobno,email,msg,date,subject);
+  if (this.captcha.getResponse()) {
+    console.log('equ ok');
+    // alert("login");
+    this.isequal=true;
   let headers = new HttpHeaders();
-  headers.append('Content-Type', 'application/json');    
+  headers.append('Content-Type', 'application/json');
+
   this.http.post(Config.api+'contactus/', {
     "name": name,
     "mobno":mobno,
@@ -139,7 +157,7 @@ Contactuserdata(name,mobno,email,msg,date,subject) {
 
       })
       console.log(this.model);
-
+    this.clear();
     },
 
       error => {
@@ -152,6 +170,12 @@ Contactuserdata(name,mobno,email,msg,date,subject) {
         )
     
       });
+    }
+    else {
+      this.captcha.reset();
+      this.isequal = false;
+      // this.islogin = true;
+    }
 
 
 
