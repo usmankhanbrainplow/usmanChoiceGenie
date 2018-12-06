@@ -13,4 +13,5 @@ public static api: String = 'https://apis.choicegenie.com/';
    public static Imageurl: string = 'https://storage.choicegenie.com/media/';
     public  static  Imageurlget = 'https://storage.choicegenie.com/images/';
    public  static  Imageurlupload = 'https://storage.choicegenie.com/upload_image.php';
+   public static pdfupload='https://storage.choicegenie.com/Pdf_Upload.php';
 }

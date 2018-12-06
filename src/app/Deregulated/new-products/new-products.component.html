@@ -218,15 +218,17 @@
               <div class="">
                 <div class="row sh-signup-form-fix">
                     <div class="col-sm-6">
-                      <div class="form-group">
-                      <mat-form-field>
-                        <input matInput placeholder="Terms of Service " [(ngModel)]="terms_of_service"  formControlName="terms_of_service">
-                        <mat-error *ngIf="thirdFormGroup.controls['terms_of_service'].value == '' || !thirdFormGroup.controls['terms_of_service'].value"><strong>This Field cannot be empty</strong></mat-error>
+                      <!-- <div class="form-group"> -->
+                      <!-- <mat-form-field> -->
+                          <!-- <input   type='file' (change)="onChange($event)" (change)="readUrl($event)" formControlName="terms_of_service" [(ngModel)]="terms_of_service" accept=".pdf,.doc,.docx*" multiple> -->
+                        <!-- <input matInput placeholder="Terms of Service " [(ngModel)]="terms_of_service"  formControlName="terms_of_service"> -->
+                        <!-- <mat-error *ngIf="thirdFormGroup.controls['terms_of_service'].value == '' || !thirdFormGroup.controls['terms_of_service'].value"><strong>This Field cannot be empty</strong></mat-error> -->
 
-                      </mat-form-field>
-                     <!-- <input matInput id="img" type='file' (change)="onChange($event)" (change)="readUrl($event)" formControlName="terms_of_service" [(ngModel)]="terms_of_service" accept="image/*" multiple> -->
+                      <!-- </mat-form-field> -->
+                    
+                     <input type='file' (change)="onChange($event)" (change)="readUrl($event)"     formControlName="terms_of_service" [(ngModel)]="terms_of_service" accept=".pdf,.doc,.docx*"  >
+                      <!-- </div> -->
 
-                      </div>
                     </div>
                      <div class="col-sm-6" >
                       <div class="form-group">
@@ -309,6 +311,7 @@
                         <!-- <mat-error *ngIf="fourthFormGroup.controls['spectialterms'].value == '' || !fourthFormGroup.controls['spectialterms'].value"><strong>This Field cannot be empty</strong></mat-error> -->
 
                       </mat-form-field>
+                      
                     </div>
 
                   </div>

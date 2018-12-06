@@ -11,6 +11,17 @@ import { FormBuilder, Validators, NgControl, RadioControlValueAccessor, FormCont
  import swal from 'sweetalert2';
  import * as moment from 'moment';
  import { HttpService } from '../../serv/http-service';
+// import { MatSelect } from '@angular/material';
+// import { Component, OnInit } from '@angular/core';
+// import { Headers, Http, Response } from '@angular/http';
+import 'rxjs/add/operator/map'
+// import { Config } from "../../Config";
+// import { ActivatedRoute, Router } from "@angular/router";
+// import { SimpleGlobal } from 'ng2-simple-global';
+// import { ResponseContentType } from '@angular/http/src/enums';
+// import { FormBuilder, Validators, NgControl, RadioControlValueAccessor, FormControl, FormGroup } from '@angular/forms';
+import { HttpClient, HttpResponse, HttpHeaders } from "@angular/common/http";
+// import swal from 'sweetalert2';
 import { MatSelect } from '@angular/material';
 
 import { modelGroupProvider } from '@angular/forms/src/directives/ng_model_group';
@@ -60,8 +71,11 @@ export class NewProductsComponent implements OnInit {
   secondFormGroup: FormGroup;
   thirdFormGroup: FormGroup;
   fourthFormGroup: FormGroup;
+  
   constructor(private https:HttpService,public router: Router, private fb: FormBuilder, private http: Http, private route: ActivatedRoute, private sg: SimpleGlobal) { }
 title;
+responseType: "arraybuffer" | "blob" | "json" | "text";
+url: any = '.pdf,.doc,.docx';
 titlevendor;
 get(value){
 // this.utilityarea=value;
@@ -123,6 +137,8 @@ utility= new FormControl;
   sign;
   word2 :any=[];
   
+  
+
   fetchProducts() {
 
     let headers = new Headers();
@@ -192,6 +208,47 @@ utility= new FormControl;
           this.utilityarea = Res.json();
           console.log(this.utilityarea)
         });
+    }
+    onChange(event: EventTarget) {
+      this.terms_of_service = new FormData();
+      const eventObj: MSInputMethodContext = <MSInputMethodContext>event;
+      const target: HTMLInputElement = <HTMLInputElement>eventObj.target;
+      this.terms_of_service.append('fileToUpload', target.files[0]);
+      console.log(this.terms_of_service);
+      alert(this.terms_of_service);
+    }
+  
+    readUrl(event: any) {
+      if (event.target.files && event.target.files[0]) {
+        const reader = new FileReader();
+  
+        reader.onload = (e: any) => {
+          this.url = e.target.result;
+          console.log(this.url);
+        };
+      
+        reader.readAsDataURL(event.target.files[0]);
+      }
+    }
+    upload() {
+      this.http.post(
+        Config.Imageurlupload ,
+        this.terms_of_service,  {responseType: 'text'}).subscribe(data => {
+          if (data === "Sorry, not a valid Image.Sorry, only JPG, JPEG, PNG & GIF files are allowed.Sorry, your file was not uploaded.") {
+          }
+          else {
+  
+            
+            console.log(data);
+            alert(data);
+            this.model.blog_image = data;
+          
+            //this.signupuserdata();
+          }
+        });
+  
+  
+  
     }
     comprofile;
     profile() {
