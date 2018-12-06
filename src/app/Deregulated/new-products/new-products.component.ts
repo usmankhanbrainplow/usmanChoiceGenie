@@ -21,6 +21,8 @@ import { modelGroupProvider } from '@angular/forms/src/directives/ng_model_group
 })
 export class NewProductsComponent implements OnInit {
   state;
+  publish_product_date;
+  product_inactive_date;
   city;
   signupForm: FormGroup;
   private next: any;

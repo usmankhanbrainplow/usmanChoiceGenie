@@ -12,7 +12,8 @@ import swal from 'sweetalert2';
 import { MatSelect } from '@angular/material';
 
 import { modelGroupProvider } from '@angular/forms/src/directives/ng_model_group';
-import moment = require('moment');
+// import moment = require('moment');
+import * as moment from 'moment';
 @Component({
   selector: 'app-new-product',
   templateUrl: './new-product.component.html'
@@ -26,7 +27,8 @@ export class NewProductComponent implements OnInit {
   normalPattern = '[a-zA-Z0-9_.-]+?';
   digitsOnly = '^[0-9,-]+$';
   public phoneMask = ['(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
-
+  publish_product_date;
+  product_inactive_date;
   email = '^\\w+([\\.-]?\\w+)*@\\w+([\\.-]?\\w+)*(\\.\\w{2,3})+$';
   public username;
   flag = true;
