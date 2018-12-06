@@ -14,6 +14,9 @@ body {
   /* background: #f9f9f9; */
   background: #fbfbfb;
 }
+.color-main{
+  color: #c00;
+}
 .credit-card-box .back, .credit-card-box .front {
   background: linear-gradient(135deg,#dfaa3a,#c49021)!important;
 }
@@ -4733,7 +4736,14 @@ footer p a:hover { color:#333; border-bottom-color: #333; }
     right: -2%;
   background: #ebebeb !important;
 }
-
+.popupmodel2 {
+     /* margin-top: 25%; */
+     width: 850px !important;
+     /* right: -2%; */
+     left: -34%;
+     background: #ebebeb !important;
+ }
+}
 
 .popup__heading{
   border-bottom: 1px #4f4f4f solid;
@@ -8720,6 +8730,13 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
 */
 
 @media (min-width: 1025px) and (max-width: 1280px) {
+  .play-store-img2 {
+    margin: 0 0 0 10px;
+    left: 34%;
+  }
+
+
+
   .sidenav{
     width: 0px !important;
   }
@@ -8872,6 +8889,19 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
 
 @media (min-width: 992px) and (max-width: 1024px) {
   /* Large devices (maximam width 1024px and minimum width 768px) */
+  .play-store-img2{
+    left: 35%;
+  }
+  .iosBadge {
+    max-width: 21%;
+  }
+  .androidBadge {
+    max-width: 24%;
+  }
+
+
+
+
   .sidenav{
     width: 0px !important;
   }
@@ -9217,6 +9247,17 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
 */
 
 @media (min-width: 769px) and (max-width: 991px) {
+  .play-store-img2{
+    left: 35%;
+  }
+  .iosBadge {
+    max-width: 21%;
+  }
+  .androidBadge {
+    max-width: 24%;
+  }
+
+
   .search-bg__title {
     font-size: 26px;
   }
@@ -9252,6 +9293,32 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
 */
 
 @media (min-width: 481px) and (max-width: 768px) {
+  .margintop {
+    margin-top: 85px !important;
+  }
+  .compare-lable {
+    font-weight: 400 !important;
+  }
+  .why-heading h2 {
+    font-size: 39px;
+  }
+  .back-padding{
+    border-bottom: 2px solid #656363;
+  }
+  .silder-div {
+    width: 100%;
+  }
+  .play-store-img2{
+    left: 35%;
+  }
+  .iosBadge {
+    max-width: 21%;
+  }
+  .androidBadge {
+    max-width: 24%;
+  }
+
+
   .single-pricing-2 .plan-name {
     font-size: 24px;
   }
@@ -9347,6 +9414,22 @@ font-size: 33px;
 */
 
 @media (min-width: 320px) and (max-width: 480px) {
+  .back-padding{
+    border-bottom: 2px solid #656363;
+  }
+  .silder-div {
+    width: 100%;
+  }
+  .play-store-img2{
+    left: 35%;
+  }
+  .iosBadge {
+    max-width: 21%;
+  }
+  .androidBadge {
+    max-width: 24%;
+  }
+
   .why-heading h2 {
     font-size: 33px;
 }
@@ -9549,6 +9632,22 @@ font-size: 33px;
   }
 }
 @media (min-width: 325px) and (max-width: 375px) {
+  .back-padding{
+    border-bottom: 2px solid #656363;
+  }
+  .silder-div {
+    width: 100%;
+  }
+  .play-store-img2{
+    left: 35%;
+  }
+  .iosBadge {
+    max-width: 21%;
+  }
+  .androidBadge {
+    max-width: 24%;
+  }
+
   .why-heading h2 {
     font-size: 33px;
 }
@@ -9603,6 +9702,24 @@ font-size: 33px;
   }
 }
 @media (max-width: 325px){
+  .back-padding{
+    border-bottom: 2px solid #656363;
+  }
+  .silder-div {
+    width: 100%;
+  }
+  .play-store-img2{
+    left: 35%;
+  }
+  .iosBadge {
+    max-width: 21%;
+  }
+  .androidBadge {
+    max-width: 24%;
+  }
+
+
+
   .why-heading h2 {
     font-size: 33px;
 }
