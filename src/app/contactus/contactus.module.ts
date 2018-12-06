@@ -8,12 +8,15 @@ import {MatDatepickerModule} from "@angular/material";
 import { HttpClientModule } from '@angular/common/http';
 import { ContactusComponent } from './contactus.component';
 import { contactRoutes } from './contactus.routing';
+import { BlackgeeksRecaptchaModule } from 'recaptcha-blackgeeks';
+
 
 @NgModule({
     imports: [
         CommonModule,
         RouterModule.forChild(contactRoutes),
         // MdModule,
+        BlackgeeksRecaptchaModule,
         MaterialModule,
         FormsModule,
         ReactiveFormsModule,

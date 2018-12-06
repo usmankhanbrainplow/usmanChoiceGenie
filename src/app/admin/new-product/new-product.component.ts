@@ -12,6 +12,7 @@ import swal from 'sweetalert2';
 import { MatSelect } from '@angular/material';
 
 import { modelGroupProvider } from '@angular/forms/src/directives/ng_model_group';
+import moment = require('moment');
 @Component({
   selector: 'app-new-product',
   templateUrl: './new-product.component.html'
@@ -76,6 +77,8 @@ export class NewProductComponent implements OnInit {
     });
     this.secondFormGroup = this.fb.group({
       'plan_information': ['', Validators.compose([Validators.required])],
+      'publish_product_date': [''],
+      'product_inactive_date': [''],
       // 'price_rate': ['', Validators.compose([Validators.required])],
     });
     this.thirdFormGroup = this.fb.group({
@@ -168,8 +171,8 @@ export class NewProductComponent implements OnInit {
   onSubmit(f) {
     f.resetForm();
   }
-  signupuserdata(zipcode,utilityarea, contact_email, title, profileurl, profile_logo, plan_information,  cancelation_fee, fact_sheet, terms_of_service, phone, sign_up, minimum_usage_fee, renewable, specialterms, price_1000_kwh, price_500_kwh, price_2000_kwh) {
-    console.log(utilityarea, title, profileurl, profile_logo, plan_information,  cancelation_fee, fact_sheet, terms_of_service, phone, sign_up, minimum_usage_fee, renewable, specialterms, price_1000_kwh, price_500_kwh, price_2000_kwh);
+  signupuserdata(zipcode,utilityarea, contact_email, title, profileurl, profile_logo, plan_information,  cancelation_fee, fact_sheet, terms_of_service, phone, sign_up, minimum_usage_fee, renewable, specialterms, price_1000_kwh, price_500_kwh, price_2000_kwh,publish_product_date,product_inactive_date) {
+    console.log(utilityarea, title, profileurl, profile_logo, plan_information,  cancelation_fee, fact_sheet, terms_of_service, phone, sign_up, minimum_usage_fee, renewable, specialterms, price_1000_kwh, price_500_kwh, price_2000_kwh,publish_product_date,product_inactive_date);
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
     // headers.append('Authorization', 'JWT ' +  this.authentication);
@@ -194,7 +197,9 @@ export class NewProductComponent implements OnInit {
       "price_1000_kwh": price_1000_kwh,
       "price_500_kwh": price_500_kwh,
       "price_2000_kwh": price_2000_kwh,
-      "contact_email": contact_email
+      "contact_email": contact_email,
+      'publish_product_date': moment(publish_product_date).format('YYYY/MM/DD'),
+      'product_inactive_date': moment(product_inactive_date).format('YYYY/MM/DD')
     }), { headers: headers })
       .subscribe(Res => {
         console.log(Res);
