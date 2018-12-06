@@ -94,8 +94,8 @@ utility= new FormControl;
      
     });
     this.thirdFormGroup = this.fb.group({
-     'fact_sheet': ['', Validators.compose([Validators.required])],
-      'terms_of_service': ['', Validators.compose([Validators.required])],
+     'fact_sheet': [''],
+      'terms_of_service': [''],
       'phone': ['', Validators.compose([Validators.required])],
       
      
