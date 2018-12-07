@@ -12,6 +12,8 @@ import * as moment from 'moment';
 import { HttpService } from '../../serv/http-service';
 // import { ResponseContentType } from '@angular/http/src/enums';
 import 'rxjs/add/operator/map'
+import { HttpClient, HttpResponse, HttpHeaders } from "@angular/common/http";
+// import { HttpClient } from 'selenium-webdriver/http';
 
 
 @Component({
@@ -60,10 +62,11 @@ export class NewProductsComponent implements OnInit {
   thirdFormGroup: FormGroup;
   fourthFormGroup: FormGroup;
 
-  constructor(private https: HttpService, public router: Router, private fb: FormBuilder, private http: Http, private sg: SimpleGlobal) { }
+  constructor(private https: HttpService, public router: Router, private fb: FormBuilder, private http: Http, private _http: HttpClient, private sg: SimpleGlobal) { }
   title;
- 
-  url: any = '.pdf,.doc,.docx';
+
+  url: any = '.pdf';
+
   titlevendor;
   get(value) {
     // this.utilityarea=value;
@@ -72,7 +75,7 @@ export class NewProductsComponent implements OnInit {
   }
   utility = new FormControl;
   public user;
-  
+
   ngOnInit() {
     this.user = localStorage.getItem('user')
     this.username = localStorage.getItem('username')
@@ -92,21 +95,22 @@ export class NewProductsComponent implements OnInit {
     });
     this.secondFormGroup = this.fb.group({
       'plan_information': ['', Validators.compose([Validators.required])],
-      'publish_product_date': [''],
-      'product_inactive_date': [''],
+      'specialterms': ['', Validators.compose([Validators.required])],
+    
 
       // 'price_rate': [''],
 
     });
     this.thirdFormGroup = this.fb.group({
       'fact_sheet': [''],
-      'terms_of_service': [''],
+      // 'terms_of_service': [''],
       'phone': ['', Validators.compose([Validators.required])],
 
 
     });
     this.fourthFormGroup = this.fb.group({
-      'specialterms': ['', Validators.compose([Validators.required])],
+      'publish_product_date': [''],
+      'product_inactive_date': [''],
       'price_1000_kwh': ['', Validators.compose([Validators.required])],
       'price_500_kwh': ['', Validators.compose([Validators.required])],
       'price_2000_kwh': ['', Validators.compose([Validators.required])],
@@ -198,29 +202,29 @@ export class NewProductsComponent implements OnInit {
         console.log(this.utilityarea)
       });
   }
-  onChange(event: EventTarget) {
-    this.terms_of_service = new FormData();
-    const eventObj: MSInputMethodContext = <MSInputMethodContext>event;
-    const target: HTMLInputElement = <HTMLInputElement>eventObj.target;
-    this.terms_of_service.append('fileToUpload', target.files[0]);
-    console.log(this.terms_of_service);
-    alert(this.terms_of_service);
-  }
+  // onChange(event: EventTarget) {
+  //   this.terms_of_service = new FormData();
+  //   const eventObj: MSInputMethodContext = <MSInputMethodContext>event;
+  //   const target: HTMLInputElement = <HTMLInputElement>eventObj.target;
+  //   this.terms_of_service.append('fileToUpload', target.files[0]);
+  //   console.log(this.terms_of_service);
+  //   alert(this.terms_of_service);
+  // }
 
-  readUrl(event: any) {
-    if (event.target.files && event.target.files[0]) {
-      const reader = new FileReader();
+  // readUrl(event: any) {
+  //   if (event.target.files && event.target.files[0]) {
+  //     const reader = new FileReader();
 
-      reader.onload = (e: any) => {
-        this.url = e.target.result;
-        console.log(this.url);
-      };
+  //     reader.onload = (e: any) => {
+  //       this.url = e.target.result;
+  //       console.log(this.url);
+  //     };
 
-      reader.readAsDataURL(event.target.files[0]);
-    }
-  }
+  //     reader.readAsDataURL(event.target.files[0]);
+  //   }
+  // }
   // const options = { responseType: 'text' };
- 
+
   comprofile;
   profile() {
 
@@ -250,10 +254,67 @@ export class NewProductsComponent implements OnInit {
   // product_inactive_date;
   //     publishdate;
   // Inactivedate;
+
+  onChange(event: EventTarget) {
+    this.terms_of_service = new FormData();
+    // this.fact_sheet = new FormData();
+     
+    const eventObj: MSInputMethodContext = <MSInputMethodContext>event;
+    const target: HTMLInputElement = <HTMLInputElement>eventObj.target;
+    this.terms_of_service.append('fileToUpload', target.files[0]);
+    // this.fact_sheet.append('fileToUpload', target.files[0]);
+    console.log(this.terms_of_service);
+    // console.log(this.fact_sheet)
+// alert(this.fact_sheet)
+    alert(this.terms_of_service);
+  }
+
+  readUrl(event: any) {
+    if (event.target.files && event.target.files[0]) {
+      const reader = new FileReader();
+
+      reader.onload = (e: any) => {
+        this.url = e.target.result;
+        console.log(this.url);
+      };
+      alert(this.url)
+      reader.readAsDataURL(event.target.files[0]);
+     this.upload();
+    //  this.uploadfactsheet();
+    }
+  }
+  onChangefeet(event: EventTarget) {
+    // this.terms_of_service = new FormData();
+    this.fact_sheet = new FormData();
+     
+    const eventObj: MSInputMethodContext = <MSInputMethodContext>event;
+    const target: HTMLInputElement = <HTMLInputElement>eventObj.target;
+    // this.terms_of_service.append('fileToUpload', target.files[0]);
+    this.fact_sheet.append('fileToUpload', target.files[0]);
+    // console.log(this.terms_of_service);
+    console.log(this.fact_sheet)
+alert(this.fact_sheet)
+    // alert(this.terms_of_service);
+  }
+  readUrlfect(event: any) {
+    if (event.target.files && event.target.files[0]) {
+      const reader = new FileReader();
+
+      reader.onload = (e: any) => {
+        this.url = e.target.result;
+        console.log(this.url);
+      };
+      alert(this.url)
+      reader.readAsDataURL(event.target.files[0]);
+  //  this.upload();
+     this.uploadfactsheet();
+    }
+  }
+
   upload() {
-    this.http.post(
-      Config.Imageurlupload,
-      this.terms_of_service, { responseType: "Text"}).subscribe(data => {
+    this._http.post(
+      Config.pdfupload,
+      this.terms_of_service,{ responseType: 'text' }).subscribe(data => {
         if (data === "Sorry, not a valid Image.Sorry, only JPG, JPEG, PNG & GIF files are allowed.Sorry, your file was not uploaded.") {
         }
         else {
@@ -261,15 +322,33 @@ export class NewProductsComponent implements OnInit {
 
           console.log(data);
           alert(data);
-          this.model.blog_image = data;
+          this.terms_of_service = data;
 
-          //this.signupuserdata();
+       // this.signupuserdata();
+        }
+      });
+  }
+  uploadfactsheet() {
+    this._http.post(
+      Config.pdfupload,
+      this.fact_sheet,{ responseType: 'text' }).subscribe(data => {
+        if (data === "Sorry, not a valid Image.Sorry, only JPG, JPEG, PNG & GIF files are allowed.Sorry, your file was not uploaded.") {
+        }
+        else {
+
+
+          console.log(data);
+          alert(data);
+          this.fact_sheet = data;
+
+       // this.signupuserdata();
         }
       });
 
 
 
   }
+
   signupuserdata(zipcode, utilityarea, contact_email, title, profileurl, profile_logo, plan_information, cancelation_fee, fact_sheet, terms_of_service, phone, sign_up, minimum_usage_fee, renewable, specialterms, price_1000_kwh, price_500_kwh, price_2000_kwh, publish_product_date, product_inactive_date) {
     console.log(zipcode, utilityarea, contact_email, title, profileurl, profile_logo, plan_information, cancelation_fee, fact_sheet, terms_of_service, phone, sign_up, minimum_usage_fee, renewable, specialterms, price_1000_kwh, price_500_kwh, price_2000_kwh, publish_product_date, product_inactive_date);
     //  console.log(this.spublishdate,this.Inactivedate)
@@ -278,8 +357,14 @@ export class NewProductsComponent implements OnInit {
     // headers.append('Authorization', 'JWT ' +  this.authentication);
     headers.append('Authorization', 'JWT ' + localStorage.getItem('token'));
     console.log('pofile', localStorage.getItem('token'));
-
-
+    // this._http.post(
+    //   Config.Imageurlupload,
+    //   this.terms_of_service, { responseType: 'text' }).subscribe(data => {
+    //     if (data === "Sorry, not a valid Image.Sorry, only JPG, JPEG, PNG & GIF files are allowed.Sorry, your file was not uploaded.") {
+    //     }
+    //     else {
+// this.upload();
+// this.uploadfactsheet();
     this.http.post(Config.api + 'deregulated_add_product/', JSON.stringify({
       "zipcode": zipcode,
       "serviceareaname": utilityarea,
@@ -288,8 +373,8 @@ export class NewProductsComponent implements OnInit {
       "profile_logo": profile_logo,
       "plan_information": plan_information,
       "cancelation_fee": cancelation_fee,
-      "fact_sheet": fact_sheet,
-      "terms_of_service": terms_of_service,
+      "fact_sheet":this.fact_sheet,
+      "terms_of_service": this.terms_of_service,
       "phone": phone,
       "sign_up": sign_up,
       "minumum_usage_fee": minimum_usage_fee,
@@ -303,95 +388,37 @@ export class NewProductsComponent implements OnInit {
       "product_inactive_date": moment(product_inactive_date).format("YYYY/MM/DD")
     }), { headers: headers })
       .subscribe(Res => {
+
         console.log(Res);
-        // console.log(this.publishdate)
         console.log(this.model);
+    //     console.log(data);
+    //  alert(data);
+    //  this.terms_of_service = data;
         swal(
           'Successfully Added!',
           'ChoiceGenie',
           'success'
         )
-        // swal({
-        // text: "Successfully Added!",
-        // title: "Choice Genie",
-        // type: "success",
-        // showConfirmButton: true,
-        // timer: 2500,
-        // confirmButtonText: "OK",
-
-        // })
         console.log(this.model);
-        // this.router.navigate(['']);
+     });
+     
 
-      },
+     // this.signupuserdata();
+  //  }
+// });
+    error => {
+      console.log(error);
+      console.log(zipcode, utilityarea, contact_email, title, profileurl, profile_logo, plan_information, cancelation_fee, fact_sheet, terms_of_service, phone, sign_up, minimum_usage_fee, renewable, specialterms, price_1000_kwh, price_500_kwh, price_2000_kwh);
 
-        error => {
-          console.log(error);
-          console.log(zipcode, utilityarea, contact_email, title, profileurl, profile_logo, plan_information, cancelation_fee, fact_sheet, terms_of_service, phone, sign_up, minimum_usage_fee, renewable, specialterms, price_1000_kwh, price_500_kwh, price_2000_kwh);
+      swal(
+        'Invalid',
+        'Please Try Again!',
+        'error'
+      )
 
-          swal(
-            'Invalid',
-            'Please Try Again!',
-            'error'
-          )
+    }
 
-        });
-    //  window.location.reload();
   }
-
-  // filter(page,id,months1,months2,months3,months4,months5,months6,months7,fixed,vari,market,notprepaid,prepaid,planmin,time,nottime,renewable,name,sort,item,min500,max500,min1000,max1000,min2000,max2000,logo1,logo2,logo3,logo4,logo5,prepaidall,timeall,showallplanPB) {
-  //   if(name){
-  //       this.com=name.trim();}
-  //       console.log(page,id,months1,months2,months3,months4,months5,months6,months7,fixed,vari,market,prepaidall,notprepaid,prepaid,planmin,timeall,time,nottime,renewable,name,sort,item,min500,max500,min1000,max1000,min2000,max2000,showallplanPB)
-  //       const headers = new Headers();
-  //       headers.append('Content-Type', 'application/json');
-  //       return this.http.post(Config.api+'multifilter/'+id +'?page='+page, JSON.stringify({
-  //         "plan_type1": fixed,
-  //         "plan_type2": market,
-  //         "plan_type3": vari,
-  //         "plan_information1": months1,
-  //         "plan_information2": months2,
-  //         "plan_information3": months3,
-  //         "plan_information4": months4,
-  //         "plan_information5": months5,
-  //         "plan_information6": months6,
-  //         "plan_information7": months7,
-  //         "prepaid": prepaid,
-  //         "noprepaid": notprepaid,
-  //         "planmin": planmin,
-  //         "allplans":showallplanPB,
-  //         "bothplanspre":prepaidall,
-  //         "bothplanstim":timeall,
-  //         "time":time,
-  //         "notime":nottime,
-  //         "renewablerate":renewable,
-  //         "company":this.com,
-  //         "itemsperpage":item,
-
-  //         "price_500_kwh_min_price":min500, 
-  //         "price_500_kwh_max_price":max500,
-
-  //         "price_1000_kwh_min_price": min1000,
-  //         "price_1000_kwh_max_price": max1000,      
-
-  //         "price_2000_kwh_min_price": min2000,
-  //         "price_2000_kwh_max_price": max2000,
-
-  //         // "itemsperpage":this.items,
-
-  //         "dsc":sort,
-  //         "logo1":logo1,
-  //         "logo2":logo2,
-  //         "logo3":logo3,
-  //         "logo4":logo4,
-  //         "logo5":logo5
-
-
-
-
-  //        }), 
-  //       {headers: headers}).map((response: Response) => response.json());
-  //       }
   company() {
 
     const headers = new Headers();
