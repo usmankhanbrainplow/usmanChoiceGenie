@@ -365,6 +365,7 @@
                     </div>
 
                   </div>
+  
                   <div class="col-sm-4">
                     <div class="form-group">
                       <mat-form-field class="">
@@ -380,7 +381,7 @@
                   <div class="col-sm-4">
                     <div class="form-group">
                       <mat-form-field class="">
-                        <input matInput placeholder="Renewable price" [(ngModel)]="renewable" formControlName="renewable">
+                        <input matInput currencyMask placeholder="Renewable price" [(ngModel)]="renewable" formControlName="renewable">
                         <mat-error *ngIf="fourthFormGroup.controls['renewable'].value == '' || !fourthFormGroup.controls['renewable'].value"><strong>This Field cannot be empty</strong></mat-error>
 
                       </mat-form-field>
@@ -396,6 +397,34 @@
                           <!-- <mat-error *ngIf="secondFormGroup.controls['cancelation_fee'].value == '' || !secondFormGroup.controls['cancelation_fee'].value"><strong>This Field cannot be empty</strong></mat-error> -->
                         </mat-form-field>
                       </div>
+                  </div>
+                  
+                  <div class="col-sm-4" >
+                      <div class="formrow">
+                          <input type="checkbox" (click)="AddReservePriceFun()" value="agree text" name="agree" />
+                          Add price of 600kWh
+                        </div>
+                    <div class="form-group" *ngIf="price_600_kwh == true">
+                      <mat-form-field class="">
+                        <input matInput currencyMask placeholder="Price of 600 KWH"   required [(ngModel)]="price_600_kwh" formControlName="price_600_kwh">
+                        <mat-error *ngIf="fourthFormGroup.controls['price_600_kwh'].value == '' || !fourthFormGroup.controls['price_600_kwh'].value"><strong>This Field cannot be empty</strong></mat-error>
+                         </mat-form-field>
+                    </div>
+
+                  </div>
+                  <div class="col-sm-4">
+                      <div class="formrow">
+                          <input type="checkbox" (click)="AddReservePriceFun1()" value="agree text" name="agree" />
+                          Add price of 900kWh
+                        </div>
+                    <div class="form-group">
+                      <mat-form-field class="" *ngIf="price_900_kwh == true">
+                        <input matInput currencyMask placeholder="Price of 900 KWH"   required [(ngModel)]="price_900_kwh" formControlName="price_900_kwh">
+                        <mat-error *ngIf="fourthFormGroup.controls['price_900_kwh'].value == '' || !fourthFormGroup.controls['price_900_kwh'].value"><strong>This Field cannot be empty</strong></mat-error>
+                        
+                      </mat-form-field>
+                    </div>
+
                   </div>
                 </div>
                 <div class="text-right">

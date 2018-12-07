@@ -55,6 +55,8 @@ export class NewProductsComponent implements OnInit {
   price_1000_kwh;
   price_500_kwh;
   price_2000_kwh;
+  price_600_kwh;
+  price_900_kwh;
   // zipcode;
   emailexist: boolean = false;
   isLinear = true;
@@ -111,8 +113,12 @@ export class NewProductsComponent implements OnInit {
     this.fourthFormGroup = this.fb.group({
       'publish_product_date': [''],
       'product_inactive_date': [''],
-      'price_1000_kwh': ['', Validators.compose([Validators.required])],
       'price_500_kwh': ['', Validators.compose([Validators.required])],
+      'price_600_kwh': [''],
+      'price_900_kwh': [''],
+      'price_1000_kwh': ['', Validators.compose([Validators.required])],
+      // 'price_1200_kwh': ['', Validators.compose([Validators.required])],
+      // 'price_1500_kwh': ['', Validators.compose([Validators.required])],
       'price_2000_kwh': ['', Validators.compose([Validators.required])],
       'cancelation_fee': ['', Validators.compose([Validators.required])],
       'minimum_usage_fee': ['', Validators.compose([Validators.required])],
@@ -131,7 +137,7 @@ export class NewProductsComponent implements OnInit {
   word2: any = [];
 
 
-
+  
   fetchProducts() {
 
     let headers = new Headers();
@@ -202,29 +208,7 @@ export class NewProductsComponent implements OnInit {
         console.log(this.utilityarea)
       });
   }
-  // onChange(event: EventTarget) {
-  //   this.terms_of_service = new FormData();
-  //   const eventObj: MSInputMethodContext = <MSInputMethodContext>event;
-  //   const target: HTMLInputElement = <HTMLInputElement>eventObj.target;
-  //   this.terms_of_service.append('fileToUpload', target.files[0]);
-  //   console.log(this.terms_of_service);
-  //   alert(this.terms_of_service);
-  // }
-
-  // readUrl(event: any) {
-  //   if (event.target.files && event.target.files[0]) {
-  //     const reader = new FileReader();
-
-  //     reader.onload = (e: any) => {
-  //       this.url = e.target.result;
-  //       console.log(this.url);
-  //     };
-
-  //     reader.readAsDataURL(event.target.files[0]);
-  //   }
-  // }
-  // const options = { responseType: 'text' };
-
+  
   comprofile;
   profile() {
 
@@ -250,10 +234,7 @@ export class NewProductsComponent implements OnInit {
       });
 
   }
-  // publish_product_date ;
-  // product_inactive_date;
-  //     publishdate;
-  // Inactivedate;
+
 
   onChange(event: EventTarget) {
     this.terms_of_service = new FormData();
@@ -348,23 +329,35 @@ alert(this.fact_sheet)
 
 
   }
-
+  AddReservePriceFun() {
+    if ( this.price_600_kwh === true ) {
+      this.price_600_kwh = false;
+    } else {
+      this.price_600_kwh = true;
+    }
+  }
+  AddReservePriceFun1() {
+    if ( this.price_900_kwh === true ) {
+      this.price_900_kwh = false;
+    } else {
+      this.price_900_kwh = true;
+    }
+  }
+  // this.pkg_detail['credit']=this.cardnumber1 + this.cardnumber2 +
+  // this.cardnumber3 + this.cardnumber4
   signupuserdata(zipcode, utilityarea, contact_email, title, profileurl, profile_logo, plan_information, cancelation_fee, fact_sheet, terms_of_service, phone, sign_up, minimum_usage_fee, renewable, specialterms, price_1000_kwh, price_500_kwh, price_2000_kwh, publish_product_date, product_inactive_date) {
     console.log(zipcode, utilityarea, contact_email, title, profileurl, profile_logo, plan_information, cancelation_fee, fact_sheet, terms_of_service, phone, sign_up, minimum_usage_fee, renewable, specialterms, price_1000_kwh, price_500_kwh, price_2000_kwh, publish_product_date, product_inactive_date);
     //  console.log(this.spublishdate,this.Inactivedate)
+    // 1,000 kWh 7.3..500 kWh 7.6..2000 kWh 7.1
+    this.price_rate= '600 kWh '+this.price_600_kwh +'..900 kWh '+this.price_900_kwh ;
+    console.log(this.price_rate)
+  // this.cardnumber3 + this.cardnumber
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
-    // headers.append('Authorization', 'JWT ' +  this.authentication);
+
     headers.append('Authorization', 'JWT ' + localStorage.getItem('token'));
     console.log('pofile', localStorage.getItem('token'));
-    // this._http.post(
-    //   Config.Imageurlupload,
-    //   this.terms_of_service, { responseType: 'text' }).subscribe(data => {
-    //     if (data === "Sorry, not a valid Image.Sorry, only JPG, JPEG, PNG & GIF files are allowed.Sorry, your file was not uploaded.") {
-    //     }
-    //     else {
-// this.upload();
-// this.uploadfactsheet();
+  
     this.http.post(Config.api + 'deregulated_add_product/', JSON.stringify({
       "zipcode": zipcode,
       "serviceareaname": utilityarea,
@@ -372,6 +365,7 @@ alert(this.fact_sheet)
       "profileurl": profileurl,
       "profile_logo": profile_logo,
       "plan_information": plan_information,
+      "price_rate":this.price_rate   ,
       "cancelation_fee": cancelation_fee,
       "fact_sheet":this.fact_sheet,
       "terms_of_service": this.terms_of_service,
