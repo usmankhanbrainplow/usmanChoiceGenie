@@ -150,10 +150,10 @@ export class Signup1Component implements OnInit {
         console.log(Res);
         swal({
           type: 'success',
-          title: 'Successfully Logged in',
-          showConfirmButton: false,
+          title: 'Register Successflluy! Please go to Your email to active your account',
+          showConfirmButton: true,
           // height:'300px',
-          timer: 1000
+          timer: 1500
         });
       
        // this.router.navigate(['/login/'])

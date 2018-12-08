@@ -255,8 +255,9 @@ export class UsersignupComponent implements OnInit {
             title: "Choice Genie",
             type: "success",
             showConfirmButton: false,
-            timer: 1200,
+            timer: 1500,
             confirmButtonText: "OK",
+            
 
           })
           //  f.resetForm();

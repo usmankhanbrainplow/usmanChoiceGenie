@@ -56,6 +56,8 @@ export class NewProductsComponent implements OnInit {
   price_500_kwh;
   price_2000_kwh;
   price_600_kwh;
+  price_1200_kwh;
+  price_1500_kwh;
   price_900_kwh;
   // zipcode;
   emailexist: boolean = false;
@@ -117,12 +119,16 @@ export class NewProductsComponent implements OnInit {
       'price_600_kwh': [''],
       'price_900_kwh': [''],
       'price_1000_kwh': ['', Validators.compose([Validators.required])],
-      // 'price_1200_kwh': ['', Validators.compose([Validators.required])],
-      // 'price_1500_kwh': ['', Validators.compose([Validators.required])],
+      'price_1200_kwh': [''],
+      'price_1500_kwh': [''],
       'price_2000_kwh': ['', Validators.compose([Validators.required])],
       'cancelation_fee': ['', Validators.compose([Validators.required])],
       'minimum_usage_fee': ['', Validators.compose([Validators.required])],
       'renewable': ['', Validators.compose([Validators.required])],
+'status_600':[],
+'status_900':[],
+'status_1200':[],
+'status_1500':[]
 
     });
   }
@@ -166,33 +172,6 @@ export class NewProductsComponent implements OnInit {
       });
 
   }
-  //   fetchProducts() {
-
-  //     const headers = new Headers();
-  //     headers.append('Content-Type', 'application/json');
-
-  //     this.https.get(Config.api+'titlescompanies/'+ this.titlevendor.trim()  ,{ headers: headers })
-  //     .subscribe(Res => {
-  //     this.sg['products'] = Res.json()['Results'];
-  //     this.data=this.sg['products'];
-  //     console.log(this.data);
-  // this.word=this.data[5];
-  // this.prourl=this.word.profileurl;
-  // console.log(this.prourl,'company')
-
-  // this.prologo=this.word.profile_logo;
-  // console.log(this.prologo,'link')
-  // alert(this.prologo)
-  // this.word2=this.data[0];
-  // this.sign=this.word2.sign_up;
-  // console.log(this.sign,"company sign up")
-
-  // this.tit=this.word.title;
-  // this.only=this.tit
-  // console.log(this.tit)
-  //     });
-
-  //     } 
 
   onSubmit(f) {
     f.resetForm();
@@ -329,18 +308,37 @@ alert(this.fact_sheet)
 
 
   }
+  status_600:boolean=false
   AddReservePriceFun() {
-    if ( this.price_600_kwh === true ) {
-      this.price_600_kwh = false;
+    alert(this.status_600 )
+    if ( this.status_600 === true ) {
+      this.status_600 = true;
     } else {
-      this.price_600_kwh = true;
+      this.status_600 = false;
     }
   }
+  status_900:boolean=false
   AddReservePriceFun1() {
-    if ( this.price_900_kwh === true ) {
-      this.price_900_kwh = false;
+    if ( this.status_900 === true ) {
+      this.status_900 = true;
     } else {
-      this.price_900_kwh = true;
+      this.status_900 = false;
+    }
+  }
+  status_1200:boolean=false
+  AddReservePriceFun2() {
+    if ( this.status_1200 === true ) {
+      this.status_1200 = false;
+    } else {
+      this.status_1200 = true;
+    }
+  }
+  status_1500:boolean=false
+  AddReservePriceFun3() {
+    if ( this.status_1500 === true ) {
+      this.status_1500 = false;
+    } else {
+      this.status_1500 = true;
     }
   }
   // this.pkg_detail['credit']=this.cardnumber1 + this.cardnumber2 +
@@ -349,7 +347,7 @@ alert(this.fact_sheet)
     console.log(zipcode, utilityarea, contact_email, title, profileurl, profile_logo, plan_information, cancelation_fee, fact_sheet, terms_of_service, phone, sign_up, minimum_usage_fee, renewable, specialterms, price_1000_kwh, price_500_kwh, price_2000_kwh, publish_product_date, product_inactive_date);
     //  console.log(this.spublishdate,this.Inactivedate)
     // 1,000 kWh 7.3..500 kWh 7.6..2000 kWh 7.1
-    this.price_rate= '600 kWh '+this.price_600_kwh +'..900 kWh '+this.price_900_kwh ;
+    this.price_rate= '600 kWh '+this.price_600_kwh +'..900 kWh '+this.price_900_kwh +'..1200 kwh '+this.price_1200_kwh +'..1500 kwh '+this.price_1500_kwh ;
     console.log(this.price_rate)
   // this.cardnumber3 + this.cardnumber
     let headers = new Headers();
