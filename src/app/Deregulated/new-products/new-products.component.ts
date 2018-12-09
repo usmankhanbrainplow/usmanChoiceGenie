@@ -387,7 +387,7 @@ alert(this.fact_sheet)
     //  alert(data);
     //  this.terms_of_service = data;
         swal(
-          'Successfully Added!',
+          'Successfully added your new plan !',
           'ChoiceGenie',
           'success'
         )

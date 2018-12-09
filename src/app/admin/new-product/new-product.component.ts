@@ -51,14 +51,19 @@ export class NewProductComponent implements OnInit {
   spectialterms;
   price_1000_kwh;
   price_500_kwh;
-  price_2000_kwh
+  price_2000_kwh;
+  price_600_kwh;
+  price_1200_kwh;
+  price_1500_kwh;
+  price_900_kwh;
   emailexist: boolean = false;
   isLinear = true;
   secondFormGroup: FormGroup;
   thirdFormGroup: FormGroup;
   fourthFormGroup: FormGroup;
-  constructor(private https: Http, public router: Router, private fb: FormBuilder, private http: Http, private route: ActivatedRoute, private sg: SimpleGlobal) { }
+  constructor(private https: Http, public router: Router, private fb: FormBuilder,private _http: HttpClient, private http: Http, private route: ActivatedRoute, private sg: SimpleGlobal) { }
   title;
+  url: any = '.pdf';
   titlevendor;
   public user;
   servicearea;
@@ -79,20 +84,31 @@ export class NewProductComponent implements OnInit {
     });
     this.secondFormGroup = this.fb.group({
       'plan_information': ['', Validators.compose([Validators.required])],
-      'publish_product_date': [''],
-      'product_inactive_date': [''],
+      'specialterms': ['', Validators.compose([Validators.required])],
+      
       // 'price_rate': ['', Validators.compose([Validators.required])],
     });
     this.thirdFormGroup = this.fb.group({
-      'fact_sheet': ['', Validators.compose([Validators.required])],
-      'terms_of_service': ['', Validators.compose([Validators.required])],
+      'fact_sheet': [''],
+      'terms_of_service': [''],
       'phone': ['', Validators.compose([Validators.required])],
     });
     this.fourthFormGroup = this.fb.group({
-      'specialterms': ['', Validators.compose([Validators.required])],
+      'publish_product_date': [''],
+      'product_inactive_date': [''],
+ 
       'price_1000_kwh': ['', Validators.compose([Validators.required])],
+      'price_600_kwh': [''],
+      'price_900_kwh': [''],
       'price_500_kwh': ['', Validators.compose([Validators.required])],
       'price_2000_kwh': ['', Validators.compose([Validators.required])],
+      'price_1200_kwh': [''],
+      'price_1500_kwh': [''],
+      'status_600':[],
+'status_900':[],
+'status_1200':[],
+'status_1500':[],
+
       'minimum_usage_fee': ['', Validators.compose([Validators.required])],
       'renewable': ['', Validators.compose([Validators.required])],
       'cancelation_fee': ['', Validators.compose([Validators.required])],
@@ -174,6 +190,132 @@ export class NewProductComponent implements OnInit {
     f.resetForm();
   }
   
+  onChange(event: EventTarget) {
+    this.terms_of_service = new FormData();
+    // this.fact_sheet = new FormData();
+     
+    const eventObj: MSInputMethodContext = <MSInputMethodContext>event;
+    const target: HTMLInputElement = <HTMLInputElement>eventObj.target;
+    this.terms_of_service.append('fileToUpload', target.files[0]);
+    // this.fact_sheet.append('fileToUpload', target.files[0]);
+    console.log(this.terms_of_service);
+    // console.log(this.fact_sheet)
+// alert(this.fact_sheet)
+    alert(this.terms_of_service);
+  }
+
+  readUrl(event: any) {
+    if (event.target.files && event.target.files[0]) {
+      const reader = new FileReader();
+
+      reader.onload = (e: any) => {
+        this.url = e.target.result;
+        console.log(this.url);
+      };
+      alert(this.url)
+      reader.readAsDataURL(event.target.files[0]);
+     this.upload();
+    //  this.uploadfactsheet();
+    }
+  }
+  onChangefeet(event: EventTarget) {
+    // this.terms_of_service = new FormData();
+    this.fact_sheet = new FormData();
+     
+    const eventObj: MSInputMethodContext = <MSInputMethodContext>event;
+    const target: HTMLInputElement = <HTMLInputElement>eventObj.target;
+    // this.terms_of_service.append('fileToUpload', target.files[0]);
+    this.fact_sheet.append('fileToUpload', target.files[0]);
+    // console.log(this.terms_of_service);
+    console.log(this.fact_sheet)
+alert(this.fact_sheet)
+    // alert(this.terms_of_service);
+  }
+  readUrlfect(event: any) {
+    if (event.target.files && event.target.files[0]) {
+      const reader = new FileReader();
+
+      reader.onload = (e: any) => {
+        this.url = e.target.result;
+        console.log(this.url);
+      };
+      alert(this.url)
+      reader.readAsDataURL(event.target.files[0]);
+  //  this.upload();
+     this.uploadfactsheet();
+    }
+  }
+
+  upload() {
+    this._http.post(
+      Config.pdfupload,
+      this.terms_of_service,{ responseType: 'text' }).subscribe(data => {
+        if (data === "Sorry, not a valid Image.Sorry, only JPG, JPEG, PNG & GIF files are allowed.Sorry, your file was not uploaded.") {
+        }
+        else {
+
+
+          console.log(data);
+          alert(data);
+          this.terms_of_service = data;
+
+       // this.signupuserdata();
+        }
+      });
+  }
+  uploadfactsheet() {
+    this._http.post(
+      Config.pdfupload,
+      this.fact_sheet,{ responseType: 'text' }).subscribe(data => {
+        if (data === "Sorry, not a valid Image.Sorry, only JPG, JPEG, PNG & GIF files are allowed.Sorry, your file was not uploaded.") {
+        }
+        else {
+
+
+          console.log(data);
+          alert(data);
+          this.fact_sheet = data;
+
+       // this.signupuserdata();
+        }
+      });
+
+
+
+  }
+  status_600:boolean=false
+  AddReservePriceFun() {
+    alert(this.status_600 )
+    if ( this.status_600 === true ) {
+      this.status_600 = true;
+    } else {
+      this.status_600 = false;
+    }
+  }
+  status_900:boolean=false
+  AddReservePriceFun1() {
+    if ( this.status_900 === true ) {
+      this.status_900 = true;
+    } else {
+      this.status_900 = false;
+    }
+  }
+  status_1200:boolean=false
+  AddReservePriceFun2() {
+    if ( this.status_1200 === true ) {
+      this.status_1200 = false;
+    } else {
+      this.status_1200 = true;
+    }
+  }
+  status_1500:boolean=false
+  AddReservePriceFun3() {
+    if ( this.status_1500 === true ) {
+      this.status_1500 = false;
+    } else {
+      this.status_1500 = true;
+    }
+  }
   signupuserdata(zipcode,utilityarea, contact_email, title, profileurl, profile_logo, plan_information,  cancelation_fee, fact_sheet, terms_of_service, phone, sign_up, minimum_usage_fee, renewable, specialterms, price_1000_kwh, price_500_kwh, price_2000_kwh,publish_product_date,product_inactive_date) {
     console.log(utilityarea, title, profileurl, profile_logo, plan_information,  cancelation_fee, fact_sheet, terms_of_service, phone, sign_up, minimum_usage_fee, renewable, specialterms, price_1000_kwh, price_500_kwh, price_2000_kwh,publish_product_date,product_inactive_date);
     let headers = new Headers();
@@ -181,6 +323,8 @@ export class NewProductComponent implements OnInit {
     // headers.append('Authorization', 'JWT ' +  this.authentication);
     headers.append('Authorization', 'JWT ' + localStorage.getItem('token'));
     console.log('pofile', localStorage.getItem('token'));  
+    this.price_rate= '600 kWh '+this.price_600_kwh +'..900 kWh '+this.price_900_kwh +'..1200 kwh '+this.price_1200_kwh +'..1500 kwh '+this.price_1500_kwh ;
+    console.log(this.price_rate)
     this.https.post(Config.api + 'addproduct/',JSON.stringify( {
       'zipcode':zipcode,
       "serviceareaname": utilityarea,
@@ -188,10 +332,10 @@ export class NewProductComponent implements OnInit {
       "profileurl": profileurl,
       "profile_logo": profile_logo,
       "plan_information": plan_information,
-      // "price_rate": price_rate,
+      "price_rate":this.price_rate   ,
       "cancelation_fee": cancelation_fee,
-      "fact_sheet": fact_sheet,
-      "terms_of_service": terms_of_service,
+      "fact_sheet": this.fact_sheet,
+      "terms_of_service":this.terms_of_service,
       "phone": phone,
       "sign_up": sign_up,
       "minumum_usage_fee": minimum_usage_fee,
@@ -207,15 +351,11 @@ export class NewProductComponent implements OnInit {
       .subscribe(Res => {
         console.log(Res);
         console.log(this.model);
-        swal({
-          text: "Successfully Added!",
-          title: "Choice Genie",
-          type: "success",
-          showConfirmButton: true,
-          timer: 1200,
-          confirmButtonText: "OK",
-
-        })
+        swal(
+          'Successfully added your new plan !',
+          'ChoiceGenie',
+          'success'
+        )
         console.log(this.model);
 
       },
