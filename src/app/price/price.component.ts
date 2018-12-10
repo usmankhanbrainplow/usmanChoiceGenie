@@ -4,6 +4,7 @@ import { PricingService} from './pricing.service';
 import swal from 'sweetalert2';
 import { Router} from '@angular/router';
 import { TextMaskModule } from 'angular2-text-mask';
+declare var $:any;
 @Component({
   selector: 'app-price',
   templateUrl: './price.component.html',
@@ -120,6 +121,11 @@ export class PriceComponent implements OnInit {
       this.hide=localStorage.getItem('package_type')
    
   }
+
+
+
+
+
 
   Totalfreepackage() {
     this.month= 'free';
@@ -321,7 +327,19 @@ console.log(this.month,"month")
     }
   }
     ngOnInit() {
-    this.checkfree()
+      this.checkfree()
+    }
+
+    showHide() {
+      document.getElementById("to_hide").style.display = "none";
+      document.getElementById("to_hide2").style.display = "none";
+      document.getElementById("to_show").style.display = "block";
+    }
+
+    showHide2() {
+      document.getElementById("to_hide1").style.display = "none";
+      document.getElementById("to_hide2").style.display = "none";
+      document.getElementById("to_show").style.display = "block";
     }
   
   

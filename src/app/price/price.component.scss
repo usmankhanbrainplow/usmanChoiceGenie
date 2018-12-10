@@ -255,10 +255,11 @@ Checkout
       text-shadow: none;
       text-transform: uppercase;
       font-weight: normal;
-      opacity: 0.5;
+      // opacity: 0.5;
       display: block;
       margin-bottom: 3px;
       font-family: ' Roboto', sans-serif;
+      color: #fff;
   
     }
   
@@ -349,4 +350,12 @@ Checkout
     font-size: 20px;
     font-weight: 900;
   }
-  
+#div{
+  display: none;
+}
+.dp_none{
+  display: none;
+}
+.dp_block{
+  display: block;
+}
