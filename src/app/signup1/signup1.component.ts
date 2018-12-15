@@ -148,13 +148,20 @@ export class Signup1Component implements OnInit {
    
       .subscribe(Res => {
         console.log(Res);
-        swal({
-          type: 'success',
-          title: 'Register Successflluy! Please go to Your email to active your account',
-          showConfirmButton: true,
-          // height:'300px',
-          timer: 1500
-        });
+        swal(
+          'Register Successfully! Please check your inbox to active  account registration.',
+          
+          '',
+          'success'
+        )
+        // swal({
+        //   type: 'success',
+        //   title: 'Register Successflluy!'+
+        //   'Account Activation Instructions have been sent to your email. Please check your inbox to complete account registration.',
+        //   showConfirmButton: true,
+        //   // height:'300px',
+        //   timer: 2000
+        // });
       
        // this.router.navigate(['/login/'])
       },
