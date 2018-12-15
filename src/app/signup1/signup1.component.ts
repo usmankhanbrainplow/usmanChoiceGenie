@@ -149,11 +149,12 @@ export class Signup1Component implements OnInit {
       .subscribe(Res => {
         console.log(Res);
         swal(
-          'Register Successfully! Please check your inbox to active  account registration.',
+          'Register Successfully! We are in the process of reviewing your account and will get back to you shortly.',
           
           '',
           'success'
         )
+        this.model.reset();
         // swal({
         //   type: 'success',
         //   title: 'Register Successflluy!'+
