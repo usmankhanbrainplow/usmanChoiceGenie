@@ -79,7 +79,9 @@ export class PriceComponent implements OnInit {
       if (value == "BM") {
        (this.pricepackage='6.99')
         this.month="monthly"
-         this.prv_stepdetail("6.99")
+         this.prv_stepdetail("6.99") 
+        //  this.showHide();
+        
   
       } else if (value == "PY") {
         this.pricepackage="64"

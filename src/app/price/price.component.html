@@ -8,7 +8,7 @@
                 <h2>Our Unbeatable Pricing Model </h2>
                 <p class="pricing-p">Unbeatable Pricing. One-Package-Includes-All Features. Subscribe to our Yearly and Custom pricing packages. With a transparent pricing model, ChoiceGenie helps the consumer to purchase the desired energy plan with the best reviews at the lowest price possible. We propel our customers to the next level up in Energy Automation & Efficiency.</p>
             </div>
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 pricing-table2 featured " data-wow-delay="0.5s">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 pricing-table2 featured " data-wow-delay="0.5s" id="to_hide1">
                 <div class="single-pricing-2">
                     <span class="plan-name text-center">
                         Monthly Plan
@@ -59,7 +59,7 @@
                     <div class="pricing2-button">
                         <a  onclick="topFunction()" *ngIf="check_login(); else pkg1" routerLink='/usersignup' class="btn btn-fill" title="Subscribe Package">Register Now</a>
                         <ng-template #pkg1>
-                            <a onclick="topFunction()" *ngIf="hide != 'monthly' ;else pkg5" (click)=" firststep('BM')" class="btn btn-fill" title="Select Plan">Select Plan</a>
+                            <a onclick="topFunction()" *ngIf="hide != 'monthly' ;else pkg5" (click)=" firststep('BM');showHide()" class="btn btn-fill" title="Select Plan">Select Plan</a>
                         </ng-template>
                         <ng-template #pkg5>
                             <a onclick="topFunction()"  class="btn btn-fill" title="Select Plan">You have already Subscribe this plan</a>
@@ -69,7 +69,7 @@
                 </div>
             </div>
             <!---->
-            <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 pricing-table2 premium wow animated bounceInUp" data-wow-delay="0.6s">
+            <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 pricing-table2 premium wow animated bounceInUp" data-wow-delay="0.6s" id="to_hide">
                 <div class="single-pricing-2">
                     <span class="plan-name text-center">
                         Yearly Plan
@@ -129,7 +129,7 @@
                 </div>
             </div>
             <!---->
-            <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 pricing-table2 premium wow animated bounceInRight" data-wow-delay="0.6s">
+            <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 pricing-table2 premium wow animated bounceInRight" data-wow-delay="0.6s" id="to_hide2">
                 <div class="single-pricing-2 custom-package">
                     <span class="plan-name text-center">
                         Free Plan                    </span>
@@ -214,7 +214,7 @@
             </div>
 
         </div> -->
-        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" id="to_show">
             <div class="checkout">
         <div [className]="flipclass">
             <div class="flip">
