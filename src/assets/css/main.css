@@ -314,10 +314,11 @@ p {
   background: #f9f9f9;
 }
 .color-red{
-  color:#154b62;
-  margin: 0;
-  padding: 0;
-  font-size: 15px;
+  color: #000;
+    margin: 0;
+    padding: 0;
+    font-size: 18px;
+    font-weight: 400 !important;
 }
 .color-black{
   color: #000000;
@@ -1134,7 +1135,11 @@ background: goldenrod;
 .page-title h3{
   /* border-bottom: 3px solid #CC0000; */
   display: inline-block;
-  padding-bottom: 15px;
+  padding-bottom: 0px;
+  color: #000;
+  font-size: 40px !important;
+  line-height: 1.1;
+  font-weight: 600 !important;
 }
   .page-title span {
     font-size: 30px;
@@ -1695,7 +1700,7 @@ h3 {
   margin: 0 0 0 30px; }
 
 .new-product-holder {
-  padding: 30px;
+  padding: 17px;
   /* float: right; */
   width: 79%;}
   .new-product-holder > .container {
@@ -6119,15 +6124,19 @@ background: linear-gradient(to bottom, #ededed 0%,#c1bfbf 100%); /* W3C, IE10+, 
 }
 .f-sackers-medium {
   font-size: 30px;
-  line-height: 28px;
+  /* line-height: 28px; */
+  line-height: 1.1;
+  font-weight: 600 !important;
+  letter-spacing: 0em;
   /*font-weight: normal;*/
   margin: 0 0 33px;
   text-align: center;
   border-bottom: 1px solid #dedede;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
-.f-sackers-medium span {
+/* .f-sackers-medium span {
   color: #c00;
-}
+} */
 .zipcode-input {
   color: #B44F2F;
   font-size: 24px;
@@ -6161,6 +6170,8 @@ background: linear-gradient(to bottom, #ededed 0%,#c1bfbf 100%); /* W3C, IE10+, 
   display: block;
   overflow: hidden;
   font-size: 18px;
+  font-weight: bold;
+  color: #000;
 }
 .view-plans{
   margin: 10px 0;
@@ -6179,7 +6190,8 @@ background: linear-gradient(to bottom, #ededed 0%,#c1bfbf 100%); /* W3C, IE10+, 
   margin-top: 10px;
 }
 .f-size{
-  font-size: 25px;
+  font-size: 18px;
+    font-weight: 400;;
 }
 /*End mat tabs*/
 
