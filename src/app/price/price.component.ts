@@ -57,10 +57,11 @@ export class PriceComponent implements OnInit {
   pkgsub = false;
   info = false;
   card = false;
-  pkg;
-  local;
-  uname;
-  month;
+  hide:any;
+  pkg:any;
+  local:any;
+  uname:any;
+  month:any;
   /////////////////////////////end///////////////////////////
   
     constructor( private _nav:Router,private _serv: PricingService,private http: Http) {}
@@ -114,7 +115,7 @@ export class PriceComponent implements OnInit {
   flipagain() {
     this.flipclass = 'credit-card-box';
   }
-  hide;
+
   checkfree(){
     console.log(localStorage.getItem('package_type'))
    
