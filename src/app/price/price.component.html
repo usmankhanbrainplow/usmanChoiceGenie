@@ -120,7 +120,7 @@
                     <div class="pricing2-button">
                         <a onclick="topFunction()" *ngIf="check_login(); else pkg4" routerLink='/usersignup' class="btn btn-fill" title="Subscribe Package">Register Now</a>
                         <ng-template #pkg4>
-                            <a onclick="topFunction()" *ngIf="hide != 'yearly';else pkg7"   (click)="firststep('PY')" class="btn btn-fill" title="Select Plan">Select Plan</a>
+                            <a onclick="topFunction()" *ngIf="hide!='yearly';else pkg7"   (click)="firststep('PY')" class="btn btn-fill" title="Select Plan">Select Plan</a>
                         </ng-template>
                         <ng-template #pkg7>
                             <a onclick="topFunction()"  class="btn btn-fill" title="Select Plan">You have already Subscribe this plan</a>
