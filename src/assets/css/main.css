@@ -318,7 +318,8 @@ p {
     margin: 0;
     padding: 0;
     font-size: 18px;
-    font-weight: 400 !important;
+    font-weight: 700 !important;
+    font-family: inherit;
 }
 .color-black{
   color: #000000;
@@ -1140,9 +1141,11 @@ background: goldenrod;
   display: inline-block;
   padding-bottom: 0px;
   color: #000;
-  font-size: 40px !important;
-  line-height: 1.1;
-  font-weight: 600 !important;
+  font-size: 60px !important;
+  line-height: 66px;
+  margin-bottom: 0 !important;
+  font-family: inherit;
+  letter-spacing: -1px;
 }
   .page-title span {
     font-size: 30px;
@@ -6145,16 +6148,16 @@ background: linear-gradient(to bottom, #ededed 0%,#c1bfbf 100%); /* W3C, IE10+, 
   padding: 0 !important;
 }
 .f-sackers-medium {
-  font-size: 30px;
+  font-size: 31px;
   /* line-height: 28px; */
   line-height: 1.1;
-  font-weight: 600 !important;
-  letter-spacing: 0em;
-  /*font-weight: normal;*/
+  font-weight: 700 !important;
+  letter-spacing: -1px;
+  /* font-weight: normal; */
   margin: 0 0 33px;
   text-align: center;
   border-bottom: 1px solid #dedede;
-  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-family: inherit;
 }
 /* .f-sackers-medium span {
   color: #c00;
@@ -6190,10 +6193,20 @@ background: linear-gradient(to bottom, #ededed 0%,#c1bfbf 100%); /* W3C, IE10+, 
 }
 .f-sackers-heavy span {
   display: block;
-  overflow: hidden;
-  font-size: 18px;
-  font-weight: bold;
-  color: #000;
+    overflow: hidden;
+    font-size: 18px;
+    font-weight: 700;
+    color: #000;
+    font-family: inherit;
+    letter-spacing: 0px;
+}
+.info-list li{
+  font-size: 21px;
+    line-height: 1.2381;
+    font-weight: 400;
+    letter-spacing: .016em;
+    margin-top: 4px;
+    color: #95A4Ac;
 }
 .view-plans{
   margin: 10px 0;
