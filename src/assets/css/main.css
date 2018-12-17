@@ -8309,13 +8309,14 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
 }
 .hd-most-popular-plans{
   margin: 25px 0 0;
-  font-size: 22px;
+  font-size: 40px;
   padding: 0;
-  border-bottom: 1px solid #ccc;
+  /* border-bottom: 1px solid #ccc; */
   display: inline;
+  color: #000;
 }
 .sh-fix {
-  margin: 0 40px 10px 80px;
+  margin: 33px 40px 10px 54px;
 }
 .sh-products-fix{
   margin: 10px 0 10px 40px;
