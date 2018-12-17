@@ -432,7 +432,7 @@ app-header {
 .form-zip {
   margin: 0 auto;
   max-width: 600px;
-  opacity: 0.8;
+  opacity: 0.7;
   /*margin-top: 40px !important;*/
   margin-top: 0px !important;
 }
@@ -4027,12 +4027,15 @@ h1, .entry-title-2 {
   margin: 23px 0 23px !important;
 }
 .title-04{
-  font-weight: 600 !important;
-  /* text-shadow: 0 6px 10px #aeaeae; */
-  color: #000;
-  margin-top: 10px !important;
-  font-size: 40px !important;
-  margin-bottom: 0 !important;
+  font-weight: 700 !important;
+    /* text-shadow: 0 6px 10px #aeaeae; */
+    color: #000;
+    margin-top: 10px !important;
+    font-size: 60px !important;
+    line-height: 66px;
+    margin-bottom: 0 !important;
+    font-family: inherit;
+    letter-spacing: -1px;
 }
 .title-05{
   text-align: center;
@@ -4045,11 +4048,11 @@ h1, .entry-title-2 {
 }
 .choiecegenie-offers{
   color: #000;
-  font-size: 40px !important;
-  line-height: 1.1;
+  font-size: 60px !important;
+  line-height: 66px;
   font-weight: 600 !important;
-  letter-spacing: 0em;
-  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif!important;
+  letter-spacing: -1px;
+  font-family: inherit;
   margin: 0 0 5px !important;
 }
 .title-02 span {
@@ -5865,11 +5868,12 @@ background: linear-gradient(to bottom, #ededed 0%,#c1bfbf 100%); /* W3C, IE10+, 
 }
 .why-our .mainPage h4 {
   color: #000;
-  font-size: 25px;
-  font-weight: 500!important;
-  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 31px;
+  font-weight: 700!important;
+  font-family: inherit;
   margin-bottom: 0;
   padding-bottom: 0;
+  letter-spacing: -1px;
 }
 .why-our .back-padding {
   padding-top: 20px;
@@ -5917,22 +5921,23 @@ background: linear-gradient(to bottom, #ededed 0%,#c1bfbf 100%); /* W3C, IE10+, 
 }
 .why-our .leftSideContent p {
     text-align: left;
-    color: #111;
+    color: #95A4Ac;
     font-weight: 400!important;
     line-height: 29px;
-    font-size: 21px;
-    line-height: 1.2381;
+    font-size: 18px;
+    line-height: 28px;
     letter-spacing: .016em;
 }
 .why-our span {
-  font-size: 30px;
-  line-height: 1.1;
-  font-weight: 600;
-  letter-spacing: 0em;
+  font-size: 31px;
+  line-height: 40px;
+  font-weight: 700;
+  letter-spacing: -1px;
   color: #000;
   display: block;
   text-align: left;
   margin-bottom: 10px;
+  font-family: inherit;
 }
 .why-img{
   display: flex;
@@ -5945,11 +5950,11 @@ background: linear-gradient(to bottom, #ededed 0%,#c1bfbf 100%); /* W3C, IE10+, 
 }
 .why-heading h2{
   color: #000;
-  font-size: 40px;
-  line-height: 1.1;
-  font-weight: 600 !important;
-  letter-spacing: 0em;
-  font-family:"Helvetica Neue",Helvetica,Arial,sans-serif!important
+  font-size: 60px;
+  line-height: 66px;
+  font-weight: 700 !important;
+  letter-spacing: -1px;
+  font-family: inherit;
 }
 .why-heading P{
   font-size: 21px;
@@ -5957,7 +5962,7 @@ background: linear-gradient(to bottom, #ededed 0%,#c1bfbf 100%); /* W3C, IE10+, 
     font-weight: 400;
     letter-spacing: .016em;
     margin-top: 4px;
-    color: #111;
+    color: #95A4Ac;
 }
 .hover-img1{
   background: url(../img/3.1bottom.png) no-repeat 0px 0px;
@@ -6009,19 +6014,20 @@ background: linear-gradient(to bottom, #ededed 0%,#c1bfbf 100%); /* W3C, IE10+, 
 }
 .img-box h3{
   margin: 0 !important;
-    padding: 0;
-    color: #000;
-    font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-weight: 600 !important;
+  padding: 0;
+  color: #000;
+  font-family: inherit;
+  font-weight: 700 !important;
+  font-size: 31px !important;
 }
 .img-box p{
   max-width: 250px;
   margin: 0 auto;
-  font-size: 21px;
-  line-height: 1.2381;
+  font-size: 18px;
+  line-height: 28px;
   font-weight: 400;
   letter-spacing: .016em;
-  color: #111;
+  color: #95A4Ac;
 }
 .silder-div{
   padding: 2px;
