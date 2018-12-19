@@ -139,6 +139,10 @@ export class HomeComponent implements OnInit {
 
   position: any;
   ngOnInit() {
+    setTimeout(() => {
+      this.openModal.nativeElement.click();
+    },
+      200);
     this.zipCode = localStorage.getItem('zip');
     //this.googleTranslateElementInit();
 
@@ -161,6 +165,9 @@ export class HomeComponent implements OnInit {
 
   }
 
+  ngOnDestroy() {
+    $('#exampleModalCenter').modal('hide');
+  }
   onKeydown(event, zipcode1) {
     if (event.key === "Enter") {
       //alert("enter the zip code")
