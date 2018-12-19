@@ -50,6 +50,8 @@ export class HomeComponent implements OnInit {
   public lati;
   dataa;
   Items: any = [];
+  local;
+  uname;
   slideConfig = {
     "slidesToShow": 7,
     "slidesToScroll": 5,
@@ -167,6 +169,17 @@ export class HomeComponent implements OnInit {
 
   ngOnDestroy() {
     $('#exampleModalCenter').modal('hide');
+  }
+  check_login() {
+    if (localStorage.getItem('username')) {
+      this.local = localStorage.getItem('username');
+      // let pars = JSON.parse(this.local);
+      this.uname = this.local.username;
+      return true;
+    } else {
+      return false;
+    }
+
   }
   onKeydown(event, zipcode1) {
     if (event.key === "Enter") {
