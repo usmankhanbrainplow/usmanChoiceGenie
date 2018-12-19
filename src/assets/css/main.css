@@ -5834,7 +5834,7 @@ padding: 0 10px;
   padding: 7px 10px;
   border: none;
 }
-.login-or-signup:after {
+/* .login-or-signup:after {
   position: absolute;
   left: 0;
   top: -72px;
@@ -5843,7 +5843,7 @@ padding: 0 10px;
 }
 .login-or-signup:after, .or:after {
   content: '';
-}
+} */
 /* End Open Model */
 
 
