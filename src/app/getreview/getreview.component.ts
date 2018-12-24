@@ -134,7 +134,7 @@ export class GetreviewComponent implements OnInit {
         headers.append('Content-Type', 'application/json');
         this.https.get(Config.api + 'getallreviews/' + this.title, { headers: headers })
             .subscribe(Res => {
-                this.rev = Res.json()['Results'];
+                this.rev = Res.json()['Message'];
                 this.total = Res.json()['Total Result'];
                 console.log(this.total)
                 console.log(this.rev)

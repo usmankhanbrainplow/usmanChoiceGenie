@@ -5285,6 +5285,7 @@ canvas {
   transition: 0.5s;
   border-radius: 25px !important;
   cursor: pointer !important;
+  text-transform: capitalize !important;
 }
 .btn-fill:hover{
   background: #c00 !important;
