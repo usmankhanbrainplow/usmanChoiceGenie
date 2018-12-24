@@ -1414,12 +1414,12 @@ background: goldenrod;
       width: 90%;
       height: auto; }
 .residential-main h2{
-  font-weight: 900 !important;
-  /* text-shadow: 0 6px 10px #aeaeae; */
-  color: #414142;
-  margin: 0;
-  font-size: 50px;
-  font-family: inherit;
+  font-weight: 600 !important;
+    /* text-shadow: 0 6px 10px #aeaeae; */
+    color: #000;
+    margin: 0;
+    font-size: 42px;
+    font-family: 'Raleway', sans-serif;
 }
 .residential-main ul {
   padding: 20px 0 0; }
@@ -2339,9 +2339,9 @@ section {
           box-shadow: 0 1px 4px 0 rgba(0,0,0,.3);
   background: #fff;
   border-radius: 6px;
-  padding: 30px 10px;
-  margin-bottom: 20px;
-  min-height: 475px;
+  padding: 14px 10px;
+    margin-bottom: 20px;
+    min-height: 419px;
   text-align: center;
 }
 .how-it-works-box:hover {
@@ -2357,6 +2357,7 @@ section {
   padding: 10px 0;
   min-height: 85px;
   margin: 0 !important;
+  color: #000;
 }
 .how-it-works-box >p {
   font-size: 16px !important;
@@ -3025,13 +3026,12 @@ section {
   background-color: #ffffff;
 }
 .about-title {
-  font-size: 32px;
   color: #000000;
   text-align: left;
   font-family: inherit;
-  font-weight: 700 !important;
-  font-size: 31px !important;
-  letter-spacing: -1px;
+  font-weight: 600 !important;
+  font-size: 42px !important;
+  font-family: 'Raleway', sans-serif;
 }
 .font-size{
   font-size: 34px;
@@ -3368,13 +3368,13 @@ li.pinterest:hover {
   padding: 80px 0;
 }
 .appio-center-heading >h2{
-  font-size: 50px;
-  font-weight: 900 !important;
+  font-size: 42px;
+  font-weight: 600 !important;
   position: relative;
   color: #000;
-  font-family: inherit;
-  letter-spacing: -1px;
-  margin-bottom: 0px;
+  font-family: 'Raleway', sans-serif;
+  /* letter-spacing: -1px; */
+  margin:0px;
   padding-bottom: 0px;
 }
 
@@ -3587,21 +3587,26 @@ li.pinterest:hover {
   padding: 0;
 }
 .faqs h1{
-  font-weight: 900 !important;
+  font-weight: 600 !important;
   font-size: 42px;
   color: #000;
   margin: 0;
-  font-family: inherit;
+  font-family: 'Raleway', sans-serif;
   letter-spacing: -1px;
 }
 .faqs h3{
-  font-weight: 700 !important;
-  font-size: 31px;
+  font-weight: 600 !important;
+  font-size: 31px !important;
   color: #000;
   margin: 0 !important;
   padding: 0 !important;
-  font-family: inherit;
+  font-family: 'Raleway', sans-serif;
   letter-spacing: -1px;
+}
+.faq-Q{
+  font-size: 18px;
+  font-weight: 600;
+  color: #000;
 }
 .float-l{
   float: right;
@@ -4050,15 +4055,15 @@ h1, .entry-title-2 {
   margin: 23px 0 23px !important;
 }
 .title-04{
-  font-weight: 900 !important;
-    /* text-shadow: 0 6px 10px #aeaeae; */
-    color: #000;
-    margin-top: 10px !important;
-    font-size: 50px !important;
-    line-height: 66px;
-    margin-bottom: 0 !important;
-    font-family: inherit;
-    letter-spacing: -1px;
+  font-weight: 600 !important;
+  /* text-shadow: 0 6px 10px #aeaeae; */
+  color: #000;
+  margin-top: 10px !important;
+  font-size: 42px !important;
+  line-height: 66px;
+  margin-bottom: 0 !important;
+  font-family: 'Raleway', sans-serif;
+  letter-spacing: -1px;
 }
 .title-05{
   text-align: center;
@@ -4071,11 +4076,11 @@ h1, .entry-title-2 {
 }
 .choiecegenie-offers{
   color: #000;
-  font-size: 50px !important;
+  font-size: 42px !important;
   line-height: 66px;
-  font-weight: 900 !important;
+  font-weight: 600 !important;
   letter-spacing: -1px;
-  font-family: inherit;
+  font-family: 'Raleway', sans-serif;
   margin: 0 0 5px !important;
 }
 .title-02 span {
@@ -6026,11 +6031,11 @@ background: linear-gradient(to bottom, #ededed 0%,#c1bfbf 100%); /* W3C, IE10+, 
 }
 .why-heading h2{
   color: #000;
-  font-size: 50px;
+  font-size: 42px;
   line-height: 66px;
-  font-weight: 900 !important;
+  font-weight: 600 !important;
   letter-spacing: -1px;
-  font-family: inherit;
+  font-family: 'Raleway', sans-serif;
 }
 .why-heading P{
   font-size: 21px;
@@ -6160,26 +6165,25 @@ background: linear-gradient(to bottom, #ededed 0%,#c1bfbf 100%); /* W3C, IE10+, 
 
 /*Start Comparision*/
 .comparison-box{
-  overflow: hidden;
-  overflow-x: scroll;
+  /* overflow: hidden;
+  overflow-x: scroll; */
 }
 .comparison-box h2{
   margin: 0;
   padding: 0;
-  font-size: 45px;
+  font-size: 42px;
   line-height: 40px;
-  font-weight: 700 !important;
-  letter-spacing: -1px;
+  font-weight: 600 !important;
   color: #000;
-  font-family: inherit;
+  font-family: 'Raleway', sans-serif;
 }
 .comparison-box p{
-  font-weight: 700;
+  font-weight: 600;
   line-height: 22px;
   font-size: 22px;
   margin-top: 10px;
   color: #000;
-  font-family: inherit;
+  font-family: 'Raleway', sans-serif;
 }
 /*Start Comparision*/
 
@@ -7635,12 +7639,11 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
   color: #95A4Ac;
 }
 .single-pricing-2 .plan-name {
-  color: #282828;
+  color: #000;
   display: block;
-  font-size: 31px;
-  font-weight: 700;
-  /* line-height: 31px; */
-  font-family: inherit;
+  font-size: 32px;
+  font-weight: 600;
+  font-family: 'Raleway', sans-serif;
   padding: 20px 0;
   text-transform: capitalize;
 }
