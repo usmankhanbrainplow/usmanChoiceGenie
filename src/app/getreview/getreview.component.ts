@@ -42,14 +42,16 @@ export class GetreviewComponent implements OnInit {
     ratee = '';
     avrage: any = [];
     score: any = [];
+    item;
     ave: any = [];
-    constructor(private router: Router, private route: ActivatedRoute, private http: Http, private https: HttpService) { }
+    pager: any = {};
+    constructor(private router: Router,private pagerService: PagerService, private route: ActivatedRoute, private http: Http, private https: HttpService) { }
 
     ngOnInit() {
         this.title = localStorage.getItem('company');
         this.customer = localStorage.getItem('username')
         this.zip_code = localStorage.getItem('zip');
-        this.getreview()
+        this.premiseIdData(1)
         this.totalreview()
         this.avereview()
         this.route.params.subscribe(params => {
@@ -126,23 +128,48 @@ export class GetreviewComponent implements OnInit {
 
     }
 
-    getreview() {
+    premiseIdData(page: number) {
         this.title = localStorage.getItem('company');
         console.log(localStorage.getItem('company'))
         console.log(this.title, 'jjjjjjjjj')
+        if (page < 1 || page > this.pager.totalPages) {
+                    return;
+                }
         let headers = new Headers();
         headers.append('Content-Type', 'application/json');
-        this.https.get(Config.api + 'getallreviews/' + this.title, { headers: headers })
+        this.https.get(Config.api + 'getallreviews/' + this.title +'?page=' + page, { headers: headers })
             .subscribe(Res => {
-                this.rev = Res.json()['Message'];
+                this.rev = Res.json()['Results'];
                 this.total = Res.json()['Total Result'];
                 console.log(this.total)
                 console.log(this.rev)
+                this.pager = this.pagerService.getPager(Res.json()['Total Result'], page, 10);
+
 
 
             });
 
     }
+    // premiseIdData(page: number) {
+    //     if (page < 1 || page > this.pager.totalPages) {
+    //         return;
+    //     }
+    //     let headers = new Headers();
+    //     headers.append('Content-Type', 'application/json');
+    //     //   this.http.get(Config.api + 'data_against_zipcode/' + this.zip_code + '', { headers: headers }),
+        // this.http.get(Config.api + 'dashboard/' + '?page=' + page, { headers: headers }).subscribe(Res => {
+    //         console.log(Res);
+    //         this.pager = this.pagerService.getPager(Res.json()['Total Result'], page, 10);
+
+    //         this.data = Res.json()['Results'];
+
+
+
+
+    //     });
+    //     // this.pagedItems = this.allItems.slice(this.pager.startIndex, this.pager.endIndex + 1);
+    // }
+
 
     product(id) {
 
