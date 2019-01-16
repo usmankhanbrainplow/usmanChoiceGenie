@@ -13,9 +13,7 @@ import { AngularcliStarRatingModule } from 'angularcli-star-rating'
 import { LoaderModule } from './loader/loader.module';
 import { SlickModule } from 'ngx-slick';
 
-
 import {
-  
   MatAutocompleteModule,
   MatButtonModule,
   MatButtonToggleModule,
@@ -102,7 +100,7 @@ import { UnsubscribeService } from './unsubscribe/unsubscribe.service';
 import { DeletegetuserService } from './ChoiceSuperAdmin/supergetusers/deletegetuser.service';
 import { UpdategetuserService } from './ChoiceSuperAdmin/supergetusers/updategetuser.service';
 
-import {ProductsComponent} from './regulated/products/products.component'
+import { ProductsComponent } from './regulated/products/products.component'
 
 import { ExcelService } from './excel.service';
 // import {NotificationsService} from 'angular4-notify';
@@ -118,27 +116,28 @@ import { HistorypurchaseComponent } from './historypurchase/historypurchase.comp
 import { HistorypurchaseService } from './historypurchase/historypurchase.service';
 import { EnrollmentService } from './webenrollment/enrollment.service';
 import { EnrollmentSuccessPageComponent } from './webenrollment/enrollment-success-page.component';
-import { WebenrollmentComponent, PlanSearchComponent, EnrollProcessComponent, DespositPopup } from './webenrollment/webenrollment.component';
+import { WebenrollmentComponent, EnrollProcessComponent, DespositPopup } from './webenrollment/webenrollment.component';
+import { CreditCardDirective, SocialSecurityDirective, HighlightSearch, PhoneNumberDirective } from './custom-validations';
 
 const customNotifierOptions: NotifierOptions = {
   position: {
-		horizontal: {
-			position: 'left',
-			distance: 12
-		},
-		vertical: {
-			position: 'top',
-			distance: 12,
-			gap: 10
-		}
-	},
+    horizontal: {
+      position: 'left',
+      distance: 12
+    },
+    vertical: {
+      position: 'top',
+      distance: 12,
+      gap: 10
+    }
+  },
   theme: 'material',
   behaviour: {
     autoHide: 5000,
     onClick: 'hide',
     onMouseover: 'pauseAutoHide',
     showDismissButton: true,
-   stacking: 100
+    stacking: 100
   },
   animations: {
     enabled: true,
@@ -197,7 +196,6 @@ const customNotifierOptions: NotifierOptions = {
     MatFormFieldModule
   ],
   declarations: [],
-
 })
 export class MaterialModule { }
 
@@ -241,7 +239,6 @@ export class MaterialModule { }
     // HomeComponent,
     // WebenrollmentComponent,
     WebenrollmentComponent,
-    PlanSearchComponent,
     EnrollProcessComponent,
     EnrollmentSuccessPageComponent,
     DespositPopup,
@@ -253,14 +250,14 @@ export class MaterialModule { }
     ConsumeradminComponent,
     // ChangePasswordComponent,
     StepperOverviewExample,
-    
+    // Custom Validators
+    CreditCardDirective,
+    SocialSecurityDirective,
+    HighlightSearch,
+    PhoneNumberDirective,
     // UsersdashboardComponent
     // ProductsComponent
     // MyfilterPipe,
-
-
-
-
   ],
   providers: [
     // CookieService
@@ -304,6 +301,9 @@ export class MaterialModule { }
     EnrollmentService,
     HistorypurchaseService
     // MyfilterPipe,
+  ],
+  entryComponents: [
+    DespositPopup
   ],
   bootstrap: [AppComponent],
   schemas: [

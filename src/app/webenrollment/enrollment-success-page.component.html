@@ -1,3 +1,4 @@
+<app-header></app-header>
 <br>
 <div class="container">
     <div class="Confirmation">
@@ -9,12 +10,12 @@
         <br>
         <div>
             <p>Thank you for submitting your enrollment application! Your Enrollment reference ID is:
-                <b style="display: inline; font-size: 18px;">{{response?.use_cust_id}}</b>.</p>
-            <p *ngIf="response?.status == false" style="color: #cd0000">
-                {{response?.message}}
+                <b style="display: inline; font-size: 18px;">{{response?.message?.use_cust_id}}</b>.</p>
+            <p *ngIf="response?.message_color == 'red'" style="color: #cd0000; font-size: bold">
+                {{response?.show_message}}
             </p>
-            <p *ngIf="response?.status == true">
-                {{response?.message}}
+            <p *ngIf="response?.message_color == 'black'" style="font-size: bold">
+                {{response?.show_message}}
             </p>
             <p>
                 Please print a copy of this page for your records.
@@ -53,7 +54,7 @@
             </div>
             <div class="main text-center">
                 <p class="inner">
-                    <strong>Email</strong> CustomerService@OUREnergyLLC.com
+                    <strong>Email</strong> customerservice@ourenergyllc.com
                 </p>
             </div>
             <div class="main text-center">
@@ -63,8 +64,8 @@
             </div>
         </div>
     </div>
-    <h3 class="text-center">Download Now!</h3>
-    <div class="text-center">
+    <h3 style="padding-top: 10px; margin-bottom: 0px !important;" class="text-center">Download Now!</h3>
+    <div style="margin-bottom: 20px;" class="text-center">
         <a href="https://itunes.apple.com/us/app/our-energy/id1438707950?mt=8" target="_blank">
             <i style="margin-right: 15px; font-size: 45px; color: #333" class="fa fa-apple" matTooltip="IOS App"></i>
         </a>
@@ -74,3 +75,4 @@
     </div>
 </div>
 <br>
+<app-footer-cmp></app-footer-cmp>

@@ -1,20 +1,20 @@
+import Swal from 'sweetalert2'
 import { Component, OnInit, Inject, ViewChild } from '@angular/core'
 import { FormControl, FormGroup, Validators, FormBuilder, FormGroupDirective, NgForm } from '@angular/forms'
 import { EnrollmentService } from './enrollment.service'
 import { MatRadioChange, ErrorStateMatcher } from '@angular/material'
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material'
 import { Router, ActivatedRoute } from '@angular/router'
-import Swal from 'sweetalert2'
 
 @Component({
-  selector: 'app-webenrollment',
+  selector: 'web-app-enrollment',
   templateUrl: './webenrollment.component.html',
   styleUrls: ['./webenrollment.component.scss']
 })
 export class WebenrollmentComponent implements OnInit {
-  constructor(private formBuilder: FormBuilder, private _formBuilder: FormBuilder, public dialog: MatDialog, private enrollment: EnrollmentService, private router: Router, private fb: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder, public dialog: MatDialog, private enrollment: EnrollmentService, private router: Router) { }
   products = []
-  summary = false
+  summary = true
   checked = false
   check1 = false
   check2 = false
@@ -27,6 +27,7 @@ export class WebenrollmentComponent implements OnInit {
   state
   State
   premiseInfo
+  birthDate = new Date()
   street
   city
   address
@@ -41,6 +42,7 @@ export class WebenrollmentComponent implements OnInit {
   first_standard_date
   first_available_date
   end_date
+  holidays
   services = [
     "Move-in (New Service)",
     "Switching from another Energy Provider on Next Available Schedule Date",
@@ -215,9 +217,20 @@ export class WebenrollmentComponent implements OnInit {
     const day = d.getDay()
     const date = d.getDate()
     const month = d.getMonth()
-    const holiday1 = month !== 10 || date !== 22
-    const holiday2 = month !== 10 || date !== 23
-    return day !== 0 && day !== 6 && holiday1 && holiday2
+    let weekend = day !== 0 && day !== 6
+    if (this.holidays.length > 0) {
+      let middle = []
+      for (let index = 0; index < this.holidays.length; index++) {
+        let d = new Date(this.holidays[index])
+        middle[index] = month !== d.getMonth() || date !== d.getDate()
+      }
+      return weekend && middle.reduce(this.getAnd)
+    }
+    else return weekend
+  }
+
+  getAnd(total, num) {
+    return total && num;
   }
 
   firstFormGroup: FormGroup
@@ -233,33 +246,34 @@ export class WebenrollmentComponent implements OnInit {
   productDetails
 
   ngOnInit() {
+    this.birthDate.setFullYear(this.currentdate.getFullYear() - 18)
     this.startFormGroup = this.formBuilder.group({
       goNext: ['', Validators.required]
     })
     this.firstFormGroup = this.formBuilder.group({
       enrol_type: ['Move-in (New Service)'],
-      request_date: ['', Validators.required],
+      request_date: [this.enrollment.Date(''), Validators.required],
     })
     this.secondFormGroup = this.formBuilder.group({
       cust_firstname: [''],
       cust_mi: [''],
       cust_lastname: [''],
-      cust_dob: [''],
+      cust_dob: [this.enrollment.Date('')],
       auth_representative: [''],
-      ssn: ['', [Validators.pattern("[0-9]+"), Validators.minLength(9)]],
+      ssn: ['', [Validators.pattern('^[0-9]{3}-[0-9]{2}-[0-9]{4}$'), Validators.required]],
       cust_drl_nbr: ['', Validators.pattern("[0-9]+")],
       personal_pin: [''],
       cust_drl_state: [''],
       personal_ref_code: [''],
-      cust_drl_expire: [''],
+      cust_drl_expire: [this.enrollment.Date('')],
     })
     this.thirdFormGroup = this.formBuilder.group({
       cm_address2: [''],
       cm_city: [''],
       cm_state: ['TX'],
       cm_zip: ['', Validators.pattern("[0-9]+")],
-      phone1: ['', Validators.pattern("[0-9]+")],
-      phone2: ['', Validators.pattern("[0-9]+")],
+      phone1: ['', Validators.pattern('^[0-9]{3}-[0-9]{3}-[0-9]{4}$')],
+      phone2: ['', Validators.pattern('^[0-9]{3}-[0-9]{3}-[0-9]{4}$')],
       cust_sms_provider: [''],
       cust_bill_type: ['Default'],
       email_address: ['', Validators.email],
@@ -271,38 +285,23 @@ export class WebenrollmentComponent implements OnInit {
     window.scrollTo(0, 0)
     this.products.push(JSON.parse(localStorage.getItem('productSummary')))
     this.billAddress = JSON.parse(localStorage.getItem('bill-address'))
-    // let post = {
-    //   tdsp_duns: this.billAddress.DUNS,
-    //   req_date: this.date
-    // }
-    // this.enrollment.requestDate(post).subscribe(res => {
-    //   this.requestDate = new Date(res['first_available_date'])
-    // }) 
   }
   creditCardString = '';
   CraditCardNo
   mychange(event) {
-    console.log(event)
-    console.log(this.CraditCardNo)
-    console.log(this.myForm.controls.cust_firstname.value)
     if (event == 51 || event == 52 || event == 53 || event == 54 || event == 55 || event == 56) {
-      console.log('MasterCard')
       this.creditCardString = 'MasterCard';
     } else if (event == 6) {
       this.creditCardString = 'Discover/Diners Club';
-      console.log('Discover/Diners Club')
     } else if (event == 3) {
       this.creditCardString = 'American Express/Diners Club';
-      console.log('American Express/Diners Club')
     } else if (event == '') {
       this.creditCardString = ''
     }
-    console.log(this.creditCardString)
   }
   requestDateValidation() {
-    console.log("Date Function is executed")
     this.enrollment.dataa.subscribe(res => {
-      console.log(res)
+      this.holidays = res['DATES']['holidays']
       this.ReqDateResponse = res['DATES']['row']
       this.ReqDateResponse.map(value => {
         this.first_standard_date = value.first_standard_date
@@ -314,12 +313,41 @@ export class WebenrollmentComponent implements OnInit {
       this.first_available_date = this.first_available_date.slice(0, 10)
       this.end_date = this.end_date.slice(0, 10)
       this.firstFormGroup.controls.request_date.setValue(this.first_standard_date)
+      console.log(this.ReqDateResponse)
+      console.log(this.first_standard_date)
+      console.log(this.first_available_date)
+      console.log(this.end_date)
     })
     this.enrollment.dataa1.subscribe(res => {
       if (res != null && res != undefined) {
         this.premiseInfo = res
       }
     })
+  }
+
+  stepSession() {
+    if (this.thirdFormGroup.valid == true) {
+      let data = {
+        phone1: this.thirdFormGroup.controls.phone1.value,
+        phone2: this.thirdFormGroup.controls.phone2.value,
+        email_address: this.thirdFormGroup.controls.email_address.value,
+        pm_address2: this.premiseInfo['address1'],
+        cust_firstname: this.secondFormGroup.controls.cust_firstname.value,
+        premise_id: this.premiseInfo['premise_id'],
+        cust_lastname: this.secondFormGroup.controls.cust_lastname.value,
+        cust_mi: this.secondFormGroup.controls.cust_mi.value,
+        offcycle_switch_date: this.enrollment.Date(this.firstFormGroup.controls.request_date.value),
+        request_date: this.enrollment.Date(this.firstFormGroup.controls.request_date.value),
+        enrol_type: "",
+      }
+      if (data.enrol_type == 'Move-in (New Service)') {
+        data.enrol_type = 'M'
+      }
+      else {
+        data.enrol_type = 'S'
+      }
+      this.enrollment.nextSessionStep(data).subscribe(res => { })
+    }
   }
 
   autoBill() {
@@ -340,14 +368,8 @@ export class WebenrollmentComponent implements OnInit {
     }
   }
 
-  Checked() {
-    console.log(this.myForm.controls.life_support.value)
-  }
-
   SameAsServiceAddress() {
-    console.log(this.premiseInfo)
     this.enrollment.dataa.subscribe(res => {
-      console.log(res)
     })
     if (this.premiseInfo != null || this.premiseInfo != undefined) {
       if (this.serviceAddresscheck) {
@@ -409,52 +431,31 @@ export class WebenrollmentComponent implements OnInit {
   enroll() {
     this.submitBtn = true
     if (this.check1 == true && this.check2 == true && this.check3 == true) {
-      let obj = this.myForm.getRawValue()
-      // obj.service_address = this.oneFormGroup.controls.service_address.value
-      // obj.city = this.oneFormGroup.controls.city.value
-      // obj.zip_code = this.oneFormGroup.controls.zip_code.value
-      obj.enrol_type = this.firstFormGroup.controls.enrol_type.value
-      obj.cust_firstname = this.secondFormGroup.controls.cust_firstname.value
-      obj.cust_mi = this.secondFormGroup.controls.cust_mi.value
-      obj.cust_lastname = this.secondFormGroup.controls.cust_lastname.value
-      obj.auth_representative = this.secondFormGroup.controls.auth_representative.value
-      obj.ssn = this.secondFormGroup.controls.ssn.value
-      obj.cust_drl_nbr = this.secondFormGroup.controls.cust_drl_nbr.value
-      obj.personal_pin = this.secondFormGroup.controls.personal_pin.value
-      obj.cust_drl_state = this.secondFormGroup.controls.cust_drl_state.value
-      obj.personal_ref_code = this.secondFormGroup.controls.personal_ref_code.value
-      obj.cm_address2 = this.thirdFormGroup.controls.cm_address2.value
-      obj.cm_city = this.thirdFormGroup.controls.cm_city.value
-      obj.cm_state = this.thirdFormGroup.controls.cm_state.value
-      obj.cm_zip = this.thirdFormGroup.controls.cm_zip.value
-      obj.phone1 = this.thirdFormGroup.controls.phone1.value
-      obj.phone2 = this.thirdFormGroup.controls.phone2.value
-      obj.cust_sms_provider = this.thirdFormGroup.controls.cust_sms_provider.value
-      obj.cust_bill_type = this.thirdFormGroup.controls.cust_bill_type.value
-      obj.email_address = this.thirdFormGroup.controls.email_address.value
-      obj.referred_by = this.thirdFormGroup.controls.referred_by.value
-      obj.life_support = this.fourFormGroup.controls.life_support.value
+      let obj = { ...this.firstFormGroup.value, ...this.secondFormGroup.value, ...this.thirdFormGroup.value, ...this.fourFormGroup.value }
+      console.log(obj)
       this.productDetails = JSON.parse(localStorage.getItem('productSummary'))
-      console.log(this.productDetails)
-      obj.enroll_product = this.productDetails.product_id
-      obj.promo_code = JSON.parse(localStorage.getItem('promotionCode'))
-      obj.rate = this.productDetails.rate
-      obj.batch_rate = this.productDetails.batch_rate
-      obj.contract_term = this.productDetails.display_term
-      // let obj = (this.oneFormGroup.getRawValue(), this.firstFormGroup.getRawValue(), this.secondFormGroup.getRawValue(), this.thirdFormGroup.getRawValue(), this.fourFormGroup.getRawValue()) 
-      // let premiseDetails = JSON.parse(localStorage.getItem('enroll'))
-      if (this.myForm.controls.life_support.value == true) { obj.life_support = "Y" }
-      if (this.myForm.controls.life_support.value == false) { obj.life_support = "N" }
-      obj.cust_firstname = this.secondFormGroup.controls.cust_firstname.value
+      obj.enroll_product = ''
+      obj.product_pk = '40'// yehe pe value change karni jo value arry me araha hi 
+      obj.rate = this.productDetails.price_1000_kwh
+      obj.batch_rate = '5.5'// yaha pe bi karna hi 
+      let term = String(this.productDetails.plan_information[2])
+      obj.contract_term = term.substr(0, term.indexOf(' '))
+      obj.deposit_amount = "5.00"
+      obj.deposit_plan = "PNSYSDEPOSIT"
+      obj.deposit_pay_amount = "0.00"
+      obj.deposit_charge = "N"
+      obj.life_support = this.fourFormGroup.controls.life_support.value == true ? "Y" : "N"
+      obj.enrol_type = obj.enrol_type == 'Move-in (New Service)' ? "M" : "S"
       obj.cust_dob = this.enrollment.Date(this.secondFormGroup.controls.cust_dob.value)
       obj.request_date = this.enrollment.Date(this.firstFormGroup.controls.request_date.value)
       obj.cust_drl_expire = this.enrollment.Date(this.secondFormGroup.controls.cust_drl_expire.value)
-      obj.plan_group = 'R3'
-      obj.source = "WEB Lite"
-      obj.priority_code = localStorage.getItem('priorityCode')
+      obj.source = "WebLite"
+      obj.ua = `${localStorage.getItem('ua')}`
+      obj.plan_group = `${localStorage.getItem('plan')}`
+      obj.promo_code = `${localStorage.getItem('promotionCode')}`
+      obj.priority_code = `${localStorage.getItem('priorityCode')}`
       obj.offcycle_switch_date = obj.request_date
       obj['premise_id'] = this.premiseInfo['premise_id']
-      obj['promo_code'] = ''
       obj['flow_status'] = this.flow_status
       obj['pm_address2'] = this.premiseInfo['address1']
       obj['pm_city'] = this.premiseInfo['city']
@@ -463,63 +464,90 @@ export class WebenrollmentComponent implements OnInit {
       obj['pm_state'] = this.premiseInfo['state']
       obj['pm_zip'] = this.premiseInfo['zip']
       obj['pm_county'] = this.premiseInfo['countyname']
-      // obj['referred_by'] = ''
-      // obj['cust_sms_provider'] = ''
-      // obj['personal_pin'] = ''
-      // obj['personal_ref_code'] = ''
-
-      if (this.checked == true) {
-        obj.life_support = 'Y'
-      }
-      else {
-        obj.life_support = 'N'
-      }
       obj.waiver_notice = 'Y'
-      if (obj.enrol_type == 'Move-in (New Service)') {
-        obj.enrol_type = 'M'
-      }
-      else {
-        obj.enrol_type = 'S'
-      }
       console.log(obj)
-      this.enrollment.enrollUser(obj).subscribe(res => {
-        console.log(res)
-        if (res['main_error'] == false || res['main_error'] == '' || res['main_error'] == null || res['main_error'] == undefined) {
-          this.submitBtn = false
-          if (res['status'] == true) {
-            console.log("Condition 1")
-            this.enrollment.changeData(res)
-            this.router.navigate(['enrollsuccess'])
-          }
-          if (res['deposit_status'] == true) {
-            console.log("Condition 2")
-            let depositDialog = this.dialog.open(DespositPopup, {
-              data: obj
-            })
-            depositDialog.afterClosed().subscribe(res => { })
-          }
-          if (res['deposit_status'] == false) {
-            console.log("Condition 3")
-            this.enrollment.changeData(res)
-            this.router.navigate(['enrollsuccess'])
-          }
-        }
-        else if (res["status"] == false && res["redirect_url"] != null && res["redirect_url"] != undefined && res["redirect_url"] != '') {
-          Swal('Oops!', 'Your session has expired. Please refresh the page and try again', 'error').then((value) => {
-            this.submitBtn = false
-            this.router.navigate(['' + res["redirect_url"]])
+      switch (this.flow_status) {
+        // Dont Check Credit
+        case '-104':
+          let depositDialog = this.dialog.open(DespositPopup, {
+            panelClass: "deposit-dialog",
+            data: obj
           })
-        }
-        else {
-          console.log("Condition 4")
-          this.submitBtn = false
-          let myMessage
-          for (let x in res['message']) {
-            myMessage = myMessage + (x + ": " + res['message']["" + x] + "<br>")
-          }
-          Swal('Oops!', myMessage, 'error')
-        }
-      })
+          depositDialog.afterClosed().subscribe(res => { })
+          break;
+        // Check Credit
+        case '-102':
+          this.enrollment.creditCheck(obj).subscribe(res => {
+            this.submitBtn = false
+            if (res['status'] == true) {
+              if (res['message']['CC']['CreditCheckStatus'] == "true") {
+                if (res['message']['CC']['CreditCheckDeposit'] == "" || res['message']['CC']['CreditCheckDeposit'] == "0.00" || res['message']['CC']['CreditCheckDeposit'] == "0") {
+                  obj.flow_status = "-10"
+                  this.enrollment.dccFinalSubmit(obj).subscribe(ress => {
+                    if (ress['status'] == true) {
+                      this.submitBtn = false
+                      ress['show_message'] = `Credit check successful.`
+                      ress['message_color'] = `black`
+                      this.enrollment.changeData(ress)
+                      this.router.navigate(['enrollsuccess'])
+                    }
+                    else {
+                      Swal('Oops!', ress['message'], 'error').then(t => this.submitBtn = false)
+                    }
+                  })
+                }
+                else {
+                  obj.flow_status = "-120"
+                  let depositDialog = this.dialog.open(DespositPopup, {
+                    panelClass: "deposit-dialog",
+                    data: obj
+                  })
+                  depositDialog.afterClosed().subscribe(res => { })
+                }
+              }
+              else {
+                obj.flow_status = "-121"
+                this.enrollment.dccFinalSubmit(obj).subscribe(resss => {
+                  if (resss['status'] == true) {
+                    this.submitBtn = false
+                    resss['show_message'] = `${res['message']['CC']['CreditCheckMessage']}`
+                    resss['message_color'] = `red`
+                    this.enrollment.changeData(resss)
+                    this.router.navigate(['enrollsuccess'])
+                  }
+                  else {
+                    Swal('Oops!', resss['message'], 'error').then(t => this.submitBtn = false)
+                  }
+                })
+              }
+            }
+            else {
+              Swal('Oops!', res['message'], 'error').then(t => this.submitBtn = false)
+            }
+          }, err => { this.submitBtn = false })
+          break;
+        // Waiver Deposit
+        case '-229':
+        case '-228':
+        case '-227':
+          console.log(obj)
+          this.enrollment.dccFinalSubmit(obj).subscribe(res => {
+            console.log(res)
+            if (res['status'] == true) {
+              this.submitBtn = false
+              res['show_message'] = `Please note that your enrollment will be pending untill we recieve your waiver documents, fax your waiver documents to us at 281.715.5767 or email us at CustomerService@OUREnergyLLC.com.`
+              res['message_color'] = `red`
+              this.enrollment.changeData(res)
+              this.router.navigate(['enrollsuccess'])
+            }
+            else {
+              Swal('Oops!', res['message'], 'error').then(t => this.submitBtn = false)
+            }
+          }, err => { this.submitBtn = false })
+          break;
+        default:
+          break;
+      }
     }
   }
 
@@ -597,24 +625,12 @@ export class DespositPopup {
   message
   btnDisabled: boolean = false
 
-  // sendingData = {
-  //   cardType: "",
-  //   cardNo: "",
-  //   securityCode: "",
-  //   expDateM: "",
-  //   expDateY: "",
-  //   depositCharge: "Y",
-  //   autoPay: false,
-  //   flowStatus: "-121"
-  // }
-
   sendingData = new FormGroup({
     deposit_card_type: new FormControl('', [Validators.required]),
-    deposit_cc_no: new FormControl('', [Validators.required]),
-    deposit_security_code: new FormControl('', [Validators.required]),
+    deposit_cc_no: new FormControl('', [Validators.required, Validators.pattern("[0-9-]+")]),
+    deposit_security_code: new FormControl('', [Validators.required, Validators.pattern("[0-9]+")]),
     deposit_expiry_MM: new FormControl('', [Validators.required]),
     deposit_expiry_YYYY: new FormControl('', [Validators.required]),
-    deposit_charge: new FormControl('Y'),
     deposit_autopay: new FormControl(false, [Validators.required]),
   })
 
@@ -627,285 +643,352 @@ export class DespositPopup {
   }
 
   submit() {
-    console.log(this.data)
-    console.log(this.sendingData.value)
     if (this.sendingData.valid == true) {
       this.btnDisabled = true
       let obj = this.data
-      obj.deposit_pay_amount = "300"
-      obj.deposit_amount = "300"
-      obj.deposit_plan = "PNSYSDEPOSIT"
       obj.deposit_pay_type = "C"
       obj.deposit_acct_type = "ccard"
-      obj.deposit_charge = this.sendingData.controls.deposit_charge.value
       obj.deposit_expiry_MM = this.sendingData.controls.deposit_expiry_MM.value
       obj.deposit_expiry_YYYY = String(this.sendingData.controls.deposit_expiry_YYYY.value)
       obj.deposit_security_code = this.sendingData.controls.deposit_security_code.value
       obj.deposit_card_type = this.sendingData.controls.deposit_card_type.value
       obj.deposit_cc_no = this.sendingData.controls.deposit_cc_no.value
-      obj.deposit_autopay = this.sendingData.controls.deposit_autopay.value
-      obj.flow_status = "-104"
-      obj.priority_code = localStorage.getItem('priorityCode')
+      if (this.sendingData.controls.deposit_autopay.value == true) { obj.deposit_autopay = "Y" }
+      else { obj.deposit_autopay = "N" }
       obj.pay_later = false
-      console.log(obj)
-      this.enrollment.enrollUser(obj).subscribe(res => {
-        console.log(res)
-        if (res['main_error'] == false || res['main_error'] == '' || res['main_error'] == null || res['main_error'] == undefined) {
-          if (res['status'] == true) {
-            console.log("Step 1")
-            this.btnDisabled = false
-            this.dialogRef.close()
-            this.enrollment.changeData(res)
-            this.router.navigate(['enrollsuccess'])
+      this.enrollment.dccSubmit(obj).subscribe(res => {
+        if (res['status'] == true) {
+          if (res['message'] == "") {
+            obj.deposit_pay_amount = "5.00"
+            obj.flow_status = "-10"
+            this.enrollment.dccFinalSubmit(obj).subscribe(ress => {
+              if (ress['status'] == true) {
+                this.btnDisabled = false
+                ress['show_message'] = `Your deposit is submitted sucessfully.`
+                ress['message_color'] = `black`
+                this.dialogRef.close()
+                this.enrollment.changeData(ress)
+                this.router.navigate(['enrollsuccess'])
+              }
+              else {
+                Swal('Oops!', ress['message'], 'error').then(t => this.btnDisabled = false)
+              }
+            }, err => { this.btnDisabled = false })
           }
           else {
-            console.log("Step 2")
             this.btnDisabled = false
             Swal('Oops!', res['message'], 'error')
           }
         }
-        else if (res["status"] == false && res["redirect_url"] != null && res["redirect_url"] != undefined && res["redirect_url"] != '') {
-          console.log("Step 3")
-          this.btnDisabled = false
-          Swal('Oops!', 'Your session has expired. Please refresh the page and try again', 'error').then((value) => {
-            this.dialogRef.close()
-            this.router.navigate(['' + res["redirect_url"]])
-          })
-        }
         else {
-          console.log("Step 4")
           this.btnDisabled = false
-          Swal('Oops!', 'Some error occurred', 'error')
+          Swal('Oops!', res['message'], 'error')
         }
-      })
+      }, err => { this.btnDisabled = false })
     }
   }
 
   cancel() {
     this.btnDisabled = true
     let obj = this.data
-    obj.deposit_pay_amount = "300"
-    obj.deposit_amount = "300"
-    obj.deposit_plan = "PNSYSDEPOSIT"
     obj.deposit_pay_type = ""
     obj.deposit_acct_type = ""
-    obj.deposit_charge = "N"
     obj.deposit_expiry_MM = ""
     obj.deposit_expiry_YYYY = ""
     obj.deposit_security_code = ""
     obj.deposit_card_type = ""
     obj.deposit_cc_no = ""
-    obj.flow_status = "-104"
-    obj.priority_code = localStorage.getItem('priorityCode')
     obj.pay_later = true
-    console.log(obj)
-    this.enrollment.enrollUser(obj).subscribe(res => {
-      console.log(res)
-      if (res['main_error'] != true) {
-        if (res['status'] == true) {
-          this.btnDisabled = false
-          this.dialogRef.close()
-          this.enrollment.changeData(res)
-          this.router.navigate(['enrollsuccess'])
-        }
-        else {
-          this.btnDisabled = false
-          Swal('Oops!', res['message'], 'error')
-        }
-      }
-      else if (res["status"] == false && res["redirect_url"] != null && res["redirect_url"] != undefined && res["redirect_url"] != '') {
-        this.btnDisabled = false
-        Swal('Oops!', 'Your session has expired. Please refresh the page and try again', 'error').then((value) => {
-          this.router.navigate(['' + res["redirect_url"]])
-        })
-      }
-      else {
-        this.btnDisabled = false
-        Swal('Oops!', 'Some error occurred', 'error')
-      }
-    })
-  }
-}
-
-@Component({
-  selector: 'search-plan',
-  templateUrl: './search-plan.html',
-  styleUrls: ['./main.component.scss']
-})
-export class PlanSearchComponent {
-  constructor(public router: Router, private route: ActivatedRoute, private enrollment: EnrollmentService) { }
-  matcher = new errorMatcher()
-  showSpinner: boolean = false
-  showPlans: boolean = true
-  showTdsp: boolean = false
-  showError: boolean = false
-  submitBtnDisabled: boolean = false
-  promoC
-  para
-  image
-  ZipCode = localStorage.getItem('zip')
-  promoCode = localStorage.getItem('promoCode')
-  zip_code = new FormControl('', [Validators.pattern('^[0-9,-]+$'), Validators.required])
-  abc = [
-    { "market_id": "" },
-    { "promo_code": `${this.promoCode}` },
-    { "vendor_id": "" },
-    { "vendor_group": "" },
-    { "pm_duns": "" },
-    { "plan_group": "" },
-    { "plan_id": "" },
-    { "plan_group_type": "POS" }
-  ]
-  Array1 = []
-  Array2 = []
-  promoCodeArray = []
-  products
-  tdsps
-  error
-  x
-  ngOnInit() {
-    this.products = []
-    this.tdsps = []
-    window.scrollTo(0, 0)
-    this.route.params.subscribe(res => {
-      if (res.PromoCode != null && res.PromoCode != "" && res.PromoCode != undefined) {
-        this.promoCode = res.PromoCode
-      }
-    })
-  }
-  Errors = false
-  errormessage
-
-
-  searchPlansByTdsps(value) {
-    console.log(value)
-    this.showTdsp = false
-    this.showSpinner = null
-    this.x = setTimeout(() => {
-      if (this.showSpinner == null) { this.showSpinner = true }
-    }, 1500)
-    let data = {
-      provider_id: value,
-      promo_code: this.promoCode
-    }
-    this.enrollment.searchPlanByTdsp(data).subscribe(res => {
-      console.log(res)
-      if (res["status"] == false) {
-        this.Errors = true
-        this.errormessage = res["Error"]
-      }
-      if (res["status"] == true) {
-        this.showSpinner = false
-        this.Errors = false
-        this.showPlans = true
-        this.products = res["message"]
-        localStorage.removeItem('zip')
-      }
-      else if (res["status"] == false) {
-        this.showSpinner = false
-        this.showError = true
-        this.showPlans = false
-        this.error = res["message"]
-        localStorage.removeItem('zip')
-      }
-    }, error => {
-      this.showSpinner = false
-      this.Errors = true
-      this.errormessage = "Could not connect to server, please try again"
-    })
-  }
-
-  submit() {
-    this.showSpinner = null
-    this.showPlans = false
-    this.showTdsp = false
-    this.showError = false
-    this.Errors = false
-    if (((this.ZipCode != null || this.promoCode != null) && this.zip_code.errors == null) && ((this.ZipCode != "" || this.promoCode != "") && this.zip_code.errors == null)) {
-      this.submitBtnDisabled = true
-      this.x = setTimeout(() => {
-        if (this.showSpinner == null) { this.showSpinner = true }
-      }, 1500)
-      if (this.promoCode == null) { this.promoCode = "" }
-      let data = {
-        zip_code: this.ZipCode,
-        promo_code: "" + this.promoCode,
-        client: "WattGenie"
-      }
-      this.enrollment.searchPlan(data).subscribe(res => {
-        console.log(res)
-        if (res["status"] == false) {
-          this.Errors = true
-          this.errormessage = res["Error"]
-          this.submitBtnDisabled = false
-        }
-        if (res["status"] == true) {
-          this.showSpinner = false
-          this.Errors = false
-          this.submitBtnDisabled = false
-          if (res["tdsp_status"] == false) {
-            this.showPlans = true
-            this.products = res["message"]
-            localStorage.setItem('promotionCode', JSON.stringify(res['promo_code']))
-            localStorage.removeItem('zip')
-            this.submitBtnDisabled = false
-          }
-          else {
-            this.showTdsp = true
-            this.tdsps = res['message']['row']
-            console.log(res)
-            this.submitBtnDisabled = false
-          }
-        }
-        else if (res["status"] == false) {
-          this.showSpinner = false
-          this.showError = true
-          this.showPlans = false
-          this.error = res["message"]
-          localStorage.removeItem('zip')
-          this.submitBtnDisabled = false
-        }
-      }, error => {
-        this.showSpinner = false
-        this.Errors = true
-        this.submitBtnDisabled = false
-        this.errormessage = "Could not connect to server, please try again"
-      })
-    }
-  }
-
-  selectProductBtnDisabled: boolean = false
-  enroll(i) {
-    this.selectProductBtnDisabled = true
-    let data = {
-      enroll_product: this.products[i].product_id,
-      rate: this.products[i].rate,
-      batch_rate: this.products[i].batch_rate,
-      contract_term: this.products[i].term,
-    }
-    console.log(data)
-    this.enrollment.sendProductDataForSession(data).subscribe(res => {
-      console.log(res)
+    this.enrollment.dccFinalSubmit(obj).subscribe(res => {
       if (res['status'] == true) {
-        this.selectProductBtnDisabled = false
-        localStorage.setItem('zip', this.ZipCode)
-        this.router.navigate(['/enroll'])
-        localStorage.setItem('productSummary', JSON.stringify(this.products[i]))
-      }
-      if (res["status"] == false && res["redirect_url"] != null && res["redirect_url"] != undefined && res["redirect_url"] != '') {
-        Swal('Oops!', 'Your session has expired. Please refresh the page and try again', 'error').then((value) => {
-          this.selectProductBtnDisabled = false
-          this.ngOnInit()
-        })
+        this.btnDisabled = false
+        res['show_message'] = `Please call us at 1-888-545-4687 to submit you deposit.`
+        res['message_color'] = `red`
+        this.dialogRef.close()
+        this.enrollment.changeData(res)
+        this.router.navigate(['enrollsuccess'])
       }
       else {
-        this.selectProductBtnDisabled = false
+        Swal('Oops!', res['message'], 'error').then(t => this.btnDisabled = false)
       }
-    }, error => {
-      this.selectProductBtnDisabled = false
-    })
+    }, err => { this.btnDisabled = false })
   }
 }
+
+// @Component({
+//   selector: 'search-plan',
+//   templateUrl: './search-plan.html',
+//   styleUrls: ['./main.component.scss']
+// })
+// export class PlanSearchComponent {
+//   constructor(public service: EnrollmentService, public router: Router, private route: ActivatedRoute, private enrollment: EnrollmentService) { }
+//   matcher = new errorMatcher()
+
+//   contractTerm = new FormControl();
+//   contractTermList = ['36 Months', '24 Months', '18 Months', '14 Months', '12 Months', '6 Months'];
+//   showSpinner: boolean = false
+//   showPlans: boolean = false
+//   showTdsp: boolean = false
+//   showError: boolean = false
+//   submitBtnDisabled: boolean = false
+//   promoC
+//   para
+//   image
+//   ZipCode = localStorage.getItem('zip')
+//   promoCode = localStorage.getItem('promoCode')
+//   zip_code = new FormControl('', [Validators.pattern('^[0-9]+$'), Validators.required])
+//   abc = [
+//     { "market_id": "" },
+//     { "promo_code": `${this.promoCode}` },
+//     { "vendor_id": "" },
+//     { "vendor_group": "" },
+//     { "pm_duns": "" },
+//     { "plan_group": "" },
+//     { "plan_id": "" },
+//     { "plan_group_type": "POS" }
+//   ]
+
+//   Array1 = []
+//   Array2 = []
+//   promoCodeArray = []
+//   products
+//   tdsps
+//   error
+//   x
+
+//   ngOnInit() {
+//     this.products = []
+//     this.tdsps = []
+//     window.scrollTo(0, 0)
+//     this.route.params.subscribe(res => {
+//       if (res.PromoCode != null && res.PromoCode != "" && res.PromoCode != undefined) {
+//         this.promoCode = res.PromoCode
+//       }
+//       if (res.ZipCode != null && res.ZipCode != "" && res.ZipCode != undefined) {
+//         this.ZipCode = res.ZipCode
+//       }
+//     })
+//   }
+
+//   searchPlansByTdsps(value) {
+//     this.showTdsp = false
+//     this.showSpinner = null
+//     this.x = setTimeout(() => {
+//       if (this.showSpinner == null) { this.showSpinner = true }
+//     }, 1500)
+//     localStorage.setItem('duns', value)
+//     let data = {
+//       provider_id: value,
+//       promo_code: this.promoCode
+//     }
+//     this.service.searchPlanByTdsp(data).subscribe(res => {
+//       if (res["status"] == true) {
+//         this.showSpinner = false
+//         this.showError = false
+//         this.showFilteredProducts = true
+//         this.showPlans = true
+//         this.products = res["message"]
+//         localStorage.removeItem('zip')
+//       }
+//       else {
+//         this.showFilteredProducts = false
+//         this.showSpinner = false
+//         this.showError = true
+//         this.showPlans = false
+//         this.error = res["message"]
+//         localStorage.removeItem('zip')
+//       }
+//     }, error => {
+//       this.showSpinner = false
+//       this.showError = true
+//       this.error = "Could not connect to server, please try again"
+//     })
+//   }
+
+//   estimatedUsage
+//   priceTo
+//   priceFrom
+//   term1
+//   term2
+//   term3
+//   term4
+//   term5
+//   term6
+//   term7
+//   showFilteredProducts: boolean = false
+//   showSpinner2: boolean = false
+//   showError2: boolean = false
+//   submitBtnDisabled2
+
+//   price_from = new FormControl('', [Validators.pattern('^[0-9]*[\.]?[0-9]+$'), Validators.min(1)])
+//   price_to = new FormControl('', [Validators.pattern('^[0-9]*[\.]?[0-9]+$'), Validators.max(99)])
+
+//   filterProduct() {
+//     if (this.price_from.valid == true && this.price_to.valid == true) {
+//       this.showSpinner2 = null
+//       this.showFilteredProducts = false
+//       this.showError2 = false
+
+//       let data = {
+//         zip_code: this.ZipCode,
+//         client: "ChoiceGenie-Web",
+//         promo_code: "" + this.promoCode,
+//         tariff_rate: [1, 99],
+//         tariff_usage: ""
+//       }
+//       if (this.term1 == true || this.term2 == true || this.term3 == true || this.term4 == true || this.term5 == true || this.term6 == true || this.term7 == true) {
+//         data['term'] = []
+//         if (this.term1 == true) { data['term'].push(36) }
+//         if (this.term2 == true) { data['term'].push(24) }
+//         if (this.term3 == true) { data['term'].push(18) }
+//         if (this.term4 == true) { data['term'].push(14) }
+//         if (this.term5 == true) { data['term'].push(12) }
+//         if (this.term6 == true) { data['term'].push(6) }
+//         if (this.term7 == true) { data['term'].push(5) }
+//       }
+//       else { data['term'] = "" }
+//       if (this.estimatedUsage != "" && this.estimatedUsage != null && this.estimatedUsage != undefined) {
+//         data['tariff_usage'] = this.estimatedUsage
+//       }
+//       if (this.priceFrom != "" && this.priceFrom != null && this.priceFrom != undefined) {
+//         data['tariff_rate'][0] = this.priceFrom
+//       }
+//       if (this.priceTo != "" && this.priceTo != null && this.priceTo != undefined) {
+//         data['tariff_rate'][1] = this.priceTo
+//       }
+//       let duns = localStorage.getItem('duns')
+//       if (duns != '' && duns != null && duns != undefined) {
+//         data['provider_id'] = duns
+//         this.showSpinner2 = null
+//         this.x = setTimeout(() => {
+//           if (this.showSpinner2 == null) { this.showSpinner2 = true }
+//         }, 1500)
+//         this.service.searchPlanByTdsp(data).subscribe(res => {
+//           if (res["status"] == true) {
+//             this.showSpinner2 = false
+//             this.showError2 = false
+//             this.showFilteredProducts = true
+//             window.scrollTo(0, 0)
+//             this.products = res["message"]
+//             localStorage.removeItem('zip')
+//           }
+//           else {
+//             this.showFilteredProducts = false
+//             this.showSpinner2 = false
+//             this.showError2 = true
+//             this.error = res["message"]
+//             localStorage.removeItem('zip')
+//           }
+//         }, error => {
+//           this.showSpinner2 = false
+//           this.showError2 = true
+//           this.error = "Could not connect to server, please try again"
+//         })
+//       }
+//     }
+//   }
+
+//   showZip() {
+//     this.showPlans = false
+//     this.showTdsp = false
+//   }
+
+//   submit() {
+//     this.service.uaCheck().subscribe(res => {
+//       if (res['message']['bypass'] == true && res['message']['ua'] == false) {
+//         localStorage.setItem('ua', "False")
+//       }
+//       else localStorage.setItem('ua', "True")
+//     })
+//     this.showSpinner = null
+//     this.showPlans = false
+//     this.showTdsp = false
+//     this.showError = false
+//     if (((this.ZipCode != null || this.promoCode != null) && this.zip_code.errors == null) && ((this.ZipCode != "" || this.promoCode != "") && this.zip_code.errors == null)) {
+//       this.submitBtnDisabled = true
+//       this.x = setTimeout(() => {
+//         if (this.showSpinner == null) { this.showSpinner = true }
+//       }, 1500)
+//       if (this.promoCode == null) { this.promoCode = "" }
+//       let data = {
+//         zip_code: this.ZipCode,
+//         promo_code: "" + this.promoCode,
+//         client: "ChoiceGenie-Web"
+//       }
+//       this.service.searchPlan(data).subscribe(res => {
+//         localStorage.removeItem('duns')
+//         if (res["status"] == false) {
+//           this.showError = true
+//           this.error = res["Error"]
+//           this.submitBtnDisabled = false
+//         }
+//         if (res["status"] == true) {
+//           this.showSpinner = false
+//           this.showError = false
+//           this.submitBtnDisabled = false
+//           if (res["tdsp_status"] == false) {
+//             localStorage.setItem('duns', res['message'][0]['provider_id'])
+//             this.showFilteredProducts = true
+//             this.showPlans = true
+//             this.products = res["message"]
+//             localStorage.setItem('promotionCode', JSON.stringify(res['promo_code']))
+//             localStorage.removeItem('zip')
+//             this.submitBtnDisabled = false
+//           }
+//           else {
+//             this.showTdsp = true
+//             this.tdsps = res['message']['row']
+//             this.submitBtnDisabled = false
+//           }
+//         }
+//         else if (res["status"] == false) {
+//           this.showFilteredProducts = false
+//           this.showSpinner = false
+//           this.showError = true
+//           this.showPlans = false
+//           this.error = res["message"]
+//           localStorage.removeItem('zip')
+//           this.submitBtnDisabled = false
+//         }
+//       }, error => {
+//         this.showSpinner = false
+//         this.showError = true
+//         this.submitBtnDisabled = false
+//         this.error = "Could not connect to server, please try again"
+//       })
+//     }
+//   }
+
+//   selectProductBtnDisabled: boolean = false
+//   enroll(i) {
+//     this.selectProductBtnDisabled = true
+//     let data = {
+//       enroll_product: this.products[i].product_id,
+//       rate: this.products[i].rate,
+//       batch_rate: this.products[i].batch_rate,
+//       contract_term: this.products[i].term,
+//     }
+//     this.enrollment.sendProductDataForSession(data).subscribe(res => {
+//       if (res['status'] == true) {
+//         this.selectProductBtnDisabled = false
+//         localStorage.setItem('zip', this.ZipCode)
+//         this.router.navigate(['/enroll'])
+//         localStorage.setItem('productSummary', JSON.stringify(this.products[i]))
+//       }
+//       if (res["status"] == false && res["redirect_url"] != null && res["redirect_url"] != undefined && res["redirect_url"] != '') {
+//         Swal('Oops!', 'Your session has expired. Please refresh the page and try again', 'error').then((value) => {
+//           this.selectProductBtnDisabled = false
+//           this.ngOnInit()
+//         })
+//       }
+//       else {
+//         this.selectProductBtnDisabled = false
+//       }
+//     }, error => {
+//       this.selectProductBtnDisabled = false
+//     })
+//   }
+// }
 
 @Component({
   selector: 'enroll-process',
@@ -925,10 +1008,10 @@ export class EnrollProcessComponent {
     zip_code: new FormControl({ value: localStorage.getItem('zip'), disabled: true }),
     premise_id: new FormControl("", [Validators.required])
   })
-  constructor(public obj: EnrollmentService, public router: Router, private enrollment: EnrollmentService, private enrollmentComponent: WebenrollmentComponent) { }
+  constructor(public obj: EnrollmentService, public router: Router, private service: EnrollmentService, private enrollmentComponent: WebenrollmentComponent) { }
   ngOnInit() {
     if (localStorage.getItem('zip') == "" || localStorage.getItem('zip') == null || localStorage.getItem('zip') == undefined) {
-      this.router.navigate(['/search-plan'])
+      this.router.navigate([`/products/${localStorage.getItem('zip')}`])
     }
     window.scrollTo(0, 0)
     this.products.push(JSON.parse(localStorage.getItem('productSummary')))
@@ -946,7 +1029,6 @@ export class EnrollProcessComponent {
   saveData() {
     this.errorMessagee = null
     this.multiplePremise = []
-    console.log(this.enrollProcessForm)
     if (this.enrollProcessForm.valid == true) {
       this.showSpinner = null
       setTimeout(() => {
@@ -959,7 +1041,6 @@ export class EnrollProcessComponent {
       obj['zip_code'] = zip
       let tdsp = ''
       this.obj.enrollProcess(this.enrollProcessForm.value).subscribe(res => {
-        console.log(res)
         if (res["status"] == true) {
           this.showSpinner = false
           if (res['message'].length > 1) {
@@ -980,8 +1061,9 @@ export class EnrollProcessComponent {
           this.router.navigate(['/enroll'])
         }
         else if (res["status"] == false && res["redirect_url"] != null && res["redirect_url"] != undefined && res["redirect_url"] != '') {
-          Swal('Oops!', 'Your session has expired. Please refresh the page and try again', 'error').then((value) => {
-            this.router.navigate(['' + res["redirect_url"]])
+          this.showSpinner = false
+          Swal('Oops!', 'Your session has expired.', 'error').then((value) => {
+            this.router.navigate([`/products/${localStorage.getItem('zip')}`])
           })
         }
         else {
@@ -995,7 +1077,6 @@ export class EnrollProcessComponent {
   submit() {
     this.multiplePremise == []
     if (this.enrollProcessForm.controls.premise_id.value == "" || this.enrollProcessForm.controls.premise_id.value == null || this.enrollProcessForm.controls.premise_id.value == undefined) {
-      console.log('Condition 1')
       this.enrollProcessForm.controls.premise_id.clearValidators()
       this.enrollProcessForm.controls.premise_id.setValue("")
       this.multiplePremise == []
@@ -1003,7 +1084,6 @@ export class EnrollProcessComponent {
       this.saveData()
     }
     else {
-      console.log('Condition 2')
       this.enrollProcessForm.controls.service_address.clearValidators()
       this.enrollProcessForm.controls.city.clearValidators()
       this.enrollProcessForm.controls.service_address.setValue("")
@@ -1029,22 +1109,20 @@ export class EnrollProcessComponent {
       tdsp_duns: premise.provider_id,
       expedited: true,
     }
-    console.log(currentreq_date)
     document.getElementById('nextBtn').click()
     window.scrollTo(0, 0)
-    this.enrollment.requestforDate(currentreq_date).subscribe(res => {
-      console.log(res)
+    this.service.requestforDate(currentreq_date).subscribe(res => {
       localStorage.setItem('priorityCode', res['DATES'].row[0].priority_code)
-      this.enrollment.changeDataa(res)
+      this.service.changeDataa(res)
       this.enrollmentComponent.requestDateValidation()
     })
   }
-  selectProductBtnDisabled: boolean = false
+  selectPremiseBtnDisabled: boolean[] = []
   SelectPremise(index) {
-    this.selectProductBtnDisabled = true
+    this.selectPremiseBtnDisabled[index] = true
     this.enrollmentComponent.startFormGroup.controls.goNext.setValue("asdasd")
     let premise = this.multiplePremise[index]
-    this.enrollment.changeDataa1(premise)
+    this.service.changeDataa1(premise)
     let data = {
       provider_id: premise.provider_id,
       premise_id: premise.premise_id,
@@ -1052,14 +1130,13 @@ export class EnrollProcessComponent {
       address1: premise.address1,
       countyname: premise.countyname
     }
-    this.enrollment.sendPremiseDataForSession(data).subscribe(res => {
-      console.log(res)
+    this.service.sendPremiseDataForSession(data).subscribe(res => {
       if (res['status'] == true) {
-        this.selectProductBtnDisabled = true
+        this.selectPremiseBtnDisabled[index] = false
         this.getDates(premise)
       }
-      else this.selectProductBtnDisabled = true
-    }, error => { this.selectProductBtnDisabled = true })
+      else this.selectPremiseBtnDisabled[index] = false
+    }, error => { this.selectPremiseBtnDisabled[index] = false })
   }
 }
 

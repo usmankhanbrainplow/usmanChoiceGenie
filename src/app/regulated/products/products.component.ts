@@ -29,8 +29,10 @@ import { delay } from 'rxjs/operator/delay';
 import { HttpService } from '../../serv/http-service';
 import { ExcelService } from '../../excel.service';
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
+import { EnrollmentService } from '../../webenrollment/enrollment.service';
+import { environment } from '../../../environments/environment';
 
-
+// import swal from 'sweetalert2';
 
 declare interface DataTable {
     headerRow: string[];
@@ -87,7 +89,7 @@ export class ProductsComponent implements OnInit, AfterViewInit, OnDestroy {
     keyPress;
 
     //    setPage;
-    constructor(private excelService: ExcelService, private http: Http, private pagerService: PagerService, private homeService: HomeService, private route: ActivatedRoute, public sg: SimpleGlobal, private obj: HomeService, public router: Router, private dialog: MatDialog, private data: DataService, private https: HttpService) {
+    constructor(private excelService: ExcelService, private service: EnrollmentService,private http: Http, private pagerService: PagerService, private homeService: HomeService, private route: ActivatedRoute, public sg: SimpleGlobal, private obj: HomeService, public router: Router, private dialog: MatDialog, private data: DataService, private https: HttpService) {
 
     }
     ngOnDestroy() {
@@ -221,6 +223,16 @@ export class ProductsComponent implements OnInit, AfterViewInit, OnDestroy {
         this.item = "20";
         this.myID = document.getElementById("myID");
         // this.checked8(event, i);
+        localStorage.setItem('ua', "True")
+        let para = {
+            zip_code: `${localStorage.getItem('zip')}`,
+            promo_code: "",
+            client: "ChoiceGenie-Web"
+        }
+        console.log(para)
+        this.http.post(environment.webenrollurl + 'enroll/products-with-zipcode/', para, { headers: this.myHeaders, withCredentials: true }).subscribe(res => {
+            console.log(res)
+        })
         
         var myScrollFunc = function () {
             var y = window.scrollY;
@@ -636,6 +648,37 @@ export class ProductsComponent implements OnInit, AfterViewInit, OnDestroy {
         // table.on('click', '.like', function () {
         //     alert('You clicked on Like button');
         // });
+    }
+    enroll(i) {
+        this.selectProductBtnDisabled = true
+        let term = String(i.plan_information[2])
+        let data = {
+            product_pk: '40',
+            enroll_product: '',
+            rate: i.price_1000_kwh,
+            batch_rate: '5.5',
+            contract_term: term.substr(0, term.indexOf(' ')),
+        }
+        console.log(data)
+        console.log(i)
+        this.service.sendProductDataForSession(data).subscribe(res => {
+            if (res['status'] == true) {
+                this.selectProductBtnDisabled = false
+                this.router.navigate(['/enroll'])
+                localStorage.setItem('productSummary', JSON.stringify(i))
+            }
+            if (res["status"] == false && res["redirect_url"] != null && res["redirect_url"] != undefined && res["redirect_url"] != '') {
+                swal('Oops!', 'Your session has expired. Please refresh the page and try again', 'error').then((value) => {
+                    this.selectProductBtnDisabled = false
+                    this.ngOnInit()
+                })
+            }
+            else {
+                this.selectProductBtnDisabled = false
+            }
+        }, error => {
+            this.selectProductBtnDisabled = false
+        })
     }
     companytitle() {
         let headers = new Headers();

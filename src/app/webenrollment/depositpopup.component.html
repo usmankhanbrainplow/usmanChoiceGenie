@@ -1,33 +1,47 @@
-
+<h1 class="text-center">Deposit Submission</h1>
+<h4 class="text-center">Enter your payment details below to pay the maximum deposit of $300.00 and not run the credit check.</h4>
+<br>
 <form [formGroup]="sendingData" (ngSubmit)="submit()">
-    <div mat-dialog-content class="row">
-        <mat-form-field class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-            <mat-select placeholder="Credit Card Type" formControlName="deposit_card_type">
-                <mat-option [value]="">--</mat-option>
-                <mat-option [value]="cardtype" *ngFor="let cardtype of cards">{{cardtype}}</mat-option>
-            </mat-select>
-        </mat-form-field>
-        <mat-form-field class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-            <input matInput placeholder="Card #" formControlName="deposit_cc_no" maxlength="16">
-        </mat-form-field>
-        <mat-form-field class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
-            <input matInput placeholder="CCV" formControlName="deposit_security_code" maxlength="3">
-        </mat-form-field>
-        <mat-form-field class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
-            <mat-select placeholder="Expiry Month" formControlName="deposit_expiry_MM">
-                <mat-option [value]="">--</mat-option>
-                <mat-option [value]="x.value" *ngFor="let x of months">{{x.viewValue}}</mat-option>
-            </mat-select>
-        </mat-form-field>
-        <mat-form-field class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
-            <mat-select placeholder="Expiry Year" formControlName="deposit_expiry_YYYY">
-                <mat-option [value]="">--</mat-option>
-                <mat-option [value]="y" *ngFor="let y of years">{{y}}</mat-option>
-            </mat-select>
-        </mat-form-field>
-        <mat-slide-toggle class="col-lg-3 col-md-3 col-sm-12 col-xs-12" formControlName="deposit_autopay">Auto Pay</mat-slide-toggle>
+    <div mat-dialog-content>
+        <div class="row">
+            <mat-form-field class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                <mat-select placeholder="Credit Card Type" formControlName="deposit_card_type" required>
+                    <mat-option [value]="">--</mat-option>
+                    <mat-option [value]="cardtype" *ngFor="let cardtype of cards">{{cardtype}}</mat-option>
+                </mat-select>
+                <mat-error *ngIf="sendingData.controls.deposit_card_type.hasError('required')">Card Type is required</mat-error>
+            </mat-form-field>
+            <mat-form-field class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                <input matInput placeholder="Card No." formControlName="deposit_cc_no" maxlength="19" required credit-card>
+                <mat-error *ngIf="sendingData.controls.deposit_cc_no.hasError('required')">Card No. is required</mat-error>
+                <mat-error *ngIf="sendingData.controls.deposit_cc_no.hasError('pattern')">Invalid Format</mat-error>
+            </mat-form-field>
+        </div>
+        <div class="row">
+            <mat-form-field class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                <input matInput placeholder="CCV" formControlName="deposit_security_code" maxlength="3" required>
+                <mat-error *ngIf="sendingData.controls.deposit_security_code.hasError('required')">CCV is required</mat-error>
+                <mat-error *ngIf="sendingData.controls.deposit_security_code.hasError('pattern')">Invalid Format</mat-error>
+            </mat-form-field>
+            <mat-form-field class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                <mat-select placeholder="Expiry Month" formControlName="deposit_expiry_MM" required>
+                    <mat-option [value]="">--</mat-option>
+                    <mat-option [value]="x.value" *ngFor="let x of months">{{x.viewValue}}</mat-option>
+                </mat-select>
+                <mat-error *ngIf="sendingData.controls.deposit_expiry_MM.hasError('required')">Expiry Month is required</mat-error>
+            </mat-form-field>
+            <mat-form-field class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                <mat-select placeholder="Expiry Year" formControlName="deposit_expiry_YYYY" required>
+                    <mat-option [value]="">--</mat-option>
+                    <mat-option [value]="y" *ngFor="let y of years">{{y}}</mat-option>
+                </mat-select>
+                <mat-error *ngIf="sendingData.controls.deposit_expiry_YYYY.hasError('required')">Expiry Year is required</mat-error>
+            </mat-form-field>
+            <mat-slide-toggle style="margin-top: 20px;" class="col-lg-3 col-md-3 col-sm-12 col-xs-12" formControlName="deposit_autopay" color="primary"><b>Auto Pay</b></mat-slide-toggle>
+        </div>
     </div>
     <div class="text-center">
+        <br>
         <button mat-raised-button [disabled]="btnDisabled" type="submit">Pay Now</button>
         <button mat-raised-button [disabled]="btnDisabled" type="button" (click)="cancel()">I'll pay later</button>
     </div>

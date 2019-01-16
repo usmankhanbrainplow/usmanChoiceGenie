@@ -71,7 +71,8 @@ export class UserloginComponent implements OnInit {
     tit: any = [];
     title;
   constructor(public router: Router, private element: ElementRef, private http: Http, private route: ActivatedRoute,
-    private sg: SimpleGlobal, private _nav: Router, private _serv: UserLoginService, private formBuilder: FormBuilder, private https: HttpClient,private _http5: HttpService) {
+    private sg: SimpleGlobal, private _nav: Router, private _serv: UserLoginService,
+     private formBuilder: FormBuilder, private https: HttpClient,private _http5: HttpService) {
     this.nativeElement = element.nativeElement;
     this.sidebarVisible = false;
 

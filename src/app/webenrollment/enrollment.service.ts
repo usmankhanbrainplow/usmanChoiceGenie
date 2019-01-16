@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core'
 import { BehaviorSubject } from 'rxjs/BehaviorSubject'
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http'
+import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { environment } from '../../environments/environment'
-
 
 @Injectable()
 export class EnrollmentService {
@@ -10,24 +9,13 @@ export class EnrollmentService {
     currentDate = this.date.asObservable()
     constructor(private http: HttpClient) { }
     ip2 = "https://webenrollapi.smartixai.com/"
-    // url2 = ''
     myHeaders: any = new HttpHeaders().set('content-type', 'application/json')
-    // Enrollment API - Enrollment Form
     enrollUser(data) {
         return this.http.post(environment.webenrollurl + 'main/enrollProduct/', data, { headers: this.myHeaders, withCredentials: true })
     }
-    // submit zip-city-address
-    // enrollProcess(data) {
-    //     return this.http.get('http://192.168.29.183:8000/products/get-premise-by-zip-address-city/zip-code' + data)
-    // }
     enrollProcess(data) {
         return this.http.post(environment.webenrollurl + 'enroll/get-premise-By-zip-service-city/', data, { headers: this.myHeaders, withCredentials: true })
     }
-    // submit esid
-    // enrollByEsid(data) {
-    //     return this.http.get(url + 'products/get-premise-by-esid/es-id' + data + '/')
-    // }
-    // requested date
     requestDate(data) {
         return this.http.post(environment.backendurl + 'products/get-next-enroll-date-from-isigma/', data)
     }
@@ -49,21 +37,32 @@ export class EnrollmentService {
     searchPlanByTdsp(tdsp) {
         return this.http.post(environment.webenrollurl + 'enroll/multiple-duns-on-zip/', tdsp, { headers: this.myHeaders, withCredentials: true })
     }
-    // testing(obj) {
-    //     return this.http2.post(environment.webenrollurl + 'main/testing/', obj, { withCredentials: true })
-    // }
-    // Service ofr Date
+    nextSessionStep(data) {
+        return this.http.post(environment.webenrollurl + 'enroll/set-step-session/', data, { headers: this.myHeaders, withCredentials: true })
+    }
+    uaCheck() {
+        return this.http.get(environment.url + 'enroll/product-enrollment-check/', { headers: this.myHeaders })
+    }
+    dccSubmit(data) {
+        return this.http.post(environment.webenrollurl + 'pr/deposit-submission/', data, { headers: this.myHeaders, withCredentials: true })
+    }
+    dccFinalSubmit(data) {
+        return this.http.post(environment.webenrollurl + 'pr/product-enrollment-submission/', data, { headers: this.myHeaders, withCredentials: true })
+    }
+    creditCheck(data) {
+        return this.http.post(environment.webenrollurl + 'pr/pr-credit-check/', data, { headers: this.myHeaders, withCredentials: true })
+    }
     Date(datee) {
         if (datee != null && datee != undefined && datee != "") {
             let date = new Date(datee)
             return (String((date.getMonth() + 1) + "-" + date.getDate() + "-" + date.getFullYear()))
-        } else return ''
+        } else return null
     }
     Date1(datee) {
         if (datee != null && datee != undefined && datee != "") {
             let date = new Date(datee)
             return (String(date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate()))
-        } else return ''
+        } else return null
     }
     private datas = new BehaviorSubject<any>(null);
     data = this.datas.asObservable();

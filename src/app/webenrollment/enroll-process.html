@@ -8,19 +8,19 @@
                 <div class="enroll-main">
                     <mat-form-field appearance="outline">
                         <mat-label>Street Address</mat-label>
-                        <input matInput placeholder="Please Enter Street Address" formControlName=service_address>
+                        <input matInput formControlName=service_address>
                         <mat-icon matSuffix>person_pin_circle</mat-icon>
                         <mat-error *ngIf="enrollProcessForm.controls.service_address.errors?.required">Service Address is required</mat-error>
                     </mat-form-field>
                     <mat-form-field appearance="outline">
                         <mat-label>City</mat-label>
-                        <input matInput placeholder="Please Enter City" formControlName=city>
+                        <input matInput formControlName=city>
                         <mat-icon matSuffix>location_city</mat-icon>
                         <mat-error *ngIf="enrollProcessForm.controls.city.errors?.required">City is required</mat-error>
                     </mat-form-field>
                     <mat-form-field appearance="outline">
                         <mat-label>Zip Code</mat-label>
-                        <input matInput placeholder="Please Enter Zip Code" formControlName="zip_code">
+                        <input matInput formControlName="zip_code">
                         <mat-icon matSuffix>place</mat-icon>
                     </mat-form-field>
                 </div>
@@ -30,10 +30,10 @@
                 <div class="enroll-main">
                     <mat-form-field appearance="outline">
                         <mat-label>Premise/ESID</mat-label>
-                        <input matInput placeholder="Please Enter Premise/ESID" name="premise_id" formControlName='premise_id' [(ngModel)]=ESID>
+                        <input matInput name="premise_id" formControlName='premise_id' [(ngModel)]=ESID>
                         <mat-icon matSuffix>my_location</mat-icon>
                         <mat-error *ngIf="enrollProcessForm.controls.premise_id.errors?.required">Premise/ESID is required</mat-error>
-                        <mat-hint align="start">e.g: 121315263748907</mat-hint>
+                        <!-- <mat-hint align="start">e.g: 121315263748907</mat-hint> -->
                     </mat-form-field>
                 </div>
                 <button mat-raised-button type="submit">Search</button>
@@ -77,21 +77,30 @@
             </div>
         </div>
     </div>
-    <div *ngIf="len > 1">
-        <h2 style="text-align: center; margin-bottom: 20px;" *ngIf="len > 0" #premises>Found {{ len }} Premises</h2>
-        <mat-card class="multiplePremise" *ngFor="let value of multiplePremise; let ind = index">
-            <div class="item">
-                <span>{{value.address1}}</span>
-                <span>{{value.city}} {{value.state}} {{value.zip}}</span>
+    <div class="multiple-premise" *ngIf="len > 1">
+        <br>
+        <h1 class="text-center" *ngIf="len > 0" #premises>Select Your Address</h1>
+        <h4 class="text-center">Multiple service addresses were found. Please select from the below list or refine what you entered above.</h4>
+        <br>
+        <div class="premise" *ngFor="let value of multiplePremise; let ind = index">
+            <div class="inner-premise">
+                <div class="premise-details">
+                    <h4>{{value.address1}}</h4>
+                    <h4 style="margin:0px">{{value.city}} {{value.state}} {{value.zip}}</h4>
+                </div>
+                <div class="premise-details">
+                    <h4>{{value.premise_id}} </h4>
+                    <h4 style="margin:0px">{{value.provider_name}}</h4>
+                </div>
+                <div class="premise-details">
+                    <button mat-raised-button [disabled]="selectPremiseBtnDisabled[ind]" (click)="SelectPremise(ind)" type="button"><h4>Select</h4></button>
+                </div>
             </div>
-            <div class="item">
-                <span>{{value.premise_id}} </span>
-                <span>{{value.provider_name}}</span>
+            <div class="inner-premise">
+                <div *ngIf="(ind + 1) < multiplePremise.length" style="display: flex; flex: 1; margin-top: 5px; box-shadow: 0 -5px 5px -5px #333; border: 1px solid #ccc;"></div>
             </div>
-            <div class="item">
-                <button mat-raised-button [disabled]="selectProductBtnDisabled" (click)="SelectPremise(ind)" type="button">Select</button>
-            </div>
-        </mat-card>
+        </div>
+        <br>
     </div>
     <div class="spinner" *ngIf="showSpinner" style="margin-top: 30px;">
         <img src="../../../assets/img/fidget_red.gif" width="150" height="150" alt="logo">

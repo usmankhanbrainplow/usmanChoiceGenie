@@ -1,15 +1,13 @@
-<app-header></app-header>
-<div class="main-content">
-    <div class="container-fluid container">
+<div *ngIf="!showPlans && !showTdsp" class="main-content">
+    <div class="container">
         <section class="residential-main">
-            <div class="text-center">
-                <h1 class="heading">SEARCH YOUR PLAN</h1>
+            <div class="heading">
+                <h1>Search Your Plan</h1>
             </div>
-            <form class="plan-main sh-signup-form-fix">
-                <label class="web-label">Zip Code</label>
-                <mat-form-field appearance="outline">
-                    <!-- <mat-label>Zip Code</mat-label> -->
-                    <input matInput placeholder="Please Enter Zip Code" #input maxlength="9" [formControl]="zip_code" name="zip" [(ngModel)]='ZipCode'>
+            <form style="margin-top: 35px; margin-bottom: 35px;" class="plan-main mat-elevation-z8">
+                <mat-form-field>
+                    <mat-label>Zip Code</mat-label>
+                    <input matInput #input maxlength="5" [formControl]="zip_code" name="zip" [(ngModel)]='ZipCode'>
                     <mat-icon matSuffix>place</mat-icon>
                     <mat-error *ngIf="zip_code.hasError('pattern')">
                         Invalid Zip Code
@@ -17,81 +15,162 @@
                     <mat-error *ngIf="zip_code.hasError('required')">
                         Zip Code is required
                     </mat-error>
-                    <mat-hint align="end">{{input.value?.length || 0}}/9</mat-hint>
                 </mat-form-field>
-                <label class="web-label">Promo Code</label>
-                <mat-form-field appearance="outline">
-                    <!-- <mat-label>Promo Code</mat-label> -->
-                    <input matInput placeholder="Please Enter Promo Code" name="promo" [(ngModel)]="promoCode">
+                <mat-form-field>
+                    <mat-label>Promo Code</mat-label>
+                    <input matInput name="promo" [(ngModel)]="promoCode">
                     <mat-icon matSuffix>my_location</mat-icon>
                 </mat-form-field>
-                <button mat-raised-button [disabled]="submitBtnDisabled" (click)="submit()">Search</button>
+                <button mat-raised-button [disabled]="submitBtnDisabled" style="width:300px;" (click)="submit()">Search Plans</button>
             </form>
-            <!-- <button mat-raised-button (click)="test()">Test</button>
-            <button mat-raised-button (click)="show()">Show</button> -->
         </section>
     </div>
 </div>
 <br>
 <div class="showError" *ngIf="showError">
-    <mat-error><b><h4>{{error}}</h4></b></mat-error>
+    <mat-error style="margin-bottom: 25px"><b><h4>{{error}}</h4></b></mat-error>
 </div>
 <div class="spinner" *ngIf="showSpinner" style="margin-top: 30px;">
     <img src="../../../assets/img/fidget_red.gif" width="150" height="150" alt="logo">
 </div>
-
-<div *ngIf="Errors" class="errormessage">
-    <span>{{errormessage}}</span>
-</div>
 <div *ngIf="showPlans">
-    <div style="margin-left: 100px; margin-right: 100px;">
-        <div class="row">
-            <div *ngFor="let value of products;index as i;">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <br>
-                    <div class="search-plan">
-                        <h2 class="productName">{{value.product_name}}</h2>
-                        <p style="font-weight: bold; text-align: center; margin-top: 20px;">
-                            {{value.product_info}}
-                        </p>
-                        <div class="main">
-                            <div class="text-center inner">
-                                <a mat-fab color="primary" [href]=value.product_tos_url target="_blank"><b>TOS</b></a>
-                                <br>
-                                <a mat-fab color="primary" href="https://www.ourenergyllc.com/prodox/yrac.pdf" target="_blank"><b>YRAC</b></a> &nbsp;
-                                <a mat-fab color="primary" [href]=value.product_efl_url target="_blank"><b>EFL</b></a>
-                            </div>
-                            <div class="bar"></div>
-                            <div class="inner">
-                                <div class="rateSheet">
-                                    <div style="padding-left: 15px; padding-right: 15px;">
-                                        <span style="font-size: 18px !important">Terms: {{value.display_term}} months</span><br>
-                                        <span style="font-size: 18px !important">Termination fee: ${{value.display_termination_fee}}</span><br>
-                                        <span style="font-size: 18px !important"><b>TDSP: {{value.vendor_company}}</b></span>
+    <div class="container residential-main">
+        <div class="heading">
+            <h1 class="text-center">Select your OurEnergy electricity plan</h1>
+            <h4 style="color:#555" class="text-center">Based on your Zip Code, here are the plans we offer.</h4>
+        </div>
+    </div>
+    <div style="padding: 0px 60px 0px 60px !important;" class="plan-main">
+        <div class="col-lg-3 col-md-3 col-sm-12 col-sm-12 myCard">
+            <br>
+            <button mat-raised-button (click)="showZip()">Change Zip Code</button>
+            <br>
+            <br>
+            <h4>Estimated Usage</h4>
+            <mat-radio-group [(ngModel)]="estimatedUsage" class="text-center col-lg-12 col-md-12 col-sm-12 col-sm-12">
+                <mat-radio-button color="primary" value="500">
+                    <p class="radioText">500 kWh</p>
+                </mat-radio-button>
+                <mat-radio-button color="primary" value="1000" checked="true">
+                    <p class="radioText">1000 kWh</p>
+                </mat-radio-button>
+                <mat-radio-button color="primary" value="2000">
+                    <p class="radioText">2000 kWh</p>
+                </mat-radio-button>
+            </mat-radio-group>
+            <br>
+            <hr>
+            <h4>Contract Terms</h4>
+            <section class="row">
+                <mat-slide-toggle color="primary" [(ngModel)]="term1" class="spacing col-lg-12 col-md-12 col-sm-6 col-xs-12">
+                    <p>36 Months</p>
+                </mat-slide-toggle>
+                <mat-slide-toggle color="primary" [(ngModel)]="term2" class="spacing col-lg-12 col-md-12 col-sm-6 col-xs-12">
+                    <p>24 Months</p>
+                </mat-slide-toggle>
+                <mat-slide-toggle color="primary" [(ngModel)]="term3" class="spacing col-lg-12 col-md-12 col-sm-6 col-xs-12">
+                    <p>18 Months</p>
+                </mat-slide-toggle>
+                <mat-slide-toggle color="primary" [(ngModel)]="term4" class="spacing col-lg-12 col-md-12 col-sm-6 col-xs-12">
+                    <p>14 Months</p>
+                </mat-slide-toggle>
+                <mat-slide-toggle color="primary" [(ngModel)]="term5" class="spacing col-lg-12 col-md-12 col-sm-6 col-xs-12">
+                    <p>12 Months</p>
+                </mat-slide-toggle>
+                <mat-slide-toggle color="primary" [(ngModel)]="term6" class="spacing col-lg-12 col-md-12 col-sm-6 col-xs-12">
+                    <p>6 Months</p>
+                </mat-slide-toggle>
+                <mat-slide-toggle color="primary" [(ngModel)]="term7" class="spacing col-lg-12 col-md-12 col-sm-6 col-xs-12">
+                    <p>5 Months</p>
+                </mat-slide-toggle>
+            </section>
+            <hr>
+            <h4>Price Range</h4>
+            <mat-form-field class="col-lg-6 col-md-6 col-sm-6 col-sm-12">
+                <input matInput maxlength="5" placeholder="From" [formControl]="price_from" [(ngModel)]="priceFrom">
+                <span matSuffix>¢</span>
+                <mat-error *ngIf="price_from.hasError('pattern')">
+                    Invalid Input
+                </mat-error>
+                <mat-error *ngIf="price_from.hasError('min')">
+                    Price is atleast 1¢
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="col-lg-6 col-md-6 col-sm-6 col-sm-12">
+                <input matInput maxlength="5" placeholder="To" [formControl]="price_to" [(ngModel)]="priceTo">
+                <span matSuffix>¢</span>
+                <mat-error *ngIf="price_to.hasError('pattern')">
+                    Invalid Input
+                </mat-error>
+                <mat-error *ngIf="price_to.hasError('max')">
+                    Price should be less than 100¢
+                </mat-error>
+            </mat-form-field>
+            <br>
+            <button style="margin-top:20px" mat-raised-button [disabled]="submitBtnDisabled2" (click)="filterProduct()">Apply Filters</button>
+            <br>
+            <br>
+        </div>
+        <br>
+        <div class="col-lg-9 col-md-9 col-sm-12 col-sm-12">
+            <div class="showError" *ngIf="showError2">
+                <mat-error style="margin-bottom: 25px"><b><h4>{{error}}</h4></b></mat-error>
+            </div>
+            <div class="spinner" *ngIf="showSpinner2" style="margin-top: 30px;">
+                <img src="../../../assets/img/fidget_red.gif" width="150" height="150" alt="logo">
+            </div>
+            <div *ngIf="showFilteredProducts == true" class="row">
+                <div *ngFor="let value of products;index as i;">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <br>
+                        <div class="search-plan">
+                            <h2 class="productName">{{value.product_name}}</h2>
+                            <p style="font-weight: bold; text-align: center; margin-top: 20px;">
+                                {{value.product_info}}
+                            </p>
+                            <div class="main">
+                                <div class="text-center inner">
+                                    <img src="../../../assets/img/Product-image-4.png" width="120px" height="120px">
+                                    <!-- <a mat-fab color="primary" [href]=value.product_tos_url target="_blank"><b>TOS</b></a>
+                                    <br>
+                                    <a mat-fab color="primary" href="https://www.ourenergyllc.com/prodox/yrac.pdf" target="_blank"><b>YRAC</b></a> &nbsp;
+                                    <a mat-fab color="primary" [href]=value.product_efl_url target="_blank"><b>EFL</b></a> -->
+                                </div>
+                                <div class="bar"></div>
+                                <div class="inner">
+                                    <div class="rateSheet">
+                                        <div style="padding-left: 15px; padding-right: 15px;">
+                                            <span style="font-size: 18px !important">Contract Term: {{value.display_term}} months</span><br>
+                                            <span style="font-size: 18px !important">Termination Fee: ${{value.display_termination_fee}}</span><br>
+                                            <span style="font-size: 18px !important"><b>Utility: {{value.vendor_company}}</b></span>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="bar"></div>
-                            <div class="text-center inner">
-                                <div>
-                                    <b style="font-size: 18px;">1000 kWh</b>
-                                    <h3 style="color:#cd0000">{{value.tariff_1000}}¢</h3>
-                                </div>
-                                <div style="display: flex; flex-direction: row;">
-                                    <div style="flex: 1">
-                                        <b style="font-size: 18px;">500 kWh</b>
-                                        <h3 style="color:#cd0000">{{value.tariff_500}}¢</h3>
+                                <div class="bar"></div>
+                                <div class="text-center inner">
+                                    <div>
+                                        <b style="font-size: 18px;">1000 kWh</b>
+                                        <h3 style="color:#cd0000">{{value.tariff_1000}}¢</h3>
                                     </div>
-                                    <div style="flex: 1">
-                                        <b style="font-size: 18px;">2000 kWh</b>
-                                        <h3 style="color:#cd0000">{{value.tariff_2000}}¢</h3>
+                                    <div style="display: flex; flex-direction: row;">
+                                        <div style="flex: 1">
+                                            <b style="font-size: 18px;">500 kWh</b>
+                                            <h3 style="color:#cd0000">{{value.tariff_500}}¢</h3>
+                                        </div>
+                                        <div style="flex: 1">
+                                            <b style="font-size: 18px;">2000 kWh</b>
+                                            <h3 style="color:#cd0000">{{value.tariff_2000}}¢</h3>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="bar"></div>
-                            <div class="text-center inner">
-                                <div class="selectBtn">
-                                    <button mat-button [disabled]="selectProductBtnDisabled" (click)="enroll(i)">Select</button>
+                                <div class="bar"></div>
+                                <div class="text-center inner">
+                                    <a mat-fab color="primary" matTooltip="Terms of Service" [href]=value.product_tos_url target="_blank"><b>TOS</b></a>
+                                    <a mat-fab color="primary" matTooltip="Your Rights as a Customer" href="https://www.ourenergyllc.com/prodox/yrac.pdf" target="_blank"><b>YRAC</b></a>
+                                    <a mat-fab color="primary" matTooltip="Electric Facts Label" [href]=value.product_efl_url target="_blank"><b>EFL</b></a>
+                                    <br>
+                                    <br>
+                                    <button style="width: 200px;" mat-button [disabled]="selectProductBtnDisabled" (click)="enroll(i)">Select</button>
                                 </div>
                             </div>
                         </div>
@@ -100,10 +179,17 @@
             </div>
         </div>
     </div>
+    <br>
+    <br>
 </div>
 
-<div *ngIf="showTdsp">
-    <h2 class="text-center">Multiple Providers found serving your area! Please choose your Provider.</h2>
+<div *ngIf="showTdsp" class="residential-main">
+    <div class="container">
+        <div class="heading">
+            <h1 class="text-center">Select a Utility Provider</h1>
+            <h4 style="color:#555" class="text-center">Based on your Zip Code, multiple Utility Providers found serving your area! Please choose your Provider.</h4>
+        </div>
+    </div>
     <div class="container text-center">
         <div *ngFor="let value of tdsps;index as i;">
             <div class="text-center inner">
@@ -113,5 +199,16 @@
             </div>
         </div>
     </div>
+    <br>
+    <h1 class="text-center">Or</h1>
+    <br>
+    <div class="container text-center">
+        <div class="text-center inner">
+            <div class="selectBtn">
+                <button style="width: 450px;" mat-button (click)="showZip()">Change Zip Code</button>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
 </div>
-<app-footer-cmp></app-footer-cmp>

@@ -6,7 +6,7 @@
 export const environment = {
   production: false,
   // url: 'http://192.168.100.29:8003/',
-  // webenrollurl: 'http://192.168.100.100:8001/',
+  // webenrollurl: 'http://192.168.100.100:8000/',
   // backendurl: 'https://backend.wattcrm.com/'
   url: 'https://apis.wattcrm.com/',
   webenrollurl: 'https://webenrollapi.smartixai.com/',
