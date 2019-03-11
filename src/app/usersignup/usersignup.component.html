@@ -294,7 +294,8 @@
               </div>
             </div>
             <div class="col-lg-6 recaptcha-box recaptcha-top">
-              <blackgeeks-recaptcha></blackgeeks-recaptcha>
+              <!-- <blackgeeks-recaptcha></blackgeeks-recaptcha> -->
+              <app-recapcha class="pull-left"></app-recapcha>
               <div class="" *ngIf="isequal==false">
                 <p class="col-lg-12 errormessage" style="color: #c00">Invalid Answer</p>
               </div>
@@ -308,12 +309,12 @@
                     name="AcknowledgeTerms" tabindex="11" type="checkbox" value="true">
                   <input name="AcknowledgeTerms" type="hidden" value="false">
                   I authorize ChoiceGenie to request historical usage data for <span id="blockProperty">my property</span>,
-                  and affirm that I agree to the <a onclick="topFunction()" [routerLink]="['/Terms-of-use-and-Privacy']">ChoiceGenie Terms of Use</a>
+                  and affirm that I agree to the <a class="colo--blue" onclick="topFunction()" [routerLink]="['/Terms-of-use-and-Privacy']">ChoiceGenie Terms of Use</a>
                 </label>
               </div>
               <div class="form-group" style="margin:25px 0 0;">
 
-                <button class="btn btn-fill" style="width:100%; border-radius:50px;font-size:24px !important;text-transform: capitalize;" type="submit"
+                <button class="btn signup-btn" type="submit"
                   (click)="signupuserdata();clear() ">Register</button>
               </div>
 

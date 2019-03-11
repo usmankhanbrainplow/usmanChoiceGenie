@@ -10,13 +10,15 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatDatepickerModule} from "@angular/material";
 import { HttpClientModule } from '@angular/common/http';
 import { TextMaskModule } from 'angular2-text-mask';
+import { RecapchaModule } from '../recapcha/recapcha.module';
 
 @NgModule({
     imports: [
         CommonModule,
         RouterModule.forChild(Signup1Routes),
-        BlackgeeksRecaptchaModule,
+        // BlackgeeksRecaptchaModule,
         // MdModule,
+        RecapchaModule,
         MaterialModule,
         FormsModule,
         ReactiveFormsModule,

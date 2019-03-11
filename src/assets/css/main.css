@@ -141,7 +141,7 @@ body {
   padding: 0;
   text-align: center;
   font-size: 34px;
-  color: #c00;
+  color: #000;
 }
 .signup-tagline{
   margin: 0;
@@ -1846,7 +1846,7 @@ transform: translate3d(0, -20px, 0);
     margin-top: 0 !important;
     margin-left: 0 !important;
     display: block !important;
-    border-top: 1px solid #ccc;
+    /* border-top: 1px solid #ccc; */
     padding: 5px 10px;
     color: #333;
     font-size: 14px;
@@ -3060,11 +3060,13 @@ section {
 .login-form-1-img{
   /*background-color: #f4f4f4;*/
   /*background-color: #ffffff;*/
-  /*background: url("../../assets/img/White-Linen-Paper-Texture.jpg") no-repeat 0/cover;*/
+  background: url("../../assets/img/Modify.gif") center no-repeat;
+  background-size: cover;
 }
 
 .login-form-1-center{
-  width: 42%;
+  width: 40%;
+  max-width: 450px;
   margin: 63px auto 25px;
 }
 
@@ -3178,22 +3180,26 @@ section {
 .login-form-1 > .login-form-1-body > mat-checkbox > label{
   padding: 10px 0;
 }
-
-.login-form-1-body button{
+.colo--blue{
+  color: blue !important;
+}
+.login-form-1-body .signin-btn , .signup-btn{
   display: block;
-  width: 100%;
+  width: 85%;
   border: none;
-  background: #cc0000;
+  background: #000000;
   /* background: linear-gradient(-45deg, #25B7D3 0, #214 100%); */
   color: #fff;
-  border-radius: 30px;
+  border-radius: 30px !important;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   font-size: 28px;
   padding: 15px;
   font-weight: 500;
-  margin-top: 10px;
-  margin-bottom: 8px;
+  /* margin-top: 10px;
+  margin-bottom: 8px; */
+  margin: 10px auto;
+  box-shadow: 0 14px 26px -12px rgba(0, 0, 0, .42), 0 4px 23px 0 rgba(0, 0, 0, .12), 0 8px 10px -5px rgba(156, 39, 176, .2) !important;
 }
 
 .login-form-1-body button:hover{
@@ -3219,26 +3225,31 @@ section {
 
 .login-form-1-body > div{
   text-align: center;
-  margin: 0;
-  font-size: 18px;
-  font-weight: bold;
+  /* margin: 0; */
+  font-size: 16px;
+  font-weight: 400;
   width: 100%;
 }
 .login-form-1-body > div label{
-  float: left;
+  /* float: left; */
   margin-top: -3px;
-  font-size: 20px;
+  font-size: 14px;
 }
 .login-form-1-body > div label input{
-  margin-right: 5px;
-  margin-top: 1px;
-  zoom: 2;
+  margin-right: 3px;
+  margin-top: 0px;
+  zoom: 1.5;
+}
+.forget{
+  font-size: 14px;
+  display: block;
+  color: blue !important;
 }
 blackgeeks-recaptcha p{
   font-size: 24px !important;
 }
 .login-form-1-body > div > a{
-  color: #CC0000;
+  color: blue;
 }
 .margin-right-bottom{
   margin: 0 0 20px 0 !important;
@@ -3251,7 +3262,7 @@ blackgeeks-recaptcha p{
   margin: 10px 0 0 !important;
 }
 .login-link a{
-color: #3c4858 !important;
+/* color: #3c4858 !important; */
 }
 mat-form-field.mat-form-field{
   width: 100%;
@@ -5291,6 +5302,8 @@ canvas {
   border-radius: 25px !important;
   cursor: pointer !important;
   text-transform: capitalize !important;
+  box-shadow: 0 14px 26px -12px rgba(0, 0, 0, .42), 0 4px 23px 0 rgba(0, 0, 0, .12), 0 8px 10px -5px rgba(156, 39, 176, .2) !important;
+  /* padding: 6px 15px !important; */
 }
 .btn-fill:hover{
   background: #c00 !important;
@@ -5607,6 +5620,9 @@ padding: 0 10px;
 .margin-b{
   margin-bottom: 32px;
 }
+.margin-b-10-i{
+  margin-bottom: 10px; 
+}
 .layer-content p{
   font-size: 18px;
   line-height: 28px;
@@ -5619,10 +5635,18 @@ padding: 0 10px;
   overflow: hidden;
   margin-top: 5px;
 }
+
+.blog-img{
+  width: 100%;
+  height: 190px;
+  overflow: hidden;
+  border-radius: 10px 10px 0 0;
+}
+
 .layer-content img{
   width: 100%;
-  height: 240px;
-  border-radius: 10px 10px 0 0;
+  /* height: 240px; */
+  object-fit: cover;
 }
 
 .blog-layout-content {
@@ -5806,8 +5830,8 @@ padding: 0 10px;
 /* Start Open Model */
 .must-login {
   text-align: center;
-  font-weight: 900!important;
-  font-size: 60px;
+  font-weight: 600!important;
+  font-size: 42px;
   color: #111;
   font-family:  inherit;
   line-height: 1.0625;
@@ -5818,15 +5842,15 @@ padding: 0 10px;
 .custom-model .modal-body {
   text-align: center;
   padding: 0px 40px 5px !important;
-  font-size: 29px;
-  line-height: 1.025;
+  font-size: 18px;
+    line-height: 22px;
 }
 .custom-popup-img img {
   width: 35%;
   height: 100%;
 }
-.custom-model .modal-content {
-  background: rgba(255, 255, 255, 0.83) !important;
+.mustlogin-model {
+  background: rgba(255, 255, 255, 0.85) !important;
 }
 .custom-model {
   width: 70% !important;
@@ -6463,7 +6487,7 @@ background: linear-gradient(to bottom, #ededed 0%,#c1bfbf 100%); /* W3C, IE10+, 
   background: #000 !important;
   color: #fff;
   border: none;
-  padding: 5px 5px;
+  padding: 5px 5px !important;
   border-radius: 4px;
   margin-right: 5px;
   font-size: 16px;
@@ -7889,7 +7913,7 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
 
 
   .login-form-1{
-    width: 80%;
+    width: 100%;
     margin: 0 auto;
   }
 
@@ -8149,10 +8173,10 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
   .signup-header-text{
     font-size:18px;
   }
-  .login-form-1-body button{
+  /* .login-form-1-body button{
     font-size: 27px;
     padding: 10px;
-  }
+  } */
   .how-it-works-box{
     min-height: 100px;
     width: 100%;
@@ -8901,9 +8925,9 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
   .margin-nav70{
     margin-top: -89px;
   }
-  .navbar-nav > li > a {
+  /* .navbar-nav > li > a {
     font-size: 17px;
-  }
+  } */
   .material-icons{
     font-size: 16px;
   }
@@ -9176,7 +9200,7 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
     margin: 0 0 0 4px;
   }
   .nav-home ul{
-    padding: 18px 0 0 !important;
+    padding: 5px 0 !important;
   }
   .slick-slide img{
     width: 98%;
@@ -9251,6 +9275,10 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
   }
   .navbar-nav > li > a {
     font-size: 14px;
+    padding: 0 2px !important;
+  }
+  .login-form-1-center {
+    width: 47%;
   }
   .material-icons{
     font-size: 16px;
@@ -9390,6 +9418,9 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
 */
 
 @media (min-width: 769px) and (max-width: 991px) {
+  .login-form-1-center {
+    width: 47%;
+}
   .play-store-img2{
     left: 35%;
   }

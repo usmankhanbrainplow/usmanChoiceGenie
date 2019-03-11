@@ -12,14 +12,17 @@ import swal from 'sweetalert2';
 import { MatSelect } from '@angular/material';
 import { PasswordValidation } from './password-validator.component';
 import { ViewChild } from '@angular/core';
-import { RecaptchaComponent } from 'recaptcha-blackgeeks';
+// import { RecaptchaComponent } from 'recaptcha-blackgeeks';
+import { RecapchaComponent } from '../recapcha/recapcha.component';
+import { RecapchaService } from '../recapcha/recapcha.service';
 @Component({
   selector: 'app-signup1',
   templateUrl: './signup1.component.html',
   styleUrls: ['./signup1.component.scss']
 })
 export class Signup1Component implements OnInit {
-  @ViewChild(RecaptchaComponent) captcha: RecaptchaComponent;
+  // @ViewChild(RecaptchaComponent) captcha: RecaptchaComponent;
+  @ViewChild(RecapchaComponent) captcha: RecapchaComponent;
   state: any = [];
   city;
   username;
@@ -41,7 +44,7 @@ export class Signup1Component implements OnInit {
   hide = true;
   repname;
   isequal;
-  constructor(public router: Router, private fb: FormBuilder, private http: HttpClient, private route: ActivatedRoute,
+  constructor(public router: Router, private fb: FormBuilder, private http: HttpClient, private route: ActivatedRoute,private recha: RecapchaService,
     private sg: SimpleGlobal) { }
   ngOnInit() {
     this.states();
@@ -135,7 +138,7 @@ export class Signup1Component implements OnInit {
  
   signupuserdata() {
     //alert('hello');
-    if (this.captcha.getResponse()) {
+    if (this.recha.check()) {
       this.isequal = true;
     console.log("CHOICE GENIE", this.model);
 
@@ -172,7 +175,16 @@ export class Signup1Component implements OnInit {
         });
       }
       else {
-        this.captcha.reset();
+        // this.captcha.reset();
+        this.recha.resetImg();
+        swal({
+          type: 'error',
+          title: 'Recaptcha Confirmation',
+          text: 'Please confirm you are not a robot',
+          showConfirmButton: false,
+          width: '512px',
+          timer: 2000
+        });
         this.isequal = false;
         // this.islogin = true;
       }

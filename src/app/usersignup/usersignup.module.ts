@@ -11,13 +11,16 @@ import { HttpClientModule } from '@angular/common/http';
 import { UserSignupRoutes } from './usersignup.routing';
 import { UsersignupComponent } from './usersignup.component';
 import { TextMaskModule } from 'angular2-text-mask';
+import { RecapchaModule } from '../recapcha/recapcha.module';
 
 @NgModule({
     imports: [
         CommonModule,
         RouterModule.forChild(UserSignupRoutes),
         // MdModule,
-        BlackgeeksRecaptchaModule,TextMaskModule,
+        RecapchaModule,
+        // BlackgeeksRecaptchaModule,
+        TextMaskModule,
         MaterialModule,
         FormsModule,
         

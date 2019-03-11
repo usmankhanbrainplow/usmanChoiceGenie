@@ -19,6 +19,8 @@ import { FormBuilder, FormGroup, Validators, FormControl, AbstractControl } from
 import { PasswordValidation } from './password-validator.component';
 import { DataService } from '../../data.service';
 import { UserLoginService } from './userlogin.service';
+import { RecapchaComponent } from '../../recapcha/recapcha.component';
+import { RecapchaService } from '../../recapcha/recapcha.service';
 declare var $: any;
 declare interface ValidatorFn {
   (c: AbstractControl): {
@@ -42,7 +44,8 @@ declare interface User {
   styleUrls: ['./userlogin.component.scss']
 })
 export class UserloginComponent implements OnInit {
-  @ViewChild(RecaptchaComponent) captcha: RecaptchaComponent;
+  // @ViewChild(RecaptchaComponent) captcha: RecaptchaComponent;
+  @ViewChild(RecapchaComponent) captcha: RecapchaComponent;
   isCaptcha = false;
 
   public typeValidation: User;
@@ -70,7 +73,7 @@ export class UserloginComponent implements OnInit {
   massage;
     tit: any = [];
     title;
-  constructor(public router: Router, private element: ElementRef, private http: Http, private route: ActivatedRoute,
+  constructor(public router: Router, private element: ElementRef, private http: Http, private route: ActivatedRoute,   private recha: RecapchaService,
     private sg: SimpleGlobal, private _nav: Router, private _serv: UserLoginService,
      private formBuilder: FormBuilder, private https: HttpClient,private _http5: HttpService) {
     this.nativeElement = element.nativeElement;
@@ -105,7 +108,7 @@ export class UserloginComponent implements OnInit {
 
   }
   onLogin() {
-    if (this.captcha.getResponse()) {
+    if (this.recha.check()) {
       console.log('equ ok');
       // alert("login");
       this.isequal = true;
@@ -216,7 +219,16 @@ export class UserloginComponent implements OnInit {
       }
     }
     else {
-      this.captcha.reset();
+      this.recha.resetImg();
+      swal({
+        type: 'error',
+        title: 'Recaptcha Confirmation',
+        text: 'Please confirm you are not a robot',
+        showConfirmButton: false,
+        width: '512px',
+        timer: 2000
+      });
+      // this.captcha.reset();
       this.isequal = false;
       // this.islogin = true;
     }

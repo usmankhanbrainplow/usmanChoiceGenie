@@ -13,9 +13,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { LoginRoutes } from './userlogin.routing';
 import { DataService } from '../../data.service';
 import { UserloginComponent } from './userlogin.component';
-import { BlackgeeksRecaptchaModule } from 'recaptcha-blackgeeks';
+// import { BlackgeeksRecaptchaModule } from 'recaptcha-blackgeeks';
 import { RecaptchaModule } from 'ng-recaptcha';
 import { LoaderModule } from '../../loader/loader.module';
+import { RecapchaModule } from '../../recapcha/recapcha.module';
 
 
 
@@ -24,10 +25,11 @@ import { LoaderModule } from '../../loader/loader.module';
         CommonModule,
         RecaptchaModule.forRoot(),
         RouterModule.forChild(LoginRoutes),
-        BlackgeeksRecaptchaModule,
+        // BlackgeeksRecaptchaModule,
         LoaderModule,
         MaterialModule,
         FormsModule,
+        RecapchaModule,
         ReactiveFormsModule,
         MatDatepickerModule,
         HttpClientModule,

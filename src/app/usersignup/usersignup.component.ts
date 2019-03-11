@@ -16,6 +16,8 @@ import { LoginService } from '../pages/login/login.service';
 import { PasswordValidation } from './password-validator.component';
 import { ViewChild } from '@angular/core';
 import { RecaptchaComponent } from 'recaptcha-blackgeeks';
+import { RecapchaComponent } from '../recapcha/recapcha.component';
+import { RecapchaService } from '../recapcha/recapcha.service';
 
 
 
@@ -26,8 +28,9 @@ import { RecaptchaComponent } from 'recaptcha-blackgeeks';
 })
 
 export class UsersignupComponent implements OnInit {
-  @ViewChild(RecaptchaComponent) captcha: RecaptchaComponent;
+  // @ViewChild(RecaptchaComponent) captcha: RecaptchaComponent;
   // @ViewChild('username') el:ElementRef; captcha: RecaptchaComponent
+  @ViewChild(RecapchaComponent) captcha: RecapchaComponent;
   state;
   city;
   username;
@@ -49,7 +52,7 @@ export class UsersignupComponent implements OnInit {
   usernameexist: boolean = true;
   service_zip;
   isequal;
-  constructor(private _serv: LoginService, public router: Router, private fb: FormBuilder, private http: HttpClient, private route: ActivatedRoute, private sg: SimpleGlobal) {
+  constructor(private _serv: LoginService, public router: Router, private fb: FormBuilder, private http: HttpClient, private route: ActivatedRoute, private sg: SimpleGlobal,private recha: RecapchaService) {
     // this.captcha.reset();
     // let status = this.captcha.getResponse();
   }
@@ -240,7 +243,7 @@ export class UsersignupComponent implements OnInit {
   signupuserdata() {
 
     //console.log("main form",this.signupForm.value)
-    if (this.captcha.getResponse()) {
+    if (this.recha.check()) {
       this.isequal = true;
       console.log("CHOICE GENIE", this.model);
       let headers = new HttpHeaders();
@@ -271,7 +274,16 @@ export class UsersignupComponent implements OnInit {
     }
 
     else {
-      this.captcha.reset();
+      // this.captcha.reset();
+      this.recha.resetImg();
+      swal({
+        type: 'error',
+        title: 'Recaptcha Confirmation',
+        text: 'Please confirm you are not a robot',
+        showConfirmButton: false,
+        width: '512px',
+        timer: 2000
+      });
       this.isequal = false;
       // this.islogin = true;
     }

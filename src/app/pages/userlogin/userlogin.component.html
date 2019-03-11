@@ -24,16 +24,17 @@
 
             </mat-form-field>
    
-          <div class="float-left">
+          <div class="col-lg-6 col-md-6 padding-zero-i text-left">
               <label >
                 <input type="checkbox" [(ngModel)]="staySignedIn" formControlName="staySignedIn" value="staySignedIn" (change)="checked($event,i)" checked="true">
                 <!-- <input [(ngModel)]="staySignedIn" type="checkbox" checked="true" name="stay-signed" value="Stay Sign In"> -->
                 <div class="float-r">Stay Signed In</div>
               </label>
-              <a class="float-r" value="Delete" data-toggle="modal" data-target="#myModal3">Forgot Password?</a>
+              <a class="forget" value="Delete" data-toggle="modal" data-target="#myModal3">Forgot Password?</a>
             </div>
-            <div class="col-lg-12 text-center margin-right-bottom">
-              <blackgeeks-recaptcha class="" ></blackgeeks-recaptcha>
+            <div class="col-lg-6 col-md-6 margin-b-10-i">
+              <!-- <blackgeeks-recaptcha class="" ></blackgeeks-recaptcha> -->
+              <app-recapcha ></app-recapcha>
             </div>
             <div class="invalid-ans" *ngIf="isequal==false">
               <p class="col-lg-12 errormessage" style="color: #CC0000">Invalid Answer</p>
@@ -42,7 +43,7 @@
           <!-- <re-captcha (resolved)="resolved($event)" siteKey="6Lc4418UAAAAAPxDwXhjAF3a2sdRn2RIoMQxF9D9
           " style="transform:scale(0.77);-webkit-transform:scale(0.77);transform-origin:0 0;-webkit-transform-origin:0 0;"></re-captcha>
            -->
-          <button type="submit" (click)="onLogin()"  class="btn-fill">Sign In</button>
+          <button type="submit" (click)="onLogin()"  class="signin-btn">Sign In</button>
           <!-- <a  value="Delete" data-toggle="modal" data-target="#myModal3">Forgot Password?</a> -->
           <div class="modal fade" id="myModal3" role="dialog">
             <div class="modal-dialog">
