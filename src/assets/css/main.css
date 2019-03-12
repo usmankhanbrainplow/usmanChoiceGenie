@@ -330,6 +330,9 @@ p {
 .color-black{
   color: #000000;
 }
+.color-blue{
+  color: blue;
+}
 .color-white{
   color: #ffffff !important;
 }
