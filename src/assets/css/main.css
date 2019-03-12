@@ -141,7 +141,10 @@ body {
   padding: 0;
   text-align: center;
   font-size: 34px;
-  color: #000;
+  color: #fff;
+  background: #000;
+  border-radius: 5px;
+  margin: -13px 0 0;
 }
 .signup-tagline{
   margin: 0;
@@ -234,6 +237,9 @@ body {
 }
 .margin-t-15{
   margin-top: 15px !important;
+}
+.margin-t-30{
+  margin-top: 30px;
 }
 .padding-zero-i{
   padding: 0 !important;
@@ -1997,6 +2003,7 @@ padding: 7px 0 7px 10px !important;
   .list-contact {
   font-size: 18px;
   font-weight: bold;
+  margin: 0;
   }
 
   .list-contact a {
@@ -3059,9 +3066,9 @@ section {
 /*Login Form*/
 .login-form-1-img{
   /*background-color: #f4f4f4;*/
-  /*background-color: #ffffff;*/
-  background: url("../../assets/img/Modify.gif") center no-repeat;
-  background-size: cover;
+  background-color: #ffffff;
+  /* background: url("../../assets/img/Modify.gif") center no-repeat;
+  background-size: cover; */
 }
 
 .login-form-1-center{
@@ -3069,7 +3076,11 @@ section {
   max-width: 450px;
   margin: 63px auto 25px;
 }
-
+.stay-check{
+  text-align: left !important;
+  padding: 0 !important;
+  margin-top: 8px;
+}
 .login-form-1{
   background: #fff;
   width: 100%;
@@ -3277,7 +3288,8 @@ mat-form-field.mat-form-field{
 }
 
 .mat-form-field-invalid .mat-form-field-placeholder{
-  color: #333333 !important;
+  /* color: #333333 !important; */
+  color: rgba(0,0,0,.54) !important;
 }
                                                     /*Login Form End*/
 
@@ -4215,7 +4227,8 @@ h1, .entry-title-2 {
   /* font-size: 27px; */
   font-size: 18px;
   font-weight: 700;
-  color: #333;
+  /* color: #333; */
+  color: rgba(0,0,0,.54);
   /*margin-top: 10px !important;*/
 }
 .vander-signup-heading {
@@ -5710,7 +5723,7 @@ padding: 0 10px;
 }
 .play-store-img2 li {
   display: inline;
-  padding-right: 10px;
+  /* padding-right: 0px; */
 }
 .iosBadge {
   max-width: 25%;
@@ -7872,7 +7885,10 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
     margin: 0 0 0;
   }
   .list-contact a {
-    font-size: 14px;
+    font-size: 12px;
+  }
+  .newsletter-p {
+    font-size: 12px !important;
   }
   .list-contact li i {
     width: 16px;
@@ -8901,9 +8917,10 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
     margin: 0 0 0 10px;
     left: 34%;
   }
-
-
-
+  .logo img{
+    width: 100%;
+    margin-top: 9px;
+  }
   .sidenav{
     width: 0px !important;
   }
@@ -8920,7 +8937,7 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
   }
   .body-margin {
     /* margin-top: 89px; */
-    margin-top: 59px;
+    margin-top: 84px;
   }
   .margin-nav70{
     margin-top: -89px;
@@ -9395,7 +9412,10 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
     padding: 0 !important;
   }
   .list-contact a{
-    font-size: 16px;
+    font-size: 13px;
+  }
+  .newsletter-p {
+    font-size: 13px !important;
   }
   .subscribe{
     padding: 0;
@@ -9467,6 +9487,13 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
 */
 
 @media (min-width: 481px) and (max-width: 768px) {
+  .img-box h3{
+    font-size: 22px !important;
+  }
+  .img-box p {
+    font-size: 16px;
+    line-height: 24px;
+  }
   .margintop {
     margin-top: 85px !important;
   }
