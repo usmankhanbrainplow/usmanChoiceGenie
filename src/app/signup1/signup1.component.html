@@ -16,7 +16,7 @@
 
 
 <div class="card-content card-content-fixed" style="padding-top: 1px;">
-  <form [formGroup]="signupForm" *ngIf="signupForm">
+  <form class="sh-signup-form-fix" [formGroup]="signupForm" *ngIf="signupForm">
 
     <!-- <div class="signup-form-fixed" data-background-color="rose">
       <i class="material-icons">mail_outline</i>
@@ -39,10 +39,10 @@
 
 
 
-      <div class="row sh-signup-form-fix">
+      <div class="row">
 
         <div class="col-sm-4">
-          <div class="margin-t">
+          <div class="margin-b-10-i">
             <mat-form-field>
               <input matInput placeholder="REP Name" [formControl]="signupForm.controls['repname']" #repname required [(ngModel)]="model.repname" class="text-transform">
               <mat-icon matSuffix (click)="hide = !hide">account_circle </mat-icon>
@@ -51,9 +51,8 @@
             </mat-form-field>
           </div>
         </div>
-        <br class="clearfix" />
         <div class="col-sm-4">
-          <div class="margin-t">
+          <div class="margin-b-10-i">
             <mat-form-field>
               <input matInput placeholder="REP Certificate #" [formControl]="signupForm.controls['repid']" #REP_certificate_id1 (ngModelChange)="Checkzipcode(REP_certificate_id1.value)" required [(ngModel)]="model.repid">
               <mat-icon matSuffix (click)="hide = !hide" >card_giftcard</mat-icon>
@@ -64,9 +63,8 @@
             </mat-form-field>
           </div>
         </div>
-        <br class="clearfix" />
         <div class="col-sm-4">
-          <div class="form-group margin-t">
+          <div class="margin-b-10-i">
 
             <mat-form-field>
               <input matInput placeholder="Email" required [formControl]="signupForm.controls['email']" #email1 (ngModelChange)="emailCheck(email1.value)"
@@ -82,10 +80,8 @@
 
           </div>
         </div>
-
-        <br class="clearfix" />
         <div class="col-sm-4">
-          <div class="form-group margin-t">
+          <div class="margin-b-10-i">
 
             <mat-form-field>
               <input matInput placeholder="Contact Email" required [formControl]="signupForm.controls['contact_email']" [(ngModel)]="model.contact_email" />
@@ -100,10 +96,8 @@
 
           </div>
         </div>
-
-        <br class="clearfix" />
         <div class="col-sm-4">
-          <div class="form-group margin-t ">
+          <div class="margin-b-10-i">
             <mat-form-field>
               <input matInput [textMask]="{mask: phoneMask}" placeholder="Contact No." [formControl]="signupForm.controls['contactphone']" required [(ngModel)]="model.contactphone">
               <mat-icon matSuffix (click)="hide = !hide" >settings_phone</mat-icon>
@@ -112,10 +106,8 @@
             </mat-form-field>
           </div>
         </div>
-
-        <br class="clearfix" />
         <div class="col-sm-4">
-          <div class="form-group margin-t ">
+          <div class="margin-b-10-i">
             <mat-form-field>
               <input matInput placeholder="Contact Name" [formControl]="signupForm.controls['contactname']" required [(ngModel)]="model.contactname">
               <mat-icon matSuffix (click)="hide = !hide" >account_box</mat-icon>
@@ -124,10 +116,8 @@
 
           </div>
         </div>
-
-        <br class="clearfix" />
         <div class="col-sm-4">
-          <div class="form-group margin-t ">
+          <div class="">
             <mat-form-field>
 
               <input matInput placeholder="Company User Name" [formControl]="signupForm.controls['username']" (ngModelChange)="usernameCheck(username1.value)"
@@ -148,9 +138,8 @@
             </ng-template> -->
           </div>
         </div>
-        <br class="clearfix" />
         <div class="col-sm-4">
-          <div class="form-group margin-t ">
+          <div class="">
             <mat-form-field>
               <input matInput placeholder="Password" type="password" [type]="hide ? 'password' : 'text'"  [formControl]="signupForm.controls['password']" required [(ngModel)]="model.password">
               <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
@@ -162,9 +151,8 @@
                 </mat-form-field>
           </div>
         </div>
-        <br class="clearfix" />
         <div class="col-sm-4">
-          <div class="form-group margin-t ">
+          <div class="margin-b-20">
             <mat-form-field>
               <input matInput placeholder="Confirm Password" type="password"[type]="hide ? 'password' : 'text'" [formControl]="signupForm.controls['confirmpassword']" [(ngModel)]="model.confirmpassword" required>
               <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>

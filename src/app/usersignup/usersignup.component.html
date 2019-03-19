@@ -19,7 +19,7 @@
 
 
 
-      <form [formGroup]="signupForm" *ngIf="signupForm">
+      <form class="sh-signup-form-fix" [formGroup]="signupForm" *ngIf="signupForm">
 
         <!-- <div class="signup-form-fixed" data-background-color="rose">
           <i class="material-icons">mail_outline</i>
@@ -41,9 +41,9 @@
 
 
 
-          <div class="row sh-signup-form-fix">
+          <div class="row ">
             <div class="col-sm-4">
-              <div class="margin-t">
+              <div class="margin-b-10-i">
 
                 <mat-form-field>
                   <input matInput placeholder="  Name" [formControl]="signupForm.controls['name']" required [(ngModel)]="model.name"
@@ -55,9 +55,8 @@
                 </mat-form-field>
               </div>
             </div>
-            <br class="clearfix" />
             <div class="col-sm-4">
-              <div class="margin-t">
+              <div class="margin-b-10-i">
 
                 <mat-form-field>
                   <input matInput placeholder="Service Zip Code" maxlength="5" (ngModelChange)="states(zip.value)" #zip
@@ -75,9 +74,8 @@
                 </mat-form-field>
               </div>
             </div>
-            <br class="clearfix" />
             <div class="col-sm-4">
-              <div class="form-group margin-t">
+              <div class="margin-b-10-i">
 
                 <mat-form-field>
                   <input matInput placeholder="Service Address" [formControl]="signupForm.controls['service_address']"
@@ -89,9 +87,8 @@
                 </mat-form-field>
               </div>
             </div>
-            <br class="clearfix" />
             <div class="col-sm-4">
-              <div class="form-group margin-t">
+              <div class="margin-b-10-i">
 
 
                 <!-- <mat-form-field>
@@ -113,9 +110,8 @@
                 </mat-form-field> -->
               </div>
             </div>
-            <br class="clearfix" />
             <div class="col-sm-4">
-              <div class="form-group margin-t">
+              <div class="margin-b-10-i">
 
                 <mat-form-field>
                   <input matInput placeholder="Service City" [formControl]="signupForm.controls['service_city']"
@@ -137,9 +133,8 @@
                    </mat-form-field>
               </div>
             </div> -->
-            <br class="clearfix" />
             <div class="col-sm-4">
-              <div class="form-group margin-t">
+              <div class="margin-b-10-i">
 
                 <mat-form-field>
                   <input matInput placeholder="Email" required [formControl]="signupForm.controls['email']" #email1
@@ -164,9 +159,8 @@
 
 
 
-            <br class="clearfix" />
             <div class="col-sm-6">
-              <div class="form-group margin-t">
+              <div class="margin-b-10-i">
 
                 <mat-form-field>
                   <input matInput [textMask]="{mask: phoneMask}" placeholder="Contact No" [formControl]="signupForm.controls['phoneno']"
@@ -234,9 +228,8 @@
                      </mat-form-field>
               </div>
             </div> -->
-            <br class="clearfix" />
             <div class="col-sm-6">
-              <div class="form-group margin-t">
+              <div class="margin-b-10-i">
                 <mat-form-field>
 
                   <input matInput placeholder="User name " [formControl]="signupForm.controls['username']"
@@ -258,10 +251,8 @@
               </ng-template> -->
               </div>
             </div>
-
-            <br class="clearfix" />
             <div class="col-sm-6">
-              <div class="form-group margin-t">
+              <div class="">
 
                 <mat-form-field>
                   <input matInput placeholder="Password" type="password" [type]="hide ? 'password' : 'text'"
@@ -274,11 +265,10 @@
                 </mat-form-field>
               </div>
             </div>
-            <br class="clearfix" />
             <div class="col-sm-6">
-              <div class="form-group margin-t">
+              <div class="">
 
-                <mat-form-field>
+                <mat-form-field class="margin-b-20">
                   <input matInput placeholder="Confirm Password" type="password" [type]="hide ? 'password' : 'text'"
                     [formControl]="signupForm.controls['confirmpassword']" required>
                   <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
