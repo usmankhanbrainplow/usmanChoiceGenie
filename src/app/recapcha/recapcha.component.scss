@@ -3,22 +3,27 @@
     margin: 8px 0 0;
     background: #fff;
     padding: 4px;
-    border-radius: 5px;
+    // border-radius: 5px;
     font-size: 20px;
-    border: 2px inset;
+    // border: 2px inset;
     font-weight: 600;
-    color: #000
+    color: #000;
+    border-bottom: 1px solid;
+    text-align: center !important;
 }
 
-.recapcha-input::placeholder {
-    color: #5d5d5d
+input::placeholder {
+    color: #5d5d5d !important;
+    font-weight: 300;
 }
-
+.sh-signup-form-fix .mat-input-element:focus{
+    border-bottom: 1px solid !important;
+}
 .card {
     width: 188px;
     float: right;
     padding: 8px;
-    background: #f2f2f2;
+    background: #fff;
   margin: 0 0 10px;
 }
 

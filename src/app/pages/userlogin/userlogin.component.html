@@ -2,7 +2,7 @@
 <div class="login-form-1-img">
   <div class="container">
     <div class="login-form-1-center">
-      <form [formGroup]="login" class="login-form-1">
+      <form [formGroup]="login" class="login-form-1 sh-signup-form-fix">
         <div class="login-form-1-header">
             <h3>Sign In to Your ChoiceGenie</h3>
           <!-- <ul class="logic-from-1-sl">
@@ -12,12 +12,12 @@
           </ul> -->
         </div>
         <div class="login-form-1-body">
-          <mat-form-field [ngClass]="displayFieldCss(login, 'username')">
+          <mat-form-field class="margin-b-10-i" [ngClass]="displayFieldCss(login, 'username')">
             <input matInput id="username" placeholder="Enter Username" formControlName="username" [(ngModel)]="username">
             <mat-error *ngIf="login.controls.username.value == '' || !login.controls.username.value"><strong>This Field cannot be empty</strong></mat-error>
 
           </mat-form-field>
-          <mat-form-field [ngClass]="displayFieldCss(login, 'password')" class="margin-t-15">
+          <mat-form-field [ngClass]="displayFieldCss(login, 'password')" class="">
               <input matInput type="password" id="password" [type]="hide ? 'password' : 'text'"  placeholder="Enter Your Password" formControlName="password" [(ngModel)]="password">
               <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
               <mat-error *ngIf="login.controls.password.value == '' || !login.controls.password.value"><strong>This Field cannot be empty</strong></mat-error>
@@ -32,7 +32,7 @@
               </label>
               <a class="forget" value="Delete" data-toggle="modal" data-target="#myModal3">Forgot Password?</a>
             </div>
-            <div class="col-lg-6 col-md-6 margin-b-10-i">
+            <div class="col-lg-6 col-md-6 padding-zero">
               <!-- <blackgeeks-recaptcha class="" ></blackgeeks-recaptcha> -->
               <app-recapcha ></app-recapcha>
             </div>
