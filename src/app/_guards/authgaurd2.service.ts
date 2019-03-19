@@ -14,7 +14,7 @@ export class Authgaurd2Service {
     }
 
 // not logged in so redirect to login page with the return url
-    this.router.navigate(['/userlogin'], { queryParams: { returnUrl: state.url }});
+    this.router.navigate(['/login'], { queryParams: { returnUrl: state.url }});
     // swal("Please Login First", "", "warning")
     return false;
   }

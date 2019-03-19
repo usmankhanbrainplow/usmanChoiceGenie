@@ -29,11 +29,11 @@ export class ActivateaccountComponent implements OnInit {
             showConfirmButton: false,
             timer: 1500
           })
-          this.router.navigate(['/userlogin']);
+          this.router.navigate(['/login']);
         },
         error => {
           alert(error)
-          this.router.navigate(['/userlogin']);
+          this.router.navigate(['/login']);
         });
   }
 

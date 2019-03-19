@@ -88,29 +88,63 @@ export class InactiveProductComponent implements OnInit {
         console.log(this.title, 1)
     }
     
-    btnactiveClick(id, val1, val2, val3, val4, val5, val6, val12, val13, val7, val8, val9, val10, val11) {
+    // btnactiveClick(id, val1, val2, val3, val4, val5, val6, val12, val13, val7, val8, val9, val10, val11) {
+        
+    //     this.catagoryId = id;
+    //     console.log(this.plan_information)
+    //     this.title = val1;
+    //     this.sign_up = val2;
+    //     this.phone = val3;
+    //     this.terms_of_service = val4;
+    //     this.plan_information = val8;
+    //     this.fact_sheet = val5;
+    //     this.cancelation_fee = val6;
+    //     this.price_1000_kwh = val7;
+    //     this.price_500_kwh = val12;
+    //     this.status = true;
+    //     this.price_2000_kwh = val13;
+
+    //     this.rating_logo = val9;
+    //     this.profile_logo = val10;
+    //     this.profileurl = val11;
+
+    //     console.log(id, val1, val2, val3, val4, val5, val6, val12, val13, val7, val8, val9, val10, val11)
+    //     console.log('id : ' + this.catagoryId);
+    // }
+    btnactiveClick(id, val1, val2, val3, val4, val5, val6, val7, val8, val9, val10, val11, val12, val13) {
+        // data.id,data.title,data.sign_up,data.phone,data.terms_of_service,
+        // data.fact_sheet,data.cancelation_fee,data.price_1000_kwh,data.price_500_kwh,
+        // data.price_2000_kwh,data.plan_information,data.rating_logo,data.profile_logo,data.profileurl
+
         this.catagoryId = id;
         console.log(this.plan_information)
         this.title = val1;
         this.sign_up = val2;
         this.phone = val3;
         this.terms_of_service = val4;
-        this.plan_information = val8;
         this.fact_sheet = val5;
         this.cancelation_fee = val6;
         this.price_1000_kwh = val7;
-        this.price_500_kwh = val12;
-        this.status = true;
-        this.price_2000_kwh = val13;
-
-        this.rating_logo = val9;
-        this.profile_logo = val10;
-        this.profileurl = val11;
+        this.price_500_kwh = val8;
+         
+        console.log(this.price_500_kwh,"Prcie 500")
+        this.price_2000_kwh = val9;
+ 
+        console.log(this.price_2000_kwh,"Prcie 2000")
+        this.plan_information = val10; 
+        console.log(this.price_1000_kwh,"price 1000")
+     
+        this.rating_logo = val11;
+        this.profile_logo = val12;
+        this.profileurl = val13;
+       
+        this.status = false;
+    
+ 
 
         console.log(id, val1, val2, val3, val4, val5, val6, val12, val13, val7, val8, val9, val10, val11)
         console.log('id : ' + this.catagoryId);
     }
-
     //Event Binding of PopUp Delete Modal
 
     activeClick(date,updatedtitle, updatedsign_up, updatedphone, updatedterms_of_service, updatedfact_sheet, updatedcancelation_fee, updatedprice500kwh, updatedprice1000kwh, updatedprice2000kwh, updatedplan_information, updatedrating_logo, updatedprofile_logo, updatedprofileurl, upactive) {
@@ -135,10 +169,14 @@ export class InactiveProductComponent implements OnInit {
     noresult;
     search(page:number) {
         this.title = localStorage.getItem('title');
+        // let headers = new Headers();
+        // // headers.append('Content-Type', 'application/json');
+        // headers.append('Authorization', 'JWT ' + localStorage.getItem('token'));
+        // console.log('pofile', localStorage.getItem('token'));
         let headers = new Headers();
-        // headers.append('Content-Type', 'application/json');
         headers.append('Authorization', 'JWT ' + localStorage.getItem('token'));
         console.log('pofile', localStorage.getItem('token'));
+        headers.append('Content-Type', 'application/json');
         this.http.post(Config.api + 'search_by_vendor/' + this.title +'?page='+page, JSON.stringify({
           "productinactive":moment(this.Inactivedate).format('YYYY/MM/DD'),
           "propublish":moment(this.publishdate).format('YYYY/MM/DD'),
@@ -164,6 +202,10 @@ export class InactiveProductComponent implements OnInit {
    
     //Event Binding of Delete Buttons
     btnEditClick(id, title, sign_up, phone, terms_of_service, fact_sheet, cancelation_fee, price_1000_kwh, price_500_kwh, price_2000_kwh, plan_information, rating_logo, profile_logo, profileurl) {
+        // data.id,data.title,data.sign_up,data.phone,data.terms_of_service,
+        // data.fact_sheet,data.cancelation_fee,
+        // data.price_1000_kwh,data.price_500_kwh,data.price_2000_kwh,
+        // data.plan_information,data.rating_logo,data.profile_logo,data.profileurl       
         this.catagoryId = id;
 
         console.log(this.plan_information)
@@ -174,13 +216,14 @@ export class InactiveProductComponent implements OnInit {
         this.fact_sheet = fact_sheet;
         this.cancelation_fee = cancelation_fee;
         this.price_1000_kwh = price_1000_kwh;
+        this.price_500_kwh = price_500_kwh;
+        this.price_2000_kwh = price_2000_kwh;
         this.plan_information = plan_information;
         this.rating_logo = rating_logo;
 
         this.profile_logo = profile_logo;
         this.profileurl = profileurl;
-        this.price_500_kwh = price_500_kwh;
-        this.price_2000_kwh = price_2000_kwh;
+   
         console.log(id, title, sign_up, phone, terms_of_service, fact_sheet, cancelation_fee, price_1000_kwh, price_500_kwh, price_2000_kwh, plan_information, rating_logo, profile_logo, profileurl)
         console.log('id : ' + this.catagoryId);
     }

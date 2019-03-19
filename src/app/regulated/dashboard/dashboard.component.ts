@@ -46,6 +46,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 
 })
 export class DashboardComponent implements OnInit, AfterViewInit {
+    
     constructor(private route: ActivatedRoute, private https: HttpClient, private newService: DeleteService, private serve: EditService,
         private formBuilder: FormBuilder, private router: Router, private http: Http, private pagerService: PagerService, private homeService: HomeService, private sg: SimpleGlobal, private dialog: MatDialog, private dataa: DataService, private companyService: CompanyService) {
 
@@ -53,6 +54,8 @@ export class DashboardComponent implements OnInit, AfterViewInit {
 
     }
     // date;
+    public updatedmydate;
+    public updateddate;
     mydate;
     today = Date.now();
     // mydate;
@@ -258,7 +261,10 @@ export class DashboardComponent implements OnInit, AfterViewInit {
         }, error => {
         });
     }
-    btnactiveClick(id, val1, val2, val3, val4, val5, val6, val12, val13, val7, val8, val9, val10, val11) {
+    btnactiveClick(id, val1, val2, val3, val4, val5, val6, val7, val8, val9, val10, val11, val12, val13) {
+        // data.id,data.title,data.sign_up,data.phone,data.terms_of_service,
+        // data.fact_sheet,data.cancelation_fee,data.price_1000_kwh,data.price_500_kwh,
+        // data.price_2000_kwh,data.plan_information,data.rating_logo,data.profile_logo,data.profileurl
 
         this.catagoryId = id;
         console.log(this.plan_information)
@@ -266,17 +272,25 @@ export class DashboardComponent implements OnInit, AfterViewInit {
         this.sign_up = val2;
         this.phone = val3;
         this.terms_of_service = val4;
-        this.plan_information = val8;
         this.fact_sheet = val5;
         this.cancelation_fee = val6;
         this.price_1000_kwh = val7;
-        this.price_500_kwh = val12;
+        this.price_500_kwh = val8;
+      
+        console.log(this.price_500_kwh,"Prcie 500")
+        this.price_2000_kwh = val9;
+        
+        console.log(this.price_2000_kwh,"Prcie 2000")
+        this.plan_information = val10; 
+        console.log(this.price_1000_kwh,"price 1000")
+     
+        this.rating_logo = val11;
+        this.profile_logo = val12;
+        this.profileurl = val13;
+       
         this.status = false;
-        this.price_2000_kwh = val13;
-
-        this.rating_logo = val9;
-        this.profile_logo = val10;
-        this.profileurl = val11;
+    
+ 
 
         console.log(id, val1, val2, val3, val4, val5, val6, val12, val13, val7, val8, val9, val10, val11)
         console.log('id : ' + this.catagoryId);
@@ -288,6 +302,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
         console.log('edit' + updatedmydate, updateddate, updatedtitle, updatedsign_up, updatedphone, updatedterms_of_service, updatedfact_sheet, updatedcancelation_fee, updatedprice500kwh, updatedprice1000kwh, updatedprice2000kwh, updatedplan_information, updatedrating_logo, updatedprofile_logo, updatedprofileurl, upactive);
         console.log("TS OBJECT", updatedtitle, updatedsign_up, updatedphone, updatedterms_of_service, updatedfact_sheet, updatedcancelation_fee, updatedprice500kwh, updatedprice1000kwh, updatedprice2000kwh, updatedplan_information, updatedrating_logo, updatedprofile_logo, updatedprofileurl, upactive);
         //Calling Delete Service
+        if (this.updatedmydate != '' || this.updateddate != '') {
         this.serve.editTodoList(updatedmydate, updateddate, this.catagoryId, updatedtitle, updatedsign_up, updatedphone, updatedterms_of_service, updatedfact_sheet, updatedcancelation_fee, updatedprice500kwh, updatedprice1000kwh, updatedprice2000kwh, updatedplan_information, updatedrating_logo, updatedprofile_logo, updatedprofileurl, false).subscribe(data => {
             console.log(data);
             swal({
@@ -300,6 +315,15 @@ export class DashboardComponent implements OnInit, AfterViewInit {
 
         }, error => {
         });
+    }
+    else {
+        swal({
+            type: 'error',
+            title: 'Please Select the deactive date ',
+            showConfirmButton: false,
+            timer: 1500
+        })
+    }
 
     }
 

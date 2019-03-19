@@ -65,7 +65,8 @@ export class NewProductsComponent implements OnInit {
   secondFormGroup: FormGroup;
   thirdFormGroup: FormGroup;
   fourthFormGroup: FormGroup;
-
+  enrollment_productid;
+  product_batch_rate
   constructor(private https: HttpService, public router: Router, private fb: FormBuilder, private http: Http, private _http: HttpClient, private sg: SimpleGlobal) { }
   title;
 
@@ -128,7 +129,9 @@ export class NewProductsComponent implements OnInit {
 'status_600':[],
 'status_900':[],
 'status_1200':[],
-'status_1500':[]
+'status_1500':[],
+'enrollment_productid': ['', Validators.compose([Validators.required])],
+      'product_batch_rate': ['', Validators.compose([Validators.required])],
 
     });
   }
@@ -343,8 +346,8 @@ alert(this.fact_sheet)
   }
   // this.pkg_detail['credit']=this.cardnumber1 + this.cardnumber2 +
   // this.cardnumber3 + this.cardnumber4
-  signupuserdata(zipcode, utilityarea, contact_email, title, profileurl, profile_logo, plan_information, cancelation_fee, fact_sheet, terms_of_service, phone, sign_up, minimum_usage_fee, renewable, specialterms, price_1000_kwh, price_500_kwh, price_2000_kwh, publish_product_date, product_inactive_date) {
-    console.log(zipcode, utilityarea, contact_email, title, profileurl, profile_logo, plan_information, cancelation_fee, fact_sheet, terms_of_service, phone, sign_up, minimum_usage_fee, renewable, specialterms, price_1000_kwh, price_500_kwh, price_2000_kwh, publish_product_date, product_inactive_date);
+  signupuserdata(zipcode, utilityarea, contact_email, title, profileurl, profile_logo, plan_information, cancelation_fee, fact_sheet, terms_of_service, phone, sign_up, minimum_usage_fee, renewable, specialterms, price_1000_kwh, price_500_kwh, price_2000_kwh, publish_product_date, product_inactive_date,enrollment_productid,product_batch_rate) {
+    console.log(zipcode, utilityarea, contact_email, title, profileurl, profile_logo, plan_information, cancelation_fee, fact_sheet, terms_of_service, phone, sign_up, minimum_usage_fee, renewable, specialterms, price_1000_kwh, price_500_kwh, price_2000_kwh, publish_product_date, product_inactive_date,enrollment_productid,product_batch_rate);
     //  console.log(this.spublishdate,this.Inactivedate)
     // 1,000 kWh 7.3..500 kWh 7.6..2000 kWh 7.1
     this.price_rate= '600 kWh '+this.price_600_kwh +'..900 kWh '+this.price_900_kwh +'..1200 kwh '+this.price_1200_kwh +'..1500 kwh '+this.price_1500_kwh ;
@@ -353,8 +356,8 @@ alert(this.fact_sheet)
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
 
-    headers.append('Authorization', 'JWT ' + localStorage.getItem('token'));
-    console.log('pofile', localStorage.getItem('token'));
+    // headers.append('Authorization', 'JWT ' + localStorage.getItem('token'));
+    // console.log('pofile', localStorage.getItem('token'));
   
     this.http.post(Config.api + 'deregulated_add_product/', JSON.stringify({
       "zipcode": zipcode,
@@ -377,7 +380,10 @@ alert(this.fact_sheet)
       "price_2000_kwh": price_2000_kwh,
       "contact_email": contact_email,
       "publish_product_date": moment(publish_product_date).format("YYYY/MM/DD"),
-      "product_inactive_date": moment(product_inactive_date).format("YYYY/MM/DD")
+      "product_inactive_date": moment(product_inactive_date).format("YYYY/MM/DD"),
+      "enrollment_productid":enrollment_productid,
+      "product_batch_rate":product_batch_rate,
+      "check":true
     }), { headers: headers })
       .subscribe(Res => {
 

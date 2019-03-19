@@ -22,6 +22,8 @@ import { PasswordValidation } from './password-validator.component';
 })
 export class ChangepasswordComponent implements OnInit {
   hide = true;
+  hide1 =true;
+  hide2=true;
 public username;
   constructor(private fb: FormBuilder,private serve:ChangepasswordService) { }
   oldpass;
@@ -50,7 +52,7 @@ console.log("TS OBJECT",);
         console.log(data);
         swal({
             type: 'success',
-            title: 'Updated Your Profile',
+            title: 'Password Updated',
             showConfirmButton: false,
             timer: 1500
           })

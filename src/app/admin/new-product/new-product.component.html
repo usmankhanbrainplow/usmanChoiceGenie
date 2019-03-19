@@ -73,7 +73,7 @@
                   <div class="col-sm-6">
                       <div class="form-group">
                         <mat-form-field>
-                            <input matInput placeholder="Contact Email"   value="{{comprofile.contact_email}}" name="contact_email" #contact_email >
+                            <input matInput placeholder="Contact Email"   value="{{comprofile?.contact_email}}" name="contact_email" #contact_email >
                           <!-- <input matInput placeholder="Contact Email"  [(ngModel)]="contact_email" value="{{comprofile.contact_email}}" formControlName="contact_email"> -->
                           <mat-error *ngIf="signupForm.controls['contact_email'].value == '' || !signupForm.controls['contact_email'].value"><strong>This Field cannot be empty</strong></mat-error>
                           <!-- <mat-error *ngIf="signupForm.controls['contact_email'].invalid"><strong>Please enter a valid email address</strong></mat-error> -->
@@ -444,12 +444,30 @@
                         </mat-form-field>
                       </div>
                   </div>
+                  <div class="col-sm-4">
+                    <div class="form-group">
+                        <mat-form-field class="">
+                          <input matInput  placeholder="Enrollment product id" required [(ngModel)]="enrollment_productid" formControlName="enrollment_productid">
+                          <mat-error *ngIf="fourthFormGroup.controls['enrollment_productid'].value == '' || !fourthFormGroup.controls['enrollment_productid'].value"><strong>This Field cannot be empty</strong></mat-error>
+
+                        </mat-form-field>
+                      </div>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="form-group">
+                        <mat-form-field class="">
+                          <input matInput  placeholder="Product Batch Rate" required [(ngModel)]="product_batch_rate" formControlName="product_batch_rate">
+                          <mat-error *ngIf="fourthFormGroup.controls['product_batch_rate'].value == '' || !fourthFormGroup.controls['product_batch_rate'].value"><strong>This Field cannot be empty</strong></mat-error>
+
+                        </mat-form-field>
+                      </div>
+                  </div>
                 </div>
                 <div class="text-right">
                   <button mat-button matStepperPrevious class="btn btn-fill">
                     <i _ngcontent-c0="" class="fa fa-angle-left" style="font-size: 26px; margin: -9px 3px 0px 0px;"></i>
                     Back</button>
-                  <button type="submit" mat-button matStepperNext (click)="signupuserdata(zipcode,utilityarea,contact_email.value,title.value,profileurl.value,profile_logo.value,plan_information,cancelation_fee,fact_sheet,terms_of_service,phone,sign_up.value,minimum_usage_fee,renewable,spectialterms,price_1000_kwh,price_500_kwh,price_2000_kwh, publish_product_date,product_inactive_date)" class="btn btn-fill">Done</button>
+                  <button type="submit" mat-button matStepperNext (click)="signupuserdata(zipcode,utilityarea,contact_email.value,title.value,profileurl.value,profile_logo.value,plan_information,cancelation_fee,fact_sheet,terms_of_service,phone,sign_up.value,minimum_usage_fee,renewable,spectialterms,price_1000_kwh,price_500_kwh,price_2000_kwh, publish_product_date,product_inactive_date,enrollment_productid,product_batch_rate)" class="btn btn-fill">Done</button>
                 </div>
               </div>
             </div>

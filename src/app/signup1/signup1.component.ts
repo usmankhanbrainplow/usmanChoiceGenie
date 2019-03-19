@@ -157,6 +157,7 @@ export class Signup1Component implements OnInit {
           '',
           'success'
         )
+          this.router.navigate(['/'])
         this.model.reset();
         // swal({
         //   type: 'success',

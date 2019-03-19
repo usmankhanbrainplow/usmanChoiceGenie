@@ -77,8 +77,8 @@ export const AppRoutes: Routes = [
             //     loadChildren: './admin/new-product/new-product.module#NewProductModule'
             //   },
             { path: 'adminlogin', canActivate: [Authgaurd4Service], loadChildren: './pages/superlogin/superlogin.module#LoginModule' },
-            { path: 'login', canActivate: [Authgaurd4Service], loadChildren: './pages/login/login.module#LoginModule' },
-            { path: 'userlogin', canActivate: [Authgaurd4Service], loadChildren: './pages/userlogin/userlogin.module#LoginModule' },
+            // { path: 'login', canActivate: [Authgaurd4Service], loadChildren: './pages/login/login.module#LoginModule' },
+            { path: 'login', canActivate: [Authgaurd4Service], loadChildren: './pages/userlogin/userlogin.module#LoginModule' },
             { path: 'register', loadChildren: './signup1/signup1.module#Signup1Module' },
             { path: 'Terms-of-use-and-Privacy', loadChildren: './terms/terms.module#termsModule' },
             { path: 'User-guide', loadChildren: './userguide/userguide.module#termsModule' },

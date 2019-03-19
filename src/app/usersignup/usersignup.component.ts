@@ -263,8 +263,8 @@ export class UsersignupComponent implements OnInit {
             
 
           })
-          //  f.resetForm();
-          this.router.navigate(['/userlogin'])
+           this.model.resetForm();
+          this.router.navigate(['/login'])
         },
           error => {
             this.validateAllFormFields(this.model);

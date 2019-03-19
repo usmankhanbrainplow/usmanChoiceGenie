@@ -34,7 +34,7 @@ public username;
     headers.append('Authorization', 'JWT ' + localStorage.getItem('token'));
     console.log('pofile', localStorage.getItem('token'));
    
-   return this.http.get(Config.api+'inactive/' + this.title.trim() +'?page='+page +'/',{ headers: headers }).map((response: Response) => response);
+   return this.http.get(Config.api+'inactive/' + this.title +'?page='+page +'/',{ headers: headers }).map((response: Response) => response);
 
   }
   deregulatedinactivepro(title,page){
@@ -48,8 +48,9 @@ public username;
    return this.http.get(Config.api+'deregulated_inactive_product/' + this.title +'?page='+page +'/',{ headers: headers }).map((response: Response) => response);
 
   }
-  filter(page,id,months1,months2,months3,months4,months5,months6,months7,fixed,vari,market,notprepaid,prepaid,planmin,time,nottime,renewable,name,sort,item,min500,max500,min1000,max1000,min2000,max2000,logo1,logo2,logo3,logo4,logo5,prepaidall,timeall,showallplanPB) {
+  filter(page,id,months1,months2,months3,months4,months5,months6,months7,fixed,vari,market,notprepaid,prepaid,planmin,time,nottime,renewable,name,sort,item,min500,max500,min1000,max1000,min2000,max2000,demo,prepaidall,timeall,showallplanPB) {
 if(name){
+  // logo1,logo2,logo3,logo4,logo5
     this.com=name.trim();}
     console.log(page,id,months1,months2,months3,months4,months5,months6,months7,fixed,vari,market,prepaidall,notprepaid,prepaid,planmin,timeall,time,nottime,renewable,name,sort,item,min500,max500,min1000,max1000,min2000,max2000,showallplanPB)
     const headers = new Headers();
@@ -89,11 +90,11 @@ if(name){
       // "itemsperpage":this.items,
 
       "dsc":sort,
-      "logo1":logo1,
-      "logo2":logo2,
-      "logo3":logo3,
-      "logo4":logo4,
-      "logo5":logo5
+      "demo":demo,
+      // "logo2":logo2,
+      // "logo3":logo3,
+      // "logo4":logo4,
+      // "logo5":logo5
 
       
       
