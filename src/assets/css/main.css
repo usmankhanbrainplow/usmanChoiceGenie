@@ -95,6 +95,11 @@ body {
   border-bottom: none;
   line-height: 0;
 }
+.sh-signup-form-fix textarea.mat-input-element{
+  line-height: 30px;
+}
+
+
 .sh-signup-form-fix .mat-form-field-can-float.mat-form-field-should-float .mat-form-field-placeholder {
   font-size: 18px !important;
   color: rgba(0,0,0,.54);
