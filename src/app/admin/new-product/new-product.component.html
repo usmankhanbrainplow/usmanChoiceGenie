@@ -38,26 +38,7 @@
                   <div class="col-sm-6">
 
                     <div class="margin-b-10-i">
-                        <!-- <mat-form-field > -->
-                            <!-- <mat-select (change)="checked17($event,i,name)" value="name" required [(ngModel)]="name" name="name">
-
-                                <mat-option  (click)="checked17($event,i,name)"  >ALL</mat-option>
-                              <mat-option *ngFor="let data of title" [value]="data.title">
-                                {{data.title}}
-            
-                              </mat-option>
-            
-            
-                            </mat-select> -->
-            
-                            <!-- <mat-select class="search-select" placeholder="Service Area Name"  required [(ngModel)]="utilityarea"  value="utilityarea" name="utilityarea">
-                                <mat-option *ngFor="let data of utilityarea" [value]="data.serviceareaname">
-                                    {{data.serviceareaname}}
-            
-                                  </mat-option>
-            
-                            </mat-select>
-                          </mat-form-field> -->
+                        
                       <mat-form-field>
                         <input matInput placeholder="Utility Area" required [(ngModel)]="utilityarea" formControlName="utilityarea">
                          <mat-error *ngIf="signupForm.controls['utilityarea'].value == '' || !signupForm.controls['utilityarea'].value"><strong>This Field cannot be empty</strong></mat-error>
@@ -90,7 +71,7 @@
                           </mat-option>
 
                           </mat-select> -->
-                        <input matInput placeholder="Company Name" required [value]="only" name="title" #title>
+                        <input matInput placeholder="Company Name" required [value]="only"  name="title" #title>
                       </mat-form-field>
                     </div>
 
