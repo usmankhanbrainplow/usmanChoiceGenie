@@ -1317,7 +1317,7 @@ export class ProductsComponent implements OnInit, AfterViewInit, OnDestroy {
                     var re = /\s*(?:;|$)\s*/;
                     prod["plan_information"] = prod["plan_information"].split(',,', 3000);
                     // prod["plan_information"] = prod["plan_information"].split(',,,,,', 3000);
-                    prod["price_rate"] = prod["price_rate"].split('..', 3000);
+                    // prod["price_rate"] = prod["price_rate"].split('..', 3000);
                 //    this.vendor_sign_up= prod["title"] 
                 //    console.log(this.vendor_sign_up)
                 //    if(this.vendor_sign_up == "OUR ENERGY LLC"){
