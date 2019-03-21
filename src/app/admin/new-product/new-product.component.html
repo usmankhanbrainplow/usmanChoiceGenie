@@ -25,7 +25,7 @@
                     <div class="col-sm-6">
 
                         <div class="margin-b-10-i">
-                          <mat-form-field>
+                          <mat-form-field >
                             <input matInput placeholder="Zipcode" required [(ngModel)]="zipcode" formControlName="zipcode">
                             <mat-error *ngIf="signupForm.controls['zipcode'].value == '' || !signupForm.controls['zipcode'].value"><strong>This Field cannot be empty</strong></mat-error>
     
@@ -39,7 +39,7 @@
 
                     <div class="margin-b-10-i">
                         
-                      <mat-form-field>
+                      <mat-form-field class="">
                         <!-- <input matInput placeholder="Utility Area" required [(ngModel)]="utilityarea" formControlName="utilityarea">
                          <mat-error *ngIf="signupForm.controls['utilityarea'].value == '' || !signupForm.controls['utilityarea'].value"><strong>This Field cannot be empty</strong></mat-error> -->
 

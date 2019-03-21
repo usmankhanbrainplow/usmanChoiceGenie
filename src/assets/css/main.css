@@ -126,6 +126,15 @@ body {
   /* border: none !important; */
 }
 
+.mat-option .mat-option-text{
+  font-size: 17px !important;
+}
+.mat-select-panel .mat-optgroup-label, .mat-select-panel .mat-option{
+  line-height: 2em !important;
+    height: 40px !important;
+}
+
+
 /* End From Custom */
 
 .sh-pos-rel{
