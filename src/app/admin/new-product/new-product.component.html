@@ -125,7 +125,11 @@
                       </mat-form-field>
 
                   </div> -->
-                  <div class="col-sm-12">
+
+
+
+
+                  <!-- <div class="col-sm-12">
                     <div class="margin-b-10-i">
                       <mat-form-field>
                         <textarea class="height-textarea" matInput placeholder="Plan Information" [(ngModel)]="plan_information" formControlName="plan_information"></textarea>
@@ -135,8 +139,6 @@
                     </div>
                   </div>
                   <div class="col-sm-12">
-
-
                     <div class="">
                       <mat-form-field>
                         <textarea class="height-textarea" matInput placeholder="Special Terms" [(ngModel)]="spectialterms" formControlName="specialterms"></textarea>
@@ -144,8 +146,69 @@
                         <mat-error *ngIf="secondFormGroup.controls['specialterms'].value == '' || !secondFormGroup.controls['specialterms'].value"><strong>This Field cannot be empty</strong></mat-error>
                       </mat-form-field>
                     </div>
+                  </div> -->
 
-                  </div>
+                  <div class="col-md-4">
+                      <mat-form-field class="example-full-width margin-t-15">
+                          <input matInput placeholder="Product Name" value="">
+                        </mat-form-field>
+                    </div>
+                    <div class="col-md-4">
+                        <mat-form-field class="example-full-width margin-t-15">
+                            <input matInput placeholder="Term (Mounth)" value="">
+                          </mat-form-field>
+                    </div>
+                    <div class="col-md-4">
+                        <mat-form-field class="example-full-width margin-t-15">
+                            <input matInput placeholder="Renewable (%)" value="">
+                          </mat-form-field>
+                    </div>
+                    <div class="col-sm-6">
+                      <h4 class="sm-heading">Rate Type</h4>
+                        <div class="radio">
+                            <label class="redio-lable">
+                              <input checked="true" name="planmin" ng-model="planmin" type="radio" value="NULL"><span class="circle"></span><span class="check"></span>
+                              Fixed Rate
+                            </label>
+                          </div>
+                          <div class="radio">
+                              <label class="redio-lable">
+                                <input checked="true" name="planmin" ng-model="planmin" type="radio" value="NULL"><span class="circle"></span><span class="check"></span>
+                                Variable Rate
+                              </label>
+                            </div>
+                            <div class="radio">
+                                <label class="redio-lable">
+                                  <input checked="true" name="planmin" ng-model="planmin" type="radio" value="NULL"><span class="circle"></span><span class="check"></span>
+                                  Indexed
+                                </label>
+                              </div>
+                    </div>
+
+                    
+                        <div class="col-sm-6">
+                            <h4 class="sm-heading">Customer Type</h4>
+                              <div class="radio">
+                                  <label class="redio-lable">
+                                    <input checked="true" name="planmin" ng-model="planmin" type="radio" value="NULL"><span class="circle"></span><span class="check"></span>
+                                    New Customer
+                                  </label>
+                                </div>
+                                <div class="radio">
+                                    <label class="redio-lable">
+                                      <input checked="true" name="planmin" ng-model="planmin" type="radio" value="NULL"><span class="circle"></span><span class="check"></span>
+                                      Existing
+                                    </label>
+                                  </div>
+                                  <div class="radio">
+                                      <label class="redio-lable">
+                                        <input checked="true" name="planmin" ng-model="planmin" type="radio" value="NULL"><span class="circle"></span><span class="check"></span>
+                                        New and Existing
+                                      </label>
+                                    </div>
+                          </div>
+
+
                   <!-- <div class="col-sm-6">
                     <div class="">
                       <mat-form-field>

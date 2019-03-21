@@ -283,6 +283,11 @@ body {
   /*overflow-y: scroll;*/
   height: 100%;
 }
+.sm-heading{
+  margin: 0;
+  padding: 0;
+}
+
 .recaptcha-box{
   margin-top: -20px;
 }
@@ -7460,6 +7465,21 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
 
 /*End features-comparison*/
 /*Start Dashboards */
+.dailog-width{
+  max-width: 900px !important;
+    width: 100% !important;
+}
+.dailog-width .popupmodel1{
+  width: 100% !important;
+}
+.redio-lable{
+  font-size: 16px !important;
+    color: #000 !important;
+}
+
+
+
+
 .cus-font{
   font-size: 18px !important;
 }
