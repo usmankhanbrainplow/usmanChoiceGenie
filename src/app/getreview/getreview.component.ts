@@ -132,18 +132,20 @@ export class GetreviewComponent implements OnInit {
         this.title = localStorage.getItem('company');
         console.log(localStorage.getItem('company'))
         console.log(this.title, 'jjjjjjjjj')
-        if (page < 1 || page > this.pager.totalPages) {
-                    return;
-                }
+        // if (page < 1 || page > this.pager.totalPages) {
+        //             return;
+        //         }
         let headers = new Headers();
         headers.append('Content-Type', 'application/json');
         this.https.get(Config.api + 'getallreviews/' + this.title +'?page=' + page, { headers: headers })
             .subscribe(Res => {
                 this.rev = Res.json()['Results'];
+                alert(this.rev.length)
                 this.total = Res.json()['Total Result'];
                 console.log(this.total)
                 console.log(this.rev)
-                this.pager = this.pagerService.getPager(Res.json()['Total Result'], page, 10);
+                // this.pager = this.pagerService.getPager(Res.json()['Total Result'], page, 10);
+                this.pager = this.pagerService.getPager(this.rev.length, page, 10);
 
 
 

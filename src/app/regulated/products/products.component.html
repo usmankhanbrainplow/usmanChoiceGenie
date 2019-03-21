@@ -872,43 +872,53 @@
                       <!--class="product-price"-->
                       <div class="sh-top-price" *ngIf="value1==500">
                         {{value1 }} kWh
-                        <b class="price-style-1"> {{data.price_500_kwh | slice:0:-1  }}¢</b>
+                            <!-- | slice:0:-1 -->
+                        <b class="price-style-1"> {{data.price_500_kwh  }}¢</b>
 
                       </div>
                       <div style="text-align:center; font-weight: bold; margin:10px 0px 11px; font-size: 20px;" *ngIf="value1==1000">
                         {{value1}} Kwh
-                        <b class="price-style-1"> {{data.price_1000_kwh | slice:0:-1 }}¢</b>
+                            <!-- | slice:0:-1 -->
+                        <b class="price-style-1"> {{data.price_1000_kwh  }}¢</b>
 
                       </div>
                       <div style="text-align:center; font-weight: bold; margin:10px 0px 11px; font-size: 20px;" *ngIf="value1==2000">
                         {{value1}} Kwh
-                        <b class="price-style-1"> {{data.price_2000_kwh| slice:0:-1}}¢</b>
+                            <!-- | slice:0:-1 -->
+                        <b class="price-style-1"> {{data.price_2000_kwh}}¢</b>
 
                       </div>
                       <div class="add-price grid-element" *ngIf="value1==500">
                         <div class="unit">1,000 kWh
-                          <span class="price-style"> {{data.price_1000_kwh | slice:0:-1}}¢ </span>
+                              <!-- | slice:0:-1 -->
+                          <span class="price-style"> {{data.price_1000_kwh  }}¢ </span>
                         </div>
                         <div class="unit">2,000 kWh
-                          <span class="price-style"> {{data.price_2000_kwh | slice:0:-1 }}¢ </span>
+
+                              <!-- | slice:0:-1 -->
+                          <span class="price-style"> {{data.price_2000_kwh   }}¢ </span>
                         </div>
 
                       </div>
                       <div class="add-price grid-element" *ngIf="value1==1000">
                         <div class="unit">500 kWh
-                          <span class="price-style"> {{data.price_500_kwh | slice:0:-1}}¢ </span>
+                              <!-- | slice:0:-1 -->
+                          <span class="price-style"> {{data.price_500_kwh  }}¢ </span>
                         </div>
                         <div class="unit">2,000 kWh
-                          <span class="price-style"> {{data.price_2000_kwh | slice:0:-1}}¢ </span>
+                              <!-- | slice:0:-1 -->
+                          <span class="price-style"> {{data.price_2000_kwh }}¢ </span>
                         </div>
 
                       </div>
                       <div class="add-price grid-element" *ngIf="value1==2000">
                         <div class="unit">500 kWh
-                          <span class="price-style"> {{data.price_500_kwh | slice:0:-1}}¢ </span>
+                            <!-- | slice:0:-1 -->
+                          <span class="price-style"> {{data.price_500_kwh  }}¢ </span>
                         </div>
                         <div class="unit">1000 kWh
-                          <span class="price-style"> {{data.price_1000_kwh | slice:0:-1}}¢ </span>
+                            <!-- | slice:0:-1 -->
+                          <span class="price-style"> {{data.price_1000_kwh }}¢ </span>
                         </div>
 
                       </div>
@@ -1073,15 +1083,18 @@
                             <tbody>
                               <tr class="plan-information__row">
                                 <td class="plan-information__cell">Price 500 kWh</td>
-                                <td class="plan-information__cell plan-information__cell--last ">{{price_500_kwh | slice:0:-1}}¢</td>
+                                <!-- | slice:0:-1 -->
+                                <td class="plan-information__cell plan-information__cell--last ">{{price_500_kwh }}¢</td>
                               </tr>
                               <tr class="plan-information__row">
                                 <td class="plan-information__cell">Price 1000 kWh</td>
-                                <td class="plan-information__cell plan-information__cell--last ">{{price_1000_kwh | slice:0:-1}}¢</td>
+                                <!-- | slice:0:-1 -->
+                                <td class="plan-information__cell plan-information__cell--last ">{{price_1000_kwh }}¢</td>
                               </tr>
                               <tr class="plan-information__row">
                                 <td class="plan-information__cell">Price 2000 kWh</td>
-                                <td class="plan-information__cell plan-information__cell--last ">{{price_2000_kwh | slice:0:-1}}¢</td>
+                                <!-- | slice:0:-1 -->
+                                <td class="plan-information__cell plan-information__cell--last ">{{price_2000_kwh }}¢</td>
                               </tr>
                             </tbody>
                           </table>
