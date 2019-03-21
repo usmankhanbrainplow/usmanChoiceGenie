@@ -65,7 +65,7 @@
                   <div class="col-sm-6">
                       <div class="">
                         <mat-form-field>
-                            <input matInput placeholder="Contact Email"   value="{{comprofile?.contact_email}}" name="contact_email" #contact_email >
+                            <input matInput placeholder="Company Email" readonly="true"  value="{{comprofile?.contact_email}}" name="contact_email" #contact_email >
                           <!-- <input matInput placeholder="Contact Email"  [(ngModel)]="contact_email" value="{{comprofile.contact_email}}" formControlName="contact_email"> -->
                           <mat-error *ngIf="signupForm.controls['contact_email'].value == '' || !signupForm.controls['contact_email'].value"><strong>This Field cannot be empty</strong></mat-error>
                           <!-- <mat-error *ngIf="signupForm.controls['contact_email'].invalid"><strong>Please enter a valid email address</strong></mat-error> -->
@@ -103,7 +103,7 @@
 
         <mat-step [stepControl]="secondFormGroup">
           <div  [formGroup]="secondFormGroup" style="padding: 10px;">
-            <ng-template matStepLabel>Plan Information</ng-template>
+            <ng-template matStepLabel>Plan Details</ng-template>
             <ng-template matStepLabel></ng-template>
             <div class="card" style="padding: 15px;">
               <!--<div class="card-header card-header-icon" data-background-color="rose" style="margin-top: -35px;">-->

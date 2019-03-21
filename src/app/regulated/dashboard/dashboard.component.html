@@ -118,11 +118,11 @@
                                                         </mat-form-field> -->
                               <div class="col-lg-6 date-box">
                                 <label>Effective From Date</label>
-                                <input type="date" required name="nowdate" [(ngModel)]="nowdate" style="    padding: 10px 0px; font-size: 20px;">
+                                <input type="date" required   placeholder="YYYY-MM-DD"name="nowdate" [(ngModel)]="nowdate" style="    padding: 10px 0px; font-size: 20px;">
                               </div>
                               <div class="col-lg-6 date-box">
                                 <label>Effective To Date</label>
-                                <input type="date" required name="date" [(ngModel)]="date" style="    padding: 10px 0px; font-size: 20px;">
+                                <input type="date" required  placeholder="YYYY-MM-DD" name="date" [(ngModel)]="date" style="    padding: 10px 0px; font-size: 20px;">
                               </div>
 
                             </div>
@@ -151,7 +151,7 @@
                             />
 
 
-                            <input matInput placeholder="Plan_Information" name="plan_information" [hidden]="true" value="{{plan_information}}" #updatedplan_information
+                            <input matInput placeholder="Plan Details" name="plan_information" [hidden]="true" value="{{plan_information}}" #updatedplan_information
                             />
 
 
@@ -292,10 +292,10 @@
                               </div>
                             </div>
                             <div class="col-md-12 col-sm-12">
-                              <div class="input-group" hidden=true>
+                              <div class="input-group"  >
 
                                 <mat-form-field>
-                                  <input matInput placeholder="Profile url" readonly name="profileurl" value="{{profileurl}}" #updatedprofileurl/>
+                                  <input matInput placeholder="Profile url"   name="profileurl" value="{{profileurl}}" #updatedprofileurl/>
 
                                 </mat-form-field>
                               </div>
@@ -330,8 +330,8 @@
                               <div class="input-group">
 
                                 <mat-form-field>
-                                  <input matInput placeholder="Plan_Information" name="plan_information" value="{{plan_information}}" #updatedplan_information
-                                  />
+                                  <textarea matInput placeholder="Plan_Information" name="plan_information" value="{{plan_information}}" #updatedplan_information
+                                  ></textarea>
 
                                 </mat-form-field>
                               </div>
@@ -366,7 +366,7 @@
                             <div class="col-md-12 col-sm-12">
                               <div class="input-group margin-zero1" >
                                 <mat-form-field>
-                                  <input matInput placeholder="Cancelation Fee" readonly name="cancelation_fee" value="{{cancelation_fee}}" #updatedcancelation_fee/>
+                                  <input matInput placeholder="Cancelation Fee"   name="cancelation_fee" value="{{cancelation_fee}}" #updatedcancelation_fee/>
 
                                 </mat-form-field>
                               </div>
@@ -375,7 +375,7 @@
                               <div class="input-group margin-zero1" >
 
                                 <mat-form-field>
-                                  <input matInput placeholder="Fact Sheet" readonly name="fact_sheet" value="{{fact_sheet}}" #updatedfact_sheet/>
+                                  <input matInput placeholder="Fact Sheet"   name="fact_sheet" value="{{fact_sheet}}" #updatedfact_sheet/>
 
                                 </mat-form-field>
                               </div>
@@ -384,7 +384,7 @@
                               <div class="input-group margin-zero1" >
 
                                 <mat-form-field>
-                                  <input matInput placeholder="Term of Service" readonly name="terms_of_service" value="{{terms_of_service}}" #updatedterms_of_service
+                                  <input matInput placeholder="Term of Service"   name="terms_of_service" value="{{terms_of_service}}" #updatedterms_of_service
                                   />
 
                                 </mat-form-field>
@@ -393,7 +393,7 @@
                             <div class="col-md-12 col-sm-12">
                               <div class="input-group margin-zero1" >
                                 <mat-form-field>
-                                  <input matInput placeholder="Phone No" name="phone" readonly value="{{phone}}" #updatedphone/>
+                                  <input matInput placeholder="Phone No" name="phone"   value="{{phone}}" #updatedphone/>
 
                                 </mat-form-field>
                               </div>
@@ -402,7 +402,7 @@
                               <div class="input-group margin-zero1" >
 
                                 <mat-form-field>
-                                  <input matInput placeholder="Sign Up" name="sign_up" readonly value="{{sign_up}}" #updatedsign_up />
+                                  <input matInput placeholder="Sign Up" name="sign_up"   value="{{sign_up}}" #updatedsign_up />
 
                                 </mat-form-field>
                               </div>
@@ -458,7 +458,7 @@
                   
                   <div class="text-center">
                     <button class="btn btn-fill sh-signup-btn" style="margin-top: 10px">
-                      <a style="color:white;text-align: center;" href="{{data.profileurl}}" target="_blank">Signup </a>
+                      <a style="color:white;text-align: center;" href="{{data.sign_up}}" target="_blank">Signup </a>
                       <!-- <i class="material-icons">bubble_chart</i> -->
                     </button>
 
