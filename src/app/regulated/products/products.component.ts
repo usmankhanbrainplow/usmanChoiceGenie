@@ -17,6 +17,7 @@ import { ActivatedRoute, Router, RouterModule } from "@angular/router";
 
 // import {Config} from "../Config";
 import { HttpClient, HttpResponse, HttpHeaders } from "@angular/common/http";
+
 import { jsonpCallbackContext } from '@angular/common/http/src/module';
 // import { ValueUnwrapper } from '@angular/core/src/change_detection/change_detection_util';
 //import { Http } from '@angular/http/src/http';
@@ -163,6 +164,7 @@ export class ProductsComponent implements OnInit, AfterViewInit, OnDestroy {
     profileurl = '';
     rating_logo = '';
     sign_up = '';
+    vendor_sign_up;
     className;
     terms_of_service = '';
     price_1000_kwh = '';
@@ -333,6 +335,7 @@ export class ProductsComponent implements OnInit, AfterViewInit, OnDestroy {
 
     }
     goToEnroll() {
+
         console.log("Enroll");
         this.router.navigate(['/search-plan'])
     }
@@ -1307,13 +1310,26 @@ export class ProductsComponent implements OnInit, AfterViewInit, OnDestroy {
                 this.product = response['Results'];
                 this.noresult = response['Total Result'];
                 this.zipdet = localStorage.getItem('zip');
+                // this.vendor_sign_up = this.product.title
+                // console.log(this.vendor_sign_up.title,'vendor_sing_up')
+                // alert(this.vendor_sign_up.title)
                 for (let prod of this.product) {
                     var re = /\s*(?:;|$)\s*/;
                     prod["plan_information"] = prod["plan_information"].split(',,', 3000);
                     // prod["plan_information"] = prod["plan_information"].split(',,,,,', 3000);
                     prod["price_rate"] = prod["price_rate"].split('..', 3000);
+                //    this.vendor_sign_up= prod["title"] 
+                //    console.log(this.vendor_sign_up)
+                //    if(this.vendor_sign_up == "OUR ENERGY LLC"){
+                //     console.log("Enroll");
+                //     this.router.navigate(['/search-plan'])
+                //    } else if(this.vendor_sign_up)
 
                 }
+                // for(let vendorss of this.product){
+                //     vendorss["title"]
+                //     console.log(vendorss)
+                // }
 
                 this.pager = this.pagerService.getPager(response['Total Result'], page, this.item);
 

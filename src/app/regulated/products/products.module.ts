@@ -19,7 +19,7 @@ import { SlickModule } from 'ngx-slick';
 import { LoaderModule } from '../../loader/loader.module';
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
-
+import { MyfilterPipe } from '../../myfilter.pipe';
 
 // import { Pipe, PipeTransform } from "@angular/core";
 // import { HttpClientModule } from '@angular/common/http'
@@ -43,6 +43,8 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
         // RegularTableComponent,
         PremiseDialog,
         plandetailDialog,
+        MyfilterPipe
+        
         //PrettyPlanDetails
     ],
     providers: [

@@ -357,19 +357,40 @@
               </div>
               <!-- <div class="select-f-sackers-heavy select-area" style="width: 160px;"> -->
               <!-- <span class="left"></span> -->
+              
+              <!-- <div class="col-sm-12">
+
+                  <mat-form-field>
+                      <mat-select placeholder="Search By State" [(ngModel)]="states" name="states"
+                          (change)="select_state()">
+                          <input class="inp" type="text" [(ngModel)]="statsearch"
+                              [ngModelOptions]="{standalone: true}" class="search-allstates"
+                              placeholder="Search By State" style="width: 100%; border-radius: 7px">
+                          <i class="fa fa-search s-icon-all-states" area-hidden="true"></i>
+                          <mat-option value='all'>Select All</mat-option>
+                          <mat-option class="elips-mat-opt" *ngFor="let item of state |filter:statsearch"
+                              [value]="item.state" title="{{item.state | titlecase}}">{{item.state | titlecase}}</mat-option>
+
+                      </mat-select>
+                  </mat-form-field>
+              </div> -->
               <mat-form-field class="margin-up">
                   <!-- <mat-option (click)="setPage(1);refresh()" >ALL</mat-option> -->
                 <mat-select (change)="checked17($event,i,name)" value="name" required [(ngModel)]="name" name="name">
-
-                    <mat-option  (click)="checked17($event,i,name)"  >ALL</mat-option>
-                  <mat-option *ngFor="let data of title" [value]="data.title">
-                    {{data.title}}
+                    <input class="inp" type="text" [(ngModel)]="statsearch"
+                    [ngModelOptions]="{standalone: true}" class="search-allstates"
+                    placeholder="Search By Companies" style="width: 100%; border-radius: 7px">
+                    <i class="fa fa-search s-icon-all-states" area-hidden="true"></i>
+                    <mat-option  (click)="checked17($event,i,name)"  > Select ALL</mat-option>
+                  <mat-option *ngFor="let data of title | myfilter : statsearch : 'title'" [value]="data.title" title="{{data.title| titlecase}}"  >
+                    {{data.title | titlecase}}
 
                   </mat-option>
 
 
                 </mat-select>
               </mat-form-field>
+
               <!-- <hr style="background: #000000"> -->
             </li>
 
@@ -932,13 +953,13 @@
                         <!-- </i> -->
                       </h3>
 
-                      <a class="pdf-icon" href="{{data.fact_sheet}}" >
+                      <a class="pdf-icon" href="{{data.fact_sheet}}" target="_blank" >
                         <!-- <i style="color:#c00" class="material-icons">picture_as_pdf</i> -->
                         <i class="fas fa-file" ></i>
                         <a>Fact Sheet</a>
                       </a>
                       <!-- {{data.specialterms}} -->
-                      <a class="pdf-icon" href="{{data.terms_of_service}}">
+                      <a class="pdf-icon" href="{{data.terms_of_service}}" target="_blank">
                         <!-- <i style="color:#c00" class="material-icons">picture_as_pdf</i> -->
                         <i class="fas fa-file" ></i>
                         Terms of service
@@ -1108,13 +1129,13 @@
                               <tr class="plan-information__row plan-information__row--last">
                                 <td class="plan-information__cell">Documents</td>
                                 <td class="plan-information__cell plan-information__cell--last">
-                                  <a class="pdf-icon" href="{{fact_sheet}}" >
+                                  <a class="pdf-icon" href="{{fact_sheet}}" target="_blank" >
                                     <!-- <i style="color:#c00" class="material-icons">picture_as_pdf</i> -->
                                     <i class="fas fa-file" ></i>
                                     <a>Fact Sheet</a>
                                     <br>
                                   </a>
-                                  <a class="pdf-icon" href="{{terms_of_service}}" >
+                                  <a class="pdf-icon" href="{{terms_of_service}}" target="_blank" >
                                     <!-- <i style="color:#c00" class="material-icons">picture_as_pdf</i> -->
                                     <i class="fas fa-file" ></i>
                                     Terms of service
@@ -1176,6 +1197,7 @@
 
                     <div style="display:inline-block; text-align:center;">
                       <a href="{{sign_up}}" >
+                          <!-- title: "OUR ENERGY LLC" -->
                         <button class="btn btn-fill">Signup Now</button>
                       </a>
                       <div style="display:inline-block; padding:24px;">

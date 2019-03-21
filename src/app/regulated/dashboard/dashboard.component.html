@@ -99,11 +99,11 @@
                                   </mat-form-field> -->
 
                                    <md-input-container class="block" hidden=true>
-                                          <input mdInput placeholder="Title" [ngModel]="date | date:'yyyy-MM-dd'" >
+                                          <input mdInput placeholder="Title" [ngModel]="date | date:'YYYY-MM-DD'" >
                                       </md-input-container>
 
                                       <md-input-container class="block" hidden=true>
-                                          <input mdInput placeholder="Title" [ngModel]="nowdate | date:'yyyy-MM-dd'" >
+                                          <input mdInput placeholder="Title" [ngModel]="nowdate | date:'YYYY-MM-DD'" >
                                       </md-input-container>
                                                         <!-- <mat-form-field>
                                                           <input matInput [matDatepicker]="picker" placeholder="Choose a date" [(ngModel)]="date">
@@ -421,7 +421,7 @@
                 <div class="col-md-3 col-sm-3 col-xs-12 term text-center sh-pos-rel">
 
                   <h3 class="text-center">
-                    <b> Call now</b>
+                    <b> Call Now</b>
                   </h3>
                   <h3 class="text-center font">
                       <a href="tel:{{data.phone}}" style="display: block">
