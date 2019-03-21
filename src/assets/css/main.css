@@ -3101,7 +3101,7 @@ section {
 .login-form-1{
   background: #fff;
   width: 100%;
-  padding: 30px 30px 20px;
+  padding: 30px 30px 10px;
   border-radius: 5px;
   -webkit-box-shadow: 0 0 25px #ccc;
           box-shadow: 0 0 25px #ccc;
@@ -3222,8 +3222,8 @@ section {
   border-radius: 30px !important;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  font-size: 28px;
-  padding: 15px;
+  font-size: 27px;
+  padding: 12px;
   font-weight: 500;
   /* margin-top: 10px;
   margin-bottom: 8px; */
@@ -3288,10 +3288,12 @@ blackgeeks-recaptcha p{
   text-decoration: underline;
 }
 .login-link{
-  margin: 10px 0 0 !important;
+  margin: 5px 0 0 !important;
 }
 .login-link a{
-/* color: #3c4858 !important; */
+    color: blue !important;
+    padding: 0 20px;
+    font-size: 14px;
 }
 mat-form-field.mat-form-field{
   width: 100%;
@@ -5393,6 +5395,17 @@ canvas {
 
 /*Dashboard front page*/
 
+/* Start Login */
+.stay-check .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-bar {
+  background-color: rgb(194, 192, 193);
+}
+.stay-check .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-thumb {
+  background-color: #000;
+}
+/* End Login */
+
+
+
 
 @media screen and (max-width: 740px) {
 
@@ -6501,7 +6514,7 @@ background: linear-gradient(to bottom, #ededed 0%,#c1bfbf 100%); /* W3C, IE10+, 
           align-items: center;
 }
 .padding-btm{
-  padding: 9px !important;
+  padding: 12px 12px 4px !important;
 }
 .font{
   font-size: 18px !important;
@@ -7467,7 +7480,7 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
     border-radius: 100%;
     width: 20px;
     font-size: 17px;
-    padding: 0px 2px;
+    padding: 1px 1px;
 }
 .input-group .mat-form-field-can-float.mat-form-field-should-float .mat-form-field-placeholder, .mat-form-field-empty.mat-form-field-placeholder, mat-form-field.mat-form-field{
   margin-top: 0;

@@ -26,11 +26,13 @@
    
           <div class="col-lg-6 col-md-6 stay-check">
               <label >
-                <input type="checkbox" [(ngModel)]="staySignedIn" formControlName="staySignedIn" value="staySignedIn" (change)="checked($event,i)" checked="true">
+                  <mat-slide-toggle> Stay Signed In </mat-slide-toggle>
+
+                <!-- <input type="checkbox" [(ngModel)]="staySignedIn" formControlName="staySignedIn" value="staySignedIn" (change)="checked($event,i)" checked="true"> -->
                 <!-- <input [(ngModel)]="staySignedIn" type="checkbox" checked="true" name="stay-signed" value="Stay Sign In"> -->
-                <div class="float-r">Stay Signed In</div>
+                <!-- <div class="float-r"></div> -->
               </label>
-              <a class="forget" value="Delete" data-toggle="modal" data-target="#myModal3">Forgot Password?</a>
+              <a class="forget" value="Delete" data-toggle="modal" data-target="#myModal3">Forgot your password?</a>
             </div>
             <div class="col-lg-6 col-md-6 padding-zero">
               <!-- <blackgeeks-recaptcha class="" ></blackgeeks-recaptcha> -->
@@ -80,7 +82,7 @@
           </div>
 
           <div class="login-link margin-t">
-            <a onclick="topFunction()" target="_blank" ng-reflect-target="_blank" ng-reflect-router-link="/Terms-of-use-and-Privacy" href="/Terms-of-use-and-Privacy">Terms &amp; Conditions</a><span class="footer-link-border"></span>
+            <a onclick="topFunction()" target="_blank" ng-reflect-target="_blank" ng-reflect-router-link="/Terms-of-use-and-Privacy" href="/Terms-of-use-and-Privacy">Terms of Use</a>
             <a onclick="topFunction()" target="_blank" ng-reflect-target="_blank" ng-reflect-router-link="/privacy" href="/privacy">Privacy Policy</a> 
           </div>
         </div>
