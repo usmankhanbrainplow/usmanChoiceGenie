@@ -70,6 +70,12 @@
 
                     <img src="{{data.profile_logo}}" alt="{{data.title}}" />
                   </a>
+
+
+                  <a (click)="submit(data.id,data.title)" style="color:white;text-align: center;" class="sh-pos-abso">
+                      <label class="view-plan-details" style="padding-bottom: 0px; margin-bottom: 0px;">Reviews</label>
+                    </a>
+
                   <div class="modal fade" id="myModal3" role="dialog">
                     <div class="modal-dialog">
                       <div class="modal-content popupmodel1">
@@ -188,7 +194,7 @@
 
                 <div class="col-md-3 col-sm-5 col-xs-12 rate margin-up sh-pos-rel" style="text-align:center">
                   <h3 style=" text-align: center">
-                    <b> Price Detail</b>
+                    <b>Price/KWh</b>
                   </h3>
 
                   <div class="sh-top-price">
@@ -205,10 +211,20 @@
                     </div>
 
                   </div>
-                  <a class="sh-pos-abso sh-pos-abso-logo">
-                    <label class="view-plan-details" (click)="btnshowClick(data.id,data.title,data.sign_up,data.phone,data.terms_of_service,data.fact_sheet,data.cancelation_fee,data.price_1000_kwh,data.price_500_kwh,data.price_2000_kwh,data.plan_information,data.rating_logo,data.profile_logo,data.profileurl)"
-                      data-toggle="modal" data-target="#myModal4">Plan Information</label>
+
+                  <a  class="pdf-icon" href="https://rpm.lifeenergy.com/documents/public/58c4919daa4fde00330fa97d083948b8782891fa">
+                        
+                    <i  class="fas fa-file"></i>
+                    <a >Fact Sheet</a>
                   </a>
+                  <a  class="pdf-icon" href="https://rpm.lifeenergy.com/documents/public/58c4919daa4fde00330fa97d083948b8782891fa">
+                        
+                    <i  class="fas fa-file"></i>
+                    <a >Fact Sheet</a>
+                  </a>
+
+
+                  
 
 
 
@@ -223,9 +239,18 @@
                     {{item}}
                     </p>
                   </div>
-                  <a (click)="submit(data.id,data.title)" style="color:white;text-align: center;" class="sh-pos-abso">
-                    <label class="view-plan-details" style="padding-bottom: 0px; margin-bottom: 0px;">Reviews</label>
-                  </a>
+                  
+
+
+
+                  <a class="sh-pos-abso sh-pos-abso-logo">
+                      <label class="view-plan-details" (click)="btnshowClick(data.id,data.title,data.sign_up,data.phone,data.terms_of_service,data.fact_sheet,data.cancelation_fee,data.price_1000_kwh,data.price_500_kwh,data.price_2000_kwh,data.plan_information,data.rating_logo,data.profile_logo,data.profileurl)"
+                        data-toggle="modal" data-target="#myModal4">Plan Details</label>
+                    </a>
+
+
+
+
                 </div>
           <div class="modal fade" id="myModal2" role="dialog">
                   <div class="modal-dialog">
@@ -426,12 +451,15 @@
                   <h3 class="text-center font">
                       <a href="tel:{{data.phone}}" style="display: block">
                           <!-- <input type="text" id="phone" value="{{data.phone}}"  name="phone"  > -->
-                          {{data.phone}}</a></h3>
+                          {{data.phone}}</a>
+                          <span >OR</span>
+                        </h3>
                   <!-- (click)="openDialog(data.id)" -->
+                  
                   <div class="text-center">
                     <button class="btn btn-fill sh-signup-btn" style="margin-top: 10px">
                       <a style="color:white;text-align: center;" href="{{data.profileurl}}" target="_blank">Signup </a>
-                      <i class="material-icons">bubble_chart</i>
+                      <!-- <i class="material-icons">bubble_chart</i> -->
                     </button>
 
                   </div>
@@ -444,7 +472,7 @@
 
                     <button class="edit-del-btn2"  type="submit" type="submit" (click)="btnactiveClick(data.id,data.title,data.sign_up,data.phone,data.terms_of_service,data.fact_sheet,data.cancelation_fee,data.price_1000_kwh,data.price_500_kwh,data.price_2000_kwh,data.plan_information,data.rating_logo,data.profile_logo,data.profileurl)"
                       data-toggle="modal" data-target="#myModal3">
-                      <span style="font-size: 15px;"> Deactive </span>
+                      <span style="font-size: 15px;"> Deactivate </span>
                       <i class="fa fa-times inactive"></i>
                     </button>
                   </div>
