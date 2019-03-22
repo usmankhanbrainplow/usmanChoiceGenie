@@ -22,7 +22,7 @@
                 <!--<i class="material-icons">mail_outline</i>-->
               <!--</div>-->
                 <div class="row">
-                    <div class="col-sm-6">
+                    <!-- <div class="col-sm-6">
 
                         <div class="margin-b-10-i">
                           <mat-form-field >
@@ -34,7 +34,7 @@
     
     
     
-                    </div>
+                    </div> -->
                   <div class="col-sm-6">
 
                     <div class="margin-b-10-i">
@@ -46,7 +46,7 @@
                       <!-- </mat-form-field>  -->
                       <!-- <mat-form-field class="margin-t-15"> -->
                         <!--<label class="date-lable">Service Area Name</label>-->
-                      <mat-select class="search-select" placeholder="Service Area Name" required [(ngModel)]="name" name="name">
+                      <mat-select class="search-select" placeholder="Service Area Name" required [(ngModel)]="utilityarea" name="utilityarea" formControlName="utilityarea">
                         <mat-option value="AEP Texas North Service Area" style="font-size: 20px">AEP Texas North Service Area</mat-option>
                         <mat-option value="Centerpoint Electric Service Area" style="font-size: 20px">Centerpoint Electric Service Area</mat-option>
                         <mat-option value="Texas New Mexico Power Service Area" style="font-size: 20px">Texas New Mexico Power Service Area</mat-option>
@@ -54,6 +54,8 @@
                         <mat-option value="Oncor Electric Delivery Service Area" style="font-size: 20px">Oncor Electric Delivery Service Area</mat-option>
                         <mat-option value="Sharyland Utilities Service Area" style="font-size: 20px">Sharyland Utilities Service Area</mat-option>
                       </mat-select>
+                      <input matInput placeholder="utilityarea" hidden="true" [(ngModel)]="utilityarea"  name="utilityarea" formControlName="utilityarea">
+                      <!-- <mat-error *ngIf="signupForm.controls['utilityarea'].value == '' || !signupForm.controls['utilityarea'].value"><strong>This Field cannot be empty</strong></mat-error> -->
                     </mat-form-field>
                       <!-- <div class="col-lg-3 cus-font col-xs-12"> -->
                           <!-- <mat-form-field class="margin-t-15">
@@ -123,74 +125,78 @@
               <div class="">
                 <div class="row sh-signup-form-fix">
 
-                        <div class="" hidden="true">
-                          <mat-form-field>
+                        <div class="col-md-4" >
+                          <mat-form-field class="example-full-width margin-t-15">
                             <input matInput placeholder="Profile url" required [value]="prourl" name="profileurl" #profileurl>
                           </mat-form-field>
                       </div>
                       
-<!-- 
-                    <div class="" hidden="true">
-                      <mat-form-field>
-                        <input matInput placeholder="Rating Logo" required  value="{{word.rating_logo}}" name="rating_logo" #rating_logo>
-                      </mat-form-field>
-
-                  </div> -->
+ 
 
 
 
 
-                  <!-- <div class="col-sm-12">
-                    <div class="margin-b-10-i">
-                      <mat-form-field>
-                        <textarea class="height-textarea" matInput placeholder="Plan Information" [(ngModel)]="plan_information" formControlName="plan_information"></textarea>
-                        <mat-error *ngIf="secondFormGroup.controls['plan_information'].value == '' || !secondFormGroup.controls['plan_information'].value"><strong>This Field cannot be empty</strong></mat-error>
-
-                      </mat-form-field>
-                    </div>
-                  </div>
-                  <div class="col-sm-12">
-                    <div class="">
-                      <mat-form-field>
-                        <textarea class="height-textarea" matInput placeholder="Special Terms" [(ngModel)]="spectialterms" formControlName="specialterms"></textarea>
-                     
-                        <mat-error *ngIf="secondFormGroup.controls['specialterms'].value == '' || !secondFormGroup.controls['specialterms'].value"><strong>This Field cannot be empty</strong></mat-error>
-                      </mat-form-field>
-                    </div>
-                  </div> -->
+                 
 
                   <div class="col-md-4">
                       <mat-form-field class="example-full-width margin-t-15">
-                          <input matInput placeholder="Product Name" value="">
+                          <input matInput placeholder="Product Name"   required [(ngModel)]="product_name" formControlName="product_name">
                         </mat-form-field>
+                        <!-- <mat-form-field>
+                          <input matInput placeholder="Zipcode" required [(ngModel)]="zipcode" formControlName="zipcode">
+                          <mat-error *ngIf="signupForm.controls['zipcode'].value == '' || !signupForm.controls['zipcode'].value"><strong>This Field cannot be empty</strong></mat-error>
+  
+                        </mat-form-field> -->
                     </div>
                     <div class="col-md-4">
                         <mat-form-field class="example-full-width margin-t-15">
-                            <input matInput placeholder="Term (Mounth)" value="">
+                            <input matInput placeholder="specialterms"  required [(ngModel)]="specialterms" formControlName="specialterms">
+                            <mat-error *ngIf="secondFormGroup.controls['specialterms'].value == '' || !secondFormGroup.controls['specialterms'].value"><strong>This Field cannot be empty</strong></mat-error>
+
                           </mat-form-field>
                     </div>
                     <div class="col-md-4">
+                      <mat-form-field class="example-full-width margin-t-15">
+                          <input matInput placeholder="Term (Mounth)"  required [(ngModel)]="terms_month" formControlName="terms_month">
+                          <mat-error *ngIf="secondFormGroup.controls['terms_month'].value == '' || !secondFormGroup.controls['terms_month'].value"><strong>This Field cannot be empty</strong></mat-error>
+
+                        </mat-form-field>
+                  </div>
+                    <div class="col-md-4">
                         <mat-form-field class="example-full-width margin-t-15">
-                            <input matInput placeholder="Renewable (%)" value="">
-                          </mat-form-field>
+                            <!-- <input matInput placeholder="Renewable (%)"  required [(ngModel)]="product_name" formControlName="product_name"> -->
+                       
+                          <input matInput placeholder="Renewable price" [(ngModel)]="renewable" formControlName="renewable">
+                        <mat-error *ngIf="secondFormGroup.controls['renewable'].value == '' || !secondFormGroup.controls['renewable'].value"><strong>This Field cannot be empty</strong></mat-error>
+                      </mat-form-field>
                     </div>
                     <div class="col-sm-6">
                       <h4 class="sm-heading">Rate Type</h4>
                         <div class="radio">
                             <label class="redio-lable">
-                              <input checked="true" name="planmin" ng-model="planmin" type="radio" value="NULL"><span class="circle"></span><span class="check"></span>
+                              <!-- <input type="radio" name="fixed"  [(ngModel)]="fixed"  value="fixed"   (change)="checked8($event,i)"> -->
+                              <!-- <input type="checkbox" name="fixed"  [(ngModel)]="fixed"  value="fixed"   (change)="checked8($event,i)"> -->
+                              <input  type="radio" (change)="checked8($event,i)" checked="true"  ng-Model="fixed"  name="fixed" [value]="fixed" >
+
+            
+                              <span class="circle"></span><span class="check"></span>
                               Fixed Rate
                             </label>
                           </div>
                           <div class="radio">
                               <label class="redio-lable">
-                                <input checked="true" name="planmin" ng-model="planmin" type="radio" value="NULL"><span class="circle"></span><span class="check"></span>
+                                <!-- <input type="radio" name="vari"  [(ngModel)]="vari"  value="vari"   (change)="checked8($event,i)"> -->
+                                <input  type="radio" (change)="checked9($event,i)" ng-Model="vari"  name="fixed" [value]="vari" >
+
+                                <span class="circle"></span><span class="check"></span>
                                 Variable Rate
                               </label>
                             </div>
                             <div class="radio">
                                 <label class="redio-lable">
-                                  <input checked="true" name="planmin" ng-model="planmin" type="radio" value="NULL"><span class="circle"></span><span class="check"></span>
+                                  <!-- <input  type="radio" name="market"  [(ngModel)]="market"  value="market"   (change)="checked8($event,i)"> -->
+                                  <input  type="radio" (change)="checked10($event,i)"   ng-Model="market"  name="fixed" [value]="market" >
+                                  <span class="circle"></span><span class="check"></span>
                                   Indexed
                                 </label>
                               </div>
@@ -201,19 +207,21 @@
                             <h4 class="sm-heading">Customer Type</h4>
                               <div class="radio">
                                   <label class="redio-lable">
-                                    <input checked="true" name="planmin" ng-model="planmin" type="radio" value="NULL"><span class="circle"></span><span class="check"></span>
+                                    <input checked="true" type="radio" (change)="checked11($event,i)"   ng-Model="newcustomer"  name="customer_type" [value]="newcustomer" >
+                                    <!-- <input  type="radio" (change)="checked10($event,i)"   ng-Model="market"  name="fixed" [value]="market" > -->
+                                    <span class="circle"></span><span class="check"></span>
                                     New Customer
                                   </label>
                                 </div>
                                 <div class="radio">
                                     <label class="redio-lable">
-                                      <input checked="true" name="planmin" ng-model="planmin" type="radio" value="NULL"><span class="circle"></span><span class="check"></span>
+                                      <input type="radio" (change)="checked12($event,i)"   ng-Model="Existing"  name="customer_type" [value]="Existing"><span class="circle"></span><span class="check"></span>
                                       Existing
                                     </label>
                                   </div>
                                   <div class="radio">
                                       <label class="redio-lable">
-                                        <input checked="true" name="planmin" ng-model="planmin" type="radio" value="NULL"><span class="circle"></span><span class="check"></span>
+                                        <input type="radio" (change)="checked13($event,i)"   ng-Model="NewandExisting"  name="customer_type" [value]="NewandExisting"><span class="circle"></span><span class="check"></span>
                                         New and Existing
                                       </label>
                                     </div>
@@ -317,7 +325,7 @@
                   <div class="col-sm-6">
                     <div class="" >
                       <mat-form-field>
-                        <input matInput placeholder="Sign up Company" [value]="sign" name="sign_up" #sign_up>
+                        <input matInput placeholder="Enrollment URL" [value]="sign" name="sign_up" #sign_up>
                       </mat-form-field>
                     </div>
                   </div>
@@ -363,7 +371,7 @@
                     <!--<label class="date-lable">Effective from date</label>-->
                    
                   <mat-form-field class="margin-b-10-i">
-                    <input matInput [matDatepicker]="startPicker" [(ngModel)]="product_inactive_date" formControlName="product_inactive_date" placeholder="Effective from date"/>
+                    <input matInput [matDatepicker]="startPicker" [(ngModel)]="product_inactive_date" formControlName="product_inactive_date" placeholder="Effective From Date"/>
                     <mat-datepicker-toggle matSuffix [for]="startPicker"></mat-datepicker-toggle> <mat-datepicker #startPicker></mat-datepicker>
                   </mat-form-field>
                   <!-- <input type="date" placeholder="Inactive Date" required name="Inactivedate" [(ngModel)]="Inactivedate" style="    padding: 2px 0px; font-size: 16px;    font-weight: bold;"> -->
@@ -373,7 +381,7 @@
                   <div class="col-lg-4 col-xs-12">
                       <!--<label class="date-lable">Effective to date</label>-->
                     <mat-form-field class="margin-b-10-i">
-                      <input matInput [matDatepicker]="startPicker1" [(ngModel)]="publish_product_date" formControlName="publish_product_date"placeholder="Effective to date"/>
+                      <input matInput [matDatepicker]="startPicker1" [(ngModel)]="publish_product_date" formControlName="publish_product_date"placeholder="Effective To Date"/>
                       <mat-datepicker-toggle matSuffix [for]="startPicker1"></mat-datepicker-toggle><mat-datepicker #startPicker1></mat-datepicker>
                     </mat-form-field>
     
@@ -419,7 +427,7 @@
                     </div>
 
                   </div>
-                  <div class="col-sm-4" >
+                  <!-- <div class="col-sm-4" >
                        
     
                       <div class="formrow margin-b-10-i" >
@@ -429,12 +437,11 @@
               <div class="" *ngIf="status_600 == true" >
                 <mat-form-field class="margin-b-10-i">
                   <input matInput currencyMask placeholder="Price of 600 KWH"   required [(ngModel)]="price_600_kwh" formControlName="price_600_kwh">
-                  <!-- <mat-error *ngIf="fourthFormGroup.controls['price_600_kwh'].value == '' || !fourthFormGroup.controls['price_600_kwh'].value"><strong>This Field cannot be empty</strong></mat-error> -->
-                   </mat-form-field>
+                    </mat-form-field>
               </div>
-</div>
+</div> -->
             <!-- </div> -->
-            <div class="col-sm-4">
+            <!-- <div class="col-sm-4">
                 <div class="formrow margin-b-10-i">
                     <input type="checkbox" (click)="AddReservePriceFun1()"  [(ngModel)]="status_900" formControlName="status_900" />
                     Add price of 900kWh
@@ -442,13 +449,12 @@
               <div class="">
                 <mat-form-field class="margin-b-10-i" *ngIf="status_900 == true">
                   <input matInput currencyMask placeholder="Price of 900 KWH"   required [(ngModel)]="price_900_kwh" formControlName="price_900_kwh">
-                  <!-- <mat-error *ngIf="fourthFormGroup.controls['price_900_kwh'].value == '' || !fourthFormGroup.controls['price_900_kwh'].value"><strong>This Field cannot be empty</strong></mat-error> -->
                   
                 </mat-form-field>
               </div>
 
-            </div>
-        
+            </div> -->
+<!--         
             <div class="col-sm-4">
               <div class="formrow margin-b-10-i">
                   <input type="checkbox" (click)="AddReservePriceFun2()" [(ngModel)]="status_1200" formControlName="status_1200" />
@@ -457,13 +463,12 @@
             <div class="">
               <mat-form-field class="margin-b-10-i" *ngIf="status_1200 == true">
                 <input matInput currencyMask placeholder="Price of 1200 KWH"   required [(ngModel)]="price_1200_kwh" formControlName="price_1200_kwh">
-                <!-- <mat-error *ngIf="fourthFormGroup.controls['price_1200_kwh'].value == '' || !fourthFormGroup.controls['price_1200_kwh'].value"><strong>This Field cannot be empty</strong></mat-error> -->
-                
+                 
               </mat-form-field>
             </div>
 
-          </div>
-          <div class="col-sm-4">
+          </div> -->
+          <!-- <div class="col-sm-4">
               <div class="formrow margin-b-10-i">
                   <input type="checkbox" (click)="AddReservePriceFun3()"  [(ngModel)]="status_1500" formControlName="status_1500" />
                   Add price of 1500kWh
@@ -471,12 +476,11 @@
             <div class="">
               <mat-form-field class="margin-b-10-i" *ngIf="status_1500 == true">
                 <input matInput currencyMask placeholder="Price of 1500 KWH"   required [(ngModel)]="price_1500_kwh" formControlName="price_1500_kwh">
-                <!-- <mat-error *ngIf="fourthFormGroup.controls['price_1500_kwh'].value == '' || !fourthFormGroup.controls['price_900_kwh'].value"><strong>This Field cannot be empty</strong></mat-error> -->
-                
+                 
               </mat-form-field>
             </div>
 
-          </div>
+          </div> -->
         
                   <div class="col-sm-4">
                     <div class="">
@@ -487,7 +491,7 @@
                       </mat-form-field>
                     </div>
                   </div>
-                  <div class="col-sm-4">
+                  <!-- <div class="col-sm-4">
                       <div class="">
                       <mat-form-field class=" margin-b-10-i">
                         <input matInput placeholder="Renewable price" [(ngModel)]="renewable" formControlName="renewable">
@@ -495,11 +499,11 @@
 
                       </mat-form-field>
                       </div>
-                  </div>
+                  </div> -->
                   <div class="col-sm-4">
                     <div class="">
                         <mat-form-field class="margin-b-10-i">
-                          <input matInput currencyMask placeholder="Cancelation Fee" required [(ngModel)]="cancelation_fee" formControlName="cancelation_fee">
+                          <input matInput currencyMask placeholder="Cancellation Fee" required [(ngModel)]="cancelation_fee" formControlName="cancelation_fee">
                           <mat-error *ngIf="fourthFormGroup.controls['cancelation_fee'].value == '' || !fourthFormGroup.controls['cancelation_fee'].value"><strong>This Field cannot be empty</strong></mat-error>
 
                         </mat-form-field>
@@ -528,7 +532,7 @@
                   <button mat-button matStepperPrevious class="btn btn-fill">
                     <i _ngcontent-c0="" class="fa fa-angle-left" style="font-size: 26px; margin: -9px 3px 0px 0px;"></i>
                     Back</button>
-                  <button type="submit" mat-button matStepperNext (click)="signupuserdata(zipcode,utilityarea,contact_email.value,title.value,profileurl.value,profile_logo.value,plan_information,cancelation_fee,fact_sheet,terms_of_service,phone,sign_up.value,minimum_usage_fee,renewable,spectialterms,price_1000_kwh,price_500_kwh,price_2000_kwh, publish_product_date,product_inactive_date,enrollment_productid,product_batch_rate)" class="btn btn-fill">Done</button>
+                  <button type="submit" mat-button matStepperNext (click)="signupuserdata(utilityarea,contact_email.value,title.value,profileurl.value,profile_logo.value,product_name,terms_month,fixed,customer_type,cancelation_fee,fact_sheet,terms_of_service,phone,sign_up.value,minimum_usage_fee,renewable,specialterms,price_1000_kwh,price_500_kwh,price_2000_kwh, publish_product_date,product_inactive_date,enrollment_productid,product_batch_rate)" class="btn btn-fill">Done</button>
                 </div>
               </div>
             </div>
