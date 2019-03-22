@@ -7749,6 +7749,8 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
   box-shadow: 0 3px 1px -2px rgba(0, 0, 0, .2), 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12);
   min-height: 494px;
   position: relative;
+  padding: 18px 0 0;
+  text-align: center;
 }
 .pricing-p{
   font-size: 18px;
@@ -7756,6 +7758,7 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
   font-weight: 400;
   letter-spacing: .016em;
   color: #95A4Ac;
+  margin: 0;
 }
 .single-pricing-2 .plan-name {
   color: #000;
@@ -7763,7 +7766,7 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
   font-size: 26px;
     font-weight: 600;
     font-family: 'Raleway', sans-serif;
-    padding: 15px 0;
+    padding: 20px 0 15px;
   text-transform: capitalize;
 }
 .single-pricing-2 .plan-price {
@@ -7790,7 +7793,7 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
 }
 .list-pricing i {
   color: #00cd00;
-  vertical-align: top;
+  vertical-align: baseline;
   top: 0;
 }
 .home-list-pricing {
@@ -7821,10 +7824,23 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
   border-bottom: none!important;
 }
 .pricing2-button {
-  padding: 0;
+  padding: 10px 0 15px;
   text-align: center;
   bottom: 0;
   width: 100%;
+}
+.pricing2-button a , .price-btn{
+  background: #000;
+    color: #fff;
+    padding: 8px 18px;
+    border-radius: 30px;
+    font-size: 18px;
+    box-shadow: 1px 1px 7px 2px #ccc;
+    font-weight: bold;
+}
+.pricing2-button a:hover , .price-btn:hover{
+  background: #c00;
+  color: #fff;
 }
 .premium .plan-price {
   background: #3498db!important;
