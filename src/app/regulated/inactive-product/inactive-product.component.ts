@@ -147,11 +147,11 @@ export class InactiveProductComponent implements OnInit {
     }
     //Event Binding of PopUp Delete Modal
 
-    activeClick(date,updatedtitle, updatedsign_up, updatedphone, updatedterms_of_service, updatedfact_sheet, updatedcancelation_fee, updatedprice500kwh, updatedprice1000kwh, updatedprice2000kwh, updatedplan_information, updatedrating_logo, updatedprofile_logo, updatedprofileurl, upactive) {
-        console.log('edit' + date,updatedtitle, updatedsign_up, updatedphone, updatedterms_of_service, updatedfact_sheet, updatedcancelation_fee, updatedprice500kwh, updatedprice1000kwh, updatedprice2000kwh, updatedplan_information, updatedrating_logo, updatedprofile_logo, updatedprofileurl, upactive);
-        console.log("TS OBJECT", updatedtitle, updatedsign_up, updatedphone, updatedterms_of_service, updatedfact_sheet, updatedcancelation_fee, updatedprice500kwh, updatedprice1000kwh, updatedprice2000kwh, updatedplan_information, updatedrating_logo, updatedprofile_logo, updatedprofileurl, upactive);
-        //Calling Delete Service
-        this.serve.activeTodoList(date,this.catagoryId, updatedtitle, updatedsign_up, updatedphone, updatedterms_of_service, updatedfact_sheet, updatedcancelation_fee, updatedprice500kwh, updatedprice1000kwh, updatedprice2000kwh, updatedplan_information, updatedrating_logo, updatedprofile_logo, updatedprofileurl, true).subscribe(data => {
+    activeClick() {
+        // console.log('edit' + date,updatedtitle, updatedsign_up, updatedphone, updatedterms_of_service, updatedfact_sheet, updatedcancelation_fee, updatedprice500kwh, updatedprice1000kwh, updatedprice2000kwh, updatedplan_information, updatedrating_logo, updatedprofile_logo, updatedprofileurl, upactive);
+        // console.log("TS OBJECT", updatedtitle, updatedsign_up, updatedphone, updatedterms_of_service, updatedfact_sheet, updatedcancelation_fee, updatedprice500kwh, updatedprice1000kwh, updatedprice2000kwh, updatedplan_information, updatedrating_logo, updatedprofile_logo, updatedprofileurl, upactive);
+        // //Calling Delete Service
+        this.serve.Active_products(this.catagoryId).subscribe(data => {
             console.log(data);
             swal({
                 type: 'success',
@@ -166,6 +166,25 @@ export class InactiveProductComponent implements OnInit {
         //  window.location.reload();
 
     }
+    // activeClick(date,updatedtitle, updatedsign_up, updatedphone, updatedterms_of_service, updatedfact_sheet, updatedcancelation_fee, updatedprice500kwh, updatedprice1000kwh, updatedprice2000kwh, updatedplan_information, updatedrating_logo, updatedprofile_logo, updatedprofileurl, upactive) {
+    //     console.log('edit' + date,updatedtitle, updatedsign_up, updatedphone, updatedterms_of_service, updatedfact_sheet, updatedcancelation_fee, updatedprice500kwh, updatedprice1000kwh, updatedprice2000kwh, updatedplan_information, updatedrating_logo, updatedprofile_logo, updatedprofileurl, upactive);
+    //     console.log("TS OBJECT", updatedtitle, updatedsign_up, updatedphone, updatedterms_of_service, updatedfact_sheet, updatedcancelation_fee, updatedprice500kwh, updatedprice1000kwh, updatedprice2000kwh, updatedplan_information, updatedrating_logo, updatedprofile_logo, updatedprofileurl, upactive);
+    //     //Calling Delete Service
+    //     this.serve.activeTodoList(date,this.catagoryId, updatedtitle, updatedsign_up, updatedphone, updatedterms_of_service, updatedfact_sheet, updatedcancelation_fee, updatedprice500kwh, updatedprice1000kwh, updatedprice2000kwh, updatedplan_information, updatedrating_logo, updatedprofile_logo, updatedprofileurl, true).subscribe(data => {
+    //         console.log(data);
+    //         swal({
+    //             type: 'success',
+    //             title: 'Successfully updated',
+    //             showConfirmButton: false,
+    //             timer: 1500
+    //         })
+    //         this.setPage(this.title, 1)
+
+    //     }, error => {
+    //     });
+    //     //  window.location.reload();
+
+    // }
     noresult;
     search(page:number) {
         this.title = localStorage.getItem('title');
@@ -240,8 +259,8 @@ export class InactiveProductComponent implements OnInit {
             console.log(this.noresult)
             for (let prod of this.sg['products']) {
               
-                prod["plan_information"] = prod["plan_information"].split(',', 3000);
-                prod["price_rate"] = prod["price_rate"].split('..', 3000);
+                // prod["plan_information"] = prod["plan_information"].split(',', 3000);
+                // prod["price_rate"] = prod["price_rate"].split('..', 3000);
 
             }
 

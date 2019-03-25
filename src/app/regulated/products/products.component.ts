@@ -72,6 +72,7 @@ export class ProductsComponent implements OnInit, AfterViewInit, OnDestroy {
     energy;
     i;
     name;
+    Zipcode_service_area;
     pager: any = {};
     pageSizeOptions;
     public dataTable: DataTable;
@@ -154,6 +155,7 @@ export class ProductsComponent implements OnInit, AfterViewInit, OnDestroy {
     comtitle;
     rate = '';
     title = '';
+    zipcdoeservicearea;
     catagoryId = '';
     cancelation = '';
     fact_sheet = '';
@@ -226,6 +228,7 @@ export class ProductsComponent implements OnInit, AfterViewInit, OnDestroy {
         this.myID = document.getElementById("myID");
         // this.checked8(event, i);
         localStorage.setItem('ua', "True")
+        this.ZipcodeServiceArea();
         let para = {
             zip_code: `${localStorage.getItem('zip')}`,
             promo_code: "",
@@ -697,6 +700,20 @@ export class ProductsComponent implements OnInit, AfterViewInit, OnDestroy {
             });
 
     }
+    ZipcodeServiceArea() {
+        let headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+        this.https.get(Config.api + 'zipcodewitharea/' +localStorage.getItem('zip')+'/', { headers: headers })
+
+            .subscribe(Res => {
+
+                this.zipcdoeservicearea = Res.json();
+
+                // this.title = this.title;
+                console.log(this.zipcdoeservicearea)
+            });
+
+    }
     logo5;
     logo4;
     logo3;
@@ -1063,6 +1080,25 @@ export class ProductsComponent implements OnInit, AfterViewInit, OnDestroy {
         }
         console.log(this.name)
     }
+    checkedsevicearea(event, i, Zipcode_service_area){
+        // if (Zipcode_service_area) {
+            console.log(Zipcode_service_area);
+            this.Zipcode_service_area = Zipcode_service_area;
+            // alert(this.zipcdoeservicearea)
+            console.log(this.Zipcode_service_area)
+            this.setPage(1);
+        // }
+        // else {
+        //     // alert("usamn")
+        //     console.log()
+        //     // delete this.Zipcode_service_area;
+        //     // localStorage.removeItem('name');
+        //     // this.refresh();
+        //     this.setPage(1);
+
+        // }
+        // console.log(this.name)
+    }
     refresh(): void {
         // this.setPage(1);
         window.location.reload();
@@ -1295,7 +1331,7 @@ export class ProductsComponent implements OnInit, AfterViewInit, OnDestroy {
         // this.min_price_500,this.max_price_500,this.min_price_1000,this.max_price_1000, this.min_price_2000,this.max_price_2000,
         const Results = {}
 
-        if (this.months1 == "36 Months" || this.months2 == "24 Months" || this.months3 == "18 Months" || this.months4 == "14 Months" || this.months5 == "12 Months" || this.months6 == "12 Months" || this.months7 == "5 Months" || this.fixed == "Fixed Rate" || this.vari == "Variable (Changing Rate)" || this.market == "Indexed (Market Rate)" || this.prepaidall == "both" || this.showallplanPB == "both" || this.timeall == "both" || this.planmin == "NULL" || this.notprepaid == "noprepaid" || this.prepaid == "Prepaid" || this.time == "Time Of Use" || this.nottime == "notime" || this.renewable || this.name || this.sort || this.item || this.min_price_500||this.max_price_500||this.min_price_1000||this.max_price_1000||this.min_price_2000||this.max_price_2000||this.demo ) {
+        if (this.months1 == "36 Months" || this.months2 == "24 Months" || this.months3 == "18 Months" || this.months4 == "14 Months" || this.months5 == "12 Months" || this.months6 == "12 Months" || this.months7 == "5 Months" || this.fixed == "Fixed Rate" || this.vari == "Variable (Changing Rate)" || this.market == "Indexed (Market Rate)" || this.prepaidall == "both" || this.showallplanPB == "both" || this.timeall == "both" || this.planmin == "NULL" || this.notprepaid == "noprepaid" || this.prepaid == "Prepaid" || this.time == "Time Of Use" || this.nottime == "notime" || this.renewable || this.name ||this.Zipcode_service_area || this.sort || this.item || this.min_price_500||this.max_price_500||this.min_price_1000||this.max_price_1000||this.min_price_2000||this.max_price_2000||this.demo ) {
             // this.logo1 || this.logo2 || this.logo3 || this.logo4 || this.logo5 == "StarRating5.png"
             // , this.logo2, this.logo3, this.logo4, this.logo5
             this.demo= this.logo1+','+this.logo2+','+this.logo3+','+this.logo4+','+this.logo5
@@ -1303,7 +1339,7 @@ export class ProductsComponent implements OnInit, AfterViewInit, OnDestroy {
                 delete this.demo;
             }
             console.log(this.months1, this.months2, this.months3, this.months4, this.months5, this.months6, this.months7, this.fixed, this.vari, this.market, this.prepaid, this.notprepaid, this.planmin, this.time, this.nottime, this.renewable, this.name, this.sort,  this.item,this.min_price_500,this.max_price_500,this.min_price_1000,this.max_price_1000, this.min_price_2000,this.max_price_2000, this.timeall, this.prepaidall, this.showallplanPB, 'multifilter');
-            this.obj.filter(page, this.zip_code, this.months1, this.months2, this.months3, this.months4, this.months5, this.months6, this.months7, this.fixed, this.vari, this.market, this.notprepaid, this.prepaid, this.planmin, this.time, this.nottime, this.renewable, this.name, this.sort, this.item, this.min_price_500,this.max_price_500,this.min_price_1000,this.max_price_1000, this.min_price_2000,this.max_price_2000, this.demo, this.prepaidall, this.timeall, this.showallplanPB).subscribe(response => {
+            this.obj.filter(page, this.zip_code, this.months1, this.months2, this.months3, this.months4, this.months5, this.months6, this.months7, this.fixed, this.vari, this.market, this.notprepaid, this.prepaid, this.planmin, this.time, this.nottime, this.renewable, this.name,this.Zipcode_service_area, this.sort, this.item, this.min_price_500,this.max_price_500,this.min_price_1000,this.max_price_1000, this.min_price_2000,this.max_price_2000, this.demo, this.prepaidall, this.timeall, this.showallplanPB).subscribe(response => {
 
 
                 // alert(this.min_price_500);
@@ -1315,7 +1351,7 @@ export class ProductsComponent implements OnInit, AfterViewInit, OnDestroy {
                 // alert(this.vendor_sign_up.title)
                 for (let prod of this.product) {
                     var re = /\s*(?:;|$)\s*/;
-                    prod["plan_information"] = prod["plan_information"].split(',,', 3000);
+                    // prod["plan_information"] = prod["plan_information"].split(',,', 3000);
                     // prod["plan_information"] = prod["plan_information"].split(',,,,,', 3000);
                     // prod["price_rate"] = prod["price_rate"].split('..', 3000);
                 //    this.vendor_sign_up= prod["title"] 
@@ -1329,7 +1365,7 @@ export class ProductsComponent implements OnInit, AfterViewInit, OnDestroy {
                 // for(let vendorss of this.product){
                 //     vendorss["title"]
                 //     console.log(vendorss)
-                // }
+                // }response['Total Result']
 
                 this.pager = this.pagerService.getPager(response['Total Result'], page, this.item);
 

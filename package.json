@@ -72,6 +72,7 @@
     "ng2-nouislider": "1.6.1",
     "ng2-select": "1.2.0",
     "ng2-simple-global": "^1.2.5",
+    "ng4-intl-phone": "^1.2.1",
     "ngx-chips": "^1.6.2",
     "ngx-editor": "^3.3.0",
     "ngx-perfect-scrollbar": "^5.0.1",

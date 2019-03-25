@@ -492,20 +492,9 @@ export class DashboardComponent implements OnInit, AfterViewInit {
     // }
 
     // }
-    activeClick(updatedserviceareaname,updatedtitle,updatedprofileurl,updatedprofile_logo,updatedproduct_name,updatedrate_type,updatedterms_month,updatedcustomer_type,
-        updatedcancelation_fee,updatedfact_sheet,updatedterms_of_service,updatedphone,updatedsign_up,updatedminimum_usage_fee,updatedrenewable,
-        updatedspecialterms,updatedprice1000kwh,updatedprice500kwh,updatedprice2000kwh,updatedcontact_email,mydate,updateddate,
-        updatedenrollment_productid,updatedproduct_batch_rate,updatedrating_logo) {
-        console.log('edit' +updatedserviceareaname,updatedtitle,updatedprofileurl,updatedprofile_logo,updatedproduct_name,updatedrate_type,updatedterms_month,updatedcustomer_type,
-        updatedcancelation_fee,updatedfact_sheet,updatedterms_of_service,updatedphone,updatedsign_up,updatedminimum_usage_fee,updatedrenewable,
-        updatedspecialterms,updatedprice1000kwh,updatedprice500kwh,updatedprice2000kwh,updatedcontact_email,mydate,updateddate,
-        updatedenrollment_productid,updatedproduct_batch_rate);
-        console.log("TS OBJECT", updatedserviceareaname,updatedtitle,updatedprofileurl,updatedprofile_logo,updatedproduct_name,updatedrate_type,updatedterms_month,updatedcustomer_type,
-        updatedcancelation_fee,updatedfact_sheet,updatedterms_of_service,updatedphone,updatedsign_up,updatedminimum_usage_fee,updatedrenewable,
-        updatedspecialterms,updatedprice1000kwh,updatedprice500kwh,updatedprice2000kwh,updatedcontact_email,mydate,updateddate,
-        updatedenrollment_productid,updatedproduct_batch_rate);
-        //Calling Delete Service
-        this.serve.editTodoList(this.catagoryId,updatedserviceareaname,updatedtitle,updatedprofileurl,updatedprofile_logo,updatedproduct_name,updatedrate_type,updatedterms_month,updatedcustomer_type,updatedcancelation_fee,updatedfact_sheet,updatedterms_of_service,updatedphone,updatedsign_up,updatedminimum_usage_fee,updatedrenewable,updatedspecialterms,updatedprice1000kwh,updatedprice500kwh,updatedprice2000kwh,updatedcontact_email,mydate,updateddate,updatedenrollment_productid,updatedproduct_batch_rate,updatedrating_logo,false).subscribe(data => {
+    activeClick(mydate,updateddate) {
+       
+        this.serve.Deactive_products(this.catagoryId,mydate,updateddate).subscribe(data => {
             console.log(data);
             // this.catagoryId,
             swal({

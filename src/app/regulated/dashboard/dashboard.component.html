@@ -8,7 +8,7 @@
         <!--<label class="date-lable">Effective from date</label>-->
 
         <mat-form-field class="margin-t-15">
-          <input matInput [matDatepicker]="startPicker" [(ngModel)]="Inactivedate" placeholder="Effective from date" />
+          <input matInput [matDatepicker]="startPicker" [(ngModel)]="Inactivedate" placeholder="Effective From Date" />
           <mat-datepicker-toggle matSuffix [for]="startPicker"></mat-datepicker-toggle>
           <mat-datepicker #startPicker></mat-datepicker>
         </mat-form-field>
@@ -19,7 +19,7 @@
       <div class="col-lg-3 col-xs-12">
         <!--<label class="date-lable">Effective to date</label>-->
         <mat-form-field class="margin-t-15">
-          <input matInput [matDatepicker]="startPicker1" [(ngModel)]="publishdate" placeholder="Effective to date" />
+          <input matInput [matDatepicker]="startPicker1" [(ngModel)]="publishdate" placeholder="Effective To Date" />
           <mat-datepicker-toggle matSuffix [for]="startPicker1"></mat-datepicker-toggle>
           <mat-datepicker #startPicker1></mat-datepicker>
         </mat-form-field>
@@ -147,86 +147,80 @@
 
                           <!-- <input matInput placeholder="date" [value]="today | date: 'yyyy-MM-dd'" #mydate name="mydate"> -->
 
-                          <input matInput placeholder="Title" readonly name="title" value="{{title}}"  
-                            required #updatedtitle />
-                          <input matInput placeholder="Contact Email" name="contact_email"  
-                            value="{{contact_email}}" required #updatedcontact_email />
-                          <input matInput placeholder="Profile url" readonly name="profileurl" value="{{profileurl}}"
-                            #updatedprofileurl />
-                          <input matInput placeholder="Customer Type" name="customer_type" value="{{customer_type}}"
-                             #updatedcustomer_type />
-                          <input matInput placeholder="Renewable" name="renewable" value="{{renewable}}"  
-                            #updatedrenewable />
-                          <input matInput placeholder="Terms Month" name="terms_month" value="{{terms_month}}"
-                             #updatedterms_month />
-                          <input matInput placeholder="Product Name" name="product_name" value="{{product_name}}"
-                              #updatedproduct_name />
-                          <input matInput placeholder="Cancelation Fee" name="cancelation_fee"
-                            value="{{cancelation_fee}}"   #updatedcancelation_fee />
-                          <input matInput placeholder="Products Batch Rate" name="product_batch_rate"
-                            value="{{product_batch_rate}}"  required #updatedproduct_batch_rate />
-                          <!-- <input matInput placeholder="Status" readonly name="active" [value]="status" [hidden]="true"
-                            #upactive /> -->
-                          <input matInput placeholder="Enrollment" name="enrollment_productid"
-                            value="{{enrollment_productid}}" required  #updatedenrollment_productid />
-                          <input matInput placeholder="Rate Type" name="rate_type" value="{{rate_type}}"  
-                            #updatedrate_type />
-                          <input matInput placeholder="Products Batch Rate" name="minumum_usage_fee"
-                            value="{{minumum_usage_fee}}" required #updatedminimum_usage_fee  />
-                          <input matInput placeholder="Profile Logo" readonly name="profile_logo"  
-                            value="{{profile_logo}}" #updatedprofile_logo />
-                          <input matInput placeholder="Special terms" name="specialterms"  
-                            value="{{specialterms}}" required #updatedspecialterms />
+                          <!-- <input matInput placeholder="Title" readonly name="title" value="{{title}}"  
+                            required #updatedtitle /> -->
+                          <!-- <input matInput placeholder="Contact Email" name="contact_email"  
+                            value="{{contact_email}}" required #updatedcontact_email /> -->
+                          <!-- <input matInput placeholder="Profile url" readonly name="profileurl" value="{{profileurl}}"
+                            #updatedprofileurl /> -->
+                          <!-- <input matInput placeholder="Customer Type" name="customer_type" value="{{customer_type}}"
+                             #updatedcustomer_type /> -->
+                          <!-- <input matInput placeholder="Renewable" name="renewable" value="{{renewable}}"  
+                            #updatedrenewable /> -->
+                          <!-- <input matInput placeholder="Terms Month" name="terms_month" value="{{terms_month}}"
+                             #updatedterms_month /> -->
+                          <!-- <input matInput placeholder="Product Name" name="product_name" value="{{product_name}}"
+                              #updatedproduct_name /> -->
+                          <!-- <input matInput placeholder="Cancelation Fee" name="cancelation_fee"
+                            value="{{cancelation_fee}}"   #updatedcancelation_fee /> -->
+                          <!-- <input matInput placeholder="Products Batch Rate" name="product_batch_rate"
+                            value="{{product_batch_rate}}"  required #updatedproduct_batch_rate /> -->
+                         
+                          <!-- <input matInput placeholder="Enrollment" name="enrollment_productid"
+                            value="{{enrollment_productid}}" required  #updatedenrollment_productid /> -->
+                          <!-- <input matInput placeholder="Rate Type" name="rate_type" value="{{rate_type}}"  
+                            #updatedrate_type /> -->
+                          <!-- <input matInput placeholder="Products Batch Rate" name="minumum_usage_fee"
+                            value="{{minumum_usage_fee}}" required #updatedminimum_usage_fee  /> -->
+                          <!-- <input matInput placeholder="Profile Logo" readonly name="profile_logo"  
+                            value="{{profile_logo}}" #updatedprofile_logo /> -->
+                          <!-- <input matInput placeholder="Special terms" name="specialterms"  
+                            value="{{specialterms}}" required #updatedspecialterms /> -->
 
-                          <input matInput placeholder="Rating_logo"   readonly name="rating_logo"
+                          <!-- <input matInput placeholder="Rating_logo"   readonly name="rating_logo"
                             value="{{rating_logo}}" #updatedrating_logo />
                           <input matInput placeholder="Service Area" name="serviceareaname" 
-                            value="{{serviceareaname}}" required #updatedserviceareaname />
+                            value="{{serviceareaname}}" required #updatedserviceareaname /> -->
                           <!-- 
                           <input matInput placeholder="Plan Details" name="plan_information" [hidden]="true"
                             value="{{plan_information}}" #updatedplan_information /> -->
 
-
+<!-- 
                           <input matInput placeholder="price 500 kwh" name="price_500_kwh" value="{{price_500_kwh}}"
-                             #updatedprice500kwh />
+                             #updatedprice500kwh /> -->
 
 
-                          <input matInput placeholder="price 1000 kwh" name="price_1000_kwh" value="{{price_1000_kwh}}"
-                              #updatedprice1000kwh />
+                          <!-- <input matInput placeholder="price 1000 kwh" name="price_1000_kwh" value="{{price_1000_kwh}}"
+                              #updatedprice1000kwh /> -->
 
 
-                          <input matInput placeholder="price 2000 kwh" name="price_2000_kwh" value="{{price_2000_kwh}}"
-                             #updatedprice2000kwh />
+                          <!-- <input matInput placeholder="price 2000 kwh" name="price_2000_kwh" value="{{price_2000_kwh}}"
+                             #updatedprice2000kwh /> -->
 
 
-                          <input matInput placeholder="Cancelation Fee" readonly name="cancelation_fee"
-                            value="{{cancelation_fee}}"   #updatedcancelation_fee />
-
+                          <!-- <input matInput placeholder="Cancelation Fee" readonly name="cancelation_fee"
+                            value="{{cancelation_fee}}"   #updatedcancelation_fee /> -->
+<!-- 
                           <input matInput placeholder="Fact Sheet" readonly name="fact_sheet" value="{{fact_sheet}}"
-                              #updatedfact_sheet />
+                              #updatedfact_sheet /> -->
 
-
+<!-- 
                           <input matInput placeholder="Term of Service" readonly name="terms_of_service"  
-                            value="{{terms_of_service}}" #updatedterms_of_service />
+                            value="{{terms_of_service}}" #updatedterms_of_service /> -->
 
-                          <input matInput placeholder="Phone No" name="phone" readonly   value="{{phone}}"
-                            #updatedphone />
+                          <!-- <input matInput placeholder="Phone No" name="phone" readonly   value="{{phone}}"
+                            #updatedphone /> -->
 
-
+<!-- 
                           <input matInput placeholder="Sign Up" name="sign_up" readonly  
-                            value="{{sign_up}}" #updatedsign_up />
+                            value="{{sign_up}}" #updatedsign_up /> -->
 
                           <div class=" text-center">
                             <!-- <button type="submit" class="btn btn-fill btn-style"
                               (click)="activeClick(nowdate,date,updatedtitle.value,updatedsign_up.value,updatedphone.value,updatedterms_of_service.value,updatedfact_sheet.value,updatedcancelation_fee.value,updatedprice500kwh.value,updatedprice1000kwh.value,updatedprice2000kwh.value,updatedplan_information.value,updatedrating_logo.value,updatedprofile_logo.value,updatedprofileurl.value,upactive.value)"
                               data-dismiss="modal">Deactive</button> -->
                               <button type="submit" class="btn btn-fill btn-style"
-                              (click)="activeClick(updatedserviceareaname.value,updatedtitle.value,updatedprofileurl.value,
-                              updatedprofile_logo.value,updatedproduct_name.value,updatedrate_type.value,updatedterms_month.value,updatedcustomer_type.value,updatedcancelation_fee.value,
-                              updatedfact_sheet.value,updatedterms_of_service.value,updatedphone.value,updatedsign_up.value,updatedminimum_usage_fee.value,updatedrenewable.value,
-                              updatedspecialterms.value,updatedprice1000kwh.value,updatedprice500kwh.value,updatedprice2000kwh.value,updatedcontact_email.value,
-                              nowdate,date,
-                              updatedenrollment_productid.value,updatedproduct_batch_rate.value,updatedrating_logo.value)"
+                              (click)="activeClick(nowdate,date)"
                               data-dismiss="modal">Deactive</button>
                               <!-- updatedserviceareaname.value,updatedtitle.value,updatedprofileurl.value,
                               updatedprofile_logo.value,updatedproduct_name.value,updatedrate_type.value,updatedterms_month.value,updatedcustomer_type.value,updatedcancelation_fee.value,

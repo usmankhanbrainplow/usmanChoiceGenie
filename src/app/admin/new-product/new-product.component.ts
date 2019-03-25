@@ -80,8 +80,8 @@ export class NewProductComponent implements OnInit {
     console.log(this.username)
     this.fetchProducts()
     this.profile();
-    alert(this.fixed)
-  alert(this.customer)
+    // alert(this.fixed)
+  // alert(this.customer)
     // this.checked8();
     // this.companystates();
     console.log(this.username)
@@ -121,7 +121,7 @@ export class NewProductComponent implements OnInit {
 // 'status_1200':[],
 // 'status_1500':[],
 
-      'minimum_usage_fee': ['', Validators.compose([Validators.required])],
+      // 'minimum_usage_fee': ['', Validators.compose([Validators.required])],
      
       'cancelation_fee': ['', Validators.compose([Validators.required])],
       'enrollment_productid': ['', Validators.compose([Validators.required])],
@@ -216,7 +216,7 @@ export class NewProductComponent implements OnInit {
     console.log(this.terms_of_service);
     // console.log(this.fact_sheet)
 // alert(this.fact_sheet)
-    alert(this.terms_of_service);
+    // alert(this.terms_of_service);
   }
 
   readUrl(event: any) {
@@ -227,7 +227,7 @@ export class NewProductComponent implements OnInit {
         this.url = e.target.result;
         console.log(this.url);
       };
-      alert(this.url)
+      // alert(this.url)
       reader.readAsDataURL(event.target.files[0]);
      this.upload();
     //  this.uploadfactsheet();
@@ -242,8 +242,8 @@ export class NewProductComponent implements OnInit {
     // this.terms_of_service.append('fileToUpload', target.files[0]);
     this.fact_sheet.append('fileToUpload', target.files[0]);
     // console.log(this.terms_of_service);
-    console.log(this.fact_sheet)
-alert(this.fact_sheet)
+    // console.log(this.fact_sheet)
+// alert(this.fact_sheet)
     // alert(this.terms_of_service);
   }
   readUrlfect(event: any) {
@@ -254,7 +254,7 @@ alert(this.fact_sheet)
         this.url = e.target.result;
         console.log(this.url);
       };
-      alert(this.url)
+      // alert(this.url)
       reader.readAsDataURL(event.target.files[0]);
   //  this.upload();
      this.uploadfactsheet();
@@ -336,7 +336,7 @@ alert(this.fact_sheet)
         console.log(event.target.checked)
         this.fixed = "Fixed Rate";
         // this.setPage(1);
-        alert(this.fixed)
+        // alert(this.fixed)
         console.log(this.fixed,"fixed rate");
     }
     
@@ -346,7 +346,7 @@ checked9(event, i) {
   if (event.target.checked == true) {
       console.log(event.target.checked)
       this.fixed = "Variable (Changing Rate) ";
-      alert(this.fixed)
+      // alert(this.fixed)
   
       // this.setPage(1);
       // alert(this.fixed)
@@ -360,7 +360,7 @@ checked10(event, i) {
   if (event.target.checked == true) {
       console.log(event.target.checked)
       this.fixed = "Indexed (Market Rate)";
-      alert(this.fixed)
+      // alert(this.fixed)
       // delete 
       // this.setPage(1);
       // alert(this.fixed)
@@ -373,7 +373,7 @@ checked11(event, i) {
   if (event.target.checked == true) {
       console.log(event.target.checked)
       this.customer = "New Customer";
-      alert(this.customer)
+      // alert(this.customer)
       // delete 
       // this.setPage(1);
       // alert(this.fixed)
@@ -386,7 +386,7 @@ checked12(event, i) {
   if (event.target.checked == true) {
       console.log(event.target.checked)
       this.customer = "Existing";
-      alert(this.customer)
+      // alert(this.customer)
       // delete 
       // this.setPage(1);
       // alert(this.fixed)
@@ -399,7 +399,7 @@ checked13(event, i) {
   if (event.target.checked == true) {
       console.log(event.target.checked)
       this.customer = "New and Existing";
-      alert(this.customer)
+      // alert(this.customer)
       // delete 
       // this.setPage(1);
       // alert(this.fixed)
@@ -408,6 +408,35 @@ checked13(event, i) {
    
   console.log(this.fixed)
 }
+Pricing;
+checked15(event, i) {
+  if (event.target.checked == true) {
+      console.log(event.target.checked)
+      this.Pricing = "NULL";
+      // alert(this.Pricing)
+      // delete 
+      // this.setPage(1);
+      // alert(this.fixed)
+      console.log(this.Pricing,"New and Existing");
+  }
+   
+  console.log(this.Pricing)
+}
+
+checked14(event, i) {
+  if (event.target.checked == true) {
+      console.log(event.target.checked)
+      this.Pricing = "Both";
+      // alert(this.Pricing)
+      // delete 
+      // this.setPage(1);
+      // alert(this.fixed)
+      console.log(this.Pricing,"New and Existing");
+  }
+   
+  console.log(this.Pricing)
+}
+
   // signupuserdata(utilityarea, contact_email, title, profileurl, profile_logo, plan_information,  cancelation_fee, fact_sheet, terms_of_service, phone, sign_up, minimum_usage_fee, renewable, specialterms, price_1000_kwh, price_500_kwh, price_2000_kwh,publish_product_date,product_inactive_date,enrollment_productid,product_batch_rate) {
     signupuserdata(utilityarea,contact_email,title,profileurl,profile_logo,product_name,terms_month,fixed,customer_type,cancelation_fee,fact_sheet,terms_of_service,phone,sign_up,minimum_usage_fee,renewable,specialterms,price_1000_kwh,price_500_kwh,price_2000_kwh, publish_product_date,product_inactive_date,enrollment_productid,product_batch_rate  ) {
     // utilityarea,contact_email.value,title.value,profileurl.value,profile_logo.value,product_name,terms_month,fixed,customer_type,cancelation_fee,fact_sheet,terms_of_service,phone,sign_up.value,minimum_usage_fee,renewable,specialterms,price_1000_kwh,price_500_kwh,price_2000_kwh, publish_product_date,product_inactive_date,enrollment_productid,product_batch_rate  
@@ -429,20 +458,21 @@ checked13(event, i) {
       "price_rate":this.price_rate  ,
       'product_name':product_name,
       'rate_type':this.fixed,
-      'terms_month':terms_month,
+      'terms_month':terms_month +'Month',
       'customer_type':this.customer,
       "cancelation_fee": cancelation_fee,
       "fact_sheet": this.fact_sheet,
       "terms_of_service":this.terms_of_service,
       "phone": phone,
       "sign_up": sign_up,
-      "minumum_usage_fee": minimum_usage_fee,
+      // "minumum_usage_fee": minimum_usage_fee,
       "renewable": renewable,
       "specialterms": specialterms,
       "price_1000_kwh": price_1000_kwh,
       "price_500_kwh": price_500_kwh,
       "price_2000_kwh": price_2000_kwh,
       "contact_email": contact_email,
+      "minumum_usage_fee":this.Pricing,
 
       'publish_product_date': moment(publish_product_date).format('YYYY-MM-DD'),
       'product_inactive_date': moment(product_inactive_date).format('YYYY-MM-DD'),
@@ -459,6 +489,9 @@ checked13(event, i) {
           'ChoiceGenie',
           'success'
         )
+        // this.router.navigate(['/'])
+        this.router.navigate(['/dashboard/' + this.username]);
+        
         console.log(this.model);
 
       },

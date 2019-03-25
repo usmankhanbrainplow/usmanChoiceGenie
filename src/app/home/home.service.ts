@@ -48,7 +48,7 @@ public username;
    return this.http.get(Config.api+'deregulated_inactive_product/' + this.title +'?page='+page +'/',{ headers: headers }).map((response: Response) => response);
 
   }
-  filter(page,id,months1,months2,months3,months4,months5,months6,months7,fixed,vari,market,notprepaid,prepaid,planmin,time,nottime,renewable,name,sort,item,min500,max500,min1000,max1000,min2000,max2000,demo,prepaidall,timeall,showallplanPB) {
+  filter(page,id,months1,months2,months3,months4,months5,months6,months7,fixed,vari,market,notprepaid,prepaid,planmin,time,nottime,renewable,name,zipcdoeservicearea,sort,item,min500,max500,min1000,max1000,min2000,max2000,demo,prepaidall,timeall,showallplanPB) {
 if(name){
   // logo1,logo2,logo3,logo4,logo5
     this.com=name.trim();}
@@ -76,6 +76,7 @@ if(name){
       "notime":nottime,
       "renewablerate":renewable,
       "company":this.com,
+      "servicearea":zipcdoeservicearea,
       "itemsperpage":item,
 
       "price_500_kwh_min_price":min500, 

@@ -96,7 +96,7 @@
                           </mat-option>
 
                           </mat-select> -->
-                        <input matInput placeholder="Company Name" required [value]="only"  name="title" #title>
+                        <input matInput placeholder="Company Name"  readonly="true" required [value]="only"  name="title" #title>
                       </mat-form-field>
                     </div>
 
@@ -141,6 +141,8 @@
                   <div class="col-md-4">
                       <mat-form-field class="example-full-width margin-t-15">
                           <input matInput placeholder="Product Name"   required [(ngModel)]="product_name" formControlName="product_name">
+                          <mat-error *ngIf="secondFormGroup.controls['product_name'].value == '' || !secondFormGroup.controls['product_name'].value"><strong>This Field cannot be empty</strong></mat-error>
+
                         </mat-form-field>
                         <!-- <mat-form-field>
                           <input matInput placeholder="Zipcode" required [(ngModel)]="zipcode" formControlName="zipcode">
@@ -157,7 +159,7 @@
                     </div>
                     <div class="col-md-4">
                       <mat-form-field class="example-full-width margin-t-15">
-                          <input matInput placeholder="Term (Mounth)"  required [(ngModel)]="terms_month" formControlName="terms_month">
+                          <input matInput placeholder="Term (Month)"  required [(ngModel)]="terms_month" formControlName="terms_month">
                           <mat-error *ngIf="secondFormGroup.controls['terms_month'].value == '' || !secondFormGroup.controls['terms_month'].value"><strong>This Field cannot be empty</strong></mat-error>
 
                         </mat-form-field>
@@ -166,7 +168,7 @@
                         <mat-form-field class="example-full-width margin-t-15">
                             <!-- <input matInput placeholder="Renewable (%)"  required [(ngModel)]="product_name" formControlName="product_name"> -->
                        
-                          <input matInput placeholder="Renewable price" [(ngModel)]="renewable" formControlName="renewable">
+                          <input matInput placeholder="Renewable (%)" [(ngModel)]="renewable" formControlName="renewable">
                         <mat-error *ngIf="secondFormGroup.controls['renewable'].value == '' || !secondFormGroup.controls['renewable'].value"><strong>This Field cannot be empty</strong></mat-error>
                       </mat-form-field>
                     </div>
@@ -203,7 +205,7 @@
                     </div>
 
                     
-                        <div class="col-sm-6">
+                        <div class="col-sm-4">
                             <h4 class="sm-heading">Customer Type</h4>
                               <div class="radio">
                                   <label class="redio-lable">
@@ -225,6 +227,39 @@
                                         New and Existing
                                       </label>
                                     </div>
+                          </div>
+                           <!-- <div class="col-sm-4">
+                    <div class="">
+                      <mat-form-field class="margin-b-10-i">
+                        <input matInput currencyMask placeholder="Minimum Usage Fee" [(ngModel)]="minimum_usage_fee" formControlName="minimum_usage_fee">
+                        <mat-error *ngIf="fourthFormGroup.controls['minimum_usage_fee'].value == '' || !fourthFormGroup.controls['minimum_usage_fee'].value"><strong>This Field cannot be empty</strong></mat-error>
+
+                      </mat-form-field>
+                    </div>
+                  </div> -->
+                          
+                        <div class="col-sm-4">
+                            <h4 class="sm-heading">Pricing and Billing</h4>
+                              <div class="radio">
+                                  <label class="redio-lable">
+                                    <input checked="true" type="radio" (change)="checked14($event,i)"   ng-Model="Pricing"  name="minimum_usage_fee" [value]="pricing" >
+                                    <!-- <input  type="radio" (change)="checked10($event,i)"   ng-Model="market"  name="fixed" [value]="market" > -->
+                                    <span class="circle"></span><span class="check"></span>
+                                    Yes
+                                  </label>
+                                </div>
+                                <div class="radio">
+                                    <label class="redio-lable">
+                                      <input type="radio" (change)="checked15($event,i)"   ng-Model="billing"  name="minimum_usage_fee" [value]="billing"><span class="circle"></span><span class="check"></span>
+                                      No
+                                    </label>
+                                  </div>
+                                  <!-- <div class="radio">
+                                      <label class="redio-lable">
+                                        <input type="radio" (change)="checked13($event,i)"   ng-Model="NewandExisting"  name="customer_type" [value]="NewandExisting"><span class="circle"></span><span class="check"></span>
+                                        New and Existing
+                                      </label>
+                                    </div> -->
                           </div>
 
 
@@ -482,7 +517,7 @@
 
           </div> -->
         
-                  <div class="col-sm-4">
+                  <!-- <div class="col-sm-4">
                     <div class="">
                       <mat-form-field class="margin-b-10-i">
                         <input matInput currencyMask placeholder="Minimum Usage Fee" [(ngModel)]="minimum_usage_fee" formControlName="minimum_usage_fee">
@@ -490,7 +525,7 @@
 
                       </mat-form-field>
                     </div>
-                  </div>
+                  </div> -->
                   <!-- <div class="col-sm-4">
                       <div class="">
                       <mat-form-field class=" margin-b-10-i">

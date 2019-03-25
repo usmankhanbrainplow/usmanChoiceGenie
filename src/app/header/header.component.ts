@@ -57,11 +57,11 @@ googleTranslateElementInit() {
   
   
   checked_login() {
-    if (localStorage.getItem('username')) {
-      let local = localStorage.getItem('username');
+    if (localStorage.getItem('title')) {
+      let local = localStorage.getItem('title');
       return true;
     }
-    else if(!localStorage.getItem('username')){
+    else if(!localStorage.getItem('title')){
       return false;
     }
     

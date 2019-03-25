@@ -96,16 +96,17 @@
 
           </div>
         </div>
-        <div class="col-sm-4">
-          <div class="margin-b-10-i">
-            <mat-form-field>
+        
+          <!-- <div class="margin-b-10-i"> -->
+            <!-- <mat-form-field>
               <input matInput [textMask]="{mask: phoneMask}" placeholder="Contact No." [formControl]="signupForm.controls['contactphone']" required [(ngModel)]="model.contactphone">
               <mat-icon matSuffix (click)="hide = !hide" >settings_phone</mat-icon>
               <mat-error *ngIf="signupForm.controls['contactphone'].value == '' || !signupForm.controls['contactphone'].value"><strong>This Field cannot be empty</strong></mat-error>
+            </mat-form-field>              -->
+             <int-phone-prefix  [(ngModel)]="model.contactphone"  class="phonee"  [formControl]="signupForm.controls['contactphone']"   placeholder="Phone No" required> </int-phone-prefix>
 
-            </mat-form-field>
-          </div>
-        </div>
+          <!-- </div> -->
+       
         <div class="col-sm-4">
           <div class="margin-b-10-i">
             <mat-form-field>

@@ -75,9 +75,25 @@
  
                <div style="text-align:center; padding-top:10px;">
  
-                 <p *ngFor="let item of data.plan_information" class="items-detail">
+                 <!-- <p *ngFor="let item of data.plan_information" class="items-detail">
                    {{item}}
-                 </p>
+                 </p> -->
+                 <p class="items-detail" style="line-height: 18px;">
+                  {{ data.product_name}}
+                  <!-- data.rate_type,data.terms_month, data.renewable,data.customer_type -->
+                </p>
+                <p class="items-detail" style="line-height: 18px;">
+                  {{data.rate_type}}
+                </p>
+                <p class="items-detail" style="line-height: 18px;">
+                  {{data.terms_month}}
+                </p>
+                <p class="items-detail" style="line-height: 18px;">
+                  {{data.renewable}}% Renewable
+                </p>
+                <p class="items-detail" style="line-height: 18px;">
+                  {{data.customer_type}}
+                </p>
  
                </div>
              </div>
@@ -148,53 +164,53 @@
                    <div class="col-lg-12">
                      <form (ngSubmit)="onSubmit(f)" #f="ngForm">
  
-                         <input matInput placeholder="date" hidden="true" [value]="today | date: 'yyyy-MM-dd'" #mydate name="mydate">
-                       <input matInput placeholder="Title" readonly name="title" value="{{title}}" [hidden]="true" required #updatedtitle/>
+                         <!-- <input matInput placeholder="date" hidden="true" [value]="today | date: 'yyyy-MM-dd'" #mydate name="mydate"> -->
+                       <!-- <input matInput placeholder="Title" readonly name="title" value="{{title}}" [hidden]="true" required #updatedtitle/> -->
  
-                       <input matInput placeholder="Profile url" readonly name="profileurl" value="{{profileurl}}" [hidden]="true" #updatedprofileurl/>
- 
- 
-                       <input matInput placeholder="Status" readonly name="active" [value]="status" [hidden]="true" #upactive/>
+                       <!-- <input matInput placeholder="Profile url" readonly name="profileurl" value="{{profileurl}}" [hidden]="true" #updatedprofileurl/> -->
  
  
-                       <input matInput placeholder="Profile Logo" readonly name="profile_logo" [hidden]="true" value="{{profile_logo}}" #updatedprofile_logo
+                       <!-- <input matInput placeholder="Status" readonly name="active" [value]="status" [hidden]="true" #upactive/> -->
+ 
+ 
+                       <!-- <input matInput placeholder="Profile Logo" readonly name="profile_logo" [hidden]="true" value="{{profile_logo}}" #updatedprofile_logo
+                       />
+  -->
+ 
+                       <!-- <input matInput placeholder="Rating_logo" [hidden]="true" readonly name="rating_logo" value="{{rating_logo}}" #updatedrating_logo
+                       />
+  -->
+ 
+                       <!-- <input matInput placeholder="Plan_Information" name="plan_information" [hidden]="true" value="{{plan_information}}" #updatedplan_information
                        />
  
- 
-                       <input matInput placeholder="Rating_logo" [hidden]="true" readonly name="rating_logo" value="{{rating_logo}}" #updatedrating_logo
-                       />
- 
- 
-                       <input matInput placeholder="Plan_Information" name="plan_information" [hidden]="true" value="{{plan_information}}" #updatedplan_information
-                       />
+  -->
+                       <!-- <input matInput placeholder="price 500 kwh" name="price_500_kwh" value="{{price_500_kwh}}" [hidden]="true" #updatedprice500kwh/> -->
  
  
-                       <input matInput placeholder="price 500 kwh" name="price_500_kwh" value="{{price_500_kwh}}" [hidden]="true" #updatedprice500kwh/>
+                       <!-- <input matInput placeholder="price 1000 kwh" name="price_1000_kwh" value="{{price_1000_kwh}}" [hidden]="true" #updatedprice1000kwh/> -->
  
  
-                       <input matInput placeholder="price 1000 kwh" name="price_1000_kwh" value="{{price_1000_kwh}}" [hidden]="true" #updatedprice1000kwh/>
+                       <!-- <input matInput placeholder="price 2000 kwh" name="price_2000_kwh" value="{{price_2000_kwh}}" [hidden]="true" #updatedprice2000kwh/> -->
  
  
-                       <input matInput placeholder="price 2000 kwh" name="price_2000_kwh" value="{{price_2000_kwh}}" [hidden]="true" #updatedprice2000kwh/>
+                       <!-- <input matInput placeholder="Cancelation Fee" readonly name="cancelation_fee" [hidden]="true" value="{{cancelation_fee}}" #updatedcancelation_fee/> -->
  
+                       <!-- <input matInput placeholder="Fact Sheet" readonly name="fact_sheet" value="{{fact_sheet}}" [hidden]="true" #updatedfact_sheet/> -->
  
-                       <input matInput placeholder="Cancelation Fee" readonly name="cancelation_fee" [hidden]="true" value="{{cancelation_fee}}" #updatedcancelation_fee/>
- 
-                       <input matInput placeholder="Fact Sheet" readonly name="fact_sheet" value="{{fact_sheet}}" [hidden]="true" #updatedfact_sheet/>
- 
- 
+<!--  
                        <input matInput placeholder="Term of Service" readonly name="terms_of_service" [hidden]="true" value="{{terms_of_service}}"
-                         #updatedterms_of_service />
+                         #updatedterms_of_service /> -->
  
-                       <input matInput placeholder="Phone No" name="phone" readonly [hidden]="true" value="{{phone}}" #updatedphone/>
+                       <!-- <input matInput placeholder="Phone No" name="phone" readonly [hidden]="true" value="{{phone}}" #updatedphone/> -->
  
  
-                       <input matInput placeholder="Sign Up" name="sign_up" readonly [hidden]="true" value="{{sign_up}}" #updatedsign_up />
+                       <!-- <input matInput placeholder="Sign Up" name="sign_up" readonly [hidden]="true" value="{{sign_up}}" #updatedsign_up /> -->
  
  
                        <!-- <input matInput placeholder="status" [formControl]="signupForm.controls['status']" required [value]="status" [(ngModel)]="model.status" hidden="true"> -->
                        <div class=" text-center">
-                         <button type="submit" class="btn btn-fill btn-style" (click)="activeClick(mydate.value,updatedtitle.value,updatedsign_up.value,updatedphone.value,updatedterms_of_service.value,updatedfact_sheet.value,updatedcancelation_fee.value,updatedprice500kwh.value,updatedprice1000kwh.value,updatedprice2000kwh.value,updatedplan_information.value,updatedrating_logo.value,updatedprofile_logo.value,updatedprofileurl.value,upactive.value)"
+                         <button type="submit" class="btn btn-fill btn-style" (click)="activeClick()"
                            data-dismiss="modal">active</button>
  
                          <button type="button" class="btn btn-fill btn-style" data-dismiss="modal">Cancel</button>
@@ -298,7 +314,8 @@
                      <div class="plan-description__content">
  
                        <h4 *ngIf="data.cancelation_fee;else no_data_temp2">
-                         &nbsp;&nbsp;&nbsp;&nbsp; {{cancelation_fee.split(' ',3000)[2]}}
+                         &nbsp;&nbsp;&nbsp;&nbsp; {{cancelation_fee}}
+                         <!-- .split(' ',3000)[2] -->
                        </h4>
  
                        <ng-template #no_data_temp2>
@@ -312,7 +329,22 @@
                      <div class="plan-description__heading">Plan Information</div>
                      <div class="plan-description__content">
                        <ul>
-                         <li *ngFor="let data of plan_information">{{data}}</li>
+                         <!-- <li *ngFor="let data of plan_information">{{data}}</li> -->
+                         <li class="items-detail" style="line-height: 18px;">
+                          {{ data.product_name}}
+                        </li>
+                        <li class="items-detail" style="line-height: 18px;">
+                          {{data.rate_type}}
+                        </li>
+                        <li class="items-detail" style="line-height: 18px;">
+                          {{data.terms_month}}
+                        </li>
+                        <li class="items-detail" style="line-height: 18px;">
+                          {{data.renewable}}% Renewable
+                        </li>
+                        <li class="items-detail" style="line-height: 18px;">
+                          {{data.customer_type}}
+                        </li>
                        </ul>
  
  

@@ -61,8 +61,8 @@ export class NavbarComponent implements OnInit {
         new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.VERTICAL}, 'google_translate_element');
       }
     check_login() {
-        if (localStorage.getItem('username')) {
-          let local = localStorage.getItem('username');
+        if (localStorage.getItem('title')) {
+          let local = localStorage.getItem('title');
           return true;
         }
         // else if(localStorage.getItem('custom')) {
@@ -183,7 +183,7 @@ export class NavbarComponent implements OnInit {
         this.admin=localStorage.getItem('currentadmin')
 
         this.massage = localStorage.getItem('role')
-        this.username = localStorage.getItem('username')
+        this.username = localStorage.getItem('title')
         console.log(this.username);
 
         this.listTitles = ROUTES.filter(listTitle => listTitle);

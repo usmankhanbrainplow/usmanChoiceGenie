@@ -378,9 +378,10 @@
                   <!-- <mat-option (click)="setPage(1);refresh()" >ALL</mat-option> -->
                 <mat-select (change)="checked17($event,i,name)" value="name" required [(ngModel)]="name" name="name">
                     <input class="inp" type="text" [(ngModel)]="statsearch"
-                    [ngModelOptions]="{standalone: true}" class="search-allstates"
-                    placeholder="Search By Companies" style="width: 100%; border-radius: 7px">
-                    <i class="fa fa-search s-icon-all-states" area-hidden="true"></i>
+                    [ngModelOptions]="{standalone: true}" 
+                    placeholder="Search By Companies" >
+                    <!-- style="width: 100%; border-radius: 7px" -->
+                    <!-- <i class="fa fa-search s-icon-all-states" area-hidden="true"></i> -->
                     <mat-option  (click)="checked17($event,i,name)"  > Select ALL</mat-option>
                   <mat-option *ngFor="let data of title | myfilter : statsearch : 'title'" [value]="data.title" title="{{data.title| titlecase}}"  >
                     {{data.title | titlecase}}
@@ -391,7 +392,41 @@
                 </mat-select>
               </mat-form-field>
 
-              <!-- <hr style="background: #000000"> -->
+         
+            </li>
+            <li>
+              <div class="panel-title" style="margin-top: -24px;">
+                <a>
+                  <!-- <a  title="" data-original-title="Energy Companies:  Also called retail electric providers or REPs. They sell and bill electricity and provide customer service.">Info</a> -->
+                  <h5 class="color-red">Service Area
+                    <!-- <i class="color-black fa fa-info-circle float" aria-hidden="true" title="Energy Companies:  Also called retail electric providers or REPs. They sell and bill electricity and provide customer service."></i> -->
+
+                  </h5>
+                </a>
+              </div>
+              <!-- <div class="select-f-sackers-heavy select-area" style="width: 160px;"> -->
+              <!-- <span class="left"></span> -->
+              
+  
+              <mat-form-field class="margin-up">
+                  <!-- <mat-option (click)="setPage(1);refresh()" >ALL</mat-option> -->
+                <mat-select (change)="checkedsevicearea($event,i,val.value)"  #val  required [(ngModel)]="Zipcode_service_area" name="Zipcode_service_area">
+                    <!-- <input class="inp" type="text" [(ngModel)]="servicesearch"
+                    [ngModelOptions]="{standalone: true}" 
+                    placeholder="Search By Companies" > -->
+                    <!-- style="width: 100%; border-radius: 7px" -->
+                    <!-- <i class="fa fa-search s-icon-all-states" area-hidden="true"></i> -->
+                    <!-- <mat-option  (click)="checked17($event,i,name)"  > Select ALL</mat-option> -->
+                  <mat-option *ngFor="let data of zipcdoeservicearea " [value]="data.utilityarea" title="{{data.utilityarea| titlecase}}"  >
+                    {{data.utilityarea | titlecase}}
+
+                  </mat-option>
+
+
+                </mat-select>
+              </mat-form-field>
+
+         
             </li>
 
             <li>
@@ -977,8 +1012,24 @@
                       <div style="text-align:center;">
 
 
-                        <p *ngFor="let item of data.plan_information" class="items-detail">
+                        <!-- <p *ngFor="let item of data.plan_information" class="items-detail">
                           {{item}}
+                        </p> -->
+                        <p class="items-detail" style="line-height: 10px;">
+                          {{ data.product_name}}
+                          <!-- data.rate_type,data.terms_month, data.renewable,data.customer_type -->
+                        </p>
+                        <p class="items-detail" style="line-height: 10px;">
+                          {{data.rate_type}}
+                        </p>
+                        <p class="items-detail" style="line-height: 10px;">
+                          {{data.terms_month}}
+                        </p>
+                        <p class="items-detail" style="line-height: 10px;">
+                          {{data.renewable}}% Renewable
+                        </p>
+                        <p class="items-detail" style="line-height: 18px;">
+                          {{data.customer_type}}
                         </p>
 
                       </div>
@@ -1153,7 +1204,22 @@
                             <div class="plan-description__heading">Plan Details</div>
                             <div class="plan-description__content">
                               <ul>
-                                <li *ngFor="let data of plan_information">{{data}}</li>
+                                <!-- <li *ngFor="let data of plan_information">{{data}}</li> -->
+                                <li class="items-detail" style="line-height: 18px;">
+                                  {{ data.product_name}}
+                                </li>
+                                <li class="items-detail" style="line-height: 18px;">
+                                  {{data.rate_type}}
+                                </li>
+                                <li class="items-detail" style="line-height: 18px;">
+                                  {{data.terms_month}}
+                                </li>
+                                <li class="items-detail" style="line-height: 18px;">
+                                  {{data.renewable}}% Renewable
+                                </li>
+                                <li class="items-detail" style="line-height: 18px;">
+                                  {{data.customer_type}}
+                                </li>
                                 <!-- {{temp.split(',')[0]}} -->
                               </ul>
 
@@ -1181,7 +1247,8 @@
 
                         <div class="col-lg-12">
                           <div class="plan-description">
-                            <div class="plan-description__heading" *ngIf="cancelation;else no_data_temp2">Cancellation Fee: {{cancelation.split(' ',3000)[2]}}</div>
+                            <div class="plan-description__heading" *ngIf="cancelation;else no_data_temp2">Cancellation Fee: {{cancelation}}</div>
+                            <!-- .split(' ',3000)[2] -->
 
                             <div class="plan-description__content">
 

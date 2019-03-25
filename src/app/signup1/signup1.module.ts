@@ -11,6 +11,7 @@ import {MatDatepickerModule} from "@angular/material";
 import { HttpClientModule } from '@angular/common/http';
 import { TextMaskModule } from 'angular2-text-mask';
 import { RecapchaModule } from '../recapcha/recapcha.module';
+import { InternationalPhoneModule } from 'ng4-intl-phone';
 
 @NgModule({
     imports: [
@@ -23,7 +24,8 @@ import { RecapchaModule } from '../recapcha/recapcha.module';
         FormsModule,
         ReactiveFormsModule,
         MatDatepickerModule,
-        HttpClientModule,TextMaskModule
+        HttpClientModule,TextMaskModule,
+        InternationalPhoneModule
     ],
     declarations: [
         Signup1Component
