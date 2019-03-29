@@ -91,7 +91,10 @@ export class ProductsComponent implements OnInit, AfterViewInit, OnDestroy {
     keyPress;
 
     //    setPage;
-    constructor(private excelService: ExcelService, private service: EnrollmentService,private http: Http, private pagerService: PagerService, private homeService: HomeService, private route: ActivatedRoute, public sg: SimpleGlobal, private obj: HomeService, public router: Router, private dialog: MatDialog, private data: DataService, private https: HttpService) {
+    constructor(private excelService: ExcelService, private service: EnrollmentService,private http: Http,
+         private pagerService: PagerService, private homeService: HomeService, private route: ActivatedRoute, 
+         public sg: SimpleGlobal, private obj: HomeService, public router: Router, private dialog: MatDialog,
+          private data: DataService, private https: HttpService) {
 
     }
     ngOnDestroy() {
@@ -395,7 +398,7 @@ export class ProductsComponent implements OnInit, AfterViewInit, OnDestroy {
               )
              // this.router.navigate(['/inactive-products']);
             //   let url = '/userlogin';
-            this.router.navigate(['/login'])
+            this.router.navigate(['/userlogin'])
            
             // this.route.navigate([])            // return false; 
             

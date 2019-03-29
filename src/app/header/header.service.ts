@@ -26,6 +26,14 @@ export class HeaderService {
           "search": search }), 
         {headers: headers}).map((response: Response) => response.json());
         }
+
+        searchzipcode(zipcode) {
+     
+          console.log(zipcode)
+           const headers = new Headers();
+          //  headers.append('Content-Type', 'application/json');
+           return this.http.get(Config.api + 'zipcodewitharea1/' + zipcode +'/' ).map((response: Response) => response.json());
+           }
   searchProducts(id, page) {
     console.log(id)
     return this.http.get(Config.api + 'zipcodedata/' + id + '?page=' + page + '/').map((response: Response) => response.json());

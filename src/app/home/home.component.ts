@@ -1,6 +1,7 @@
 // import { Component, OnInit, ElementRef } from '@angular/core';
 import { Component, OnInit, HostListener,ElementRef } from '@angular/core';
-import { ErrorStateMatcher } from '@angular/material/core';
+// import { ErrorStateMatcher } from '@angular/material/core';
+import { ErrorStateMatcher, MAT_DIALOG_DATA, MatDialog, MatDialogRef } from "@angular/material";
 import { FormControl, FormGroupDirective, NgForm, Validators } from '@angular/forms';
 import { HomeService } from "./home.service";
 import { Subscription } from 'rxjs/Subscription';
@@ -15,6 +16,7 @@ import { DataService } from '../data.service';
 import { HttpClient, HttpResponse, HttpHeaders } from "@angular/common/http";
 import { google } from '@agm/core/services/google-maps-types';
 import { HttpService } from '../serv/http-service';
+import { HeaderService } from '../header/header.service';
 
 declare var $;
 
@@ -35,8 +37,10 @@ export class errorMatcher implements ErrorStateMatcher {
 
 export class HomeComponent implements OnInit {
   @ViewChild('openModal') openModal: ElementRef;
+  @ViewChild('openzipcode') openzipcode: ElementRef;
   zipCode = '';
   product_id;
+  zipcodepop:boolean;
   premiseID;
   signup;
   city;
@@ -51,6 +55,7 @@ export class HomeComponent implements OnInit {
   dataa;
   Items: any = [];
   local;
+  record: any = [];
   uname;
   slideConfig = {
     "slidesToShow": 7,
@@ -80,7 +85,8 @@ export class HomeComponent implements OnInit {
     ]
   }
   constructor(private obj: HomeService, private router: Router, private route: ActivatedRoute,  
-    private http: HttpClient, public sg: SimpleGlobal, private data: DataService, private Http: Http,private https: HttpService) {
+    private http: HttpClient, public sg: SimpleGlobal, private data: DataService,
+     private Http: Http,private https: HttpService,private _serv: HeaderService,) {
 
   }
 
@@ -181,6 +187,44 @@ export class HomeComponent implements OnInit {
     }
 
   }
+  searchuserdata(zipcode1){
+    if(this.zipCode.length == 5){
+      console.log(zipcode1)
+        this._serv.searchzipcode(zipcode1).subscribe(response => {
+          this.record = response;
+          this.zipcodepop= this.record.Len;
+          alert(this.zipcodepop)
+          if (this.zipcodepop == true){
+            alert(this.zipcodepop)
+            console.log(this.zipcodepop)
+            this.openzipcode.nativeElement.click();
+            
+          }
+          else if(this.zipcodepop == false){
+            alert(this.zipcodepop)
+            console.log(this.zipcodepop)
+            
+
+          }
+    
+          // this.sg['zip'] = Res.json()['Results'];
+          // this.data.changezip(this.sg['zip']);
+          console.log(this.record)
+        })
+    }
+    
+  }
+  // searchuserdata(query) {
+  //   console.log(query)
+  //   this._serv.searchrecord(query).subscribe(response => {
+  //     this.record = response;
+
+  //     // this.sg['zip'] = Res.json()['Results'];
+  //     // this.data.changezip(this.sg['zip']);
+  //     console.log(this.record)
+  //   })
+
+  // }
   onKeydown(event, zipcode1) {
     if (event.key === "Enter") {
       //alert("enter the zip code")

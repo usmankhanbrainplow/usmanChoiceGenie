@@ -44,6 +44,7 @@ export class NewProductComponent implements OnInit {
   price_rate;
   cancelation_fee;
   terms_of_service;
+  // Pricing;
   customer='New Customer';
   phone;
   sign_up;
@@ -53,6 +54,7 @@ export class NewProductComponent implements OnInit {
   minimum_usage_fee;
   contact_email;
   renewable;
+  billing;
   fact_sheet;
   spectialterms;
   price_1000_kwh;
@@ -67,12 +69,21 @@ export class NewProductComponent implements OnInit {
   secondFormGroup: FormGroup;
   thirdFormGroup: FormGroup;
   fourthFormGroup: FormGroup;
+ 
   constructor(private https: Http, public router: Router, private fb: FormBuilder,private _http: HttpClient, private http: Http, private route: ActivatedRoute, private sg: SimpleGlobal) { }
   title;
   url: any = '.pdf';
   titlevendor;
   public user;
   servicearea;
+  product_name;
+  specialterms;
+  terms_month;
+  newcustomer;
+  customer_type;
+  Existing;
+  NewandExisting;
+  i;
   ngOnInit() {
     this.user = localStorage.getItem('user')
     this.username = localStorage.getItem('username')
@@ -100,6 +111,7 @@ export class NewProductComponent implements OnInit {
       
       // 'price_rate': ['', Validators.compose([Validators.required])],
     });
+    
     this.thirdFormGroup = this.fb.group({
       'fact_sheet': [''],
       'terms_of_service': [''],
@@ -128,6 +140,10 @@ export class NewProductComponent implements OnInit {
       'product_batch_rate': ['', Validators.compose([Validators.required])]
     });
   }
+  // zip_code = this.fb.group('', [ Validators.pattern(this.digitsOnly)]);
+    // zip_code1 = new FormControl('', [
+    //   Validators.pattern(this.digitsOnly)
+    // ]);
   check(e) { }
   data: any = [];
   word: any = [];
@@ -137,7 +153,15 @@ export class NewProductComponent implements OnInit {
   prologo;
   sign;
   private authentication = localStorage.getItem('token');
+  keyPress(event: any) {
+    const pattern = /[0-9\+\-\ ]/;
 
+    let inputChar = String.fromCharCode(event.charCode);
+    if (event.keyCode != 8 && !pattern.test(inputChar)) {
+      event.preventDefault();
+
+    }
+  }
   fetchProducts() {
 
     let headers = new Headers();
@@ -408,33 +432,33 @@ checked13(event, i) {
    
   console.log(this.fixed)
 }
-Pricing;
+pricing= "Both";
 checked15(event, i) {
   if (event.target.checked == true) {
       console.log(event.target.checked)
-      this.Pricing = "NULL";
+      this.pricing = "NULL";
       // alert(this.Pricing)
       // delete 
       // this.setPage(1);
       // alert(this.fixed)
-      console.log(this.Pricing,"New and Existing");
+      console.log(this.pricing,"New and Existing");
   }
    
-  console.log(this.Pricing)
+  console.log(this.pricing)
 }
 
 checked14(event, i) {
   if (event.target.checked == true) {
       console.log(event.target.checked)
-      this.Pricing = "Both";
+      this.pricing = "Both";
       // alert(this.Pricing)
       // delete 
       // this.setPage(1);
       // alert(this.fixed)
-      console.log(this.Pricing,"New and Existing");
+      console.log(this.pricing,"New and Existing");
   }
    
-  console.log(this.Pricing)
+  console.log(this.pricing)
 }
 
   // signupuserdata(utilityarea, contact_email, title, profileurl, profile_logo, plan_information,  cancelation_fee, fact_sheet, terms_of_service, phone, sign_up, minimum_usage_fee, renewable, specialterms, price_1000_kwh, price_500_kwh, price_2000_kwh,publish_product_date,product_inactive_date,enrollment_productid,product_batch_rate) {
@@ -458,7 +482,7 @@ checked14(event, i) {
       "price_rate":this.price_rate  ,
       'product_name':product_name,
       'rate_type':this.fixed,
-      'terms_month':terms_month +'Month',
+      'terms_month':terms_month+' '+'Months',
       'customer_type':this.customer,
       "cancelation_fee": cancelation_fee,
       "fact_sheet": this.fact_sheet,
@@ -472,7 +496,7 @@ checked14(event, i) {
       "price_500_kwh": price_500_kwh,
       "price_2000_kwh": price_2000_kwh,
       "contact_email": contact_email,
-      "minumum_usage_fee":this.Pricing,
+      "minumum_usage_fee":this.pricing,
 
       'publish_product_date': moment(publish_product_date).format('YYYY-MM-DD'),
       'product_inactive_date': moment(product_inactive_date).format('YYYY-MM-DD'),

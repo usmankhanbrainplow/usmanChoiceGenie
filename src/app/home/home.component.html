@@ -74,7 +74,7 @@
                   <!-- <mat-form-field> -->
 
                   <input class="zip-inputs" placeholder="Zip Code" maxlength="5" [formControl]="zip_code" value="{{zipCode}}" [(ngModel)]=zipCode #zipcode1
-                    name="zipCode"  (keypress)="keyPress($event)" (keydown)=" onKeydown($event,zipcode1.value)"   />
+                    name="zipCode"  (keypress)="keyPress($event)"  (ngModelChange)="searchuserdata(zipcode1.value)" (keydown)=" onKeydown($event,zipcode1.value)"   />
                   <!-- {{cord.postalCode}} -->
                   <!-- (keydown)="Checkzipcode($event,zipcode1.value)" -->
                   <mat-error *ngIf="zip_code.hasError('pattern')">
@@ -632,7 +632,7 @@
 </button>
 <!-- Modal -->
 <!-- *ngIf="!check_login()" -->
-<div *ngIf="!check_login()"  class="modal fade login-or-signup" id="exampleModalCenter" tabindex="-1" role="dialog"
+<!-- <div *ngIf="!check_login()"  class="modal fade login-or-signup" id="exampleModalCenter" tabindex="-1" role="dialog"
   aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered custom-model" style="animation-delay: 15s" role="document">
     <div class="modal-content" style="background: rgba(255, 255, 255, 0.85) !important">
@@ -666,6 +666,63 @@
           </a>
         </div>
       </div>
+    </div>
+  </div>
+</div> -->
+<button id="openzipcode " type="button" #openzipcode [hidden]="true" class="btn btn-primary modal-hide" data-toggle="modal"
+  data-target="#zipModalCenter">
+</button>
+<div   class="modal fade login-or-signup" id="zipModalCenter" tabindex="-1" role="dialog"
+  aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered custom-model" style="animation-delay: 15s" role="document">
+    <div class="modal-content" style="background: rgba(255, 255, 255, 0.85) !important">
+      <div class="modal-header">
+        
+        <h5 class="modal-title must-login Halvetica" id="exampleModalCenterTitle">Join brainplow agar ap apni zindigi ko khtm karna chaty hi :) </h5>
+        <div>
+          <button type="button" class="close-sh" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      </div>
+      <div class="modal-body">
+          <mat-form-field class="margin-up">
+              <!-- <mat-option (click)="setPage(1);refresh()" >ALL</mat-option> -->
+            <mat-select (change)="checked17($event,i,name)" value="name" required [(ngModel)]="name" name="name">
+                <!-- <input class="inp" type="text" [(ngModel)]="statsearch"
+                [ngModelOptions]="{standalone: true}" 
+                placeholder="Search By Companies" > -->
+                <!-- style="width: 100%; border-radius: 7px" -->
+                <!-- <i class="fa fa-search s-icon-all-states" area-hidden="true"></i> -->
+                <mat-option  (click)="checked17($event,i,name)"  > Select ALL</mat-option>
+              <!-- <mat-option *ngFor="let data of title | Myproducts : statsearch : 'title' ; let i = index " [value]="data.title" title="{{data.title| titlecase}}"  >
+                {{data.title | titlecase}}
+
+              </mat-option> -->
+
+
+            </mat-select>
+          </mat-form-field>
+        <!-- SHOP with a ROAR! ChoiceGenie is The Next Generation Energy Comparative Shopping Engine. A Super Fast, Super Easy,
+        Time & Money Saving Experience.Compare n’ Shop Energy on Mobile: Experience our next generation Artificially Intelligent Comparative Shopping
+        App on Google Play Store and Apple App Store.ChoiceGenie employs Deep Learning & Artificial Intelligence to Analyze Energy Consumption, Match, Connect, Alert
+        and Connect Buyers with Energy Providers – Our AI is called “ChoiceGenie”. -->
+        <div class="custom-popup-img">
+          <img src="../../assets/img/finalize logo 2.png">
+        </div>
+      </div>
+      <!-- <div class="modal-footer">
+        <div class="margin-auto text-center">
+          <a routerLink="/login">
+            <button title="Member Login" type="button" style="border-radius: 30px" class="must-login-btn"
+              data-dismiss="modal">Member Login</button>
+          </a>
+          <a routerLink="/usersignup">
+            <button title="Subscribe Now" type="button" style="border-radius: 30px" class="must-login-btn"
+              data-dismiss="modal">Subscribe Now</button>
+          </a>
+        </div>
+      </div> -->
     </div>
   </div>
 </div>

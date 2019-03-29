@@ -162,7 +162,7 @@ googleTranslateElementInit() {
       $(formSearch).removeClass('flipInX');
     });
     this.admin=localStorage.getItem('currentadmin')
-    this.username = localStorage.getItem('username')
+    this.username = localStorage.getItem('title')
     console.log(this.username);
     // <script>
       $("#showmenu").click(function(e){

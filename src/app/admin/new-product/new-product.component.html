@@ -96,7 +96,7 @@
                           </mat-option>
 
                           </mat-select> -->
-                        <input matInput placeholder="Company Name"  readonly="true" required [value]="only"  name="title" #title>
+                        <input matInput placeholder="Company Name"  readonly="true" required [value]="only| titlecase"  name="title" #title>
                       </mat-form-field>
                     </div>
 
@@ -152,23 +152,30 @@
                     </div>
                     <div class="col-md-4">
                         <mat-form-field class="example-full-width margin-t-15">
-                            <input matInput placeholder="specialterms"  required [(ngModel)]="specialterms" formControlName="specialterms">
+                            <input matInput placeholder="specialterms"  required [(ngModel)]="specialterms"  formControlName="specialterms">
                             <mat-error *ngIf="secondFormGroup.controls['specialterms'].value == '' || !secondFormGroup.controls['specialterms'].value"><strong>This Field cannot be empty</strong></mat-error>
 
                           </mat-form-field>
+                          <!-- <mat-error *ngIf="zip_code.hasError('pattern')">
+                            Numbers Only
+                          </mat-error> -->
                     </div>
                     <div class="col-md-4">
                       <mat-form-field class="example-full-width margin-t-15">
-                          <input matInput placeholder="Term (Month)"  required [(ngModel)]="terms_month" formControlName="terms_month">
+                          <input matInput placeholder="Term (Months)"  required [(ngModel)]="terms_month" (keypress)="keyPress($event)"  maxlength="3" formControlName="terms_month">
                           <mat-error *ngIf="secondFormGroup.controls['terms_month'].value == '' || !secondFormGroup.controls['terms_month'].value"><strong>This Field cannot be empty</strong></mat-error>
 
                         </mat-form-field>
+                        Months
+                        <!-- <mat-error *ngIf="zip_code1.hasError('pattern')">
+                          Numbers Only
+                        </mat-error> -->
                   </div>
                     <div class="col-md-4">
                         <mat-form-field class="example-full-width margin-t-15">
                             <!-- <input matInput placeholder="Renewable (%)"  required [(ngModel)]="product_name" formControlName="product_name"> -->
                        
-                          <input matInput placeholder="Renewable (%)" [(ngModel)]="renewable" formControlName="renewable">
+                          <input matInput placeholder="Renewable (%)" [(ngModel)]="renewable"  (keypress)="keyPress($event)" maxlength="3" formControlName="renewable">
                         <mat-error *ngIf="secondFormGroup.controls['renewable'].value == '' || !secondFormGroup.controls['renewable'].value"><strong>This Field cannot be empty</strong></mat-error>
                       </mat-form-field>
                     </div>
@@ -242,7 +249,7 @@
                             <h4 class="sm-heading">Pricing and Billing</h4>
                               <div class="radio">
                                   <label class="redio-lable">
-                                    <input checked="true" type="radio" (change)="checked14($event,i)"   ng-Model="Pricing"  name="minimum_usage_fee" [value]="pricing" >
+                                    <input checked="true" type="radio" (change)="checked14($event,i)"   ng-Model="pricing"  name="minimum_usage_fee" [value]="pricing" >
                                     <!-- <input  type="radio" (change)="checked10($event,i)"   ng-Model="market"  name="fixed" [value]="market" > -->
                                     <span class="circle"></span><span class="check"></span>
                                     Yes
@@ -406,7 +413,7 @@
                     <!--<label class="date-lable">Effective from date</label>-->
                    
                   <mat-form-field class="margin-b-10-i">
-                    <input matInput [matDatepicker]="startPicker" [(ngModel)]="product_inactive_date" formControlName="product_inactive_date" placeholder="Effective From Date"/>
+                    <input matInput [matDatepicker]="startPicker" [(ngModel)]="product_inactive_date" formControlName="product_inactive_date" readonly="true" placeholder="Effective From Date"/>
                     <mat-datepicker-toggle matSuffix [for]="startPicker"></mat-datepicker-toggle> <mat-datepicker #startPicker></mat-datepicker>
                   </mat-form-field>
                   <!-- <input type="date" placeholder="Inactive Date" required name="Inactivedate" [(ngModel)]="Inactivedate" style="    padding: 2px 0px; font-size: 16px;    font-weight: bold;"> -->
@@ -416,7 +423,7 @@
                   <div class="col-lg-4 col-xs-12">
                       <!--<label class="date-lable">Effective to date</label>-->
                     <mat-form-field class="margin-b-10-i">
-                      <input matInput [matDatepicker]="startPicker1" [(ngModel)]="publish_product_date" formControlName="publish_product_date"placeholder="Effective To Date"/>
+                      <input matInput [matDatepicker]="startPicker1" [(ngModel)]="publish_product_date" formControlName="publish_product_date "readonly="true" placeholder="Effective To Date"/>
                       <mat-datepicker-toggle matSuffix [for]="startPicker1"></mat-datepicker-toggle><mat-datepicker #startPicker1></mat-datepicker>
                     </mat-form-field>
     

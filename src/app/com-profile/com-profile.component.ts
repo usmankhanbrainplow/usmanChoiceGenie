@@ -20,16 +20,19 @@ import * as JWT from 'jwt-decode';
   styleUrls: ['./com-profile.component.scss']
 })
 export class ComProfileComponent implements OnInit { 
+  // public phoneMask = ['(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
 public username;
 data:any=[];
 public title;
 private authentication
+
 
   constructor(private serve:ProfileService,private https:Http,public router: Router, private fb: FormBuilder, private http: HttpClient, private route: ActivatedRoute, private sg: SimpleGlobal) { 
     //  this.authentication=JSON.parse(localStorage.getItem('currentUser'));
     //   console.log("token",this.authentication)
 
   }
+  public phoneMask = ['(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
 
   ngOnInit() { this.username = localStorage.getItem('username');
   // title
