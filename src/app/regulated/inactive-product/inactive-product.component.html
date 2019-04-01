@@ -27,11 +27,27 @@
               <mat-form-field class="margin-t-15" >
                   <!--<label class="date-lable">Service Area Name</label>-->
                 <mat-select class="search-select" placeholder="Service Area Name" required [(ngModel)]="name" name="name">
-                  <mat-option value="AEP TEXAS NORTH DIVISION" style="font-size: 20px">AEP TEXAS NORTH DIVISION</mat-option>
+                    <mat-option value="AEP Texas North Service Area" style="font-size: 20px">AEP Texas North Service Area
+                      </mat-option>
+                      <mat-option value="Centerpoint Electric Service Area" style="font-size: 20px">Centerpoint Electric Service
+                        Area</mat-option>
+                      <mat-option value="Texas New Mexico Power Service Area" style="font-size: 20px">Texas New Mexico Power
+                        Service Area</mat-option>
+                      <mat-option value="AEP Texas Central Service Area" style="font-size: 20px">AEP Texas Central Service Area
+                      </mat-option>
+                      <mat-option value="Oncor Electric Delivery Service Area" style="font-size: 20px">Oncor Electric Delivery
+                        Service Area</mat-option>
+                      <mat-option value="Sharyland Utilities Service Area" style="font-size: 20px">Sharyland Utilities Service
+                        Area</mat-option>
+
+
+
+
+                  <!-- <mat-option value="AEP TEXAS NORTH DIVISION" style="font-size: 20px">AEP TEXAS NORTH DIVISION</mat-option>
                   <mat-option value="CENTERPOINT ENERGY HOUSTON ELECTRIC LLC" style="font-size: 20px">CENTERPOINT ENERGY HOUSTON ELECTRIC LLC</mat-option>
                   <mat-option value="TEXAS-NEW MEXICO POWER COMPANY" style="font-size: 20px">TEXAS-NEW MEXICO POWER COMPANY</mat-option>
                   <mat-option value="AEP TEXAS CENTRAL" style="font-size: 20px">AEP TEXAS CENTRAL</mat-option>
-                  <mat-option value="ONCOR ELECTRIC DELIVERY COMPANY" style="font-size: 20px">ONCOR ELECTRIC DELIVERY COMPANY</mat-option>
+                  <mat-option value="ONCOR ELECTRIC DELIVERY COMPANY" style="font-size: 20px">ONCOR ELECTRIC DELIVERY COMPANY</mat-option> -->
 
                 </mat-select>
               </mat-form-field>
@@ -40,6 +56,13 @@
 
             <button class="col-lg-3 search-btn btn-fill col-xs-12" (click)="search(1)">Search</button>
     </div>
+    <div class="found-div" style="    margin-bottom: 9px; width: 100%;">
+        We found <strong style="display: inline-block">{{noresult}}</strong> residential plans
+        <!-- “<strong style="display: inline-block">{{zipdet}}</strong>” -->
+  
+  
+  
+      </div>
     <ng-template #no_data_temp2>
 
       <!-- <img src="../../assets/img/no_Record.png" style="width: 250px;height:200px" > -->

@@ -425,6 +425,8 @@
                     <mat-form-field class="margin-b-10-i">
                       <input matInput [matDatepicker]="startPicker1" [(ngModel)]="publish_product_date" formControlName="publish_product_date "readonly="true" placeholder="Effective To Date"/>
                       <mat-datepicker-toggle matSuffix [for]="startPicker1"></mat-datepicker-toggle><mat-datepicker #startPicker1></mat-datepicker>
+                      <mat-error *ngIf="fourthFormGroup.controls['publish_product_date'].value == '' || !fourthFormGroup.controls['publish_product_date'].value"><strong>This Field cannot be empty</strong></mat-error>
+
                     </mat-form-field>
     
                     <!-- <input type="date" placeholder="Publish Date" required name="publishdate" [(ngModel)]="publishdate" style="    padding: 2px 0px; font-size: 16px; font-weight: bold;"> -->
@@ -452,7 +454,7 @@
                   <div class="col-sm-4">
                     <div class=" ">
                       <mat-form-field class="margin-b-10-i">
-                        <input matInput currencyMask placeholder="Price of 1000 KWH" required [(ngModel)]="price_1000_kwh" formControlName="price_1000_kwh">
+                        <input matInput currencyMask placeholder="Price of 1000 KWH" required [(ngModel)]="price_1000_kwh"  formControlName="price_1000_kwh">
                         <mat-error *ngIf="fourthFormGroup.controls['price_1000_kwh'].value == '' || !fourthFormGroup.controls['price_1000_kwh'].value"><strong>This Field cannot be empty</strong></mat-error>
 
                       </mat-form-field>
@@ -462,7 +464,7 @@
                   <div class="col-sm-4">
                     <div class="">
                       <mat-form-field class=" margin-b-10-i">
-                        <input matInput currencyMask placeholder="Price of 2000 KWH" required [(ngModel)]="price_2000_kwh" formControlName="price_2000_kwh">
+                        <input matInput currencyMask placeholder="Price of 2000 KWH" required [(ngModel)]="price_2000_kwh"   formControlName="price_2000_kwh">
                         <mat-error *ngIf="fourthFormGroup.controls['price_2000_kwh'].value == '' || !fourthFormGroup.controls['price_2000_kwh'].value"><strong>This Field cannot be empty</strong></mat-error>
 
                       </mat-form-field>
@@ -563,7 +565,7 @@
                   <div class="col-sm-4">
                     <div class="form-group">
                         <mat-form-field class="">
-                          <input matInput  placeholder="Product Batch Rate" required [(ngModel)]="product_batch_rate" formControlName="product_batch_rate">
+                          <input matInput  currencyMask placeholder="Product Batch Rate" required [(ngModel)]="product_batch_rate" formControlName="product_batch_rate">
                           <mat-error *ngIf="fourthFormGroup.controls['product_batch_rate'].value == '' || !fourthFormGroup.controls['product_batch_rate'].value"><strong>This Field cannot be empty</strong></mat-error>
 
                         </mat-form-field>

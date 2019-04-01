@@ -13,6 +13,7 @@ import { HttpClient, HttpResponse, HttpHeaders } from "@angular/common/http";
 import { MatSelect } from '@angular/material'; 
 import { ProfileService } from './profile.service';
 import * as JWT from 'jwt-decode';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-com-profile',

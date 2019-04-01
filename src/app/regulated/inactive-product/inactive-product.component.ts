@@ -197,17 +197,21 @@ export class InactiveProductComponent implements OnInit {
         console.log('pofile', localStorage.getItem('token'));
         headers.append('Content-Type', 'application/json');
         this.http.post(Config.api + 'search_by_vendor/' + this.title +'?page='+page, JSON.stringify({
-          "productinactive":moment(this.Inactivedate).format('YYYY/MM/DD'),
-          "propublish":moment(this.publishdate).format('YYYY/MM/DD'),
+          "productinactive":moment(this.Inactivedate).format('YYYY-MM-DD'),
+          "propublish":moment(this.publishdate).format('YYYY-MM-DD'),
           "utility": this.name
+
+        //   "productinactive":moment(this.Inactivedate).format('YYYY-MM-DD'),
+        //   "propublish":moment(this.publishdate).format('YYYY-MM-DD'),
+        //   "utility": this.name
         }), { headers: headers }).subscribe(Res => {
           console.log(Res);
     
           this.sg['products'] = Res.json()['Results'];  
           this.noresult = Res.json()['Total Result'];
           for (let prod of this.sg['products']) {
-              prod["plan_information"] = prod["plan_information"].split(',,', 3000);
-              prod["price_rate"] = prod["price_rate"].split('..', 3000);
+            //   prod["plan_information"] = prod["plan_information"].split(',,', 3000);
+            //   prod["price_rate"] = prod["price_rate"].split('..', 3000);
 
           }
           this.allItems = this.sg['products'];

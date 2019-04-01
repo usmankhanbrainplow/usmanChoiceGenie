@@ -64,6 +64,13 @@ export class UsernavbarComponent implements OnInit {
        move(){
          this.router.navigate(['/userprofile/']);
        }
+       pro() {
+        if(localStorage.getItem('role') == "Not Deregulatedstate Vendor"){
+          this.router.navigate(['/new-product']);}
+          else if(localStorage.getItem('role') == "Deregulatedstate Vendor"){
+              this.router.navigate(['/new-products']);
+          }
+      }
      logout(){
          localStorage.clear();
          this.router.navigate(['/']);

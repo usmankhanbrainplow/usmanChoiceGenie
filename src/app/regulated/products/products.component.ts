@@ -72,7 +72,7 @@ export class ProductsComponent implements OnInit, AfterViewInit, OnDestroy {
     energy;
     i;
     name;
-    Zipcode_service_area;
+    Zipcode_service_area=localStorage.getItem('service');
     pager: any = {};
     pageSizeOptions;
     public dataTable: DataTable;
@@ -232,6 +232,7 @@ export class ProductsComponent implements OnInit, AfterViewInit, OnDestroy {
         // this.checked8(event, i);
         localStorage.setItem('ua', "True")
         this.ZipcodeServiceArea();
+        this.Zipcode_service_area = localStorage.getItem('service')
         let para = {
             zip_code: `${localStorage.getItem('zip')}`,
             promo_code: "",
@@ -1085,12 +1086,22 @@ export class ProductsComponent implements OnInit, AfterViewInit, OnDestroy {
     }
     checkedsevicearea(event, i, Zipcode_service_area){
         // if (Zipcode_service_area) {
+            // if(localStorage.getitem('service')==!null){
             console.log(Zipcode_service_area);
+
             this.Zipcode_service_area = Zipcode_service_area;
             // alert(this.zipcdoeservicearea)
             console.log(this.Zipcode_service_area)
             this.setPage(1);
         // }
+            // }            
+            // else if (localStorage.getitem('service')== null){
+            //     console.log(Zipcode_service_area);
+            // this.Zipcode_service_area = Zipcode_service_area;
+            // // alert(this.zipcdoeservicearea)
+            // console.log(this.Zipcode_service_area)
+            // this.setPage(1);
+            // }
         // else {
         //     // alert("usamn")
         //     console.log()

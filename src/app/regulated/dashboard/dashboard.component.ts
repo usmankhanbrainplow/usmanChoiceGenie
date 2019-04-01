@@ -141,7 +141,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
             this.sg['products'] = Res.json()['Results'];
             this.noresult = Res.json()['Total Result'];
             for (let prod of this.sg['products']) {
-                prod["plan_information"] = prod["plan_information"].split(',,', 3000);
+                // prod["plan_information"] = prod["plan_information"].split(',,', 3000);
                 // prod["price_rate"] = prod["price_rate"].split('..', 3000);
 
             }

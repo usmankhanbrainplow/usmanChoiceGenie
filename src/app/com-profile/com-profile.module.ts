@@ -7,6 +7,7 @@ import { MaterialModule } from '../app.module';
 import {MatDialogModule} from '@angular/material/dialog';
 import { ComProfileRoutes} from './com-profile.routing';
 import { ComProfileComponent } from './com-profile.component';
+import { TextMaskModule } from 'angular2-text-mask';
  
 
 @NgModule({
@@ -14,6 +15,7 @@ import { ComProfileComponent } from './com-profile.component';
         MatDialogModule,
         CommonModule,
         RouterModule,
+        TextMaskModule,
         FormsModule,
         RouterModule.forChild(ComProfileRoutes),
         // MdModule,

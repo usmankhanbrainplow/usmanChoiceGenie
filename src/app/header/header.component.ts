@@ -228,6 +228,13 @@ googleTranslateElementInit() {
 
   }
  
+  pro() {
+    if(localStorage.getItem('role') == "Not Deregulatedstate Vendor"){
+      this.router.navigate(['/new-product']);}
+      else if(localStorage.getItem('role') == "Deregulatedstate Vendor"){
+          this.router.navigate(['/new-products']);
+      }
+  }
   submit(event, query) {
     let headers = new HttpHeaders();
     headers.append('Content-Type', 'application/json');

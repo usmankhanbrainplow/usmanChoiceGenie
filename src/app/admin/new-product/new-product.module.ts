@@ -8,7 +8,17 @@ import { TextMaskModule } from 'angular2-text-mask';
 import { CurrencyMaskModule } from "ng2-currency-mask";
 import {NewProductComponent} from "./new-product.component";
 import {NewProduct} from './new-product.routing';
+import { CurrencyMaskConfig, CURRENCY_MASK_CONFIG } from 'ng2-currency-mask/src/currency-mask.config';
 
+export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
+  align: "right",
+  allowNegative: true,
+  decimal: ".",
+  precision: 2,
+  prefix: "¢",
+  suffix: "",
+  thousands: ""
+};
 @NgModule({
     imports: [
         CommonModule,TextMaskModule,CurrencyMaskModule,
@@ -19,6 +29,9 @@ import {NewProduct} from './new-product.routing';
     declarations: [
       NewProductComponent,
     ],
+    providers: [
+      { provide: CURRENCY_MASK_CONFIG, useValue: CustomCurrencyMaskConfig }
+  ],
     entryComponents: []
 })
 

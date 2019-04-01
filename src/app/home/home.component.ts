@@ -17,6 +17,8 @@ import { HttpClient, HttpResponse, HttpHeaders } from "@angular/common/http";
 import { google } from '@agm/core/services/google-maps-types';
 import { HttpService } from '../serv/http-service';
 import { HeaderService } from '../header/header.service';
+ 
+import { resetFakeAsyncZone } from '@angular/core/testing';
 
 declare var $;
 
@@ -56,7 +58,9 @@ export class HomeComponent implements OnInit {
   Items: any = [];
   local;
   record: any = [];
+  servicerecord:any=[]
   uname;
+  name;
   slideConfig = {
     "slidesToShow": 7,
     "slidesToScroll": 5,
@@ -144,7 +148,7 @@ export class HomeComponent implements OnInit {
    
 
 
-
+   
   position: any;
   ngOnInit() {
     setTimeout(() => {
@@ -176,6 +180,30 @@ export class HomeComponent implements OnInit {
   ngOnDestroy() {
     $('#exampleModalCenter').modal('hide');
   }
+  checked17(event, i, name) {
+    if (name) {
+        console.log(name);
+        this.name = name;
+        alert(this.name)
+        localStorage.setItem('service',this.name)
+        console.log(this.name)
+        window.close();
+        this.openzipcode.nativeElement.close()
+
+    }
+    // else {
+        // alert("usamn")
+        // console.log()
+        // delete this.name;
+        // localStorage.removeItem('service');
+        // localStorage.setItem('service',this.name)
+        
+        
+       
+
+    // }
+    console.log(this.name)
+}
   check_login() {
     if (localStorage.getItem('username')) {
       this.local = localStorage.getItem('username');
@@ -192,8 +220,10 @@ export class HomeComponent implements OnInit {
       console.log(zipcode1)
         this._serv.searchzipcode(zipcode1).subscribe(response => {
           this.record = response;
+          this.servicerecord = response.Result;
+          console.log(this.servicerecord[0].utilityarea)
           this.zipcodepop= this.record.Len;
-          alert(this.zipcodepop)
+          // alert(this.zipcodepop)
           if (this.zipcodepop == true){
             alert(this.zipcodepop)
             console.log(this.zipcodepop)
@@ -201,8 +231,9 @@ export class HomeComponent implements OnInit {
             
           }
           else if(this.zipcodepop == false){
-            alert(this.zipcodepop)
+            // alert(this.servicerecord.utilityarea)
             console.log(this.zipcodepop)
+            localStorage.setItem('service',this.servicerecord[0].utilityarea)
             
 
           }
@@ -214,6 +245,7 @@ export class HomeComponent implements OnInit {
     }
     
   }
+  
   // searchuserdata(query) {
   //   console.log(query)
   //   this._serv.searchrecord(query).subscribe(response => {

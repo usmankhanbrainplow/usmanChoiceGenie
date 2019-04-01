@@ -60,6 +60,13 @@ export class NavbarComponent implements OnInit {
     googleTranslateElementInit() {
         new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.VERTICAL}, 'google_translate_element');
       }
+      pro() {
+        if(localStorage.getItem('role') == "Not Deregulatedstate Vendor"){
+          this.router.navigate(['/new-product']);}
+          else if(localStorage.getItem('role') == "Deregulatedstate Vendor"){
+              this.router.navigate(['/new-products']);
+          }
+      }
     check_login() {
         if (localStorage.getItem('title')) {
           let local = localStorage.getItem('title');

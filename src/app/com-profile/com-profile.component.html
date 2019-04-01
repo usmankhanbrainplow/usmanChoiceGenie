@@ -52,7 +52,7 @@
                             <div>
 
                                 <mat-form-field class="margin">
-                                    <input matInput placeholder="Contact Phone" type="text" value="{{data.Contact_Phone}}" [textMask]="{mask: phoneMask}"  #updatedphone>
+                                    <input matInput placeholder="Contact Phone" [textMask]="{mask: phoneMask}"  type="text" value="{{data.Contact_Phone}}"   #updatedphone>
 
 
                                 </mat-form-field>
@@ -63,7 +63,7 @@
                             <div>
 
                                 <mat-form-field class="margin">
-                                    <input matInput placeholder="Contact Email" type="email"   pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$"  value="{{data.contact_email}}" #updatedemail>
+                                    <input matInput placeholder="Contact Email" type="text"   value="{{data.contact_email}}" #updatedemail>
 
 
                                 </mat-form-field>
