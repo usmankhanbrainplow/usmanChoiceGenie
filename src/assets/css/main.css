@@ -7849,6 +7849,7 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
   text-align: center;
   bottom: 0;
   width: 100%;
+  color: #fff;
 }
 .pricing2-button a , .price-btn{
   background: #000;

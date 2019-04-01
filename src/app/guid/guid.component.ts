@@ -73,8 +73,9 @@ export class GuidComponent implements OnInit {
   });
   this.fun();
   }
+  servicearea= localStorage.getItem('service')
   fun(){
-    this.obj.searchProducts(this.zip_code, 1).subscribe(response => {
+    this.obj.searchproductzipcode(this.zip_code,this.servicearea ).subscribe(response => {
         this.product = response['Total Result'];
        console.log(this.product,'dddd')
 

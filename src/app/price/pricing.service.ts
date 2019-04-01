@@ -116,6 +116,8 @@ package_free(username,pkgdetail)
     // }
     // else{
         //this.username=(localStorage.getItem('username'));
+        // paid_subscription
+        // return this._http5.post(Config.api+"paid_subscription/",
         return this._http5.post(Config.api+"paid_subscription/",
         JSON.stringify({            
             'user': username,  
@@ -125,6 +127,16 @@ package_free(username,pkgdetail)
             'exp':pkgdetail.expdate,
             'ccv':pkgdetail.ccv  
             
+
+
+            // 'user': username,  
+            // 'price': pkgdetail.price,
+            // 'pkg_type': pkgdetail.type,
+            // 'creditno': pkgdetail.credit ,
+            // 'exp':pkgdetail.expdate,
+            // 'ccv':pkgdetail.ccv 
+
+
             // 'username': username,  
             // 'pricepackage': pkgdetail.type,
             // 'duration': pkgdetail.dur,

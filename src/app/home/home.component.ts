@@ -45,6 +45,7 @@ export class HomeComponent implements OnInit {
   zipcodepop:boolean;
   premiseID;
   signup;
+  i;
   city;
   state;
   items;
@@ -217,6 +218,52 @@ export class HomeComponent implements OnInit {
   }
   searchuserdata(zipcode1){
     if(this.zipCode.length == 5){
+
+      console.log("CHOICE GENIE", this.model.zipcode1);
+      let headers = new HttpHeaders();
+      headers.append('Content-Type', 'application/json');
+      this.http.get(Config.api + 'zipcodecheck/' + zipcode1, { headers: headers })
+        .subscribe(data => {
+          console.log(data);
+          console.log(data['message'], 'hhhhhhhhhhhhhhh')
+          this.state = data['state'];
+          this.zipcodeexist = data['message']
+          if (this.zipcodeexist == "InValid Zipcode") {
+            swal({
+              text: "Please Enter Valid Zipcode",
+              title: "Choice Genie",
+              type: "error",
+              showConfirmButton: false,
+              timer: 1200,
+              width: '512px',
+              confirmButtonText: "OK",
+
+            })
+          }
+          // else if (this.state == "deregulatedstate") {
+          //   // this.router.navigate(['/product/' + this.zipCode]);
+          //   localStorage.setItem('zip', this.zipCode);
+          // }
+          // else if (this.state == "notderegulatedstate") {
+          //   // this.router.navigate(['/products/' + this.zipCode]);
+          //   localStorage.setItem('zip', this.zipCode);
+          // }
+        },
+          error => {
+            console.log(error);
+            swal({
+              text: "Please Enter Valid Zipcode",
+              title: "Choice Genie",
+              type: "error",
+              showConfirmButton: false,
+              width: '512px',
+              timer: 1200,
+              confirmButtonText: "OK",
+
+            })
+
+          });
+
       console.log(zipcode1)
         this._serv.searchzipcode(zipcode1).subscribe(response => {
           this.record = response;
