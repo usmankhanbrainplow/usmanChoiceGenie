@@ -185,7 +185,7 @@ export class HomeComponent implements OnInit {
     if (name) {
         console.log(name);
         this.name = name;
-        alert(this.name)
+        // alert(this.name)
         localStorage.setItem('service',this.name)
         console.log(this.name)
         window.close();
@@ -272,7 +272,7 @@ export class HomeComponent implements OnInit {
           this.zipcodepop= this.record.Len;
           // alert(this.zipcodepop)
           if (this.zipcodepop == true){
-            alert(this.zipcodepop)
+            // alert(this.zipcodepop)
             console.log(this.zipcodepop)
             this.openzipcode.nativeElement.click();
             
