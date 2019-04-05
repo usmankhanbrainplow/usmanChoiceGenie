@@ -46,7 +46,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 
 })
 export class DashboardComponent implements OnInit, AfterViewInit {
-    
+    rev: any = [];
     constructor(private route: ActivatedRoute, private https: HttpClient, private newService: DeleteService, private serve: EditService,
         private formBuilder: FormBuilder, private router: Router, private http: Http, private pagerService: PagerService, private homeService: HomeService, private sg: SimpleGlobal, private dialog: MatDialog, private dataa: DataService, private companyService: CompanyService) {
 
@@ -171,13 +171,14 @@ export class DashboardComponent implements OnInit, AfterViewInit {
                 // prod["price_rate"] = prod["price_rate"].split('..', 300);
 
             }
+            this.rev = Response.json()['Results'];
 
             this.dataa.changeProducts(this.sg['products']);
             this.prod_loaded = true;
             this.prods_loaded = true;
             this.allItems = this.sg['products'];
             console.log(Response.json()['Total Result']);
-            this.pager = this.pagerService.getPager(Response.json()['Total Result'], page, 20);
+            this.pager = this.pagerService.getPager(this.rev.length, page, 20);
         });
 
     }

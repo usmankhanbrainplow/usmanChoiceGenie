@@ -669,7 +669,8 @@
     </div>
   </div>
 </div> -->
-<button id="openzipcode " type="button" #openzipcode [hidden]="true" class="btn btn-primary modal-hide" data-toggle="modal"
+<button id="openzipcode " type="button" #openzipcode [hidden]="true" class="btn btn-primary modal-hide" 
+data-toggle="modal"
   data-target="#zipModalCenter">
 </button>
 <div   class="modal fade login-or-signup" id="zipModalCenter" tabindex="-1" role="dialog"
@@ -701,14 +702,14 @@
 
           </mat-form-field> -->
           
-          <select class="input-pop-up" (change)="checked17($event,i,name)" value="name" required [(ngModel)]="name" name="name">
+          <select class="input-pop-up" (change)="checked17($event,i,name)" value="name" required  [(ngModel)]="name" name="name">
               <!-- <input class="inp" type="text" [(ngModel)]="statsearch"
               [ngModelOptions]="{standalone: true}" 
               placeholder="Search By Companies" > -->
               <!-- style="width: 100%; border-radius: 7px" -->
               <!-- <i class="fa fa-search s-icon-all-states" area-hidden="true"></i> -->
               <!-- <mat-option  (click)="checked17($event,i,name)"  > Select ALL</mat-option> -->
-            <option *ngFor="let data of record.Result" [value]="data.utilityarea" title="{{data.utilityarea}}"  >
+            <option *ngFor="let data of record.Result" [value]="data.utilityarea" title="{{data.utilityarea}}"   >
               {{data.utilityarea}}
 
             </option>

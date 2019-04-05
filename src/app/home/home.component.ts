@@ -188,8 +188,11 @@ export class HomeComponent implements OnInit {
         // alert(this.name)
         localStorage.setItem('service',this.name)
         console.log(this.name)
-        window.close();
-        this.openzipcode.nativeElement.close()
+        // if (this.name= !null){
+        $('#zipModalCenter').modal('hide');
+        // window.close();
+        // }
+        // this.openzipcode.nativeElement.close()
 
     }
     // else {
@@ -277,6 +280,9 @@ export class HomeComponent implements OnInit {
             // alert(this.zipcodepop)
             console.log(this.zipcodepop)
             this.openzipcode.nativeElement.click();
+            // if (this.zipcodepop = !null){
+            // $('#openzipcode').modal('hide');
+            // }
             
           }
           else if(this.zipcodepop == false){
@@ -286,6 +292,7 @@ export class HomeComponent implements OnInit {
             
 
           }
+
     
           // this.sg['zip'] = Res.json()['Results'];
           // this.data.changezip(this.sg['zip']);

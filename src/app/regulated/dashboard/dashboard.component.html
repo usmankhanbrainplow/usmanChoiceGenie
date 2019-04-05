@@ -81,9 +81,9 @@
                 </a>
 
 
-                <a (click)="submit(data.id,data.title)" style="color:white;text-align: center;" class="sh-pos-abso">
+                <!-- <a (click)="submit(data.id,data.title)" style="color:white;text-align: center;" class="sh-pos-abso">
                   <label class="view-plan-details" style="padding-bottom: 0px; margin-bottom: 0px;">Reviews</label>
-                </a>
+                </a> -->
 
                 <div class="modal fade" id="myModal3" role="dialog">
                   <div class="modal-dialog">
@@ -298,6 +298,7 @@
                     {{data.customer_type}}
                   </p>
                 </div>
+               
 
 
 
@@ -790,6 +791,22 @@
                             {{data.customer_type}}
                           </li>
                         </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-12">
+                    <div class="plan-description">
+                      <div class="plan-description__heading" >Special Terms</div>
+  
+                      <div class="plan-description__content" *ngIf="data.specialterms;else no_data_temp2">
+                          {{data.specialterms}}
+  
+                        <ng-template #no_data_temp2>
+  
+                          <!-- <img src="../../assets/img/no_Record.png" style="width: 250px;height:200px" > -->
+                          <h4>&nbsp;&nbsp;&nbsp;&nbsp; There is no Special Term in this plan</h4>
+                        </ng-template>
+                        <!-- <p class="ng-binding">A great low rate with guaranteed price protection for 1 full year. Exclusive online offer available to new customers.</p> -->
                       </div>
                     </div>
                   </div>

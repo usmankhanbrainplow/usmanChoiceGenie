@@ -330,7 +330,7 @@
                         </mat-form-field>
                         </div> -->
   <!-- <label>If you have term of services link</label> -->
-                        <label>Please Upload your Plan fact Sheet</label>
+                        <label>Please Upload your Plan Fact Sheet</label>
                         <input type='file' (change)="onChangefeet($event)" (change)="readUrlfect($event)"    name="fact_sheet" [(ngModel)]="fact_sheet" accept=".pdf*" multiple >
                        
   
@@ -549,7 +549,7 @@
                   <div class="col-sm-4">
                     <div class="">
                         <mat-form-field class="margin-b-10-i">
-                          <input matInput currencyMask placeholder="Cancellation Fee" required [(ngModel)]="cancelation_fee" formControlName="cancelation_fee">
+                          <input matInput  placeholder="Cancellation Fee" required [(ngModel)]="cancelation_fee" formControlName="cancelation_fee">
                           <mat-error *ngIf="fourthFormGroup.controls['cancelation_fee'].value == '' || !fourthFormGroup.controls['cancelation_fee'].value"><strong>This Field cannot be empty</strong></mat-error>
 
                         </mat-form-field>
