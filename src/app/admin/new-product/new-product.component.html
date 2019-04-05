@@ -410,6 +410,18 @@
                 <div class="row sh-signup-form-fix">
                  
                   <div class="col-lg-4 col-xs-12">
+                    <!--<label class="date-lable">Effective to date</label>-->
+                  <mat-form-field class="margin-b-10-i">
+                    <input matInput [matDatepicker]="startPicker1" [(ngModel)]="publish_product_date" formControlName="publish_product_date "readonly="true" placeholder="Effective To Date"/>
+                    <mat-datepicker-toggle matSuffix [for]="startPicker1"></mat-datepicker-toggle><mat-datepicker #startPicker1></mat-datepicker>
+                    <mat-error *ngIf="fourthFormGroup.controls['publish_product_date'].value == '' || !fourthFormGroup.controls['publish_product_date'].value"><strong>This Field cannot be empty</strong></mat-error>
+
+                  </mat-form-field>
+  
+                  <!-- <input type="date" placeholder="Publish Date" required name="publishdate" [(ngModel)]="publishdate" style="    padding: 2px 0px; font-size: 16px; font-weight: bold;"> -->
+  
+                </div>
+                  <div class="col-lg-4 col-xs-12">
                     <!--<label class="date-lable">Effective from date</label>-->
                    
                   <mat-form-field class="margin-b-10-i">
@@ -420,18 +432,7 @@
     
                 </div>
     
-                  <div class="col-lg-4 col-xs-12">
-                      <!--<label class="date-lable">Effective to date</label>-->
-                    <mat-form-field class="margin-b-10-i">
-                      <input matInput [matDatepicker]="startPicker1" [(ngModel)]="publish_product_date" formControlName="publish_product_date "readonly="true" placeholder="Effective To Date"/>
-                      <mat-datepicker-toggle matSuffix [for]="startPicker1"></mat-datepicker-toggle><mat-datepicker #startPicker1></mat-datepicker>
-                      <mat-error *ngIf="fourthFormGroup.controls['publish_product_date'].value == '' || !fourthFormGroup.controls['publish_product_date'].value"><strong>This Field cannot be empty</strong></mat-error>
-
-                    </mat-form-field>
-    
-                    <!-- <input type="date" placeholder="Publish Date" required name="publishdate" [(ngModel)]="publishdate" style="    padding: 2px 0px; font-size: 16px; font-weight: bold;"> -->
-    
-                  </div>
+               
 
               <div class="col-lg-4 col-xs-12" hidden="true">
                 <mat-form-field class="margin-b-10-i">
