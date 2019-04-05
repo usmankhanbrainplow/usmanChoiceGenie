@@ -101,7 +101,17 @@ body {
 .btn:not(.btn-just-icon):not(.btn-fab) .fa, .navbar .navbar-nav > li > a.btn:not(.btn-just-icon):not(.btn-fab) .fa{
   margin-top: -8px !important;
 }
-
+.mat-select-panel {
+  min-width: 0px!important;
+  max-width: 235px;
+  overflow: auto;
+  padding-top: 0;
+  padding-bottom: 0;
+  /* max-height: 256px; */
+  /* min-width: 100%; */
+  /* width: 150px!important; */
+  margin: 0px;
+}
 
 
 
