@@ -265,6 +265,8 @@ export class HomeComponent implements OnInit {
           });
 
       console.log(zipcode1)
+
+      //this code for popup
         this._serv.searchzipcode(zipcode1).subscribe(response => {
           this.record = response;
           this.servicerecord = response.Result;
