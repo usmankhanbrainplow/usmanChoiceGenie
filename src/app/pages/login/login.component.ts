@@ -4,20 +4,20 @@ import 'rxjs/add/operator/map';
 import { Config } from '../../Config';
 import { Observable } from "rxjs/Observable";
 import { HttpClient, HttpResponse, HttpHeaders } from "@angular/common/http";
- 
+
 
 import { ActivatedRoute, Router, RouterModule, NavigationExtras } from "@angular/router";
 import { SimpleGlobal } from 'ng2-simple-global';
- 
+
 import swal from 'sweetalert2';
- 
+
 import { FormBuilder, FormGroup, Validators, FormControl, AbstractControl } from '@angular/forms';
 import { PasswordValidation } from './password-validator.component';
 import { LoginService } from './login.service';
 import { DataService } from '../../data.service';
 import { DataloginService } from './datalogin.service';
 import { RecaptchaComponent } from 'recaptcha-blackgeeks';
- 
+
 declare var $: any;
 declare interface ValidatorFn {
   (c: AbstractControl): {
@@ -62,7 +62,7 @@ export class LoginComponent implements OnInit {
   status;
   islogin = true;
   isequal;
-  staySignedIn:boolean=true;
+  staySignedIn: boolean = true;
   // returnUrl: string;
 
 
@@ -144,19 +144,19 @@ export class LoginComponent implements OnInit {
       this.isequal = false;
       // this.islogin = true;
     }
-    if(this.staySignedIn == false){
+    if (this.staySignedIn == false) {
       localStorage.setItem('signed', 'false');
       console.log(this.staySignedIn)
     }
   }
   checked(event, i) {
     if (event.target.checked == true) {
-        console.log(event.target.checked)
-        this.staySignedIn=true;
+      console.log(event.target.checked)
+      this.staySignedIn = true;
     }
     else if (event.target.checked == false) {
-        console.log(event.target.checked)
-        this.staySignedIn=false;
+      console.log(event.target.checked)
+      this.staySignedIn = false;
 
     }
   }
@@ -217,7 +217,7 @@ export class LoginComponent implements OnInit {
       password: ['', Validators.compose([Validators.required])],
       // title: ['', Validators.compose([Validators.required])],
       Email: ['', Validators.compose([])],
-      staySignedIn:['', Validators.compose([])],
+      staySignedIn: ['', Validators.compose([])],
     });
 
     var navbar: HTMLElement = this.element.nativeElement;
@@ -230,7 +230,7 @@ export class LoginComponent implements OnInit {
       $('.card').removeClass('card-hidden');
     }, 700);
   }
- 
+
   sidebarToggle() {
     var toggleButton = this.toggleButton;
     var body = document.getElementsByTagName('body')[0];
