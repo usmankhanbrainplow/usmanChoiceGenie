@@ -252,6 +252,61 @@
               </ul>
             </div>
           </li>
+          <li class="vanders color-main"  *ngIf="check_login2()">
+
+            <a >
+                <i class="material-icons">account_circle</i> {{Chocieusername}}
+              </a>
+            <div class="drop-downs right-drop1">
+              <ul class="nav-vanders  why-choiegenie-sublist">
+                 <!-- <li>
+                      <a onclick="topFunction()" (click)="moving()">
+                           <i class="material-icons">lock</i>  
+                          <img src="../../assets/img/3d drop down icons/My-profile.png" >
+                         Dashboard
+                        </a>
+                  </li>   -->
+                <li>
+                    <a onclick="topFunction()" (click)="getprofile()">
+                        <!-- <i class="material-icons">lock</i> -->
+                        <img src="../../assets/img/3d drop down icons/My-profile.png" >
+                        My Profile
+                      </a>
+                </li>
+                <!-- <li>
+                    <a onclick="topFunction()" (click)="pro()">
+                      <i class="material-icons">
+                        exit_to_app
+                      </i>
+                      <span class="sidebar-normal">
+                        Add New Product</span>
+                    </a>
+                  </li> -->
+                <li>
+                    <a onclick="topFunction()" (click)="checked_changepassword()">
+                        <!-- <i class="material-icons">lock</i> -->
+                        <img src="../../assets/img/3d drop down icons/Change-password.png" >
+                        Change Password
+                      </a>
+                </li>
+                <li>
+                    <a onclick="topFunction()" routerLink="/contactus">
+                        <!-- <i class="material-icons">lock</i> -->
+                        <img src="../../assets/img/3d drop down icons/feedback.png">
+                        Feed back
+                      </a>
+                </li>
+
+                <li>
+                    <a (click)="logout()">
+                        <!-- <i class="material-icons">lock</i> -->
+                        <img src="../../assets/img/3d drop down icons/Logout.png">
+                        Logout
+                      </a>
+                </li>
+              </ul>
+            </div>
+          </li>
 
 
 

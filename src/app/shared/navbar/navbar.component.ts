@@ -44,6 +44,7 @@ export class NavbarComponent implements OnInit {
     private sidebarVisible: boolean;
     public customer;
     public username;
+    public Chocieusername
     public admin;
     @ViewChild('app-navbar-cmp') button: any;
     constructor(private route: ActivatedRoute, private https: HttpClient, 
@@ -82,6 +83,15 @@ export class NavbarComponent implements OnInit {
       check_login1() {
         if (localStorage.getItem('currentadmin')) {
           let local = localStorage.getItem('currentadmin');
+          return true;
+        }
+        else {
+          return false;
+        }
+      }
+      check_login2() {
+        if (localStorage.getItem('role') =="USER") {
+          let local = localStorage.getItem('role') =="USER";
           return true;
         }
         else {
@@ -191,7 +201,8 @@ export class NavbarComponent implements OnInit {
 
         this.massage = localStorage.getItem('role')
         this.username = localStorage.getItem('title')
-        console.log(this.username);
+        this.Chocieusername = localStorage.getItem('username')
+        // console.log(this.username);
 
         this.listTitles = ROUTES.filter(listTitle => listTitle);
 

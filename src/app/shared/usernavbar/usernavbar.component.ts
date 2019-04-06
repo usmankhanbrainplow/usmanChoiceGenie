@@ -54,8 +54,8 @@ export class UsernavbarComponent implements OnInit {
          this.sidebarVisible = false;
      }
      check_login() {
-         if (localStorage.getItem('title')) {
-           let local = localStorage.getItem('title');
+         if (localStorage.getItem('role') == "USER") {
+        //    let local = localStorage.getItem('role');
            return true;
          }
            else {
@@ -77,7 +77,7 @@ export class UsernavbarComponent implements OnInit {
        //  console.log("logout"); 
        }
      ngOnInit() {
-         this.username = localStorage.getItem('title')
+         this.username = localStorage.getItem('username')
          console.log(this.username);
  
          this.listTitles = ROUTES.filter(listTitle => listTitle);

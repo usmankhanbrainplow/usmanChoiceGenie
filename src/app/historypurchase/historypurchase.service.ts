@@ -23,7 +23,7 @@ export class HistorypurchaseService {
       headers.append('Content-Type', 'application/json');
 
 
-        return this._http5.get(Config.api+'user_history/'+this.currentUser,
+        return this._http5.get(Config.api+'payment_history/',
             {headers: headers}).map((response: Response) => response.json());
 
     }
