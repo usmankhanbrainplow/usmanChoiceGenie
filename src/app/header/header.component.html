@@ -374,7 +374,64 @@
               </ul>
             </div>
           </li>
+          <li class="vanders color-main" *ngIf="checked_login2()">
 
+            <a onclick="topFunction()" (click)="moving()">
+              <i class="material-icons">
+                account_circle</i>{{Choiceusername}}
+              <!-- <i class="fa fa-caret-down"></i> -->
+            </a>
+            <div class="drop-downs right-drop1">
+              <ul class="nav-vanders  why-choiegenie-sublist">
+                  <li>
+                      <a onclick="topFunction()" (click)="moving()">
+                          <!-- <i class="material-icons">lock</i> -->
+                          <img src="../../assets/img/3d drop down icons/My-profile.png" >
+                          Dashboard
+                        </a>
+                  </li>
+                  <li>
+                      <a onclick="topFunction()" (click)="getprofile()">
+                          <!-- <i class="material-icons">lock</i> -->
+                          <img src="../../assets/img/3d drop down icons/My-profile.png" >
+                          My Profile
+                        </a>
+                  </li>
+                  <li>
+                      <a onclick="topFunction()" (click)="checked_changepassword()">
+                          <!-- <i class="material-icons">lock</i> -->
+                          <img src="../../assets/img/3d drop down icons/Change-password.png" >
+                          Change Password
+                        </a>
+                  </li>
+                  <li>
+                      <a onclick="topFunction()" routerLink="/contactus">
+                          <!-- <i class="material-icons">lock</i> -->
+                          <img src="../../assets/img/3d drop down icons/feedback.png">
+                          Feed back
+                        </a>
+                  </li>
+  
+                  <li>
+                      <a onclick="topFunction()" (click)="logout()">
+                          <!-- <i class="material-icons">lock</i> -->
+                          <img src="../../assets/img/3d drop down icons/Logout.png">
+                          Logout
+                        </a>
+                  </li>
+                <!-- <li>
+                    <a (click)="moving()" style="cursor: pointer;">
+                        Dashboard
+                      </a>
+                </li>
+                <li>
+                    <a (click)="logout()">
+                        <i class="fas fa-lock"></i>Logout
+                      </a>
+                </li> -->
+              </ul>
+            </div>
+          </li>
 
 
 
@@ -535,54 +592,3 @@
                 </ul>
               </li>
     </div>
-
-    <!-- <section class=""> -->
-        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
-        <!-- <button id="openModal " type="button" #openModal [hidden]="true" class="btn btn-primary modal-hide" data-toggle="modal" data-target="#exampleModalCenter">
-        </button> -->
-
-
-        <!-- Modal -->
-        <!-- <div *ngIf="!check_login()" class="modal fade login-or-signup" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-              aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered custom-model" style="animation-delay: 15s" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <div style="float: top; float: right">
-
-                            <button type="button" class="close" style="padding: 6px 11px;margin-top:-10px;size: auto;background-color: black;color: white;font-weight: bold;font-size: 25px;"  data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-
-                        </div>
-                        <h5 class="modal-title must-login" id="exampleModalCenterTitle">Join RFPGurus</h5>
-                    </div>
-                    <div class="modal-body">
-                        Hundreds of Thousands RFPS: RFPGurus is the most comprehensive source of Government RFPs.
-                        <div class="custom-popup-img">
-                        
-                            <img src="../../assets/img/Choice_logo.png">
-                        </div>
-                    </div>
-
-
-
-                    <div class="modal-footer">
-                        <a routerLink="/login">
-                            <button title="Member Login" type="button" style="border-radius: 30px" class="btn btn-primary btn-must-login" data-dismiss="modal" >Member Login</button>
-                        </a>
-                        <a routerLink="/sign-up">
-                            <button title="Subscribe Now" type="button" style="border-radius: 30px" class="btn btn-primary btn-must-signup" data-dismiss="modal" >Subscribe Now</button>
-                        </a>
-
-                    </div>
-                </div>
-            </div>
-        </div> -->
-
-        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
-    <!-- </section> -->
-  
-
-
-<!-- </div> -->

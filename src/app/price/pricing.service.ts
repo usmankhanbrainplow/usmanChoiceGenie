@@ -98,51 +98,42 @@ Toatlpakkage_free(username,pkgdetail){
         {headers: headers}).map((res: Response) => res.json())
    
 }
-package_free(username,pkgdetail)
+package_free(pkgtype,pricepackage,cardname,cardnumber,expiry,ccv,card_type)
 {
     let headers = new Headers();
     headers.append('Authorization', 'JWT ' + localStorage.getItem('token'));
     console.log('pofile', localStorage.getItem('token'));
     // let headers = new Headers({'Authorization': 'JWT ' + this.currentUser.token});
     headers.append('Content-Type', 'application/json');
-    // if(pkgdetail.type == 'F') {
-    //     return this._http5.post("https://apis.rfpgurus.com/package/",
-    //     JSON.stringify({            
-    //         'username': username,  
-    //         'pricepackage': pkgdetail.type,
-    //         'duaration': pkgdetail.dur     
-    //     }),
-    //     {headers: headers}).map((res: Response) => res.json())
-    // }
-    // else{
-        //this.username=(localStorage.getItem('username'));
-        // paid_subscription
-        // return this._http5.post(Config.api+"paid_subscription/",
-        return this._http5.post(Config.api+"paid_subscription/",
+     
+        return this._http5.post(Config.api+"payment/",
         JSON.stringify({            
-            'user': username,  
-            'price': pkgdetail.price,
-            'pkg_type': pkgdetail.type,
-            'creditno': pkgdetail.credit ,
-            'exp':pkgdetail.expdate,
-            'ccv':pkgdetail.ccv  
-            
-
-
             // 'user': username,  
             // 'price': pkgdetail.price,
             // 'pkg_type': pkgdetail.type,
             // 'creditno': pkgdetail.credit ,
             // 'exp':pkgdetail.expdate,
-            // 'ccv':pkgdetail.ccv 
+            // 'ccv':pkgdetail.ccv  ,
+            // "activeplan":true,
+            // "is_subscribe":true
+
+            // {
+                "package_type":pkgtype,
+                "amount":pricepackage,
+                "cardname":cardname,
+                "cardnumber":cardnumber,
+                "expiry":expiry,
+                "ccv":ccv,
+                "card_type":card_type,
+                "currency_code":"USD",
+                "activeplan":true,
+                "is_subscribe":true
+            //     }
+
+            
 
 
-            // 'username': username,  
-            // 'pricepackage': pkgdetail.type,
-            // 'duration': pkgdetail.dur,
-            // 'creditno': pkgdetail.credit ,
-            // 'exp':pkgdetail.expdate,
-            // 'ccv':pkgdetail.ccv    
+          
         }),
         {headers: headers}).map((res: Response) => res.json())
         

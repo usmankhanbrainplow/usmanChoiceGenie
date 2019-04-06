@@ -30,6 +30,7 @@ declare var $: any;
     @ViewChild('openModal') openModal: ElementRef;
   public customer;
   public username;
+  public Choiceusername;
   model: any = {};
   public massage;
   state;
@@ -62,6 +63,16 @@ googleTranslateElementInit() {
       return true;
     }
     else if(!localStorage.getItem('title')){
+      return false;
+    }
+    
+  }
+  checked_login2() {
+    if (localStorage.getItem('role') =="USER") {
+      let local = localStorage.getItem('role') =="USER";
+      return true;
+    }
+    else if(!localStorage.getItem('role')){
       return false;
     }
     
@@ -163,6 +174,7 @@ googleTranslateElementInit() {
     });
     this.admin=localStorage.getItem('currentadmin')
     this.username = localStorage.getItem('title')
+    this.Choiceusername = localStorage.getItem('username')
     console.log(this.username);
     // <script>
       $("#showmenu").click(function(e){

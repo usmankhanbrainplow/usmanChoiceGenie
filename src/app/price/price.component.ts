@@ -23,7 +23,9 @@ export class PriceComponent implements OnInit {
     /[a-z A-Z]/, /[a-z A-Z]/, /[a-z A-Z]/, /[a-z A-Z]/, /[a-z A-Z]/, /[a-z A-Z]/,
     /[a-z A-Z]/, /[a-z A-Z]/, /[a-z A-Z]/, /[a-z A-Z]/, /[a-z A-Z]/, /[a-z A-Z]/,
     /[a-z A-Z]/, /[a-z A-Z]/, /[a-z A-Z]/, /[a-z A-Z]/, /[a-z A-Z]/, /[a-z A-Z]/, /[a-z A-Z]/];
-  cardnumber1;
+  totalcardnumber;
+  expiry;
+    cardnumber1;
   cardnumber2;
   cardnumber3;
   cardnumber4;
@@ -68,26 +70,26 @@ export class PriceComponent implements OnInit {
       //
       next_stepdetail(event: any){
           if (event.target.value == "BM") {
-              this.prv_stepdetail("6.99")
+              this.prv_stepdetail("1")
   
           } else if (event.target.value == "PY") {
-              this.prv_stepdetail("64");
+              this.prv_stepdetail("1");
           }
   
       }
   firststep(value){
         console.log(value)
       if (value == "BM") {
-       (this.pricepackage='6.99')
+       (this.pricepackage='1')
         this.month="monthly"
-         this.prv_stepdetail("6.99") 
+         this.prv_stepdetail("1") 
         //  this.showHide();
         
   
       } else if (value == "PY") {
-        this.pricepackage="64"
+        this.pricepackage="1"
         this.month="yearly"
-          this.prv_stepdetail("64")
+          this.prv_stepdetail("1")
       } else if (value == "free") {
         // this.pricepackage="free"
           this.month="free"       
@@ -194,29 +196,54 @@ export class PriceComponent implements OnInit {
   }
   
   proceed() {
-    this.pkg_detail['credit']=this.cardnumber1 + this.cardnumber2 +
+    this.totalcardnumber=this.cardnumber1 + this.cardnumber2 +
     this.cardnumber3 + this.cardnumber4
-    this.pkg_detail['ccv']=this.ccv
-  this.pkg_detail['price']=parseFloat(this.pricepackage)
-
     console.log(this.pricepackage,"price package")
-    this.pkg_detail['type']=this.month
-console.log(this.month,"month")
-    this.pkg_detail['expdate']= this.expmonth + '/' + this.expyear
+    // this.pkg_detail['type']=this.month
+    console.log(this.month,"month")
+    this.expiry= this.expmonth  + this.expyear
     this.local = localStorage.getItem('username');
     // let pars = this.local ;
     this.uname =this.local.username
-    this._serv.package_free(this.local,this.pkg_detail).subscribe(
+
+    // pkgtype,pricepackage,cardname,cardnumber,expiry,ccv,card_type
+    this._serv.package_free(this.month,this.pricepackage,this.cardholdername,this.totalcardnumber,this.expiry,this.ccv,"visa").subscribe(
       data =>{
-        
-             console.log(this.uname,this.pkg_detail,'usmancard')
-              swal(
+        console.log(data)
+        // if (data == "")
+             console.log(this.month,this.pricepackage,this.cardholdername,this.totalcardnumber,this.expiry,this.ccv,"visa")
+            //  alert(data.msg)
+             if (data.msg  == "Payment Successfully Done"){
+             swal(
                 'Your payment has been transferred',
                 '',
                 'success'
               )
-              let url = '/userprofile';
-              this._nav.navigate([url]);
+             } else if (data.msg == "invalid_card_number"){
+              swal(
+                'Please Insert Correct Car Number',
+                '',
+                'error'
+              )
+             }
+             else if ( data.msg == "invalid exp date"){
+              swal(
+                'Your Card Date is Expired',
+                '',
+                'error'
+              )
+             }
+             else if (data.msg == "Something Else"){
+              swal(
+                'Oops...',
+                'Something went wrong!',
+                'error'
+              )
+             }
+            
+             
+              // let url = '/userprofile';
+              // this._nav.navigate([url]);
                
       },
       error => {
