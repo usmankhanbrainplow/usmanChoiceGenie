@@ -53,6 +53,7 @@ export class NewProductComponent implements OnInit {
   vari;
   minimum_usage_fee;
   contact_email;
+  basefee;
   renewable;
   billing;
   fact_sheet;

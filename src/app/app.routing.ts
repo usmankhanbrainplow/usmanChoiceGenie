@@ -112,6 +112,7 @@ export const AppRoutes: Routes = [
             { path: 'userprofile', canActivate: [AuthguardService], loadChildren: './user-profile/user-profile.module#UserModule' },
             { path: 'ChangePassword', canActivate: [AuthguardService], loadChildren: './changepassword/changepassword.module#ChangePasswordModule' },
             { path: 'purchase-history', canActivate: [AuthguardService], loadChildren: './historypurchase/historypurchase.module#purchaseModule' },
+            { path: 'userpricing', loadChildren: './price/price.module#priceModule' },
             // {
             //     path: 'superviewcontact',
             //     loadChildren: './superviewcontact/superviewcontact.module#superviewcontactModule'

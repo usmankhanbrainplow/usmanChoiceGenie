@@ -68,21 +68,22 @@
                                               <tbody>
                                                 <tr *ngIf="!nofound">
                                                   <!-- <td > {{record.package_type }}</td> -->
-                                                  <td *ngIf="record.package_type == 'monthly'">Monthly PLAN</td>
-                                                  <td *ngIf="record.package_type== 'yearly'"> Yearly PLAN</td>
-                                                  <td *ngIf="record.package_type == 'free'"> Free PLAN</td>
-                                                  <td *ngIf="record.package_type == 'monthly'"><span>$</span>6.99 </td>
-                                                  <td *ngIf="record.package_type == 'yearly'"><span>$</span>64 </td>
-                                                  <td *ngIf="record.package_type == 'free'"><span>$</span>0 </td>
+                                                  <td *ngIf="record.Package_Type == 'monthly'">Monthly PLAN</td>
+                                                  <td *ngIf="record.Package_Type== 'yearly'"> Yearly PLAN</td>
+                                                  <td *ngIf="record.Package_Type == 'free'"> Free PLAN</td>
+                                                  <td *ngIf="record.Package_Type == 'monthly'"><span>$</span>6.99 </td>
+                                                  <td *ngIf="record.Package_Type == 'yearly'"><span>$</span>64 </td>
+                                                  <td *ngIf="record.Package_Type == 'free'"><span>$</span>0 </td>
                                                   <!-- <td><span>$</span>{{record.pkg_price}} </td>
                                                   <td><span>$</span>{{record.pkg_price}} </td>
                                                   <td><span>$</span>{{record.pkg_price}} </td> -->
-                                                  <td>{{record.log_pay_date }}</td>
-                                                  <td>{{record.log_end_date }}</td>
-                                                  <td *ngIf="record.is_subscribe == true"><button style="cursor:text" class="btn btn-fill" title="Active">Active </button></td>
-                                                  <td *ngIf="record.is_subscribe == false" ><button (click)=" prv_stepdetail( pkgList.pkg_type,pkgList.duration)" title="Subscribe Package" class="btn btn-fill">Subscribe Now <i class="fa fa-thumbtack"></i></button></td>
+                                                  <td>{{record.Pay_Date| date }}</td>
+                                                  <td>{{record.End_Date| date }}</td>
+                                                  <td *ngIf="record.Sucscribe == true"><button style="cursor:text" class="btn btn-fill" title="Active">Active </button></td>
+                                                  <td *ngIf="record.Sucscribe == false" ><button (click)="priceingpage()" title="Subscribe Package" class="btn btn-fill">Subscribe Now <i class="fa fa-thumbtack"></i></button></td>
                                               </tr>
                                               <tr *ngIf="nofound">
+                                                    <!-- prv_stepdetail( pkgList.pkg_type,pkgList.duration) -->
                                                   <td  colspan="4"> <h3><span class="no-pkg">Plans</span> you subscribe appear here.</h3></td>
                                               </tr>
                                               </tbody>

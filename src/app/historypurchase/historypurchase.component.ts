@@ -82,7 +82,8 @@ month;
     this._serv.purchaseHistory().subscribe(
         data => {
             // this.record = data.json();
-            this.record= data[0];
+            this.record= data;
+            // alert(this.record)
             console.log('Hello there dasds'+this.record);
 
         },
@@ -125,7 +126,11 @@ prv_stepdetail(type) {
     this.pkgsub = true;
 
 }
-
+priceingpage(){
+    let url = 'userpricing';
+            // userpricing
+            this._nav.navigate([url]);
+}
 
 proceed() {
 
@@ -141,7 +146,8 @@ proceed() {
                 '',
                 'success'
             )
-            let url = 'find-bids';
+            let url = 'userpricing';
+            // userpricing
             this._nav.navigate([url]);
 
         },
