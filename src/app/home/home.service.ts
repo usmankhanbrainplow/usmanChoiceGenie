@@ -104,7 +104,7 @@ export class HomeService {
 
       // "itemsperpage":this.items,
 
-      "dsc": sort,
+      "sort": sort,
       "demo": demo,
       // "logo2":logo2,
       // "logo3":logo3,

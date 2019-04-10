@@ -214,8 +214,8 @@ export class ProductsComponent implements OnInit, AfterViewInit, OnDestroy {
     max_price_1000;
     min_price_2000;
     max_price_2000;
-    sort;
-    product;
+    sort ='';
+        product;
     noresult;
     zipdet;
     modal: any = [];
@@ -724,6 +724,7 @@ export class ProductsComponent implements OnInit, AfterViewInit, OnDestroy {
     logo2;
     logo1;
     demo;
+    
     star5(event, i) {
         if (event.target.checked == true) {
             this.logo5 = "StarRating5.png";
@@ -1185,12 +1186,22 @@ export class ProductsComponent implements OnInit, AfterViewInit, OnDestroy {
     }
 
     checked20(event, i) {
-        this.sort = "Renewable";
+        this.sort = "renewable";
         this.setPage(1);
     }
     checked21(event, i) {
-        this.sort = "dsc";
+        if (this.value1=="500"){
+        this.sort = "price_500_kwh";
         this.setPage(1);
+        }
+        else if (this.value1=="1000"){
+            this.sort = "price_1000_kwh";
+            this.setPage(1);
+        }
+        else if (this.value1=="2000"){
+            this.sort = "price_2000_kwh";
+            this.setPage(1);
+        }
     }
     checked22(event, i) {
         this.sort = "dsc";
@@ -1345,7 +1356,7 @@ export class ProductsComponent implements OnInit, AfterViewInit, OnDestroy {
         // this.min_price_500,this.max_price_500,this.min_price_1000,this.max_price_1000, this.min_price_2000,this.max_price_2000,
         const Results = {}
 
-        if (this.months1 == "36 Months" || this.months2 == "24 Months" || this.months3 == "18 Months" || this.months4 == "14 Months" || this.months5 == "12 Months" || this.months6 == "12 Months" || this.months7 == "5 Months" || this.fixed == "Fixed Rate" || this.vari == "Variable (Changing Rate)" || this.market == "Indexed (Market Rate)" || this.prepaidall == "both" || this.showallplanPB == "both" || this.timeall == "both" || this.planmin == "NULL" || this.notprepaid == "noprepaid" || this.prepaid == "Prepaid" || this.time == "Time Of Use" || this.nottime == "notime" || this.renewable || this.name ||this.Zipcode_service_area || this.sort || this.item || this.min_price_500||this.max_price_500||this.min_price_1000||this.max_price_1000||this.min_price_2000||this.max_price_2000||this.demo ) {
+        if (this.months1 == "36 Months" || this.months2 == "24 Months" || this.months3 == "18 Months" || this.months4 == "14 Months" || this.months5 == "12 Months" || this.months6 == "12 Months" || this.months7 == "5 Months" || this.fixed == "Fixed Rate" || this.vari == "Variable (Changing Rate)" || this.market == "Indexed (Market Rate)" || this.prepaidall == "both" || this.showallplanPB == "both" || this.timeall == "both" || this.planmin == "NULL" || this.notprepaid == "noprepaid" || this.prepaid == "Prepaid" || this.time == "Time Of Use" || this.nottime == "notime" || this.renewable || this.name ||this.Zipcode_service_area || this.sort || this.item || this.min_price_500||this.max_price_500||this.min_price_1000||this.max_price_1000||this.min_price_2000||this.max_price_2000||this.demo||this.sort ) {
             // this.logo1 || this.logo2 || this.logo3 || this.logo4 || this.logo5 == "StarRating5.png"
             // , this.logo2, this.logo3, this.logo4, this.logo5
             this.demo= this.logo1+','+this.logo2+','+this.logo3+','+this.logo4+','+this.logo5

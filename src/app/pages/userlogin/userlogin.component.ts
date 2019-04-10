@@ -71,6 +71,7 @@ export class UserloginComponent implements OnInit {
   hel: any = [];
   currentUser;
   massage;
+  confrimuser;
     tit: any = [];
     title;
   constructor(public router: Router, private element: ElementRef, private http: Http, private route: ActivatedRoute,   private recha: RecapchaService,
@@ -108,101 +109,106 @@ export class UserloginComponent implements OnInit {
 
   }
   onLogin() {
-    if (this.recha.check()) {
-      console.log('equ ok');
-      // alert("login");
-      this.isequal = true;
+    // if (this.recha.check()) {
+    //   console.log('equ ok');
+    //   // alert("login");
+    //   this.isequal = true;
       if (this.username != '' || this.password != '') {
 
         this._serv.isactivated(this.login.value.username).subscribe(
-          data => {
-            this._serv.login(this.login.value.username, this.login.value.password).subscribe(
-              data => {
-                console.log(data);
-                // this.fetchzip();
-                console.log(this.username, "checl_role", localStorage.getItem('token'))
-                let headers = new Headers();
-                headers.append('Content-Type', 'application/json');
-               headers.append('Authorization', 'JWT ' +  localStorage.getItem('token'));
-                // headers.append('Authorization', 'JWT ' + localStorage.getItem('token'));
-                console.log('user_profile', localStorage.getItem('token'));
-                this._http5.get(Config.api + 'check_role/' + this.username + '/', { headers: headers })
-            
-                  .subscribe(Res => {
-                    this.Datarole = Res.json();
-                    console.log(this.Datarole);
-                    this.role = this.Datarole.Role;
-                    localStorage.setItem('role', this.role);
+          Response => {
+             this.confrimuser = Response.Activated;
+          
+                if ( this.confrimuser == true)
+                {
+                  this._serv.login(this.login.value.username, this.login.value.password).subscribe(
+                    data => {
+                      // this.confrimuser = Response;
+                      
+                     console.log(data);
+                      // false
+                      // Activated
+                      // this.fetchzip();
+                      console.log(this.username, "checl_role", localStorage.getItem('token'))
+                      let headers = new Headers();
+                      headers.append('Content-Type', 'application/json');
+                     headers.append('Authorization', 'JWT ' +  localStorage.getItem('token'));
+                      // headers.append('Authorization', 'JWT ' + localStorage.getItem('token'));
+                      console.log('user_profile', localStorage.getItem('token'));
+                      this._http5.get(Config.api + 'check_role/' + this.username + '/', { headers: headers })
+                  
+                        .subscribe(Res => {
+                          this.Datarole = Res.json();
+                          console.log(this.Datarole);
+                          this.role = this.Datarole.Role;
+                          localStorage.setItem('role', this.role);
+                          
+                      console.log(Res.json()['Results']);
+                      this.hel = Res.json()['Results'];
                     
-                console.log(Res.json()['Results']);
-                this.hel = Res.json()['Results'];
-                // this.massage = Res.json()['Message'];
-                // localStorage.setItem('massage', this.massage);
-              
-                // localStorage.setItem('user', this.word);
-                // localStorage.setItem('username', this.word.trim());
-                // localStorage.setItem('token', Res.json()['token']);
-                    if (this.role == "USER") {
-                      this.router.navigate(['/userprofile']);
-                      localStorage.setItem('username', this.username);
-                    }
-                    else if(this.role=="Not Deregulatedstate Vendor"){
-                      console.log(this.massage);
-                      this.tit = this.hel[0];
-                      console.log(this.tit);
-                      this.word = this.tit.title;
-                      console.log(this.word);
-                      // dashboard/:username
-                      // this.router.navigate(['/dashboard/:username']);
-                      this.router.navigate(['/dashboard/' + this.username]);
-                      // localStorage.setItem('change', this.username);
-                      localStorage.setItem('username', this.username);
-                      localStorage.setItem('title', this.tit.title);
-                    }
-                    else if(this.role=="Deregulatedstate Vendor"){
-                      console.log(this.massage);
-                      this.tit = this.hel[0];
-                      console.log(this.tit);
-                      this.word = this.tit.title;
-                      console.log(this.word);
-                      this.router.navigate(['/dashboards/' + this.username]);
-                      localStorage.setItem('username', this.username);
-                      localStorage.setItem('title', this.tit.title);
-  
-                      // localStorage.setItem('username', this.word);
-    
-                    }
-                  });
-                  // swal({
-                  //   text: "Please Enter Valid Zipcode",
-                  //   title: "Choice Genie",
-                  //   type: "success",
-                  //   showConfirmButton: false,
-                  //   timer: 200000,
-                  //   width: '512px',
-                  //   //confirmButtonText: "OK",
+                          if (this.role == "USER") {
+                            this.router.navigate(['/userprofile']);
+                            localStorage.setItem('username', this.username);
+                          }
+                          else if(this.role=="Not Deregulatedstate Vendor"){
+                            console.log(this.massage);
+                            this.tit = this.hel[0];
+                            console.log(this.tit);
+                            this.word = this.tit.title;
+                            console.log(this.word);
+                
+                            this.router.navigate(['/dashboard/' + this.username]);
+                            // localStorage.setItem('change', this.username);
+                            localStorage.setItem('username', this.username);
+                            localStorage.setItem('title', this.tit.title);
+                          }
+                          else if(this.role=="Deregulatedstate Vendor"){
+                            console.log(this.massage);
+                            this.tit = this.hel[0];
+                            console.log(this.tit);
+                            this.word = this.tit.title;
+                            console.log(this.word);
+                            this.router.navigate(['/dashboards/' + this.username]);
+                            localStorage.setItem('username', this.username);
+                            localStorage.setItem('title', this.tit.title);
         
-                  // })
-                swal({
-                  type: 'success',
-                  title: 'Successfully Logged in',
-                  showConfirmButton: false,
-                  // height:'300px',
-                  timer: 1000
-                });
-              
-              },
-              error => {
-                console.log(error);
-
-                swal(
-                  'Invalid',
-                  'Username OR Password',
-                  'error'
-                )
-
-              });
-          },
+                            // localStorage.setItem('username', this.word);
+          
+                          }
+                        });
+                      
+                      swal({
+                        type: 'success',
+                        title: 'Successfully Logged in',
+                        showConfirmButton: false,
+                        // height:'300px',
+                        timer: 1000
+                      });
+                    
+                    
+                  },
+                    error => {
+                      console.log(error);
+      
+                      swal(
+                        'Invalid',
+                        'Username OR Password',
+                        'error'
+                      )
+      
+                    });
+                
+                }
+                else if (this.confrimuser == false){
+                  alert(this.confrimuser.Activated)
+                  swal(
+                    'Error',
+                    'Your Account is not Active. We have send you activation link given email',
+                    'error'
+                  )
+           
+          }
+        },
           error => {
 
             swal(
@@ -217,21 +223,21 @@ export class UserloginComponent implements OnInit {
       else {
         this.validateAllFormFields(this.login);
       }
-    }
-    else {
-      this.recha.resetImg();
-      swal({
-        type: 'error',
-        title: 'Recaptcha Confirmation',
-        text: 'Please confirm you are not a robot',
-        showConfirmButton: false,
-        width: '512px',
-        timer: 2000
-      });
-      // this.captcha.reset();
-      this.isequal = false;
-      // this.islogin = true;
-    }
+    // }
+    // else {
+    //   this.recha.resetImg();
+    //   swal({
+    //     type: 'error',
+    //     title: 'Recaptcha Confirmation',
+    //     text: 'Please confirm you are not a robot',
+    //     showConfirmButton: false,
+    //     width: '512px',
+    //     timer: 2000
+    //   });
+    //   // this.captcha.reset();
+    //   this.isequal = false;
+    //   // this.islogin = true;
+    // }
     if (this.staySignedIn == false) {
       localStorage.setItem('signed', 'false');
       console.log(this.staySignedIn)
@@ -253,6 +259,7 @@ export class UserloginComponent implements OnInit {
 
   }
   model: any = {};
+  forgetmsg:any=[];
   forgetpass(Email) {
     //alert('hello');
     console.log("CHOICE GENIE", this.username);
@@ -262,10 +269,28 @@ export class UserloginComponent implements OnInit {
 
     headers.append('Content-Type', 'application/json');
 
-    this.https.post(Config.api + 'forget_password/' + this.username, { "email": Email }, { headers: headers })
+    this.https.post(Config.api + 'forget_password/', { "email": Email }, { headers: headers })
 
       .subscribe(Res => {
-        this.router.navigate(['/forgetpassword/']);
+      this.forgetmsg = Res;
+      if (this.forgetmsg.msg == "Reset Email Send" ){
+        swal(
+          'success',
+          'Please Check your Email'
+           
+        )
+
+      }
+      else{
+        swal(
+          'Invalid',
+          'User Already Exist! or May be Some Error!',
+          'error'
+        )
+      }
+        // Reset Email Send
+
+        // this.router.navigate(['/forgetpassword/']);
         console.log(Res);
         // this.next = Res[0].next;
 
