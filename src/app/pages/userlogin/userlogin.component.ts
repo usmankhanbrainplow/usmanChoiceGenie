@@ -109,10 +109,10 @@ export class UserloginComponent implements OnInit {
 
   }
   onLogin() {
-    // if (this.recha.check()) {
-    //   console.log('equ ok');
-    //   // alert("login");
-    //   this.isequal = true;
+    if (this.recha.check()) {
+      console.log('equ ok');
+      // alert("login");
+      this.isequal = true;
       if (this.username != '' || this.password != '') {
 
         this._serv.isactivated(this.login.value.username).subscribe(
@@ -223,21 +223,21 @@ export class UserloginComponent implements OnInit {
       else {
         this.validateAllFormFields(this.login);
       }
-    // }
-    // else {
-    //   this.recha.resetImg();
-    //   swal({
-    //     type: 'error',
-    //     title: 'Recaptcha Confirmation',
-    //     text: 'Please confirm you are not a robot',
-    //     showConfirmButton: false,
-    //     width: '512px',
-    //     timer: 2000
-    //   });
-    //   // this.captcha.reset();
-    //   this.isequal = false;
-    //   // this.islogin = true;
-    // }
+    }
+    else {
+      this.recha.resetImg();
+      swal({
+        type: 'error',
+        title: 'Recaptcha Confirmation',
+        text: 'Please confirm you are not a robot',
+        showConfirmButton: false,
+        width: '512px',
+        timer: 2000
+      });
+      // this.captcha.reset();
+      this.isequal = false;
+      // this.islogin = true;
+    }
     if (this.staySignedIn == false) {
       localStorage.setItem('signed', 'false');
       console.log(this.staySignedIn)

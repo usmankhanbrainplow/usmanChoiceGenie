@@ -66,6 +66,7 @@ export class HomeService {
       // logo1,logo2,logo3,logo4,logo5
       this.com = name.trim();
     }
+    // alert(item)
     console.log(page, id, months1, months2, months3, months4, months5, months6, months7, fixed, vari, market, prepaidall, notprepaid, prepaid, planmin, timeall, time, nottime, renewable, name, sort, item, min500, max500, min1000, max1000, min2000, max2000, showallplanPB)
     const headers = new Headers();
     headers.append('Content-Type', 'application/json');
@@ -91,7 +92,7 @@ export class HomeService {
       "renewablerate": renewable,
       "company": this.com,
       "servicearea": zipcdoeservicearea,
-      "itemsperpage": item,
+      "itemsperpage": item.toString(),
 
       "price_500_kwh_min_price": min500,
       "price_500_kwh_max_price": max500,

@@ -106,6 +106,7 @@ export class NewProductComponent implements OnInit {
     this.secondFormGroup = this.fb.group({
       'product_name': ['', Validators.compose([Validators.required])],
       'renewable': ['', Validators.compose([Validators.required])],
+      // min: 0, max: 20
       'specialterms': ['', Validators.compose([Validators.required])],
       // 'product_name':[''],
       'terms_month':['']

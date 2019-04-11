@@ -869,7 +869,7 @@
     <div class="products-area" *ngIf="prod_loaded">
       <ng-container class="card" *ngFor="let data of sg['products']; let i = index">
         <div *ngIf="i<1">
-          <div *ngFor="let item of pagedItems">{{item.name}}</div>
+          <!-- <div *ngFor="let item of pagedItems">{{item.name}}</div> -->
 
           <!-- pager -->
           <ul *ngIf="pager.pages && pager.pages.length" class="pagination">
@@ -879,16 +879,49 @@
             <li [ngClass]="{hide:pager.currentPage === 1}">
               <a (click)="setPage(data.title.trim(),pager.currentPage - 1)" class="btn btn-fill">Previous</a>
             </li>
-            <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
+            <!-- <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
               <a (click)="setPage(data.title.trim(),page)" class="btn btn-fill">{{page}}</a>
-            </li>
+            </li> -->
             <li [ngClass]="{hide:pager.currentPage === pager.totalPages}">
               <a (click)="setPage(data.title.trim(),pager.currentPage + 1)" class="btn btn-fill" type="Next">Next</a>
+            </li>
+            <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
+              <a (click)="setPage(data.title.trim(),page)" class="btn btn-fill">{{page}}</a>
             </li>
             <li [ngClass]="{hide:pager.currentPage === pager.totalPages}">
               <a (click)="setPage(data.title.trim(),pager.totalPages)" class="btn btn-fill" type="Last">Last</a>
             </li>
           </ul>
+          <!-- <ul class="pagination" *ngIf="pager.pages && pager.pages.length">
+
+
+            <li [ngClass]="{hide:pager.currentPage === 1}">
+              <a (click)="setPage(pager.currentPage - 1)" class="view-1s" class="btn btn-fill">
+                <i class="fa fa-angle-left"></i>
+              </a>
+            </li>
+            <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
+              <a onclick="topFunction()" (click)="setPage(page)" class="view-plan-details">{{page}}</a>
+            </li>
+
+            <li [ngClass]="{hide:pager.currentPage === pager.totalPages}" *ngIf="(pager.startPage  + 3) <= pager.totalPages">
+              <a onclick="topFunction()" (click)="setPage(pager.currentPage + 3)">...</a>
+            </li>
+            <li [ngClass]="{hide:pager.currentPage === pager.totalPages}"> <a>OF</a></li>
+            <li [ngClass]="{hide:pager.currentPage === pager.totalPages}">
+              <a onclick="topFunction()" (click)="setPage(pager.totalPages)" class="view-plan-details" type="Last">{{pager.totalPages}}</a>
+            </li>
+            <li *ngIf="pager.currentPage === pager.totalPages"> <a>OF</a></li>
+            <li *ngIf="pager.currentPage === pager.totalPages">
+              <a onclick="topFunction()" (click)="setPage(pager.totalPages)" class="view-plan-details" type="Last">{{pager.totalPages}}</a>
+            </li>
+            <li [ngClass]="{hide:pager.currentPage === pager.totalPages}">
+              <a onclick="topFunction()" (click)="setPage(pager.currentPage + 1)" class="view-plan-details" class="btn bd-color" type="Next">
+                <i class="fa fa-angle-right top-set"></i>
+              </a>
+            </li>
+
+          </ul> -->
         </div>
       </ng-container>
     </div>

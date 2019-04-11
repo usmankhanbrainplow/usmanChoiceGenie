@@ -140,7 +140,7 @@
 
                   <div class="col-md-4">
                       <mat-form-field class="example-full-width margin-t-15">
-                          <input matInput placeholder="Product Name"   required [(ngModel)]="product_name" formControlName="product_name">
+                          <textarea matInput placeholder="Product Name"   required [(ngModel)]="product_name" formControlName="product_name"></textarea>
                           <mat-error *ngIf="secondFormGroup.controls['product_name'].value == '' || !secondFormGroup.controls['product_name'].value"><strong>This Field cannot be empty</strong></mat-error>
 
                         </mat-form-field>
@@ -175,7 +175,7 @@
                         <mat-form-field class="example-full-width margin-t-15">
                             <!-- <input matInput placeholder="Renewable (%)"  required [(ngModel)]="product_name" formControlName="product_name"> -->
                        
-                          <input matInput placeholder="Renewable (%)" [(ngModel)]="renewable"  (keypress)="keyPress($event)" maxlength="3" formControlName="renewable">
+                          <input matInput placeholder="Renewable (%)" [(ngModel)]="renewable"  min="0" max="100"  (keypress)="keyPress($event)" maxlength="3" formControlName="renewable">
                         <mat-error *ngIf="secondFormGroup.controls['renewable'].value == '' || !secondFormGroup.controls['renewable'].value"><strong>This Field cannot be empty</strong></mat-error>
                       </mat-form-field>
                     </div>
@@ -358,8 +358,9 @@
                   <div class="col-sm-6">
                     <div class="">
                       <mat-form-field>
-                        <input matInput [textMask]="{mask: phoneMask}" placeholder="Contact Number" required [(ngModel)]="phone" formControlName="phone">
-                        <mat-error *ngIf="thirdFormGroup.controls['phone'].value == '' || !thirdFormGroup.controls['phone'].value"><strong>This Field cannot be empty</strong></mat-error>
+                          <!-- Contact_Phone -->
+                        <input matInput [textMask]="{mask: phoneMask}" placeholder="Contact Number"value="{{comprofile?.Contact_Phone}}" required [(ngModel)]="phone" formControlName="phone">
+                        <!-- <mat-error *ngIf="thirdFormGroup.controls['phone'].value == '' || !thirdFormGroup.controls['phone'].value"><strong>This Field cannot be empty</strong></mat-error> -->
 
                       </mat-form-field>
                     </div>
