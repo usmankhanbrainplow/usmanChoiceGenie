@@ -40,6 +40,10 @@
 .input-group .input-group-btn{
   padding: 0px !important;
 }
+.call-us{
+  font-size:20px;
+   font-weight:600px
+}
 /*.prod-slide{*/
   /*background: #fff;*/
   /*width: 95% !important;*/
@@ -89,6 +93,9 @@
   margin-left: 20px;
   border-radius: 7px;
   margin-top: 3px;
+}
+.data-price{
+  color: #2E589C;
 }
 
 

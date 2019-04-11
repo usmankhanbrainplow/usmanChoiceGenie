@@ -751,7 +751,7 @@
                   </div>
                   <div class="text-center slider-price">
                     500 kWh
-                    <p><strong>{{data.price_500_kwh }}¢</strong></p>
+                    <p><strong class="data-price">{{data.price_500_kwh }}¢</strong></p>
                   </div>
                   <h2 class="view-plan-details" (click)="btnEditClick(data.id,data.title,data.sign_up,data.phone,data.terms_of_service,data.fact_sheet,data.cancelation_fee,data.price_1000_kwh,data.price_500_kwh,data.price_2000_kwh,data.plan_information,data.rating_logo,data.profile_logo,data.profileurl,data.specialterms); getreview(data.id); avereview(data.id)"
                     data-toggle="modal" data-target="#myModal2">Plan Details
@@ -1138,7 +1138,7 @@
                     <div class="modal-body model-box">
                       <div class="popup-close-button" data-dismiss="modal">X</div>
                       <div class="row">
-                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center" style="border-bottom: 1px #4f4f4f solid;">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
                           <p class=" modal-v2__main-heading"> {{comtitle}}</p>
 
                         </div>
@@ -1265,10 +1265,10 @@
                     <div style="display:inline-block; text-align:center;">
                       <a href="{{sign_up}}" >
                           <!-- title: "OUR ENERGY LLC" -->
-                        <button class="btn btn-fill">Signup Now</button>
+                        <button class="btn btn-fill">Sign Up </button>
                       </a>
                       <div style="display:inline-block; padding:24px;">
-                        <span style="font-size:21px; font-weight:600px">OR CALL
+                        <span class="call-us">OR Call
                           <b>
                             <a href="tel:{{phone}}">
                               <!-- <input type="text" id="phone" value="{{data.phone}}"  name="phone"  > -->
