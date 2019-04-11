@@ -162,15 +162,17 @@
             <div class="col-sm-6">
               <div class="margin-b-10-i">
 
-                <mat-form-field>
+                <!-- <mat-form-field>
                   <input matInput [textMask]="{mask: phoneMask}" placeholder="Contact No" [formControl]="signupForm.controls['phoneno']"
                     required [(ngModel)]="model.phoneno">
                   <mat-icon matSuffix (click)="hide = !hide">settings_phone</mat-icon>
                   <mat-error *ngIf="signupForm.controls['phoneno'].value == '' || !signupForm.controls['phoneno'].value"><strong>This
                       Field cannot be empty</strong></mat-error>
 
-                  <!-- <mat-error *ngIf="secondFormGroup.controls.Phone_No.dirty && !secondFormGroup.controls.Phone_No.value"> Special characters not allowed</mat-error> -->
-                </mat-form-field>
+                 
+                </mat-form-field> -->
+                <int-phone-prefix  [(ngModel)]="model.phoneno"  class="phonee"  [formControl]="signupForm.controls['phoneno']"   placeholder="Phone No" required> </int-phone-prefix>
+
               </div>
             </div>
 

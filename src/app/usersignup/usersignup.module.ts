@@ -12,6 +12,7 @@ import { UserSignupRoutes } from './usersignup.routing';
 import { UsersignupComponent } from './usersignup.component';
 import { TextMaskModule } from 'angular2-text-mask';
 import { RecapchaModule } from '../recapcha/recapcha.module';
+import { InternationalPhoneModule } from 'ng4-intl-phone';
 
 @NgModule({
     imports: [
@@ -26,7 +27,8 @@ import { RecapchaModule } from '../recapcha/recapcha.module';
         
         ReactiveFormsModule,
         MatDatepickerModule,
-        HttpClientModule
+        HttpClientModule,
+        InternationalPhoneModule
     ],
     declarations: [
         UsersignupComponent

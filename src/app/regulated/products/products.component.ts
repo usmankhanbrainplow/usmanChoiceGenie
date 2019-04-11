@@ -204,7 +204,7 @@ export class ProductsComponent implements OnInit, AfterViewInit, OnDestroy {
     renewablerate;
     renewable;
     com;
-    item;
+    item="20";
     price ;
     min;
     max;
@@ -227,7 +227,7 @@ export class ProductsComponent implements OnInit, AfterViewInit, OnDestroy {
 
     ngOnInit() {
 
-        this.item = "20";
+        // this.item = "20";
         this.myID = document.getElementById("myID");
         // this.checked8(event, i);
         localStorage.setItem('ua', "True")
@@ -1248,13 +1248,13 @@ export class ProductsComponent implements OnInit, AfterViewInit, OnDestroy {
         delete this.months5;
         delete this.months6;
         delete this.months7;
-        delete this.sort;
+        // delete this.sort;
         delete this.renewable;
         delete this.notprepaid;
         delete this.prepaid;
         delete this.time;
         delete this.nottime;
-        delete this.planmin;
+        // delete this.planmin;
         let headers = new Headers();
         headers.append('Content-Type', 'application/json');
         this.http.get(Config.api + 'zipcodecheck/' + this.zip_code, { headers: headers })
@@ -1264,7 +1264,7 @@ export class ProductsComponent implements OnInit, AfterViewInit, OnDestroy {
                 console.log(this.state);
                 localStorage.setItem('state', this.state);
                 this.zipcodeexist = data.json()['message']
-                delete this.item;
+                // delete this.item;
 
                 if (this.zipcodeexist == "InValid Zipcode") {
                     swal({
@@ -1359,6 +1359,7 @@ export class ProductsComponent implements OnInit, AfterViewInit, OnDestroy {
         if (this.months1 == "36 Months" || this.months2 == "24 Months" || this.months3 == "18 Months" || this.months4 == "14 Months" || this.months5 == "12 Months" || this.months6 == "12 Months" || this.months7 == "5 Months" || this.fixed == "Fixed Rate" || this.vari == "Variable (Changing Rate)" || this.market == "Indexed (Market Rate)" || this.prepaidall == "both" || this.showallplanPB == "both" || this.timeall == "both" || this.planmin == "NULL" || this.notprepaid == "noprepaid" || this.prepaid == "Prepaid" || this.time == "Time Of Use" || this.nottime == "notime" || this.renewable || this.name ||this.Zipcode_service_area || this.sort || this.item || this.min_price_500||this.max_price_500||this.min_price_1000||this.max_price_1000||this.min_price_2000||this.max_price_2000||this.demo||this.sort ) {
             // this.logo1 || this.logo2 || this.logo3 || this.logo4 || this.logo5 == "StarRating5.png"
             // , this.logo2, this.logo3, this.logo4, this.logo5
+            alert('1')
             this.demo= this.logo1+','+this.logo2+','+this.logo3+','+this.logo4+','+this.logo5
             if (this.demo == null ||this.demo== "undefined,undefined,undefined,undefined,undefined") {
                 delete this.demo;

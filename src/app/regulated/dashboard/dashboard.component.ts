@@ -165,12 +165,12 @@ export class DashboardComponent implements OnInit, AfterViewInit {
             this.noresult = Response.json()['Total Result'];
             this.zipdet = localStorage.getItem('zip');
 
-            console.log(this.sg['products']);
-            for (let prod of this.sg['products']) {
-                // prod["plan_information"] = prod["plan_information"].split(',,', 3000);
-                // prod["price_rate"] = prod["price_rate"].split('..', 300);
+            // console.log(this.sg['products']);
+            // for (let prod of this.sg['products']) {
+            //     // prod["plan_information"] = prod["plan_information"].split(',,', 3000);
+            //     // prod["price_rate"] = prod["price_rate"].split('..', 300);
 
-            }
+            // }
             this.rev = Response.json()['Results'];
 
             this.dataa.changeProducts(this.sg['products']);
@@ -178,7 +178,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
             this.prods_loaded = true;
             this.allItems = this.sg['products'];
             console.log(Response.json()['Total Result']);
-            this.pager = this.pagerService.getPager(this.rev.length, page, 20);
+            this.pager = this.pagerService.getPager(this.rev.length, page, 10);
         });
 
     }
@@ -511,7 +511,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
     }
 
 
-    public ngOnInit() {
+     ngOnInit() {
         this.title = localStorage.getItem('title')
         console.log(this.title, 'gggggggggggggggg')
         this.updataForm = this.formBuilder.group({
