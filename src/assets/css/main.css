@@ -4672,13 +4672,15 @@ nav#mainnav li a i{
   color: #000;
 }
 nav#mainnav li a:hover {
-  background:none;
+  background:#1b3764;
     /* text-decoration: none; */
     /* border-left: 4px solid #c00; */
-    color: #c00;
+    color: white;
+  opacity: 0.9;
+  
 }
 nav#mainnav li a:hover i{
-  color: #c00;
+  color: white;
 }
 nav#mainnav li a {
   color: #000000;
@@ -4785,15 +4787,17 @@ footer p a:hover { color:#333; border-bottom-color: #333; }
   margin: 5px 5px;
   border-radius: 100%;
 }
-.plan-information__heading {
-  padding: 10px;
-  font-family: "Open Sans",sans-serif;
-  font-weight: bold;
-  font-size: 22px;
-  color: #09addd;
-  background: #ebebeb;
-  margin-top: 10px;
-  margin-bottom: 5px;
+  .plan-information__heading {
+    padding: 10px;
+    font-family: "Open Sans",sans-serif;
+    font-weight: bold;
+    font-size: 22px;
+    color: #ffffff;
+    background: #172f55;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    text-align: center;
 }
 .plan-information table {
   width: 368px;
@@ -4808,7 +4812,7 @@ footer p a:hover { color:#333; border-bottom-color: #333; }
 .plan-information__cell {
   border-right: 1px solid #ebebeb;
   width: 50%;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 400;
   padding: 5px 0;
   color: #000000;
@@ -4818,25 +4822,29 @@ footer p a:hover { color:#333; border-bottom-color: #333; }
   padding-left: 10px;
 }
 .plan-description__heading{
-  padding: 10px;
-  font-family: "Open Sans",sans-serif;
-  font-weight: bold;
-  color: #09addd;
-  background: #ebebeb;
-  margin-bottom: 5px;
-  margin-top: 10px;
-  font-size: 22px;
+ 
+    padding: 10px;
+    font-family: "Open Sans",sans-serif;
+    font-weight: bold;
+    color: #ffffff;
+    background: #172f55;
+    margin-bottom: 5px;
+    margin-top: 10px;
+    font-size: 22px;
+    border-radius: 5px;
+    text-align: center;
 }
 .modal-v2__main-heading {
   color: #000;
   font-family: "Open Sans",sans-serif;
   font-weight: 600;
-  font-size: 32px;
+  font-size: 29px;
   text-align: center;
   /* float: left; */
   margin-bottom: 0;
 
 }
+
 .plan-information__cell > a{
   color:#000;
 }
@@ -4928,7 +4936,7 @@ footer p a:hover { color:#333; border-bottom-color: #333; }
   color: #cc0000;
 }
 .plan-description__content >ul{
-  margin-left: 0;
+  margin-left: 6px;
 }
 .plan-description__content >ul >li{
   list-style: none;
@@ -5555,8 +5563,8 @@ section#boody{
   /* width: 55%; */
   /* height: 55%; */
   /*padding: 60px 0;*/
-  width: 100px;
-  height: 100px;
+  width: 120px;
+  height: 120px;
   text-align: center;
   margin: 0 auto;
   border-radius: 100%;
@@ -5569,9 +5577,9 @@ section#boody{
   width: 100%;
   /* width: 77%; */
   /* margin: 36% 5%; */
-  /*height: 32px;*/
-  /* margin: 38px auto; */
-}
+  height: 32px;
+   margin: 38px auto;
+  }
 .sidebar-input{
 padding: 0 10px;
 }
@@ -5651,7 +5659,7 @@ padding: 0 10px;
   display: block;
   text-align: center;
   font: bold 30px/24px Georgia, "Times New Roman", Times, serif;
-  color: #09addd;
+  color: #2e589c;
   font-size: 24px;
 }
 .add-price {
@@ -6990,7 +6998,7 @@ background: linear-gradient(to bottom, #ededed 0%,#c1bfbf 100%); /* W3C, IE10+, 
   color:#c00;
 }
 .font a{
-  color: #09addd;
+  color: #2e589c;
 }
 .font a:hover{
   color: #09addd;
@@ -7490,6 +7498,9 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
           box-shadow: 0 0 9px 0 #ccc !important;
   height: 50px;
   margin-top: 12px;
+  width: 190px;
+  margin-left: 29px;
+  font-weight: bold;
 }
 
 /*End Search bar*/
@@ -7740,7 +7751,7 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
   font-size: 45px;
 }
 .featured-plan-text {
-  background-color: #154b62;
+  background-color: #1B3764;
   font-size: .9em;
   text-transform: none;
   color: #fff;
@@ -8543,11 +8554,7 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
   width: 100%;
 }
 .found-div{
-    background: -webkit-linear-gradient(top ,#354851,#2b3a42 60%);
-    background: -webkit-linear-gradient(top,#354851,#2b3a42 60%);
-    background: -webkit-gradient(linear,left top, left bottom,from(#354851),color-stop(60%, #2b3a42));
-    background: -o-linear-gradient(top,#354851,#2b3a42 60%);
-    background: linear-gradient(to bottom,#354851,#2b3a42 60%);
+    background:#1B3764;
     color: #fff;
     font-size: 22px;
     font-weight: 300;
