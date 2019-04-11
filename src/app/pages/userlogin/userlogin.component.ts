@@ -329,6 +329,7 @@ export class UserloginComponent implements OnInit {
     this.recaptcha = captchaResponse;
   }
   ngOnInit() {
+    this.staySignedIn = true;
     this.login = this.formBuilder.group({
       // To add a validator, we must first convert the string value into an array. The first item in the array is the default value if any, then the next item in the array is the validator. Here we are adding a required validator meaning that the firstName attribute must have a value in it.
       username: ['', Validators.compose([Validators.required])],

@@ -61,13 +61,14 @@ export class HomeService {
     }),
       { headers: headers }).map((response: Response) => response.json());
   }
-  filter(page, id, months1, months2, months3, months4, months5, months6, months7, fixed, vari, market, notprepaid, prepaid, planmin, time, nottime, renewable, name, zipcdoeservicearea, sort, item, min500, max500, min1000, max1000, min2000, max2000, demo, prepaidall, timeall, showallplanPB) {
+  filter(page, id, months1 ,fixed, vari, market, notprepaid, prepaid, planmin, time, nottime, renewable, name, zipcdoeservicearea, sort, item, min500, max500, min1000, max1000, min2000, max2000, demo, prepaidall, timeall, showallplanPB) {
     if (name) {
+      // , months2, months3, months4, months5, months6, months7,
       // logo1,logo2,logo3,logo4,logo5
       this.com = name.trim();
     }
     // alert(item)
-    console.log(page, id, months1, months2, months3, months4, months5, months6, months7, fixed, vari, market, prepaidall, notprepaid, prepaid, planmin, timeall, time, nottime, renewable, name, sort, item, min500, max500, min1000, max1000, min2000, max2000, showallplanPB)
+    console.log(page, id, months1, fixed, vari, market, prepaidall, notprepaid, prepaid, planmin, timeall, time, nottime, renewable, name, sort, item, min500, max500, min1000, max1000, min2000, max2000, showallplanPB)
     const headers = new Headers();
     headers.append('Content-Type', 'application/json');
     return this.http.post(Config.api + 'multifilter/' + id + '?page=' + page, JSON.stringify({
@@ -75,12 +76,12 @@ export class HomeService {
       "plan_type2": market,
       "plan_type3": vari,
       "plan_information1": months1,
-      "plan_information2": months2,
-      "plan_information3": months3,
-      "plan_information4": months4,
-      "plan_information5": months5,
-      "plan_information6": months6,
-      "plan_information7": months7,
+      // "plan_information2": months2,
+      // "plan_information3": months3,
+      // "plan_information4": months4,
+      // "plan_information5": months5,
+      // "plan_information6": months6,
+      // "plan_information7": months7,
       "prepaid": prepaid,
       "noprepaid": notprepaid,
       "planmin": planmin,
