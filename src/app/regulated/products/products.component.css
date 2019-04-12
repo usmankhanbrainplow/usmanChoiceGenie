@@ -3,7 +3,7 @@
   width: 100% !important;
   background-color: #fff;
   position: fixed !important;
-  z-index: 2;
+  z-index: 3;
   overflow: auto;
   padding: 0px;
 }

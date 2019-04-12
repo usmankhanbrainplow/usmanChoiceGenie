@@ -5930,7 +5930,7 @@ padding: 0 10px;
 /*End header*/
 
 .input-pop-up{
-  border: 2px solid black!important;
+  border: 1px solid black!important;
   }
   
 
@@ -5948,7 +5948,7 @@ padding: 0 10px;
   letter-spacing: -.009em;
   margin: 0 auto !important;
   padding: 0;
-  font-size: 37px;
+  font-size: 34px;
 }
 .custom-model .modal-body {
   text-align: center;
@@ -9235,8 +9235,7 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
   ##Screen = B/w 768px to 1024px
 */
 
-@media (min-width: 9168
-92px) and (max-width: 1024px) {
+@media (min-width:992px) and (max-width: 1024px) {
   /* Large devices (maximam width 1024px and minimum width 768px) */
   .custom-model {
     width: 90% !important;
@@ -9251,7 +9250,10 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
   .androidBadge {
     max-width: 24%;
   }
-
+  .nav-home ul {
+    padding: 0px 0 0 !important;
+    
+}
 
 
 
@@ -9626,7 +9628,13 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
   .androidBadge {
     max-width: 24%;
   }
+.sort-bar-height{
+  height: 82px;
+}
+.position {
 
+  width: 95%;
+}
 
   .search-bg__title {
     font-size: 26px;
@@ -9635,6 +9643,9 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
     float: left;
     width: 100%;
   }
+  .sh-fix {
+    margin: 0px 40px 10px 54px;
+}
 
   .margin-nav70{
     margin-top: -77px;
@@ -9654,9 +9665,11 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
   .body-margin{
     margin-top: 77px;
   }
-
+  .position {
+   
+    margin: -74px 0px 0px 73px;
 }
-
+}
 /*
   ##Device = Low Resolution Tablets, Mobiles (Landscape)
   ##Screen = B/w 481px to 767px
