@@ -338,7 +338,7 @@
                         <md-input-container class="block" hidden="true">
                           <input mdInput placeholder="Title" [ngModel]="date | date:'yyyy-MM-dd'">
                         </md-input-container>
-                        <input type="date" required name="date" [(ngModel)]="date">
+                        <!-- <input type="date" required name="date" [(ngModel)]="date"> -->
                         <form (ngSubmit)="onSubmit(f)" #f="ngForm" class="sh-signup-form-fix">
                           <!-- <input matInput placeholder="date" hidden="true" [value]="today | date: 'yyyy-MM-dd'" #mydate name="mydate"> -->
 
@@ -366,7 +366,7 @@
                           <div class="col-md-6 col-sm-12">
                             <div class="input-group">
                               <mat-form-field>
-                                <input matInput placeholder="Title" readonly name="title" value="{{title}}" required
+                                <input matInput placeholder="Title" (keypress)="omit_special_char($event)"  readonly name="title" value="{{title}}" required
                                   #updatedtitle />
 
                               </mat-form-field>
@@ -402,7 +402,7 @@
                           <div class="col-md-6 col-sm-12">
                             <div class="input-group">
                               <mat-form-field>
-                                <input matInput placeholder="Enrollment" name="enrollment_productid"
+                                <input matInput placeholder="Enrollment" (keypress)="omit_special_char($event)"  name="enrollment_productid"
                                   value="{{enrollment_productid}}" required #updatedenrollment_productid />
 
                               </mat-form-field>
@@ -565,7 +565,7 @@
                             <div class=" margin-zero1">
 
                               <mat-form-field>
-                                <input matInput placeholder="Terms Month" name="terms_month" value="{{terms_month}}"
+                                <input matInput placeholder="Terms Month" (keypress)="omit_special_char($event);keyPress($event)"    maxlength="3" name="terms_month" value="{{terms_month}}"
                                   #updatedterms_month />
 
                               </mat-form-field>
@@ -575,7 +575,7 @@
                             <div class=" margin-zero1">
 
                               <mat-form-field>
-                                <input matInput placeholder="Renewable" name="renewable" value="{{renewable}}"
+                                <input matInput placeholder="Renewable"  (keypress)="omit_special_char($event);keyPress($event)"    maxlength="3"name="renewable" value="{{renewable}}"
                                   #updatedrenewable />
 
                               </mat-form-field>

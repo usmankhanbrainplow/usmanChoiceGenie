@@ -149,7 +149,22 @@ export class DashboardComponent implements OnInit, AfterViewInit {
             this.pager = this.pagerService.getPager(Res.json()['Total Result'], page, 10);
         });
     }
-
+    keyPress(event: any) {
+        const pattern = /[0-9\+\-\ ]/;
+    
+        let inputChar = String.fromCharCode(event.charCode);
+        if (event.keyCode != 8 && !pattern.test(inputChar)) {
+          event.preventDefault();
+    
+        }
+      }
+    omit_special_char(event)
+    {   
+       var k;  
+       k = event.charCode;  //         k = event.keyCode;  (Both can be used)
+       return((k > 64 && k < 91) || (k > 96 && k < 123) || k == 8 || k == 32 || (k >= 48 && k <= 57)); 
+    }
+  
     setPage(title, page: number) {
 
 

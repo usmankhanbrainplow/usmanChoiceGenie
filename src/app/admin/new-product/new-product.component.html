@@ -140,7 +140,7 @@
 
                   <div class="col-md-4">
                       <mat-form-field class="example-full-width margin-t-15">
-                          <textarea matInput placeholder="Product Name"   required [(ngModel)]="product_name" formControlName="product_name"></textarea>
+                          <textarea matInput placeholder="Product Name"  (keypress)="omit_special_char($event)"   required [(ngModel)]="product_name" formControlName="product_name"></textarea>
                           <mat-error *ngIf="secondFormGroup.controls['product_name'].value == '' || !secondFormGroup.controls['product_name'].value"><strong>This Field cannot be empty</strong></mat-error>
 
                         </mat-form-field>
@@ -369,7 +369,7 @@
                   <div class="col-sm-6">
                     <div class="" >
                       <mat-form-field>
-                        <input matInput placeholder="Enrollment URL" [value]="sign" name="sign_up" #sign_up>
+                        <input matInput placeholder="Enrollment URL"  [value]="sign" name="sign_up" #sign_up>
                       </mat-form-field>
                     </div>
                   </div>
@@ -559,7 +559,7 @@
                   <div class="col-sm-4">
                     <div class="form-group">
                         <mat-form-field class="">
-                          <input matInput  placeholder="Enrollment product id" required [(ngModel)]="enrollment_productid" formControlName="enrollment_productid">
+                          <input matInput  placeholder="Enrollment product id" (keypress)="omit_special_char($event)"  required [(ngModel)]="enrollment_productid" formControlName="enrollment_productid">
                           <mat-error *ngIf="fourthFormGroup.controls['enrollment_productid'].value == '' || !fourthFormGroup.controls['enrollment_productid'].value"><strong>This Field cannot be empty</strong></mat-error>
 
                         </mat-form-field>

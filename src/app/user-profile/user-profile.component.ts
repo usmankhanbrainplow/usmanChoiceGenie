@@ -121,6 +121,13 @@ export class UserProfileComponent implements OnInit {
     console.log('id : ' + this.catagoryId);
   }
 
+  omit_special_char(event)
+  {   
+     var k;  
+     k = event.charCode;  //         k = event.keyCode;  (Both can be used)
+     return((k > 64 && k < 91) || (k > 96 && k < 123) || k == 8 || k == 32 || (k >= 48 && k <= 57)); 
+  }
+
   //Event Binding of PopUp Delete Modal
   // item.id,item.zipcode,item.utilityarea,item.title,item.Phone,item.state,item.country,item.status,item.user
   editClick(updateid, updatename, updatecontact, updateserviceaddress, updateservicestate, updateservicecity, updateservicezipcode,

@@ -48,7 +48,7 @@
                 <mat-form-field>
                   <input matInput placeholder="  Name" [formControl]="signupForm.controls['name']" required [(ngModel)]="model.name"
                     class="text-transform">
-                  <mat-icon matSuffix (click)="hide = !hide">account_circle </mat-icon>
+                  <mat-icon matSuffix >account_circle </mat-icon>
                   <mat-error *ngIf="signupForm.controls['name'].value == '' || !signupForm.controls['name'].value"><strong>This
                       Field cannot be empty</strong></mat-error>
 

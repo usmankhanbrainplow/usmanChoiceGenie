@@ -41,7 +41,7 @@
                             <div>
 
                                 <mat-form-field class="margin">
-                                    <input matInput placeholder="Contact Name" type="text" value="{{data.Contact_Name}}" #updatedName>
+                                    <input matInput placeholder="Contact Name" type="text"  (keypress)="omit_special_char($event)"  value="{{data.Contact_Name}}" #updatedName>
 
 
                                 </mat-form-field>
