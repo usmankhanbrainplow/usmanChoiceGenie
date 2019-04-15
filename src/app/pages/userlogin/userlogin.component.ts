@@ -281,6 +281,24 @@ export class UserloginComponent implements OnInit {
         )
 
       }
+    else  if (this.forgetmsg.msg == "Invalid Email hahaha" ){
+      swal(
+        'Invalid',
+        'your Email does not exist!',
+        'error'
+      )
+
+      }
+      else  if (this.forgetmsg.msg == " Invalid Email" ){
+        swal(
+          'Invalid',
+          'your Email does not exist!',
+          'error'
+        )
+  
+        }
+      // Invalid Email hahaha
+     
       else{
         swal(
           'Invalid',

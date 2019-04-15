@@ -826,7 +826,7 @@
 
 
 
-                      <a class="sh-pos-abso sh-pos-abso-logo">
+                      <a  *ngIf="makereviews"class="sh-pos-abso sh-pos-abso-logo">
                         <!-- *ngIf="check_login();" -->
                         <label class="view-plan-details mob-view-hide" style="padding-bottom: 0px; margin-bottom: 0px;" (click)="btnDeleteClick(data.id,data.title,data.profileurl,data.profile_logo,data.serviceareaname)"
                           data-toggle="modal" data-target="#myModal6"> Leave a Review
