@@ -121,7 +121,7 @@ export class ProductsComponent implements OnInit, AfterViewInit, OnDestroy {
         nextArrow: '<button class="rightRs slick-arrow leftArrow btn-slider btn-slider-right" style="display: block;"><i class="fa fa-chevron-right"></i></button>',
         responsive: [
             {
-                breakpoint: 778,
+                breakpoint: 788,
                 settings: {
                     arrows: true,
                     // centerMode: true,
