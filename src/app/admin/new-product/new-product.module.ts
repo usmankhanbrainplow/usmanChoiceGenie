@@ -20,6 +20,7 @@ export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
   thousands: ""
 };
 @NgModule({
+  // ¢
     imports: [
         CommonModule,TextMaskModule,CurrencyMaskModule,
         RouterModule.forChild(NewProduct),

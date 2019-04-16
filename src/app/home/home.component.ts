@@ -43,6 +43,7 @@ export class HomeComponent implements OnInit {
   zipCode = '';
   product_id;
   zipcodepop:boolean;
+  msg;
   premiseID;
   signup;
   i;
@@ -219,6 +220,12 @@ export class HomeComponent implements OnInit {
     }
 
   }
+  omit_special_char(event)
+  {   
+     var k;  
+     k = event.charCode;  //         k = event.keyCode;  (Both can be used)
+     return((k > 64 && k < 91) || (k > 96 && k < 123) || k == 8 || k == 32 || (k >= 48 && k <= 57)); 
+  }
   searchuserdata(zipcode1){
     if(this.zipCode.length == 5){
 
@@ -251,38 +258,26 @@ export class HomeComponent implements OnInit {
           //   // this.router.navigate(['/products/' + this.zipCode]);
           //   localStorage.setItem('zip', this.zipCode);
           // }
-        },
-          error => {
-            console.log(error);
-            swal({
-              text: "Please Enter Valid Zipcode",
-              title: "Choice Genie",
-              type: "error",
-              showConfirmButton: false,
-              width: '512px',
-              timer: 1200,
-              confirmButtonText: "OK",
-
-            })
-
-          });
-
-      console.log(zipcode1)
+        } );
+        
 
       //this code for popup
         this._serv.searchzipcode(zipcode1).subscribe(response => {
           this.record = response;
+        
+           
           this.servicerecord = response.Result;
-          console.log(this.servicerecord[0].utilityarea)
+          // console.log(this.servicerecord[0].utilityarea)
           this.zipcodepop= this.record.Len;
-          // alert(this.zipcodepop)
+          this.msg = this.record.msg;
+          // alert(this.msg)
+
+          
           if (this.zipcodepop == true){
-            // alert(this.zipcodepop)
+           
             console.log(this.zipcodepop)
             this.openzipcode.nativeElement.click();
-            // if (this.zipcodepop = !null){
-            // $('#openzipcode').modal('hide');
-            // }
+           
             
           }
           else if(this.zipcodepop == false){
@@ -291,6 +286,19 @@ export class HomeComponent implements OnInit {
             localStorage.setItem('service',this.servicerecord[0].utilityarea)
             
 
+          } else if ( this.msg == "No plans found. Your zip code may not be in a service area open to competition."){
+           
+            swal({
+              text: "Please Enter Valid Zipcodesssssssssssssss",
+              title: "Choice Genie",
+              type: "error",
+              showConfirmButton: true,
+             
+              width: '512px',
+              confirmButtonText: "OK",
+              // timer: 1200,
+
+            })
           }
 
     
@@ -302,17 +310,7 @@ export class HomeComponent implements OnInit {
     
   }
   
-  // searchuserdata(query) {
-  //   console.log(query)
-  //   this._serv.searchrecord(query).subscribe(response => {
-  //     this.record = response;
-
-  //     // this.sg['zip'] = Res.json()['Results'];
-  //     // this.data.changezip(this.sg['zip']);
-  //     console.log(this.record)
-  //   })
-
-  // }
+ 
   onKeydown(event, zipcode1) {
     if (event.key === "Enter") {
       //alert("enter the zip code")
