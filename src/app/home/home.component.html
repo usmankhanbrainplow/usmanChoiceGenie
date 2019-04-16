@@ -74,7 +74,7 @@
                   <!-- <mat-form-field> -->
 
                   <input class="zip-inputs" placeholder="Zip Code" maxlength="5" [formControl]="zip_code" value="{{zipCode}}" [(ngModel)]=zipCode #zipcode1
-                    name="zipCode"  (keypress)="keyPress($event)"  (ngModelChange)="searchuserdata(zipcode1.value)" (keydown)=" onKeydown($event,zipcode1.value)"   />
+                    name="zipCode"  (keypress)="keyPress($event)"  (ngModelChange)="searchuserdata(zipcode1.value)" (keypress)="omit_special_char($event)" (keydown)=" onKeydown($event,zipcode1.value)"   />
                   <!-- {{cord.postalCode}} -->
                   <!-- (keydown)="Checkzipcode($event,zipcode1.value)" -->
                   <mat-error *ngIf="zip_code.hasError('pattern')">
