@@ -224,10 +224,16 @@ export class ProductsComponent implements OnInit, AfterViewInit, OnDestroy {
     status: any = true;
     slider;
     model: any = {};
+    makereviews =false;
 
     ngOnInit() {
 
         // this.item = "20";
+        if (localStorage.getItem('role') == 'USER'){
+            this.makereviews= true
+
+        }
+        
         this.myID = document.getElementById("myID");
         // this.checked8(event, i);
         localStorage.setItem('ua', "True")
@@ -390,6 +396,7 @@ export class ProductsComponent implements OnInit, AfterViewInit, OnDestroy {
             console.log('id : ' + this.id, this.title);
             //return true;
         }
+         
         else {
             swal(
                 'please login First!',
@@ -399,7 +406,7 @@ export class ProductsComponent implements OnInit, AfterViewInit, OnDestroy {
             )
             // this.router.navigate(['/inactive-products']);
             //   let url = '/userlogin';
-            this.router.navigate(['/userlogin'])
+            this.router.navigate(['/login'])
 
             // this.route.navigate([])            // return false; 
 
@@ -617,7 +624,12 @@ export class ProductsComponent implements OnInit, AfterViewInit, OnDestroy {
 
 
     ngAfterViewInit() {
-        this.profile();
+        if (localStorage.getItem('role') == 'USER'){
+            this.makereviews= true
+            this.profile();
+
+        }
+        
         this.featuredplan();
 
         this.data.currentProducts.subscribe(products => this.sg['products'] = products)

@@ -359,7 +359,7 @@
                     <div class="">
                       <mat-form-field>
                           <!-- Contact_Phone -->
-                        <input matInput [textMask]="{mask: phoneMask}" placeholder="Contact Number"value="{{comprofile?.Contact_Phone}}" required [(ngModel)]="phone" formControlName="phone">
+                        <input matInput [textMask]="{mask: phoneMask}" placeholder="Contact Number"value="{{comprofile?.Contact_Phone}}"   [(ngModel)]="phone" formControlName="phone">
                         <!-- <mat-error *ngIf="thirdFormGroup.controls['phone'].value == '' || !thirdFormGroup.controls['phone'].value"><strong>This Field cannot be empty</strong></mat-error> -->
 
                       </mat-form-field>

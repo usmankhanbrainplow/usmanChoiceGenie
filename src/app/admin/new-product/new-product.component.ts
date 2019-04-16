@@ -117,7 +117,7 @@ export class NewProductComponent implements OnInit {
     this.thirdFormGroup = this.fb.group({
       'fact_sheet': [''],
       'terms_of_service': [''],
-      'phone': ['', Validators.compose([Validators.required])],
+      'phone': [''],
     });
     this.fourthFormGroup = this.fb.group({
       'publish_product_date': [''],
