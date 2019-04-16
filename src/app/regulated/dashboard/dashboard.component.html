@@ -115,7 +115,7 @@
                                   </mat-form-field> -->
 
                             <md-input-container class="block" hidden=true>
-                              <input mdInput placeholder="Title" [ngModel]="date | date:'YYYY-MM-DD'">
+                              <input mdInput placeholder="Title" [ngModel]="date |  date:'YYYY-MM-DD'">
                             </md-input-container>
 
                             <md-input-container class="block" hidden=true>
@@ -128,13 +128,13 @@
                                                         </mat-form-field> -->
                             <div class="col-lg-6 date-box">
                               <label>Effective From Date</label>
-                              <input type="date" required placeholder="YYYY-MM-DD" name="nowdate" [(ngModel)]="nowdate"
-                                style="    padding: 10px 0px; font-size: 20px;">
+                              <input type="date" required name="nowdate" [(ngModel)]="nowdate"
+                                style="text-transform: uppercase;padding: 10px 0px; font-size: 20px;">
                             </div>
                             <div class="col-lg-6 date-box">
                               <label>Effective To Date</label>
-                              <input type="date" required placeholder="YYYY-MM-DD" name="date" [(ngModel)]="date"
-                                style="    padding: 10px 0px; font-size: 20px;">
+                              <input type="date" required  name="date" [(ngModel)]="date"
+                                style=" text-transform: uppercase;padding: 10px 0px; font-size: 20px;">
                             </div>
 
                           </div>
@@ -318,13 +318,13 @@
                   <!-- Modal content-->
                   <div class="modal-content popupmodel1">
                     <div class="modal-body" style="font-size: 18px;
-                                                background: #ffffff;
+                                                background:#ffffff;
                                                 padding:0px;
                                                 margin: 15px;
                                                 position: relative;">
                       <div class="popup-close-button" data-dismiss="modal">X</div>
                       <div class="row">
-                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="border-bottom: 1px #4f4f4f solid;">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                           <p class=" modal-v2__main-heading"> {{data.title}}</p>
 
                         </div>
@@ -344,7 +344,7 @@
 
                           <!-- <input matInput placeholder="date" [value]="today | date: 'yyyy-MM-dd'" #mydate name="mydate"> -->
 
-                          <div class="col-md-6 col-sm-12">
+                          <div class="col-md-4 col-sm-12">
                             <div class="input-group">
                               <mat-form-field>
                                 <input matInput placeholder="Publish Product date" readonly name="mydate"
@@ -353,7 +353,7 @@
                               </mat-form-field>
                             </div>
                           </div>
-                          <div class="col-md-6 col-sm-12">
+                          <div class="col-md-4 col-sm-12">
                             <div class="input-group">
                               <mat-form-field>
                                 <input matInput placeholder="Deactivate Product Date" readonly
@@ -363,7 +363,7 @@
                               </mat-form-field>
                             </div>
                           </div>
-                          <div class="col-md-6 col-sm-12">
+                          <div class="col-md-4 col-sm-12">
                             <div class="input-group">
                               <mat-form-field>
                                 <input matInput placeholder="Title" (keypress)="omit_special_char($event)"  readonly name="title" value="{{title}}" required
@@ -381,7 +381,7 @@
                               </mat-form-field>
                             </div>
                           </div> -->
-                          <div class="col-md-6 col-sm-12">
+                          <div class="col-md-4 col-sm-12">
                             <div class="input-group">
                               <mat-form-field>
                                 <input matInput placeholder="Products Batch Rate" name="product_batch_rate"
@@ -390,7 +390,7 @@
                               </mat-form-field>
                             </div>
                           </div>
-                          <div class="col-md-6 col-sm-12">
+                          <div class="col-md-4 col-sm-12">
                             <div class="input-group">
                               <mat-form-field>
                                 <input matInput placeholder="Products Batch Rate" name="minumum_usage_fee"
@@ -399,7 +399,7 @@
                               </mat-form-field>
                             </div>
                           </div>
-                          <div class="col-md-6 col-sm-12">
+                          <div class="col-md-4 col-sm-12">
                             <div class="input-group">
                               <mat-form-field>
                                 <input matInput placeholder="Enrollment" (keypress)="omit_special_char($event)"  name="enrollment_productid"
@@ -409,7 +409,7 @@
                             </div>
                           </div>
                           <!-- specialterms -->
-                          <div class="col-md-6 col-sm-12">
+                          <div class="col-md-4 col-sm-12">
                             <div class="input-group">
                               <mat-form-field>
                                 <input matInput placeholder="Special terms" name="specialterms" value="{{specialterms}}"
@@ -418,7 +418,7 @@
                               </mat-form-field>
                             </div>
                           </div>
-                          <div class="col-md-6 col-sm-12">
+                          <div class="col-md-4 col-sm-12">
                             <div class="input-group">
                               <mat-form-field>
                                 <input matInput placeholder="Service Area" name="serviceareaname"
@@ -427,7 +427,7 @@
                             </div>
                           </div>
                           <!-- contact_email -->
-                          <div class="col-md-6 col-sm-12">
+                          <div class="col-md-4 col-sm-12">
                             <div class="input-group">
                               <mat-form-field>
                                 <input matInput placeholder="Contact Email" name="contact_email"
@@ -435,7 +435,7 @@
                               </mat-form-field>
                             </div>
                           </div>
-                          <div class="col-md-6 col-sm-12">
+                          <div class="col-md-4 col-sm-12">
                             <div class="input-group">
 
                               <mat-form-field>
@@ -454,7 +454,7 @@
                                 </mat-form-field>
                               </div>
                             </div> -->
-                          <div class="col-md-6 col-sm-12">
+                          <div class="col-md-4 col-sm-12">
                             <div class="">
 
                               <mat-form-field>
@@ -464,7 +464,7 @@
                               </mat-form-field>
                             </div>
                           </div>
-                          <div class="col-md-6 col-sm-12">
+                          <!-- <div class="col-md-6 col-sm-12">
                             <div class="">
                               <mat-form-field>
                                 <input matInput placeholder="Rating_logo" readonly name="rating_logo"
@@ -472,10 +472,10 @@
 
                               </mat-form-field>
                             </div>
-                          </div>
+                          </div> -->
 
 
-                          <div class="col-md-6 col-sm-12">
+                          <div class="col-md-4 col-sm-12">
                             <div class="margin-zero1">
 
                               <mat-form-field>
@@ -485,7 +485,7 @@
                               </mat-form-field>
                             </div>
                           </div>
-                          <div class="col-md-6 col-sm-12">
+                          <div class="col-md-4 col-sm-12">
                             <div class=" margin-zero1">
 
                               <mat-form-field>
@@ -495,7 +495,7 @@
                               </mat-form-field>
                             </div>
                           </div>
-                          <div class="col-md-6 col-sm-12">
+                          <div class="col-md-4 col-sm-12">
                             <div class=" margin-zero1">
                               <mat-form-field>
                                 <input matInput placeholder="price 2000 kwh" name="price_2000_kwh"
@@ -504,7 +504,7 @@
                               </mat-form-field>
                             </div>
                           </div>
-                          <div class="col-md-6 col-sm-12">
+                          <div class="col-md-4 col-sm-12">
                             <div class=" margin-zero1">
                               <mat-form-field>
                                 <input matInput placeholder="Cancelation Fee" name="cancelation_fee"
@@ -513,7 +513,7 @@
                               </mat-form-field>
                             </div>
                           </div>
-                          <div class="col-md-6 col-sm-12">
+                          <!-- <div class="col-md-6 col-sm-12">
                             <div class=" margin-zero1">
 
                               <mat-form-field>
@@ -522,8 +522,8 @@
 
                               </mat-form-field>
                             </div>
-                          </div>
-                          <div class="col-md-6 col-sm-12">
+                          </div> -->
+                          <!-- <div class="col-md-6 col-sm-12">
                             <div class=" margin-zero1">
 
                               <mat-form-field>
@@ -532,8 +532,8 @@
 
                               </mat-form-field>
                             </div>
-                          </div>
-                          <div class="col-md-6 col-sm-12">
+                          </div> -->
+                          <div class="col-md-4 col-sm-12">
                             <div class=" margin-zero1">
                               <mat-form-field>
                                 <input matInput placeholder="Phone No" name="phone" value="{{phone}}" #updatedphone />
@@ -541,17 +541,17 @@
                               </mat-form-field>
                             </div>
                           </div>
-                          <div class="col-md-6 col-sm-12">
+                          <div class="col-md-4 col-sm-12">
                             <div class=" margin-zero1">
 
                               <mat-form-field>
-                                <input matInput placeholder="Sign Up" name="sign_up" value="{{sign_up}}"
+                                <input matInput placeholder="Enrollment URL" name="sign_up" value="{{sign_up}}"
                                   #updatedsign_up />
 
                               </mat-form-field>
                             </div>
                           </div>
-                          <div class="col-md-6 col-sm-12">
+                          <div class="col-md-4 col-sm-12">
                             <div class=" margin-zero1">
 
                               <mat-form-field>
@@ -561,7 +561,7 @@
                               </mat-form-field>
                             </div>
                           </div>
-                          <div class="col-md-6 col-sm-12">
+                          <div class="col-md-4 col-sm-12">
                             <div class=" margin-zero1">
 
                               <mat-form-field>
@@ -571,7 +571,7 @@
                               </mat-form-field>
                             </div>
                           </div>
-                          <div class="col-md-6 col-sm-12">
+                          <div class="col-md-4 col-sm-12">
                             <div class=" margin-zero1">
 
                               <mat-form-field>
@@ -581,7 +581,7 @@
                               </mat-form-field>
                             </div>
                           </div>
-                          <div class="col-md-6 col-sm-12">
+                          <div class="col-md-4 col-sm-12">
                             <div class=" margin-zero1">
 
                               <mat-form-field>
@@ -591,7 +591,7 @@
                               </mat-form-field>
                             </div>
                           </div>
-                          <div class="col-md-6 col-sm-12">
+                          <div class="col-md-4 col-sm-12">
                             <div class=" margin-zero1">
 
                               <mat-form-field>
@@ -613,9 +613,9 @@
                                 </div>
                               </div> -->
 
-                          <div class="col-md-12 col-sm-12">
+                          <div class="col-md-4 col-sm-12">
 
-                            <div class=" text-center" style="margin-top: -21px;">
+                            <div class=" text-center" style="margin-top: 2px;">
                               <!-- <button type="submit" class="btn btn-fill btn-style" (click)="editClick(mydate.value,date,updatedtitle.value,
                               updatedsign_up.value,updatedphone.value,updatedterms_of_service.value,updatedfact_sheet.value,
                               updatedcancelation_fee.value,updatedprice500kwh.value,updatedprice1000kwh.value,updatedprice2000kwh.value,
@@ -772,7 +772,7 @@
                   </div>
                   <div class="col-lg-6 col-md-7 col-sm-7 col-xs-7">
                     <div class="plan-description">
-                      <div class="plan-description__heading">Plan Information</div>
+                      <div class="plan-description__heading">Plan Details</div>
                       <div class="plan-description__content">
                         <ul>
                           <!-- <li *ngFor="let data of plan_information">{{data}}</li> -->
