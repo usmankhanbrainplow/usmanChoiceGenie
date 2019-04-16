@@ -2131,6 +2131,7 @@ padding: 7px 0 7px 10px !important;
     z-index: 2;
     font-weight: 700;
     text-align: right !important;
+    margin-right: 44px;
   }
 
   .footer .social-link a {
@@ -4139,7 +4140,7 @@ h1, .entry-title-2 {
   /* text-shadow: 0 6px 10px #aeaeae; */
   color: #000;
   margin-top: 10px !important;
-  font-size: 40px !important;
+  font-size: 38px !important;
   line-height: 66px;
   margin-bottom: 0 !important;
   font-family: 'Raleway', sans-serif;
@@ -4569,7 +4570,7 @@ h5 {
   color:#666666;
 }
 ul, ol {
-  margin:0 0 35px 35px;
+  margin:0 0 35px 0px;
 }
 li {
   padding-bottom:5px;
@@ -4835,7 +4836,7 @@ footer p a:hover { color:#333; border-bottom-color: #333; }
     text-align: center;
 }
 .modal-v2__main-heading {
-  color: #000;
+  color: #172f55;
   font-family: "Open Sans",sans-serif;
   font-weight: 600;
   font-size: 29px;
@@ -6301,11 +6302,11 @@ background: linear-gradient(to bottom, #ededed 0%,#c1bfbf 100%); /* W3C, IE10+, 
 }
 /*End Compercial*/
 
-/*Start Comparision*/
+/* Start Comparision
 .comparison-box{
   /* overflow: hidden;
   overflow-x: scroll; */
-}
+ */
 .comparison-box h2{
   margin: 0;
   padding: 0;
@@ -6452,7 +6453,7 @@ background: linear-gradient(to bottom, #ededed 0%,#c1bfbf 100%); /* W3C, IE10+, 
 }
 
 .items-detail{
-  line-height: 15px!important;
+  line-height: 14px!important;
   /* font-weight: 600; */
   font-size: 14px;
 }
@@ -7499,7 +7500,7 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
   height: 50px;
   margin-top: 12px;
   width: 190px;
-  margin-left: 29px;
+  margin-left: 10px;
   font-weight: bold;
 }
 
@@ -7916,6 +7917,8 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
   .home-columns .home-column-title{
     font-size: 17px;
   }
+  
+  
 }
 @media (min-width: 992px) {
   /* Large devices (992px and up) */
@@ -9223,10 +9226,11 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
   .sidebar-serch-btn{
     font-size: 18px !important;
   }
-  .product-body {
-    /*margin-top: 60px !important;*/
-  }
- 
+
+  /* }
+     .product-body {
+    margin-top: 60px !important;
+  } */
 
 }
 

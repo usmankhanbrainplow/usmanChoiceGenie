@@ -7,7 +7,7 @@
           [(ngModel)]="search" #query (ngModelChange)="searchuserdata(query.value)" (keydown)="submit($event,query.value)">
         <button (click)="searchuserdata(query.value)" style="display: none;">hi</button>
       </div>
-      <div class="hint-box" *ngIf="record">
+      <!-- <div class="hint-box" *ngIf="record">
         <ul class="list-normal" *ngFor="let data of record;">
           <li class="search-list">
             <a style="cursor:pointer" (click)="singlerfp(data.zipcode)" >
@@ -18,7 +18,7 @@
               </a>
           </li>
         </ul>
-      </div>
+      </div> -->
 
     </div>
   </div>
