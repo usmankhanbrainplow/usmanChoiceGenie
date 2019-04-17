@@ -77,18 +77,24 @@ export class PriceComponent implements OnInit {
           }
   
       }
+      card1 =true;
+      card2 = true;
   firststep(value){
         console.log(value)
       if (value == "BM") {
        (this.pricepackage='1')
+      this.card1=true;
+this.card2=false;
         this.month="monthly"
          this.prv_stepdetail("1") 
         //  this.showHide();
-        
+        alert(this.month)
   
       } else if (value == "PY") {
         this.pricepackage="1"
         this.month="yearly"
+        this.card2 = true;
+        this.card1= false;
           this.prv_stepdetail("1")
       } else if (value == "free") {
         // this.pricepackage="free"
@@ -98,6 +104,7 @@ export class PriceComponent implements OnInit {
       }
     }
   
+    
   
       prv_stepdetail(type) {
           this.pkg_detail['type']=type

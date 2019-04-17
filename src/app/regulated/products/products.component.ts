@@ -234,6 +234,7 @@ export class ProductsComponent implements OnInit, AfterViewInit, OnDestroy {
 
         }
         
+        this.value1= localStorage.getItem("price");
         this.myID = document.getElementById("myID");
         // this.checked8(event, i);
         localStorage.setItem('ua', "True")
@@ -1073,6 +1074,7 @@ export class ProductsComponent implements OnInit, AfterViewInit, OnDestroy {
             console.log(price);
             this.value1 = price;
             this.setPage(1);
+            alert(this.value1)
         }
         else if (!price) {
             console.log()
@@ -1080,6 +1082,7 @@ export class ProductsComponent implements OnInit, AfterViewInit, OnDestroy {
         }
         console.log(this.price)
     }
+
     checked17(event, i, name) {
         if (name) {
             console.log(name);
@@ -1201,6 +1204,7 @@ export class ProductsComponent implements OnInit, AfterViewInit, OnDestroy {
         this.sort = "renewable";
         this.setPage(1);
     }
+
     checked21(event, i) {
         if (this.value1 == "500") {
             this.sort = "price_500_kwh";

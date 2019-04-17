@@ -190,7 +190,7 @@
 
           </a>
         </li>
-        <li class="vanders" style="border-right: 2px solid #ccc; padding-right: 10px;" *ngIf="!checked_login() && !check_login1()">
+        <li class="vanders" style="border-right: 2px solid #ccc; padding-right: 10px;" *ngIf="!checked_login() && !check_login1() && !checked_login2()">
           <!-- <a > -->
           <!-- <i class="material-icons">fingerprint</i>
             Sign IN -->
@@ -218,7 +218,7 @@
 
 
 
-        <li class="vanders" *ngIf="!checked_login() && !check_login1()">
+        <li class="vanders" *ngIf="!checked_login() && !check_login1() && !checked_login2()">
 
           <a onclick="topFunction()" routerLink="/usersignup">
             <i class="fas fa-unlock-alt"></i>

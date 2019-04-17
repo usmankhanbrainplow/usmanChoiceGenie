@@ -123,7 +123,8 @@ Checkout
 .checkout {
     margin: 150px auto 30px;
     position: relative;
-    width: 460px;
+    width: 650px;
+    max-width: 650px;
     background: white;
     border-radius: 15px;
     padding: 160px 45px 30px;
@@ -358,4 +359,16 @@ Checkout
 }
 .dp_block{
   display: block;
+}
+
+
+.submit-btn{
+  background: black;
+    margin: 0 auto;
+    float: none;
+    color: #fff;
+    font-size: 18px;
+    text-align: center;
+    padding: 10px;
+    border-radius: 30px;
 }

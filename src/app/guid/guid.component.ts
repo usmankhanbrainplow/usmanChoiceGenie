@@ -82,6 +82,20 @@ export class GuidComponent implements OnInit {
     });
 
   }
+  
+  checkprice(){
+    if ( this.price == "500"){
+      alert(this.price)
+
+    }
+    else if ( this.price =="1000"){
+      alert(this.price)
+    }
+    else if (this.price == "2000"){
+      alert( this.price)
+    }
+
+  }
   checked8(event, i) {
     if (event.target.checked == true) {
         console.log(event.target.checked)
@@ -214,9 +228,11 @@ checked7(event, i) {
 }
 
 submit(){
+  
 if(this.price || this.fixed || this.vari || this.market || this.min || this.max || this.months1 || this.months2 || this.months3 || this.months4 || this.months5 || this.months6 || this.months7){
-
+// localStorage.setItem("price",this.price)
   this.router.navigate(['/products/' + this.zip_code]);
+
  // localStorage.setItem('zip', this.zip_code);
   localStorage.setItem('price', this.price);
   

@@ -121,7 +121,7 @@ export class ConsumersidebarComponent implements OnInit {
         data => {
             // this.record = data.json();
             // this.records= data[0];
-            this.record= data[0].package_type;
+            this.record= data.Package_Type;
             localStorage.setItem('package_type',this.record)
             localStorage.getItem('package_type');
             console.log('Hello there dasds'+localStorage.getItem('package_type'));
