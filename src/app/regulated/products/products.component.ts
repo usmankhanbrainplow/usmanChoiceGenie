@@ -224,13 +224,13 @@ export class ProductsComponent implements OnInit, AfterViewInit, OnDestroy {
     status: any = true;
     slider;
     model: any = {};
-    makereviews =false;
+    makereviews =true;
 
     ngOnInit() {
 
         // this.item = "20";
-        if (localStorage.getItem('role') == 'USER'){
-            this.makereviews= true
+        if (localStorage.getItem('role') == 'Not Deregulatedstate Vendor'){
+            this.makereviews= false
 
         }
         
@@ -624,8 +624,8 @@ export class ProductsComponent implements OnInit, AfterViewInit, OnDestroy {
 
 
     ngAfterViewInit() {
-        if (localStorage.getItem('role') == 'USER'){
-            this.makereviews= true
+        if (localStorage.getItem('role') == 'Not Deregulatedstate Vendor'){
+            this.makereviews= false;
             this.profile();
 
         }

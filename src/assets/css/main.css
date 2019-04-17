@@ -9010,8 +9010,8 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
   margin: -4px 0 14px 0 !important;
 }
 .mat-select-panel {
-  min-width: 0px!important;
-  max-width: 247px!important;
+  /* min-width: 0px!important;
+  max-width: 247px!important; */
   overflow: auto;
   padding-top: 0;
   padding-bottom: 0;
