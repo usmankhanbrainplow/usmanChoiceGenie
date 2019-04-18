@@ -230,36 +230,37 @@ export class HomeComponent implements OnInit {
   searchuserdata(zipcode1){
     if(this.zipCode.length == 5){
 
-      console.log("CHOICE GENIE", this.model.zipcode1);
-      let headers = new HttpHeaders();
-      headers.append('Content-Type', 'application/json');
-      this.http.get(Config.api + 'zipcodecheck/' + zipcode1, { headers: headers })
-        .subscribe(data => {
-          console.log(data);
-          console.log(data['message'], 'hhhhhhhhhhhhhhh')
-          this.state = data['state'];
-          this.zipcodeexist = data['message']
-          if (this.zipcodeexist == "InValid Zipcode") {
-            swal({
-              text: "Please Enter Valid Zipcode",
-              title: "Choice Genie",
-              type: "error",
-              showConfirmButton: false,
-              timer: 1200,
-              width: '512px',
-              confirmButtonText: "OK",
+      // console.log("CHOICE GENIE", this.model.zipcode1);
+      // let headers = new HttpHeaders();
+      // headers.append('Content-Type', 'application/json');
+      // this.http.get(Config.api + 'zipcodecheck/' + zipcode1, { headers: headers })
+      //   .subscribe(data => {
 
-            })
-          }
-          // else if (this.state == "deregulatedstate") {
-          //   // this.router.navigate(['/product/' + this.zipCode]);
-          //   localStorage.setItem('zip', this.zipCode);
-          // }
-          // else if (this.state == "notderegulatedstate") {
-          //   // this.router.navigate(['/products/' + this.zipCode]);
-          //   localStorage.setItem('zip', this.zipCode);
-          // }
-        } );
+      //     console.log(data);
+      //     console.log(data['message'], 'hhhhhhhhhhhhhhh')
+      //     this.state = data['state'];
+      //     this.zipcodeexist = data['message']
+      //     if (this.zipcodeexist == "InValid Zipcode") {
+      //       swal({
+      //         text: "Please Enter Valid Zipcode",
+      //         title: "Choice Genie",
+      //         type: "error",
+      //         showConfirmButton: false,
+      //         timer: 1200,
+      //         width: '512px',
+      //         confirmButtonText: "OK",
+
+      //       })
+      //     }
+      //     // else if (this.state == "deregulatedstate") {
+      //     //   // this.router.navigate(['/product/' + this.zipCode]);
+      //     //   localStorage.setItem('zip', this.zipCode);
+      //     // }
+      //     // else if (this.state == "notderegulatedstate") {
+      //     //   // this.router.navigate(['/products/' + this.zipCode]);
+      //     //   localStorage.setItem('zip', this.zipCode);
+      //     // }
+      //   } );
         
 
       //this code for popup
@@ -271,8 +272,21 @@ export class HomeComponent implements OnInit {
           // console.log(this.servicerecord[0].utilityarea)
           this.zipcodepop= this.record.Len;
           this.msg = this.record.msg;
+          this.state = this.record.state;
+         this.zipcodeexist = this.record.message;
           // alert(this.msg)
-
+          if (this.zipcodeexist == "InValid Zipcode") {
+                  swal({
+                    text: "Please Enter Valid Zipcode",
+                    title: "Choice Genie",
+                    type: "error",
+                    showConfirmButton: false,
+                    timer: 1200,
+                    width: '512px',
+                    confirmButtonText: "OK",
+      
+                  })
+                }
           
           if (this.zipcodepop == true){
            
@@ -314,17 +328,12 @@ export class HomeComponent implements OnInit {
  
   onKeydown(event, zipcode1) {
     if (event.key === "Enter") {
-      //alert("enter the zip code")
-      console.log(event);
-      console.log("CHOICE GENIE", this.model.zipcode1);
-      let headers = new HttpHeaders();
-      headers.append('Content-Type', 'application/json');
-      this.http.get(Config.api + 'zipcodecheck/' + zipcode1, { headers: headers })
-        .subscribe(data => {
-          console.log(data);
-          console.log(data['message'], 'hhhhhhhhhhhhhhh')
-          this.state = data['state'];
-          this.zipcodeexist = data['message']
+       
+        this._serv.searchzipcode(zipcode1).subscribe(response => {
+          this.record = response;
+        
+          this.state = response['state'];
+          this.zipcodeexist = response['message']
           if (this.zipcodeexist == "InValid Zipcode") {
             swal({
               text: "Please Enter Valid Zipcode",
@@ -386,16 +395,12 @@ export class HomeComponent implements OnInit {
 }
 
   Checkzipcode(event, zipcode1) {
-
-    console.log("CHOICE GENIE", this.model.zipcode1);
-    let headers = new HttpHeaders();
-    headers.append('Content-Type', 'application/json');
-    this.http.get(Config.api + 'zipcodecheck/' + zipcode1, { headers: headers })
-      .subscribe(data => {
-        console.log(data);
-        console.log(data['message'], 'hhhhhhhhhhhhhhh')
-        this.state = data['state'];
-        this.zipcodeexist = data['message']
+ 
+      this._serv.searchzipcode(zipcode1).subscribe(response => {
+        this.record = response;
+       
+        this.state = response.state;
+        this.zipcodeexist = response.message;
         if (this.zipcodeexist == "InValid Zipcode") {
           swal({
             text: "Please Enter Valid Zipcode",
@@ -434,15 +439,12 @@ export class HomeComponent implements OnInit {
   }
   Checkzipcode1(event, zipcode1) {
 
-    console.log("CHOICE GENIE", this.model.zipcode1);
-    let headers = new HttpHeaders();
-    headers.append('Content-Type', 'application/json');
-    this.http.get(Config.api + 'zipcodecheck/' + zipcode1, { headers: headers })
-      .subscribe(data => {
-        console.log(data);
-        console.log(data['message'], 'hhhhhhhhhhhhhhh')
-        this.state = data['state'];
-        this.zipcodeexist = data['message']
+     
+      this._serv.searchzipcode(zipcode1).subscribe(response => {
+        this.record = response;
+ 
+        this.state = response.state;
+        this.zipcodeexist = response.message;
         if (this.zipcodeexist == "InValid Zipcode") {
           swal({
             text: "Please Enter Valid Zipcode",
@@ -548,15 +550,13 @@ export class HomeComponent implements OnInit {
   //    }
   move(name) {
 
-    console.log("CHOICE GENIE", this.model.zipcode1);
-    let headers = new HttpHeaders();
-    headers.append('Content-Type', 'application/json');
-    this.http.get(Config.api + 'zipcodecheck/' + this.zipCode, { headers: headers })
-      .subscribe(data => {
-        console.log(data);
-        console.log(data['message'], 'hhhhhhhhhhhhhhh')
-        this.state = data['state'];
-        this.zipcodeexist = data['message']
+     
+      this._serv.searchzipcode(name).subscribe(response => {
+        this.record = response;
+        
+    
+        this.state = response['state'];
+        this.zipcodeexist = response['message']
 
         if (this.zipcodeexist == "InValid Zipcode") {
 
