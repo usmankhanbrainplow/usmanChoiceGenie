@@ -188,9 +188,9 @@ int-phone-prefix button{
   margin: 0;
   padding: 0;
   text-align: center;
-  font-size: 34px;
+  font-size: 32px;
   color: #fff;
-  background: #000;
+  background:#1b3764;
   border-radius: 5px;
   margin: -13px 0 0;
 }
@@ -4695,7 +4695,7 @@ nav#mainnav li a {
   -webkit-transition: 0.5s;
   -o-transition: 0.5s;
   transition: 0.5s;
-  font-size: 16px;
+  font-size: 15px;
   border-bottom: 1px solid #ccc;
 }
 
@@ -4931,6 +4931,7 @@ footer p a:hover { color:#333; border-bottom-color: #333; }
   cursor: pointer;
   color: #c00;
   text-decoration: underline;
+  margin-left: 19px
 
 }
 .view-plan-details:hover{
@@ -5589,8 +5590,7 @@ padding: 0 10px;
   font-weight: bold;
   text-align: center;
   padding: 5% 0%;
-  color: #c00;
-  border-bottom: 2px solid #000 !important;
+  color: #c00
 }
 .ng-star-inserted{
   margin: 0 auto;
@@ -7612,8 +7612,8 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
   vertical-align: bottom;
 }
 .update-button{
-  width:50%;
-  font-size:24px !important;
+  width:40%;
+  font-size:22px !important;
 }
 .change-pass{
   width: 40%;
@@ -7731,6 +7731,14 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
   font-size: 10px;
   color: #3e4d6c;
 }
+
+.deactivate-pop-img{
+
+  width: 40%!important;
+  height: auto;
+  margin-bottom: 10px!important
+}
+
 /* End Dashboard */
 
 
@@ -8421,9 +8429,7 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
   .info-box-02__box-02{
     padding: 8px 0 24px !important;
   }
-  .search-icon{
-    /* float: left; */
-  }
+  
   .top-margin{
     margin-top: 0;
   }
@@ -8710,6 +8716,7 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
     /*font-size: 20px;*/
 /*}*/
 /*}*/
+
 
 
 @media only screen and (max-width : 768px) {

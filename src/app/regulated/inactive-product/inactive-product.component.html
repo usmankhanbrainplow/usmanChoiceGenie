@@ -89,7 +89,29 @@
                                margin-top: 16%;" />
                </a>
       </div>
- 
+      <div class="col-md-3 col-sm-6 col-xs-12 rate plan-detail" style="text-align:center">
+        <h3 style=" text-align: center">
+          <b> Price Detail</b>
+        </h3>
+        <div class="sh-top-price">
+          500 kWh
+          <b class="price-style-1"> {{data.price_500_kwh}}¢</b>
+
+        </div>
+        <div class="add-price grid-element">
+          <div class="unit">1,000 kWh
+            <span class="price-style"> {{data.price_1000_kwh}}¢ </span>
+          </div>
+          <div class="unit">2,000 kWh
+            <span class="price-style"> {{data.price_2000_kwh}}¢ </span>
+          </div>
+
+        </div>
+
+       
+
+
+      </div>
              <div class="col-md-3  col-sm-6 col-xs-12 plan-detail text-center">
  
                <h3 style=" text-align: center">
@@ -117,37 +139,15 @@
                 <p class="items-detail" style="line-height: 18px;">
                   {{data.customer_type}}
                 </p>
- 
+                <a style="margin-top: 10px;">
+                  <label class="view-plan-details" (click)="btnEditClick(data.id,data.title,data.sign_up,data.phone,data.terms_of_service,data.fact_sheet,data.cancelation_fee,data.price_1000_kwh,data.price_500_kwh,data.price_2000_kwh,data.plan_information,data.rating_logo,data.profile_logo,data.profileurl)"
+                    data-toggle="modal" data-target="#myModal2" style="    padding-bottom: 0px; margin-bottom: 0px;">Plan Information</label>
+                </a>
                </div>
              </div>
  
  
-             <div class="col-md-3 col-sm-6 col-xs-12 rate plan-detail" style="text-align:center">
-               <h3 style=" text-align: center">
-                 <b> Price Detail</b>
-               </h3>
-               <div class="sh-top-price">
-                 500 kWh
-                 <b class="price-style-1"> {{data.price_500_kwh}}¢</b>
- 
-               </div>
-               <div class="add-price grid-element">
-                 <div class="unit">1,000 kWh
-                   <span class="price-style"> {{data.price_1000_kwh}}¢ </span>
-                 </div>
-                 <div class="unit">2,000 kWh
-                   <span class="price-style"> {{data.price_2000_kwh}}¢ </span>
-                 </div>
- 
-               </div>
- 
-               <a style="margin-top: 10px;">
-                 <label class="view-plan-details" (click)="btnEditClick(data.id,data.title,data.sign_up,data.phone,data.terms_of_service,data.fact_sheet,data.cancelation_fee,data.price_1000_kwh,data.price_500_kwh,data.price_2000_kwh,data.plan_information,data.rating_logo,data.profile_logo,data.profileurl)"
-                   data-toggle="modal" data-target="#myModal2" style="    padding-bottom: 0px; margin-bottom: 0px;">Plan Information</label>
-               </a>
- 
- 
-             </div>
+            
              <div class="modal fade" id="myModal3" role="dialog">
                <div class="modal-dialog">
  
@@ -164,8 +164,10 @@
                                position: relative;">
                      <div class="popup-close-button" data-dismiss="modal">X</div>
                      <div class="row">
-                       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="border-bottom: 1px #4f4f4f solid;">
-                         <p class=" modal-v2__main-heading"> {{data.title}}</p>
+                       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                         <!-- <p class=" modal-v2__main-heading"> {{data.title}}</p> -->
+                         <img class="deactivate-pop-img" src="https://ourenergyllc.com/oe/image/logo.png" alt="OUR ENERGY LLC"
+                         style="margin: auto 155px 0">
  
                        </div>
                        <!-- <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3" style="border-bottom: 1px #4f4f4f solid;">
@@ -179,7 +181,7 @@
                          <h4 class="modal-title" style="text-align: center;
                                      color: red;
                                      font-size: 30px;">Confirmation Alert</h4>
-                         <p>Do you want to active this Product?</p>
+                         <p style="text-align:center">Do you want to active this Product?</p>
                        </div>
  
                      </div>

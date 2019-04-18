@@ -361,6 +361,7 @@ export class PriceComponent implements OnInit {
     }
 
     showHide() {
+      
       document.getElementById("to_hide").style.display = "none";
       document.getElementById("to_hide2").style.display = "none";
       document.getElementById("to_show").style.display = "block";
