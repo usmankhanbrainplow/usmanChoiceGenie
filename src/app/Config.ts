@@ -5,7 +5,7 @@ export class Config {//https://apis.choicegenie.com/choice/
     //public static api: String = 'https://apis.choicegenie.com/choice/';
 
 public static api: String = 'https://apis.choicegenie.com/';
-// public static api: String = 'http://192.168.29.187:8000/';
+// public static api: String = 'http://192.168.29.187:7000/';
 // 
 //   public static api: String = 'http://192.168.29.163:9000/';
 
