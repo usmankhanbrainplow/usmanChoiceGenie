@@ -233,8 +233,9 @@ export class ProductsComponent implements OnInit, AfterViewInit, OnDestroy {
             this.makereviews= false
 
         }
-        
+        if(localStorage.getItem('price') !== null ){
         this.value1= localStorage.getItem("price");
+        }
         this.myID = document.getElementById("myID");
         // this.checked8(event, i);
         localStorage.setItem('ua', "True")

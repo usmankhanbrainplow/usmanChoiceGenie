@@ -175,7 +175,7 @@
                         <mat-form-field class="example-full-width margin-t-15">
                             <!-- <input matInput placeholder="Renewable (%)"  required [(ngModel)]="product_name" formControlName="product_name"> -->
                        
-                          <input matInput placeholder="Renewable (%)" [(ngModel)]="renewable"  min="0" max="100"  (keypress)="keyPress($event)" maxlength="3" formControlName="renewable">
+                          <input matInput  placeholder="Renewable (%)" [(ngModel)]="renewable"  min="0" max="100"  (keypress)="keyPress($event)" maxlength="3" formControlName="renewable">
                         <mat-error *ngIf="secondFormGroup.controls['renewable'].value == '' || !secondFormGroup.controls['renewable'].value"><strong>This Field cannot be empty</strong></mat-error>
                       </mat-form-field>
                     </div>
