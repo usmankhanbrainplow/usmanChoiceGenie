@@ -2063,7 +2063,7 @@ padding: 7px 0 7px 10px !important;
   .list-contact a {
     font-weight: bold;
     color: #7c7c7c;
-    font-size: 16px;
+    font-size: 15px;
     line-height: 28px;
     text-transform: capitalize;
   }
@@ -3490,7 +3490,7 @@ li.pinterest:hover {
 }
 .appio-center-heading p {
   margin: 5px 0 0;
-  font-size: 18px;
+  font-size: 17px;
   line-height: 28px;
   font-weight: 400;
   letter-spacing: .016em;
@@ -4924,6 +4924,13 @@ footer p a:hover { color:#333; border-bottom-color: #333; }
   font-size: 20px !important;
   font-family: "SF Pro Display","SF Pro Icons","Helvetica Neue","Helvetica","Arial",sans-serif;
 }
+
+.deactivate-popup-img{
+
+    margin: 0 300px 0!important;
+    height: auto!important;
+    width: 200px!important;
+}
 .view-plan-details {
   padding: 0;
   font-size: 15px;
@@ -4931,7 +4938,7 @@ footer p a:hover { color:#333; border-bottom-color: #333; }
   cursor: pointer;
   color: #c00;
   text-decoration: underline;
-  margin-left: 19px
+  margin-left: 15px
 
 }
 .view-plan-details:hover{
@@ -5630,10 +5637,15 @@ padding: 0 10px;
   color:#cc0000;
   /* box-shadow: 0 0 5px #ccc; */
 }
+
+.fa-size{
+
+  font-size: large!important
+}
 .edit-del-btn1{
   /*padding: center;*/
   font-size: 29px;
-  color: #c00;
+  color: green;
   background: #fff;
   border: none;
 }
@@ -5643,7 +5655,7 @@ padding: 0 10px;
 .edit-del-btn2{
   /*padding:center;*/
   font-size: 29px;
-  color: green;
+  color: #c00;
   background: #fff;
   border: none;
 }
