@@ -1806,7 +1806,7 @@ h3 {
   width: 35px;
   border-radius: 100%;
   /*background: #cc0000 !important;*/
-  top: 34%;
+  top: 43%;
   left: -4.7%;
   z-index: 1;
   position: absolute;
@@ -1823,14 +1823,14 @@ h3 {
   width: 35px;
   border-radius: 100%;
   /*background: #cc0000 !important;*/
-  top: 34%;
+  top: 43%;
   right: -4%;
   z-index: 1;
   position: absolute;
   background: transparent;
   border: 1px solid #000000;
   font-size: 20px;
-  color: #000000;
+  color: #000000
 }
 .btn-slider-right i{
   margin-left: 3px;
@@ -4938,7 +4938,7 @@ footer p a:hover { color:#333; border-bottom-color: #333; }
   cursor: pointer;
   color: #c00;
   text-decoration: underline;
-  margin-left: 15px
+  margin-left: 6px
 
 }
 .view-plan-details:hover{
@@ -5577,7 +5577,7 @@ section#boody{
   text-align: center;
   margin: 0 auto;
   border-radius: 100%;
-  background: #ffffff;
+  background: #ffffff
   /* -webkit-box-shadow: 0 0 18px #cc0000;
   box-shadow: 0 0 18px #cc0000; */
   /*margin-top: 25px !important;*/
@@ -5587,7 +5587,7 @@ section#boody{
   /* width: 77%; */
   /* margin: 36% 5%; */
   height: 32px;
-   margin: 38px auto;
+   margin: 38px auto
   }
 .sidebar-input{
 padding: 0 10px;
@@ -5600,42 +5600,41 @@ padding: 0 10px;
   color: #c00
 }
 .ng-star-inserted{
-  margin: 0 auto;
+  margin: 4px auto;
 }
 .products-area-products{
   font-size: 15px;
     line-height: 19px;
     width: 100%;
     float: left;
-    /*margin-top: -6px !important;*/
     margin-top: 0 !important;
     margin: 0 auto;
-    min-height: 700px;
+    min-height: 700px
 }
 .products-area {
   font-size: 15px;
   line-height: 19px;
   padding: 1% 0;
   width: 100%;
-  float: left;
+  float: left
 }
 .padding-box{
   min-height: 700px;
 }
 .new-product-holder {
   padding: 30px;
-  width: 100%;
+  width: 100%
 }
 .edit-del-btn{
   /*padding:center;*/
   font-size: 19px;
   color: #000;
   background: #fff;
-   border: none;
+   border: none
 }
 .edit-del-btn:hover{
   color:#cc0000;
-  /* box-shadow: 0 0 5px #ccc; */
+ 
 }
 
 .fa-size{
@@ -5647,17 +5646,17 @@ padding: 0 10px;
   font-size: 29px;
   color: green;
   background: #fff;
-  border: none;
+  border: none
 }
 .edit-del-btn1:hover{
-  color: green;
+  color: green
 }
 .edit-del-btn2{
-  /*padding:center;*/
+ 
   font-size: 29px;
   color: #c00;
   background: #fff;
-  border: none;
+  border: none
 }
 .edit-del-btn2:hover{
   color: #c00;
@@ -5666,7 +5665,7 @@ padding: 0 10px;
   display: block;
     text-align: center;
     font: 600 30px/24px Georgia, "Times New Roman", Times, serif;
-    font-size: 1.4em;
+    font-size: 1.4em
 }
 .price-style-1 {
   display: block;
