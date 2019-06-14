@@ -12,20 +12,17 @@ export class UpdateService {
 
   // item.id,item.zipcode,item.utilityarea,item.title,item.Phone,item.state,item.country,item.status,item.user
   //id,updatedrepname,updatedrepcertificateid,updatedcontactname,updatedcontactphone,updatedmarket,updatedstate,updateduser
-  editTodoList(updateid, updatename, updatecontact, updateserviceaddress, updateservicestate, updateservicecity, updateservicezipcode,
-    updateauthenticationcode, updateacountactive, updateuserid) {
+  editTodoList( updatename, updatecontact, updateserviceaddress, updateservicestate, updateservicecity, updateservicezipcode) {
     console.log('Approve user');
-    console.log(" service object", updateid, updatename, updatecontact, updateserviceaddress, updateservicestate, updateservicecity, updateservicezipcode,
-      updateauthenticationcode, updateacountactive, updateuserid)
+    console.log(" service object",  updatename, updatecontact, updateserviceaddress, updateservicestate, updateservicecity, updateservicezipcode)
     const headers = new Headers();
     headers.append('Content-Type', 'application/json');
     // headers.append('Authorization', 'JWT ' +  this.authentication);
     headers.append('Authorization', 'JWT ' + localStorage.getItem('token'));
     console.log("userupdate", localStorage.getItem('token'));
-    return this.http.put(Config.api + 'user_profile/' + this.username + '/', JSON.stringify({
+    return this.http.put(Config.api + 'user_profile/' , JSON.stringify({
 
-
-      "id": updateid,
+ 
       "Name": updatename,
       "phone_no": updatecontact,
       "service_address": updateserviceaddress,
@@ -36,9 +33,9 @@ export class UpdateService {
       // "billing_city": updatebillingcity,
       // "billing_state": updatebillingstate,
       // "billing_zip": updatebillingZipcode,
-      "authentication_code": updateauthenticationcode,
-      "AcountActive": updateacountactive,
-      "user": updateuserid
+      // "authentication_code": updateauthenticationcode,
+      // "AcountActive": updateacountactive,
+      // "user": updateuserid
 
 
 

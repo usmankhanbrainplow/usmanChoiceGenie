@@ -304,7 +304,7 @@ export class HomeComponent implements OnInit {
           } else if ( this.msg == "No plans found. Your zip code may not be in a service area open to competition."){
            
             swal({
-              text: "Please Enter Valid Zipcodesssssssssssssss",
+              text: "Please Enter Valid Zipcode",
               title: "Choice Genie",
               type: "error",
               showConfirmButton: true,
@@ -556,6 +556,7 @@ export class HomeComponent implements OnInit {
         
     
         this.state = response['state'];
+        alert(this.state)
         this.zipcodeexist = response['message']
 
         if (this.zipcodeexist == "InValid Zipcode") {
@@ -603,6 +604,7 @@ export class HomeComponent implements OnInit {
           //   confirmButtonText: "OK",
 
           // })
+          alert("mistake")
           this.router.navigate(['/products/75001' ]);
           localStorage.setItem('zip', '75001');
           localStorage.setItem('name', name);
