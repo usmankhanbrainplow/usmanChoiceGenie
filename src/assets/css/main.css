@@ -1933,7 +1933,7 @@ transform: translate3d(0, -20px, 0);
   padding: 0 50px;
 }
 .left-margin{
-  margin-left: 33%;
+  margin-left: 33% !important;
 }
 .sub-input{
 font-size: 20px !important;
@@ -1963,17 +1963,17 @@ padding: 7px 0 7px 10px !important;
   font-size: 17px !important;
 }
   .footer-upper {
-  padding: 18px 0;
-  background: #282828;
-  -webkit-box-shadow: 0 0 10px #999;
-          box-shadow: 0 0 10px #999
+  padding: 0;
+  background: #000;
   }
 
   .footer-upper h2 {
-  font-size: 25px;
+  font-size: 28px;
   color: #fff;
   text-align:left;
-  margin-bottom: 16px;
+  margin: 10px 0;
+  padding: 0;
+  font-weight: 600 !important;
   }
 
   .footer-upper .social-link {
@@ -2061,42 +2061,40 @@ padding: 7px 0 7px 10px !important;
   }
 
   .list-contact a {
-    font-weight: bold;
-    color: #7c7c7c;
-    font-size: 15px;
-    line-height: 28px;
+    font-weight: 600;
+    color: #777;
+    font-size: 17px;
+    line-height: 22px;
     text-transform: capitalize;
   }
 
   .list-contact a:hover {
-  color: #f80000;
+  color: #fff;
   text-decoration: none
   }
 
   .list-contact li {
   list-style: none;
-  margin: 0 0 10px
+  margin: 0 0 10px;
+  padding: 0;
   }
 
   .list-contact li i {
   width: 25px;
   text-align: center;
-    color: #f80000;
+    color: #fff;
     margin-right: 5px;
   }
   .list-social {
-  font-size: 25px;
-  padding: 10px 0;
+    font-size: 25px;
+    padding: 0;
     text-align: left;
   }
 
   .list-social li {
-  display: inline-block;
-  vertical-align: top;
-  /* margin: 0 10px 0 0; */
+    margin: 0;
     list-style: none;
-    float: left;
-    width: 56px;
+    padding: 0;
   }
 
   .list-social li a {
@@ -2106,19 +2104,6 @@ padding: 7px 0 7px 10px !important;
   /*.list-social li a:hover {*/
   /*color: #f80000;*/
   /*}*/
-  .list-social >li >a >.fa-facebook:hover{
-    -webkit-transition: 0.3s;
-    -o-transition: 0.3s;
-    transition: 0.3s;
-    color: #428bca;
-
-  }
-  .list-social >li >a >.fa-twitter:hover{
-    color: #5bc0de;
-  }
-.list-social >li >a >.fa-pinterest:hover{
-  color: #d34836;
-}
   .footer {
   /*background-image:-moz-linear-gradient(-29deg,rgb(88,86,214) 0%,rgb(255,45,85) 100%);background-imageebkit-linear-gradient(-29deg,rgb(88,86,214) 0%,rgb(255,45,85) 100%);background-image:-ms-linear-gradient(-29deg,rgb(88,86,214) 0%,rgb(255,45,85) 100%)}.footer .social-link{position: relative;z-index:1}.footer .social-link a{color:#fff;font-weight:700*/
   background: #1d1d1d;
@@ -8639,7 +8624,100 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
 .social-widget{
   text-align: center;
   margin: 0 auto;
-  padding-top: 32px;
+  padding-top: 0;
+}
+.social-widget h2{
+  color: #fff;
+  font-size: 22px;
+  text-align: left !important;
+}
+.list-social li a{
+  font-size: 20px;
+  color: #777;
+  font-weight: 600;
+}
+.list-social li a i {
+  color: #ccc;
+  font-size: 20px;
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  text-align: center;
+  padding: 10px;
+  transition: .5s;
+}
+.list-social li a:hover {
+  color: #fff;
+  text-decoration: none;
+}
+.list-social li a:hover .fa-facebook {
+  background: #3b5998!important;
+  -webkit-transform: rotate(360deg);
+  transform: rotate(360deg);
+  color: #fff!important;
+}
+.list-social li a:hover .fa-twitter {
+  background: #5bc0de!important;
+  -webkit-transform: rotate(360deg);
+  transform: rotate(360deg);
+  color: #fff!important;
+}
+.list-social li a:hover .fa-pinterest {
+  background: #d34836!important;
+  -webkit-transform: rotate(360deg);
+  transform: rotate(360deg);
+  color: #fff!important;
+}
+.list-social li a:hover .fa-instagram {
+  background: #d34836!important;
+  -webkit-transform: rotate(360deg);
+  transform: rotate(360deg);
+  color: #fff!important;
+}
+.footer-android-icon img{
+  width: 65%;
+  margin-left: 0px;
+  height: 100%;
+}
+
+.sh-subscribe{
+  display: block;
+  position: relative;
+}
+
+#newsletterEmail{
+  overflow: hidden;
+  border-radius: 50px!important;
+  background: #fefefe;
+  color: #333;
+  border: 1px solid #999;
+  border-right: none;
+  padding: 5px 10px;
+  font-size: 18px!important;
+  font-weight: 700;
+  height: auto!important;
+}
+.sh-subscribe .btn-rose {
+  position: absolute;
+  width: 35px!important;
+  top: 2px;
+  right: -20px;
+  z-index: 2;
+  opacity: 1;
+  padding: 3px 0;
+  background: #fff !important;
+  cursor: pointer !important;
+  margin: 0;
+  color: #c00 !important;
+  box-shadow: none !important;
+  border-radius: 50px !important;
+}
+.sh-subscribe .btn-rose:hover{
+  background: none !important;
+  color: #c00;
+}
+#newsletterEmail::placeholder{
+  font-size: 18px;
 }
 .sh-top-menu-fix{
   /*padding-top: 5px;*/
