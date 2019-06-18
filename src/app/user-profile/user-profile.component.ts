@@ -135,10 +135,9 @@ export class UserProfileComponent implements OnInit {
     console.log('edit' + updateid, updatename, updatecontact, updateserviceaddress, updateservicestate, updateservicecity, updateservicezipcode,
       updateauthenticationcode, updateacountactive, updateuserid);
     console.log("TS OBJECT", updateid, updatename, updatecontact, updateserviceaddress, updateservicestate, updateservicecity, updateservicezipcode,
-      updateauthenticationcode, updateacountactive, updateuserid);
+      updateauthenticationcode, updateacountactive,this. catagoryId);
     //Calling Delete Service
-    this.serve.editTodoList(updateid, updatename, updatecontact, updateserviceaddress, updateservicestate, updateservicecity, updateservicezipcode,
-      updateauthenticationcode, updateacountactive, updateuserid).subscribe(data => {
+    this.serve.editTodoList(updatename, updatecontact, updateserviceaddress, updateservicestate, updateservicecity, updateservicezipcode,).subscribe(data => {
         console.log(data);
         this.fetchzip();
         swal({
@@ -162,7 +161,7 @@ export class UserProfileComponent implements OnInit {
     headers.append('Content-Type', 'application/json');
     headers.append('Authorization', 'JWT ' + localStorage.getItem('token'));
     console.log('user_profile', localStorage.getItem('token'));
-    this.https.get(Config.api + 'user_profile/' + this.username + '/', { headers: headers })
+    this.https.get(Config.api + 'user_profile/' , { headers: headers })
 
       .subscribe(Res => {
         this.data = Res.json();

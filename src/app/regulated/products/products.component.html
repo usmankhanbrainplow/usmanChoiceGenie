@@ -1157,17 +1157,17 @@
                           <table>
                             <tbody>
                               <tr class="plan-information__row">
-                                <td class="plan-information__cell">Price 500 kWh</td>
+                                <td class="plan-information__cell">500 kWh</td>
                                 <!-- | slice:0:-1 -->
                                 <td class="plan-information__cell plan-information__cell--last ">{{price_500_kwh }}¢</td>
                               </tr>
                               <tr class="plan-information__row">
-                                <td class="plan-information__cell">Price 1000 kWh</td>
+                                <td class="plan-information__cell">1000 kWh</td>
                                 <!-- | slice:0:-1 -->
                                 <td class="plan-information__cell plan-information__cell--last ">{{price_1000_kwh }}¢</td>
                               </tr>
                               <tr class="plan-information__row">
-                                <td class="plan-information__cell">Price 2000 kWh</td>
+                                <td class="plan-information__cell">2000 kWh</td>
                                 <!-- | slice:0:-1 -->
                                 <td class="plan-information__cell plan-information__cell--last ">{{price_2000_kwh }}¢</td>
                               </tr>
@@ -1206,8 +1206,41 @@
                           <div class="plan-description">
                             <div class="plan-description__heading">Plan Details</div>
                             <div class="plan-description__content">
-                              <ul>
-                                <!-- <li *ngFor="let data of plan_information">{{data}}</li> -->
+
+
+                                <table>
+                                    <tbody>
+                                      <tr class="plan-information__row">
+                                        <td class="plan-information__cell">Product Name</td>
+                                        
+                                        <td class="plan-information__cell plan-information__cell--last ">{{ data.product_name}}</td>
+                                      </tr>
+                                      <tr class="plan-information__row">
+                                        <td class="plan-information__cell">Rate Type</td>
+                                       
+                                        <td class="plan-information__cell plan-information__cell--last ">{{data.rate_type}}</td>
+                                      </tr>
+                                      <tr class="plan-information__row">
+                                        <td class="plan-information__cell">Terms</td>
+                                        
+                                        <td class="plan-information__cell plan-information__cell--last ">{{data.terms_month}}</td>
+                                      </tr>
+                                      <tr class="plan-information__row">
+                                        <td class="plan-information__cell">Renewable</td>
+                                        
+                                        <td class="plan-information__cell plan-information__cell--last ">{{data.renewable}}% Renewable</td>
+                                      </tr>
+                                      <tr class="plan-information__row">
+                                        <td class="plan-information__cell">Customer Type</td>
+                                        
+                                        <td class="plan-information__cell plan-information__cell--last ">{{data.customer_type}}</td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+
+
+
+                              <!-- <ul>
                                 <li class="items-detail" style="line-height: 18px;">
                                   {{ data.product_name}}
                                 </li>
@@ -1223,8 +1256,7 @@
                                 <li class="items-detail" style="line-height: 18px;">
                                   {{data.customer_type}}
                                 </li>
-                                <!-- {{temp.split(',')[0]}} -->
-                              </ul>
+                              </ul> -->
 
                             </div>
                           </div>

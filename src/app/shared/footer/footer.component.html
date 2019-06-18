@@ -28,7 +28,7 @@
           </ul>
 
           <h2>Stalk Us</h2>
-          <ul class="list-social">
+          <!-- <ul class="list-social">
             <li>
               <a  onclick="topFunction()" href=" https://www.facebook.com/Choicegenie-337916770049641/" target="_blank">
                 <img src="assets/img/facebook.png">
@@ -40,7 +40,7 @@
               </a>
             </li>
             <li>
-              <a  onclick="topFunction()" href="https://www.pinterest.com/95e02068dbf471424b31ea58b84a02/" target="_blank">
+              <a onclick="topFunction()" href="https://www.pinterest.com/95e02068dbf471424b31ea58b84a02/" target="_blank">
                 <img src="assets/img/pintrest.png">
               </a>
             </li>
@@ -49,13 +49,27 @@
                 <img src="assets/img/instagram.png">
               </a>
             </li>
-            <!-- <li>
-              <a routerLink="https://twitter.com/Choicegenie1"><i class="fa fa-linkedin"></i></a>
+          </ul> -->
+
+
+          <ul class="list-social">
+            <li >
+              <a  onclick="topFunction()" href=" https://www.facebook.com/Choicegenie-337916770049641/" target="_blank">
+              <i  class="fa fa-facebook"></i> Facebook </a>
             </li>
-            <li>
-              <a routerLink="#"><i class="fa fa-google-plus"></i></a>
-            </li> -->
+            <li ><a onclick="topFunction()"  href="https://twitter.com/Choicegenie1/" target="_blank">
+              <i  class="fa fa-twitter"></i> Twitter </a>
+            </li>
+            <li ><a onclick="topFunction()" href="https://www.pinterest.com/95e02068dbf471424b31ea58b84a02/" target="_blank">
+              <i  class="fa fa-pinterest"></i> Pinterest </a>
+            </li>
+            <li >
+              <a onclick="topFunction()" href="https://www.instagram.com/choicegenie772/" target="_blank">
+              <i  class="fa fa-instagram"></i> Instagram </a>
+            </li>
           </ul>
+
+
       </div>
       </div>
       <!--<div class="col-sm-6 col-md-3">-->
@@ -181,13 +195,13 @@
             <ul  class="footer-android-icon">
               <li >
                 <a  href="https://play.google.com/store/apps/details?id=com.brainplow.choicegenie"   target="_blank">
-                  <img  class="android-icon" src="../../assets/img/footer/Adroid-Badge.png">
+                  <img  class="" src="../../assets/img/footer/google-play.png">
                 </a>
               </li>
 
               <li >
                 <a  href="https://itunes.apple.com/us/app/choicegenie/id1391027521?mt=8" target="_blank">
-                  <img  class="appstore-icon" src="../../assets/img/footer/IOS-Badge.png">
+                  <img  class="" src="../../assets/img/footer/apple-store.png">
                 </a>
               </li>
 
@@ -205,15 +219,23 @@
 
 
 
-        <div class="input-group">
+        <form class="sh-subscribe" name="form" >
+            <input class="form-control" placeholder="Subscribe Now" name="newsletterEmail" id="newsletterEmail" type="text" name="email" [(ngModel)]="email">
+            <button  class="btn btn-rose" type="submit" (click)="subscribe()">
+              <i  aria-hidden="true" class="fa fa-arrow-up"></i>
+            </button>
+          </form>
+
+
+
+        <!-- <div class="input-group">
           <input class="form-control sub-input" placeholder="Subscribe Now" name="newsletterEmail" id="newsletterEmail" type="text" name="email" [(ngModel)]="email">
           <span class="input-group-btn">
             <button class="btn btn-primary" type="submit" style="background-color: #f80000!important" (click)="subscribe()">
-              <!-- <i class="fa fa-paper-plane" aria-hidden="true"></i> -->
               Go
             </button>
           </span>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>
