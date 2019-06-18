@@ -3481,12 +3481,12 @@ li.pinterest:hover {
   width: 100px;
   height: 1px;
   top: 8px;
-  position: absolute;
+  position: absolute
 }
 .appio-center-heading span.bordered-icon i {
   -webkit-transform: rotate(45deg);
       -ms-transform: rotate(45deg);
-          transform: rotate(45deg);
+          transform: rotate(45deg)
 }
 .appio-center-heading p {
   margin: 5px 0 0;
@@ -3503,8 +3503,7 @@ li.pinterest:hover {
   background-color: #000000;
   color: #fff;
   font-size: 1.25em !important;
-  /*padding: 25px 0 !important;*/
-  font-weight: 700 !important;
+  font-weight: 700 !important
 }
 .com-table-2 table th {
   background-color: #cc0000;
@@ -3512,7 +3511,7 @@ li.pinterest:hover {
   font-size: 1.25em !important;
   padding: 25px 0 !important;
   font-weight: 700 !important;
-  word-wrap: break-word;
+  word-wrap: break-word
 }
 .com-table-2 strong {
   font-weight: 700 !important;
@@ -3520,7 +3519,7 @@ li.pinterest:hover {
   padding: 0;
   border: 0;
   font-size: 20px;
-  vertical-align: baseline;
+  vertical-align: baseline
 }
 .com-table-2 table th {
   min-width: 80px;
@@ -3532,19 +3531,19 @@ li.pinterest:hover {
   border: 0;
   font-size: 20px;
   vertical-align: baseline;
-  color: #000;
+  color: #000
 }
 .com-table-2 .fa-check {
   color: #00cd00;
-  font-size: 21px;
+  font-size: 21px
 }
 .com-table .fa-check {
   color: #00cd00;
-  font-size: 21px;
+  font-size: 21px
 }
 .com-table-2 .fa-times {
   color: #cd0a0e;
-  font-size: 21px;
+  font-size: 21px
 }
 .com-table .fa-times {
   color: #cd0a0e;
