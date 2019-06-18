@@ -1,5 +1,6 @@
 const path = require('path');
-var nodeExternals = require('webpack-node-externals');
+const nodeExternals = require('webpack-node-externals');
+const PurifyCSSPlugin = require('purifycss-webpack');
 
 module.exports = {
   entry: {
@@ -20,10 +21,18 @@ module.exports = {
   output: {
     path: path.join(__dirname, 'dist'),
     filename: '[name].js'
+   
   },
   module: {
     rules: [
       { test: /\.ts$/, loader: 'ts-loader' }
     ]
-  }
+    
+  },
+  plugins:[
+    new PurifyCSSPlugin({
+      paths: glob.sync(path.join(__dirname, 'src\assets\css/main.css')),
+    })
+  ]
+  
 };
