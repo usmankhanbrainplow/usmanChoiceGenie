@@ -13,12 +13,12 @@
         </div>
         <div class="login-form-1-body">
           <mat-form-field class="margin-b-10-i" [ngClass]="displayFieldCss(login, 'username')">
-            <input matInput id="username" placeholder="Enter Username" formControlName="username" [(ngModel)]="username">
+            <input matInput id="username" placeholder=" Username" formControlName="username" [(ngModel)]="username">
             <mat-error *ngIf="login.controls.username.value == '' || !login.controls.username.value"><strong>This Field cannot be empty</strong></mat-error>
 
           </mat-form-field>
           <mat-form-field [ngClass]="displayFieldCss(login, 'password')" class="">
-              <input matInput type="password" id="password" [type]="hide ? 'password' : 'text'"  placeholder="Enter Your Password" formControlName="password" [(ngModel)]="password">
+              <input matInput type="password" id="password" [type]="hide ? 'password' : 'text'"  placeholder=" Password" formControlName="password" [(ngModel)]="password">
               <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
               <mat-error *ngIf="login.controls.password.value == '' || !login.controls.password.value"><strong>This Field cannot be empty</strong></mat-error>
 
@@ -57,8 +57,8 @@
                 <div class="modal-body" style="font-size: 18px;
                 text-align: center;">
                 <!-- [(ngModel)]="email" name="email" -->
-                <h3>Enter Your Email</h3>
-                <input type="text" placeholder="Enter Your Email" class="form-control" [(ngModel)]="Email" formControlName="Email" style="font-size: 20px">
+                <h3> Email</h3>
+                <input type="text" placeholder=" Email" class="form-control" [(ngModel)]="Email" formControlName="Email" style="font-size: 20px">
               
               </div>
                 <div class="modal-footer">
@@ -82,8 +82,8 @@
           </div>
 
           <div class="login-link margin-t">
-            <a onclick="topFunction()" target="_blank" ng-reflect-target="_blank" ng-reflect-router-link="/Terms-of-use-and-Privacy" href="/Terms-of-use-and-Privacy">Terms of Use</a>
-            <a onclick="topFunction()" target="_blank" ng-reflect-target="_blank" ng-reflect-router-link="/privacy" href="/privacy">Privacy Policy</a> 
+            <a class="login-link-anchor" onclick="topFunction()" target="_blank" ng-reflect-target="_blank" ng-reflect-router-link="/Terms-of-use-and-Privacy" href="/Terms-of-use-and-Privacy">Terms of Use</a>
+            <a class="login-link-anchor"  onclick="topFunction()" target="_blank" ng-reflect-target="_blank" ng-reflect-router-link="/privacy" href="/privacy">Privacy Policy</a> 
           </div>
         </div>
       </form>

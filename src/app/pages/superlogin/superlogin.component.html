@@ -16,9 +16,9 @@
             <input matInput id="username" placeholder="Enter Username">
           </mat-form-field>
           <mat-form-field [ngClass]="displayFieldCss(login, 'password')">
-              <!-- <input matInput type="password" id="password" [type]="hide ? 'password' : 'text'"  placeholder="Enter Your Password" formControlName="password" [(ngModel)]="password"> -->
+              <!-- <input matInput type="password" id="password" [type]="hide ? 'password' : 'text'"  placeholder=" Password" formControlName="password" [(ngModel)]="password"> -->
 
-            <input matInput type="password" id="password" [type]="hide ? 'password' : 'text'"  placeholder="Enter Your Password"  >
+            <input matInput type="password" id="password" [type]="hide ? 'password' : 'text'"  placeholder=" Password"  >
             <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
           </mat-form-field>
           <div class="float-left">

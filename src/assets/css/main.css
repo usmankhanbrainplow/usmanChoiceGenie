@@ -88,7 +88,7 @@ body {
 .sh-signup-form-fix .mat-error {
   font-size: 12px !important;
     text-align: left !important;
-    
+    /* margin-top: -17px; */
 }
 .sh-signup-form-fix .card .card-header.card-header-icon+.card-content .card-title {
   padding-bottom: 25px
@@ -98,15 +98,24 @@ body {
   text-align: left !important;
   margin-bottom: 7px;
   color: #000;
-  border-bottom: none;
+  border-bottom: none!important;
   line-height: 0;
   /* margin-left: 4px; */
+}
+.dashboard-icon .mat-form-field-prefix .mat-icon-button .mat-icon, .mat-form-field-suffix .mat-icon-button .mat-icon {
+  height: 1.125em;
+  line-height: 1.125;
+  position: relative;
+  top: -2px;
 }
 .Dashbaord-edit .mat-input-element{
   font-size: 24px!important
 }
 .sh-signup-form-fix textarea.mat-input-element{
   line-height: 30px;
+}
+.Contact-us{
+  text-transform: capitalize
 }
 
 
@@ -159,8 +168,9 @@ int-phone-prefix button{
   line-height: 2em !important;
     height: 40px !important;
 }
-
-
+.commercial-form{
+  font-size: 24px
+}
 /* End From Custom */
 
 .sh-pos-rel{
@@ -3265,7 +3275,8 @@ section {
   background-color: #000!important;
 }
 .login-form-1-body .signin-btn:hover{
-  background: #c00
+  background: #c00;
+  box-shadow: none!important;
 }
 
 .login-form-1-body button:hover{
@@ -5618,10 +5629,12 @@ padding: 0 10px;
   font-size: 19px;
   color: #000;
   background: #fff;
-   border: none
+   border: none;
+   cursor: pointer;
 }
 .edit-del-btn:hover{
-  color:#cc0000;
+  color:#cc0000; 
+  
  
 }
 
@@ -6637,6 +6650,7 @@ background: linear-gradient(to bottom, #ededed 0%,#c1bfbf 100%); /* W3C, IE10+, 
 }
 .signup-btn:hover{
   background: #cc0000 !important;
+  box-shadow: none!important;
 }
 .paginations{
   padding-top: 5px;
