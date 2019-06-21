@@ -1288,57 +1288,139 @@ export class ProductsComponent implements OnInit, AfterViewInit, OnDestroy {
         delete this.time;
         delete this.nottime;
         // delete this.planmin;
-        let headers = new Headers();
-        headers.append('Content-Type', 'application/json');
-        this.http.get(Config.api + 'zipcodecheck/' + this.zip_code, { headers: headers })
-            .subscribe(data => {
-                console.log(data);
-                this.state = data.json()['state'];
-                console.log(this.state);
-                localStorage.setItem('state', this.state);
-                this.zipcodeexist = data.json()['message']
-                // delete this.item;
+        // let headers = new Headers();
+        // headers.append('Content-Type', 'application/json');
+        // this.http.get(Config.api + 'zipcodecheck/' + this.zip_code, { headers: headers })
+        //     .subscribe(data => {
+        //         console.log(data);
+        //         this.state = data.json()['state'];
+        //         console.log(this.state);
+        //         localStorage.setItem('state', this.state);
+        //         this.zipcodeexist = data.json()['message']
+        //         // delete this.item;
 
-                if (this.zipcodeexist == "InValid Zipcode") {
-                    swal({
-                        text: "InValid Zipcode",
-                        title: "Choice Genie",
-                        type: "error",
-                        showConfirmButton: false,
-                        timer: 1200,
-                        confirmButtonText: "OK",
+        //         if (this.zipcodeexist == "InValid Zipcode") {
+        //             swal({
+        //                 text: "InValid Zipcode",
+        //                 title: "Choice Genie",
+        //                 type: "error",
+        //                 showConfirmButton: false,
+        //                 timer: 1200,
+        //                 confirmButtonText: "OK",
 
-                    })
-                }
-                else if (this.state == "deregulatedstate") {
+        //             })
+        //         }
+        //         else if (this.state == "deregulatedstate") {
 
-                    this.router.navigate(['/product/' + this.zip_code]);
-                    localStorage.setItem('zip', this.zip_code)
-                    //  window.location.reload();
-                }
-                else if (this.state == "notderegulatedstate") {
+        //             this.router.navigate(['/product/' + this.zip_code]);
+        //             localStorage.setItem('zip', this.zip_code)
+        //             //  window.location.reload();
+        //         }
+        //         else if (this.state == "notderegulatedstate") {
 
-                    this.router.navigate(['/products/' + this.zip_code]);
-                    delete this.name;
-                    localStorage.setItem('zip', this.zip_code);
-                    // window.location.reload()
-                }
+        //             this.router.navigate(['/products/' + this.zip_code]);
+        //             delete this.name;
+        //             localStorage.setItem('zip', this.zip_code);
+        //             // window.location.reload()
+        //         }
 
-            },
-                error => {
-                    swal({
-                        text: "Zipcode Dose Not Exist",
-                        title: "Choice Genie",
-                        type: "error",
-                        showConfirmButton: false,
-                        timer: 1200,
-                        confirmButtonText: "OK",
+        //     },
+        //         error => {
+        //             swal({
+        //                 text: "Zipcode Dose Not Exist",
+        //                 title: "Choice Genie",
+        //                 type: "error",
+        //                 showConfirmButton: false,
+        //                 timer: 1200,
+        //                 confirmButtonText: "OK",
 
-                    })
-                }
-            );
+        //             })
+        //         }
+        //     );
+        this._serv.searchzipcode(this.zip_code).subscribe(response => {
+            this.record = response;
+           
+            this.state = response.state;
+            this.zipcodeexist = response.message;
+            if (this.zipcodeexist == "InValid Zipcode") {
+              swal({
+                text: "Please Enter Valid Zipcode",
+                title: "Choice Genie",
+                type: "error",
+                showConfirmButton: false,
+                timer: 1200,
+                width: '512px',
+                confirmButtonText: "OK",
+    
+              })
+            }
+            else if (this.state == "deregulatedstate") {
+              this.router.navigate(['/product/' + this.zipCode]);
+              localStorage.setItem('zip', this.zipCode);
+            }
+            else if (this.state == "notderegulatedstate") {
+              this.router.navigate(['/products/' + this.zipCode]);
+              localStorage.setItem('zip', this.zipCode);
+            }
+          },
+            error => {
+              console.log(error);
+              swal({
+                text: "Please Enter Valid Zipcode",
+                title: "Choice Genie",
+                type: "error",
+                showConfirmButton: false,
+                timer: 1200,
+                width: '512px',
+                confirmButtonText: "OK",
+    
+              })
+    
+            });
     }
-
+    Checkzipcode123(event, zipcode1) {
+ 
+        this._serv.searchzipcode(zipcode1).subscribe(response => {
+          this.record = response;
+         
+          this.state = response.state;
+          this.zipcodeexist = response.message;
+          if (this.zipcodeexist == "InValid Zipcode") {
+            swal({
+              text: "Please Enter Valid Zipcode",
+              title: "Choice Genie",
+              type: "error",
+              showConfirmButton: false,
+              timer: 1200,
+              width: '512px',
+              confirmButtonText: "OK",
+  
+            })
+          }
+          else if (this.state == "deregulatedstate") {
+            this.router.navigate(['/product/' + this.zipCode]);
+            localStorage.setItem('zip', this.zipCode);
+          }
+          else if (this.state == "notderegulatedstate") {
+            this.router.navigate(['/products/' + this.zipCode]);
+            localStorage.setItem('zip', this.zipCode);
+          }
+        },
+          error => {
+            console.log(error);
+            swal({
+              text: "Please Enter Valid Zipcode",
+              title: "Choice Genie",
+              type: "error",
+              showConfirmButton: false,
+              timer: 1200,
+              width: '512px',
+              confirmButtonText: "OK",
+  
+            })
+  
+          });
+    }
   
     setPage(page: number) {
         if (this.totalmonths == null || this.totalmonths == "undefined,undefined,undefined,undefined,undefined,undefined,undefined") {
