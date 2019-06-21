@@ -1032,6 +1032,15 @@
                         <p class="items-detail" style="line-height: 18px;">
                           {{data.customer_type}}
                         </p>
+                        <p  *ngIf="data.timeofusage == true" class="items-detail" style="line-height: 18px;">
+                         
+                          Time of Usage
+                        </p>
+                        <p  *ngIf="data.prepaidplan == true" class="items-detail" style="line-height: 18px;">
+                         
+                          Prepaid Plan
+                        </p>
+                        <!-- timeofusage -->
 
                       </div>
                       <!-- <div>
