@@ -90,6 +90,9 @@ body {
     text-align: left !important;
     /* margin-top: -17px; */
 }
+.product-error  {
+    margin-top: -18px!important
+}
 .sh-signup-form-fix .card .card-header.card-header-icon+.card-content .card-title {
   padding-bottom: 25px
 }
