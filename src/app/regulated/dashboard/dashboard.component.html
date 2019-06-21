@@ -8,7 +8,7 @@
 
         <mat-form-field class="margin-t-15">
           <input matInput [matDatepicker]="startPicker" [(ngModel)]="Inactivedate" placeholder="Effective From Date" />
-          <mat-datepicker-toggle matSuffix [for]="startPicker"></mat-datepicker-toggle>
+          <mat-datepicker-toggle class="dashboard-icon" matSuffix [for]="startPicker"></mat-datepicker-toggle>
           <mat-datepicker #startPicker></mat-datepicker>
         </mat-form-field>
         <!-- <input type="date" placeholder="Inactive Date" required name="Inactivedate" [(ngModel)]="Inactivedate" style="    padding: 2px 0px; font-size: 16px;    font-weight: bold;"> -->
@@ -339,7 +339,7 @@
                           <input mdInput placeholder="Title" [ngModel]="date | date:'yyyy-MM-dd'">
                         </md-input-container>
                         <!-- <input type="date" required name="date" [(ngModel)]="date"> -->
-                        <form (ngSubmit)="onSubmit(f)" #f="ngForm" class="sh-signup-form-fix">
+                        <form (ngSubmit)="onSubmit(f)" #f="ngForm" class="sh-signup-form-fix ">
                           <!-- <input matInput placeholder="date" hidden="true" [value]="today | date: 'yyyy-MM-dd'" #mydate name="mydate"> -->
 
                           <!-- <input matInput placeholder="date" [value]="today | date: 'yyyy-MM-dd'" #mydate name="mydate"> -->
@@ -365,11 +365,24 @@
                           </div>
                           <div class="col-md-4 col-sm-12">
                             <div class="input-group">
-                              <mat-form-field>
+                              <!-- <mat-form-field>
                                 <input matInput placeholder="Title" (keypress)="omit_special_char($event)"  readonly name="title" value="{{title}}" required
                                   #updatedtitle />
 
-                              </mat-form-field>
+                              </mat-form-field> -->
+                              
+                              <mat-form-field class="">
+                         
+                              <mat-select  placeholder="Service Area Name" p >
+                                <mat-option value="AEP Texas North Service Area" style="font-size: 20px">AEP Texas North Service Area</mat-option>
+                                <mat-option value="Centerpoint Electric Service Area" style="font-size: 20px">Centerpoint Electric Service Area</mat-option>
+                                <mat-option value="Texas New Mexico Power Service Area" style="font-size: 20px">Texas New Mexico Power Service Area</mat-option>
+                                <mat-option value="AEP Texas Central Service Area" style="font-size: 20px">AEP Texas Central Service Area</mat-option>
+                                <mat-option value="Oncor Electric Delivery Service Area" style="font-size: 20px">Oncor Electric Delivery Service Area</mat-option>
+                                <mat-option value="Sharyland Utilities Service Area" style="font-size: 20px">Sharyland Utilities Service Area</mat-option>
+                              </mat-select>
+                
+                            </mat-form-field>
                             </div>
                           </div>
                           <!-- <div class="col-md-6 col-sm-12">
@@ -382,24 +395,24 @@
                             </div>
                           </div> -->
                           <div class="col-md-4 col-sm-12">
-                            <div class="input-group">
+                          
                               <mat-form-field>
                                 <input matInput placeholder="Products Batch Rate" name="product_batch_rate"
                                   value="{{product_batch_rate}}" required #updatedproduct_batch_rate />
 
                               </mat-form-field>
-                            </div>
+                            
                           </div>
                           <div class="col-md-4 col-sm-12">
-                            <div class="input-group">
+                            
                               <mat-form-field>
                                 <input matInput placeholder="Products Batch Rate" name="minumum_usage_fee"
                                   value="{{minumum_usage_fee}}" required #updatedminimum_usage_fee />
 
                               </mat-form-field>
-                            </div>
+                            
                           </div>
-                          <div class="col-md-4 col-sm-12">
+                          <!-- <div class="col-md-4 col-sm-12">
                             <div class="input-group">
                               <mat-form-field>
                                 <input matInput placeholder="Enrollment" (keypress)="omit_special_char($event)"  name="enrollment_productid"
@@ -407,36 +420,46 @@
 
                               </mat-form-field>
                             </div>
-                          </div>
+                          </div> -->
                           <!-- specialterms -->
-                          <div class="col-md-4 col-sm-12">
-                            <div class="input-group">
+                          <!-- <div class="col-md-4 col-sm-12">
+                            
                               <mat-form-field>
                                 <input matInput placeholder="Special terms" name="specialterms" value="{{specialterms}}"
                                   required #updatedspecialterms />
 
                               </mat-form-field>
-                            </div>
-                          </div>
-                          <div class="col-md-4 col-sm-12">
-                            <div class="input-group">
+                            
+                          </div> -->
+                          <!-- <div class="col-md-4 col-sm-12">
+                           
                               <mat-form-field>
                                 <input matInput placeholder="Service Area" name="serviceareaname"
                                   value="{{serviceareaname}}" required #updatedserviceareaname />
                               </mat-form-field>
-                            </div>
-                          </div>
+                            
+                          </div> -->
                           <!-- contact_email -->
                           <div class="col-md-4 col-sm-12">
-                            <div class="input-group">
+                          
                               <mat-form-field>
                                 <input matInput placeholder="Contact Email" name="contact_email"
                                   value="{{contact_email}}" required #updatedcontact_email />
                               </mat-form-field>
-                            </div>
+                            
                           </div>
                           <div class="col-md-4 col-sm-12">
-                            <div class="input-group">
+                            <div class=" margin-zero1">
+
+                              <mat-form-field>
+                                <input matInput placeholder="Enrollment URL" name="sign_up" value="{{sign_up}}"
+                                  #updatedsign_up />
+
+                              </mat-form-field>
+                            </div>
+                          </div>
+                          <!-- <div class="col-md-4 col-sm-12">
+                            <div class="">
 
                               <mat-form-field>
                                 <input matInput placeholder="Profile url" name="profileurl" value="{{profileurl}}"
@@ -444,7 +467,7 @@
 
                               </mat-form-field>
                             </div>
-                          </div>
+                          </div> -->
                           <!-- <div class="col-md-6 col-sm-12">
                               <div class="">
 
@@ -454,7 +477,7 @@
                                 </mat-form-field>
                               </div>
                             </div> -->
-                          <div class="col-md-4 col-sm-12">
+                          <!-- <div class="col-md-4 col-sm-12">
                             <div class="">
 
                               <mat-form-field>
@@ -463,7 +486,7 @@
 
                               </mat-form-field>
                             </div>
-                          </div>
+                          </div> -->
                           <!-- <div class="col-md-6 col-sm-12">
                             <div class="">
                               <mat-form-field>
@@ -474,12 +497,12 @@
                             </div>
                           </div> -->
 
-
+                          
                           <div class="col-md-4 col-sm-12">
                             <div class="margin-zero1">
 
                               <mat-form-field>
-                                <input matInput placeholder="price 500 kwh" name="price_500_kwh"
+                                <input matInput placeholder="Price 500 kwh" name="price_500_kwh"
                                   value="{{price_500_kwh}}" #updatedprice500kwh />
 
                               </mat-form-field>
@@ -489,7 +512,7 @@
                             <div class=" margin-zero1">
 
                               <mat-form-field>
-                                <input matInput placeholder="price 1000 kwh" name="price_1000_kwh"
+                                <input matInput placeholder="Price 1000 kwh" name="price_1000_kwh"
                                   value="{{price_1000_kwh}}" #updatedprice1000kwh />
 
                               </mat-form-field>
@@ -498,21 +521,13 @@
                           <div class="col-md-4 col-sm-12">
                             <div class=" margin-zero1">
                               <mat-form-field>
-                                <input matInput placeholder="price 2000 kwh" name="price_2000_kwh"
+                                <input matInput placeholder="Price 2000 kwh" name="price_2000_kwh"
                                   value="{{price_2000_kwh}}" #updatedprice2000kwh />
 
                               </mat-form-field>
                             </div>
                           </div>
-                          <div class="col-md-4 col-sm-12">
-                            <div class=" margin-zero1">
-                              <mat-form-field>
-                                <input matInput placeholder="Cancelation Fee" name="cancelation_fee"
-                                  value="{{cancelation_fee}}" #updatedcancelation_fee />
-
-                              </mat-form-field>
-                            </div>
-                          </div>
+                          
                           <!-- <div class="col-md-6 col-sm-12">
                             <div class=" margin-zero1">
 
@@ -541,16 +556,7 @@
                               </mat-form-field>
                             </div>
                           </div>
-                          <div class="col-md-4 col-sm-12">
-                            <div class=" margin-zero1">
-
-                              <mat-form-field>
-                                <input matInput placeholder="Enrollment URL" name="sign_up" value="{{sign_up}}"
-                                  #updatedsign_up />
-
-                              </mat-form-field>
-                            </div>
-                          </div>
+                         
                           <div class="col-md-4 col-sm-12">
                             <div class=" margin-zero1">
 
@@ -601,6 +607,45 @@
                               </mat-form-field>
                             </div>
                           </div>
+                          <div class="col-md-4 col-sm-12">
+
+
+                              <mat-form-field >
+                                  <input matInput placeholder="Fact Sheet">
+                                </mat-form-field>
+                              </div>
+                          <div class="col-md-4 col-sm-12">
+
+                              <mat-form-field >
+                                  <input matInput placeholder="Plan Sheet" >
+                                </mat-form-field>
+
+                           
+                          </div>
+                          <div class="col-md-6 col-sm-12">
+                              <label> Upload Your Plan Terms of Service</label>
+                              <input type='file' (change)="onChange($event)" (change)="readUrl($event)" 
+                                 name="terms_of_service" [(ngModel)]="terms_of_service" accept=".pdf*" multiple >
+                                  </div>
+                                  <div class="col-md-6 col-sm-12">
+                                      <label> Upload your Plan fact Sheet</label>
+                                      <input type='file' (change)="onChangefeet($event)" (change)="readUrlfect($event)" >
+                                          </div>
+                           
+                          <div class="col-md-12 col-sm-12">
+                
+<!--                             
+                              <mat-form-field>
+                                <input matInput placeholder="Special terms" name="specialterms" value="{{specialterms}}"
+                                  required #updatedspecialterms />
+
+                              </mat-form-field> -->
+                              <mat-form-field >
+                                <textarea matInput placeholder="Special terms" name="specialterms" value="{{specialterms}}"  required #updatedspecialterms ></textarea>
+                              </mat-form-field>
+                            
+                          
+                          </div>
                           <!-- 
                             <div class="col-md-6 col-sm-12">
                                 <div class="">
@@ -613,7 +658,7 @@
                                 </div>
                               </div> -->
 
-                          <div class="col-md-4 col-sm-12">
+                          <div class="col-md-12 col-sm-12">
 
                             <div class=" text-center" style="margin-top: 2px;">
                               <!-- <button type="submit" class="btn btn-fill btn-style" (click)="editClick(mydate.value,date,updatedtitle.value,

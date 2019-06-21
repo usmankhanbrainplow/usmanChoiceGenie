@@ -19,7 +19,7 @@
 
 
 
-      <form class="sh-signup-form-fix" [formGroup]="signupForm" *ngIf="signupForm">
+      <form class="sh-signup-form-fix Dashbaord-edit" [formGroup]="signupForm" *ngIf="signupForm">
 
         <!-- <div class="signup-form-fixed" data-background-color="rose">
           <i class="material-icons">mail_outline</i>
@@ -285,7 +285,7 @@
                 </mat-form-field>
               </div>
             </div>
-            <div class="col-lg-6 recaptcha-box recaptcha-top">
+            <div class="col-lg-2 recaptcha-box recaptcha-top card-signup">
               <!-- <blackgeeks-recaptcha></blackgeeks-recaptcha> -->
               <app-recapcha class="pull-left"></app-recapcha>
               <div class="" *ngIf="isequal==false">
@@ -294,11 +294,14 @@
               <!-- <blackgeeks-recaptcha></blackgeeks-recaptcha> -->
             </div>
 
-            <div class="col-lg-6 form-footer text-center">
+            <div class="col-lg-9 form-footer text-center">
               <div class="">
                 <label class="acknowladge" for="AcknowledgeTerms">
-                  <input data-val="true" data-val-required="The AcknowledgeTerms field is required." id="AcknowledgeTerms"
-                    name="AcknowledgeTerms" tabindex="11" type="checkbox" value="true">
+                  <!-- <input data-val="true" data-val-required="The AcknowledgeTerms field is required." id="AcknowledgeTerms"
+                    name="AcknowledgeTerms" tabindex="11" type="checkbox" value="true"> -->
+                    <mat-slide-toggle data-val="true" data-val-required="The AcknowledgeTerms field is required." id="AcknowledgeTerms"
+                    name="AcknowledgeTerms" tabindex="11" value="true" ></mat-slide-toggle>
+
                   <input name="AcknowledgeTerms" type="hidden" value="false">
                   I authorize ChoiceGenie to request historical usage data for <span id="blockProperty">my property</span>,
                   and affirm that I agree to the <a class="color-blue" onclick="topFunction()" [routerLink]="['/Terms-of-use-and-Privacy']">ChoiceGenie Terms of Use</a>
@@ -306,8 +309,8 @@
               </div>
               <div class="form-group" style="margin:25px 0 0;">
 
-                <button class="signup-btn" type="submit"
-                  (click)="signupuserdata();clear() ">Register</button>
+                <button class="signup-btn for-signup" type="submit"
+                  (click)="signupuserdata();clear() ">Sign Up</button>
               </div>
 
             </div>

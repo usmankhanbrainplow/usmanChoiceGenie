@@ -139,11 +139,14 @@
                  
 
                   <div class="col-md-4">
-                      <mat-form-field class="example-full-width margin-t-15">
-                          <textarea matInput placeholder="Product Name"  (keypress)="omit_special_char($event)"   required [(ngModel)]="product_name" formControlName="product_name"></textarea>
-                          <mat-error *ngIf="secondFormGroup.controls['product_name'].value == '' || !secondFormGroup.controls['product_name'].value"><strong>This Field cannot be empty</strong></mat-error>
+                     
+                          <!-- <textarea matInput placeholder="Product Name"  (keypress)="omit_special_char($event)"   required [(ngModel)]="product_name" formControlName="product_name"></textarea> -->
+                          <mat-form-field class="example-full-width margin-t-15">
+                              <input matInput placeholder="Product Name"  (keypress)="omit_special_char($event)"   required [(ngModel)]="product_name" formControlName="product_name" >
+                            </mat-form-field>
+                          <mat-error class="product-error" *ngIf="secondFormGroup.controls['product_name'].value == '' || !secondFormGroup.controls['product_name'].value"><strong>This Field cannot be empty</strong></mat-error>
 
-                        </mat-form-field>
+                      
                         <!-- <mat-form-field>
                           <input matInput placeholder="Zipcode" required [(ngModel)]="zipcode" formControlName="zipcode">
                           <mat-error *ngIf="signupForm.controls['zipcode'].value == '' || !signupForm.controls['zipcode'].value"><strong>This Field cannot be empty</strong></mat-error>
@@ -152,8 +155,9 @@
                     </div>
                     <div class="col-md-4">
                         <mat-form-field class="example-full-width margin-t-15">
-                            <input matInput placeholder="specialterms"  required [(ngModel)]="specialterms"  formControlName="specialterms">
-                            <mat-error *ngIf="secondFormGroup.controls['specialterms'].value == '' || !secondFormGroup.controls['specialterms'].value"><strong>This Field cannot be empty</strong></mat-error>
+                            <!-- <input matInput placeholder="specialterms"  required [(ngModel)]="specialterms"  formControlName="specialterms"> -->
+                           <input matInput  placeholder="Renewable (%)" [(ngModel)]="renewable"  min="0" max="100"  (keypress)="keyPress($event)" maxlength="3" formControlName="renewable">
+                        <mat-error *ngIf="secondFormGroup.controls['renewable'].value == '' || !secondFormGroup.controls['renewable'].value"><strong>This Field cannot be empty</strong></mat-error>
 
                           </mat-form-field>
                           <!-- <mat-error *ngIf="zip_code.hasError('pattern')">
@@ -171,16 +175,17 @@
                           Numbers Only
                         </mat-error> -->
                   </div>
-                    <div class="col-md-4">
+                    <div class="col-md-8">
                         <mat-form-field class="example-full-width margin-t-15">
                             <!-- <input matInput placeholder="Renewable (%)"  required [(ngModel)]="product_name" formControlName="product_name"> -->
                        
-                          <input matInput  placeholder="Renewable (%)" [(ngModel)]="renewable"  min="0" max="100"  (keypress)="keyPress($event)" maxlength="3" formControlName="renewable">
-                        <mat-error *ngIf="secondFormGroup.controls['renewable'].value == '' || !secondFormGroup.controls['renewable'].value"><strong>This Field cannot be empty</strong></mat-error>
+                          
+                        <textarea  matInput placeholder="specialterms"  required [(ngModel)]="specialterms"  formControlName="specialterms"></textarea>
+                        <mat-error *ngIf="secondFormGroup.controls['specialterms'].value == '' || !secondFormGroup.controls['specialterms'].value"><strong>This Field cannot be empty</strong></mat-error>
                       </mat-form-field>
                     </div>
-                    <div class="col-md-4"></div>
-                    <div class="col-sm-4">
+                    <!-- <div class="col-md-4"></div> -->
+                    <div class="col-sm-2">
                       <h4 class="sm-heading">Rate Type</h4>
                         <div class="radio">
                             <label class="redio-lable">
@@ -213,7 +218,7 @@
                     </div>
 
                     
-                        <div class="col-sm-4">
+                        <div class="col-sm-3">
                             <h4 class="sm-heading">Customer Type</h4>
                               <div class="radio">
                                   <label class="redio-lable">
@@ -246,8 +251,8 @@
                     </div>
                   </div> -->
                           
-                        <div class="col-sm-4">
-                            <h4 class="sm-heading">Does this product has Minimum Usage Fee, Usage Credits?</h4>
+                        <div class="col-sm-3">
+                            <h4 class="sm-heading"> Product has Min Usage Fee, Usage Credits?</h4>
                               <div class="radio">
                                   <label class="redio-lable">
                                     <input checked="true" type="radio" (change)="checked14($event,i)"   ng-Model="pricing"  name="minimum_usage_fee" [value]="pricing" >
@@ -269,7 +274,52 @@
                                       </label>
                                     </div> -->
                           </div>
-
+                          <div class="col-sm-2">
+                              <h4 class="sm-heading">Product has Prepaird?</h4>
+                                <div class="radio">
+                                    <label class="redio-lable">
+                                      <input checked="true" type="radio" (change)="checked14($event,i)"   ng-Model="pricing"  name="minimum_usage_fee" [value]="pricing" >
+                                      <!-- <input  type="radio" (change)="checked10($event,i)"   ng-Model="market"  name="fixed" [value]="market" > -->
+                                      <span class="circle"></span><span class="check"></span>
+                                      Yes
+                                    </label>
+                                  </div>
+                                  <div class="radio">
+                                      <label class="redio-lable">
+                                        <input type="radio" (change)="checked15($event,i)"   ng-Model="billing"  name="minimum_usage_fee" [value]="billing"><span class="circle"></span><span class="check"></span>
+                                        No
+                                      </label>
+                                    </div>
+                                    <!-- <div class="radio">
+                                        <label class="redio-lable">
+                                          <input type="radio" (change)="checked13($event,i)"   ng-Model="NewandExisting"  name="customer_type" [value]="NewandExisting"><span class="circle"></span><span class="check"></span>
+                                          New and Existing
+                                        </label>
+                                      </div> -->
+                            </div>
+                            <div class="col-sm-2">
+                                <h4 class="sm-heading">Product has Min usage of time?</h4>
+                                  <div class="radio">
+                                      <label class="redio-lable">
+                                        <input checked="true" type="radio" (change)="checked14($event,i)"   ng-Model="pricing"  name="minimum_usage_fee" [value]="pricing" >
+                                        <!-- <input  type="radio" (change)="checked10($event,i)"   ng-Model="market"  name="fixed" [value]="market" > -->
+                                        <span class="circle"></span><span class="check"></span>
+                                        Yes
+                                      </label>
+                                    </div>
+                                    <div class="radio">
+                                        <label class="redio-lable">
+                                          <input type="radio" (change)="checked15($event,i)"   ng-Model="billing"  name="minimum_usage_fee" [value]="billing"><span class="circle"></span><span class="check"></span>
+                                          No
+                                        </label>
+                                      </div>
+                                      <!-- <div class="radio">
+                                          <label class="redio-lable">
+                                            <input type="radio" (change)="checked13($event,i)"   ng-Model="NewandExisting"  name="customer_type" [value]="NewandExisting"><span class="circle"></span><span class="check"></span>
+                                            New and Existing
+                                          </label>
+                                        </div> -->
+                              </div>
 
                   <!-- <div class="col-sm-6">
                     <div class="">
@@ -410,7 +460,9 @@
               <!--</div>-->
               <div class="">
                 <div class="row sh-signup-form-fix">
+                    <mat-slide-toggle></mat-slide-toggle>
                   <div class="col-lg-4 col-xs-12">
+                      
                     <!--<label class="date-lable">Effective from date</label>-->
                    
                   <mat-form-field class="margin-b-10-i">
