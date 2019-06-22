@@ -9,6 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ContactusComponent } from './contactus.component';
 import { contactRoutes } from './contactus.routing';
 import { BlackgeeksRecaptchaModule } from 'recaptcha-blackgeeks';
+import { RecapchaModule } from '../recapcha/recapcha.module';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { BlackgeeksRecaptchaModule } from 'recaptcha-blackgeeks';
         FormsModule,
         ReactiveFormsModule,
         MatDatepickerModule,
-        HttpClientModule
+        HttpClientModule,
+        RecapchaModule
     ],
     declarations: [
         ContactusComponent

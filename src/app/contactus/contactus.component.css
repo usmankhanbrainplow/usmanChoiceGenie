@@ -5,13 +5,23 @@ label {
     font-weight: bold;
     font-size: 20px;
   }
+ 
   
   agm-map {
     height: 414px;
   }
 
-  
-  
+.title-04{
+  font-weight: 600 !important;
+  /* text-shadow: 0 6px 10px #aeaeae; */
+  color: #000;
+  margin-top: 0px !important;
+  font-size: 38px !important;
+  line-height: 66px;
+  margin-bottom: 0 !important;
+  font-family: 'Raleway', sans-serif;
+  letter-spacing: -1px;
+}
   .md-size {
     font-size: larger;
     font-weight: 700;

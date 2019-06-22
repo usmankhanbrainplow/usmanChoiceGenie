@@ -120,7 +120,11 @@ body {
 .Contact-us{
   text-transform: capitalize
 }
-
+.btn:hover{
+  /* color: #333; */
+  text-decoration: none;
+  box-shadow: none!important;
+}
 
 .sh-signup-form-fix .mat-form-field-can-float.mat-form-field-should-float .mat-form-field-placeholder {
   font-size: 18px !important;
@@ -3615,9 +3619,7 @@ li.pinterest:hover {
 .paddingg-bottom-pricing{
   padding-top: 50px;
 }
-.section.bgw {
-  background: #fff;
-}
+
                                                   /*Comparison Page Start*/
 /*products component css*/
 .display-b{
@@ -3663,8 +3665,12 @@ li.pinterest:hover {
 
 /*Faq CSS Start*/
 .section {
-  padding: 28px 0;
+  /* padding: 28px 0; */
   position: relative;
+}
+.section.bgw {
+  background: #fff;
+padding: 10 0px
 }
 .section-title-2 {
   position: relative;
@@ -4147,7 +4153,7 @@ h1, .entry-title-2 {
   font-weight: 600 !important;
   /* text-shadow: 0 6px 10px #aeaeae; */
   color: #000;
-  margin-top: 10px !important;
+  margin-top: 0px !important;
   font-size: 38px !important;
   line-height: 66px;
   margin-bottom: 0 !important;

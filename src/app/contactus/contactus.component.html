@@ -5,17 +5,17 @@
       <div class="container">
 
         <div class="section-title-2 faqs text-center">
-          <h2 class="title-04">Get in Touch with us</h2>
-          <h3 >We'll try our best to answer your queries as soon as possible.</h3>
+          <h2 class="title-04">Contact Us</h2>
+          <!-- <h3 >We'll try our best to answer your queries as soon as possible.</h3> -->
           <!-- <hr> -->
         </div>
         <!-- end section-title -->
         <div class="row">
-          <div class="col-md-6" style="border-right: 1px solid #cccccc">
+          <div class="col-md-6" >
             <form class="example-form Dashbaord-edit" [formGroup]="signupForm" *ngIf="signupForm" >
               <mat-form-field class="example-full-width">
                 <!-- <input matInput placeholder="Renewable price" [(ngModel)]="renewable" formControlName="renewable"> -->
-                <input matInput placeholder=" Name " formControlName="name" [(ngModel)]="name">
+                <input matInput placeholder=" Name * " formControlName="name" [(ngModel)]="name">
               </mat-form-field>
               <mat-form-field class="example-full-width">
                 <input matInput placeholder=" Email" formControlName="email" required [(ngModel)]="email">
@@ -36,17 +36,20 @@
               <!--</textarea>-->
             <!--</mat-form-field>-->
             <mat-form-field>
-              <textarea matInput placeholder=" Message" style="height: 265px !important;" name="msg" required #msg></textarea>
+              <textarea matInput placeholder=" Message" style="height: 168px !important; resize: none" name="msg" required #msg></textarea>
             </mat-form-field>
 
             <input matInput placeholder="date" hidden="true" value="{{today | date: 'yyyy-MM-dd'}}" #date name="date">
 
-            <div class="col-lg-12 text-right margin-right-bottom">
-                <blackgeeks-recaptcha class="" ></blackgeeks-recaptcha>
+            <div class="col-lg-12">
+               <!-- <blackgeeks-recaptcha class="" ></blackgeeks-recaptcha> -->
+               <app-recapcha class="pull-left"></app-recapcha>
+               <button class="btn pull-right btn-fill contact -us-button"  (click)="Contactuserdata(name,mobno,email,msg.value,date.value,subject)">Send Messege</button>
               </div><div class="" *ngIf="isequal==false">
                   <p class="col-lg-12 errormessage" style="color: #c00">Invalid Answer</p>
+                  
                 </div>
-            <button class="btn  pull-right btn-fill" style="background-color: #e53935" (click)="Contactuserdata(name,mobno,email,msg.value,date.value,subject)">Send Messege</button>
+           
           </div>
         </div>
 
@@ -66,7 +69,7 @@
 
 
 
-          <h2 _ngcontent-c4=""> HeadQuartes:</h2>
+          <h2 _ngcontent-c4=""> ChoiceGenie:</h2>
           <ul _ngcontent-c4="" class="contact-details">
 
             <li _ngcontent-c4="">
@@ -89,7 +92,7 @@
               <i _ngcontent-c4="" class="fa fa-fax"></i> Fax: +1 (469) 250-6600</li> -->
 
           </ul>
-          <hr _ngcontent-c4="">
+          <!-- <hr _ngcontent-c4="">
           <label _ngcontent-c4="" class="lable-style">Visit us on</label>
           <div _ngcontent-c4="" class="social-icons">
             <ul _ngcontent-c4="" class="list-inline">
@@ -123,7 +126,7 @@
 
 
             </ul>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>
