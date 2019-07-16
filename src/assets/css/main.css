@@ -104,6 +104,7 @@ body {
   border-bottom: none!important;
   line-height: 0;
   /* margin-left: 4px; */
+  height: 30px
 }
 .dashboard-icon .mat-form-field-prefix .mat-icon-button .mat-icon, .mat-form-field-suffix .mat-icon-button .mat-icon {
   height: 1.125em;
@@ -3383,10 +3384,10 @@ mat-form-field.mat-form-field{
 
 }
 .widget > h2 {
-  font-weight: 400;
+  font-weight: 600!important;
   color: #222;
   margin-bottom: 14px;
-  font-size: 24px;
+  font-size: 29px;
 }
 .contact-details, .popular-courses {
   list-style: none;
@@ -3465,8 +3466,8 @@ li.pinterest:hover {
   font-size: 42px;
   font-weight: 600 !important;
   position: relative;
-  color: #000;
-  font-family: 'Raleway', sans-serif;
+  color: #000!important;
+    font-family: 'Raleway', sans-serif;
   /* letter-spacing: -1px; */
   margin:0px;
   padding-bottom: 0px;
@@ -3507,10 +3508,22 @@ li.pinterest:hover {
   line-height: 28px;
   font-weight: 400;
   letter-spacing: .016em;
-  color: #95A4Ac;
+  color: #000!important;
 }
 .pb-20 {
   padding-bottom: 20px;
+}
+.nav-home ul li a fa-apple:hover{
+  color: #616161;
+}
+.fa-android{
+  color: #a4c639;
+}
+.fa-apple:hover{
+  color:#616161;
+}
+.fa-apple:before {
+  color:#616161;
 }
 .com-table table th {
   background-color: #000000;
