@@ -20,7 +20,7 @@
                       <h1 class="title-04 color-white">Become a Partner</h1>
                       <p  class="lead" style="color: #fff;">Transform your collaborative Energy Vendors dimension to a whole new level.</p>
                       <mat-form-field>
-                    <input matInput placeholder=" Name" formControlName="name"   [(ngModel)]="name" >
+                    <input class="name-parnter" matInput placeholder=" Name" formControlName="name"   [(ngModel)]="name" >
                     <mat-error *ngIf="signupForm.controls['name'].value == '' || !signupForm.controls['name'].value"><strong>This Field cannot be empty</strong></mat-error>
 
                   </mat-form-field>
