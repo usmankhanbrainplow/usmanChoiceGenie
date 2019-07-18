@@ -68,4 +68,9 @@
   -moz-border-radius: 30px;
   border-radius: 30px;
 }  
-
+.slide{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+}
