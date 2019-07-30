@@ -67,10 +67,18 @@ export class HomeComponent implements OnInit {
   slideConfig = {
     "slidesToShow": 7,
     "slidesToScroll": 5,
-    autoplay: 'true',
+    autoplay: 'false',
     prevArrow: '<button class="leftRs slick-arrow leftArrow btn-slider btn-slider-left" style="display: block;"><i class="fa fa-chevron-left"></i></button>',
     nextArrow: '<button class="rightRs slick-arrow leftArrow btn-slider btn-slider-right" style="display: block;"><i class="fa fa-chevron-right"></i></button>',
     responsive: [
+      {
+        breakpoint: 1030,
+        settings: {
+          arrows: true,
+          // centerMode: true,
+          slidesToShow: 5
+        }
+      },
       {
         breakpoint: 778,
         settings: {

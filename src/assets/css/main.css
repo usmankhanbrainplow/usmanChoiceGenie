@@ -9402,6 +9402,16 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
 
 @media (min-width:992px) and (max-width: 1024px) {
   /* Large devices (maximam width 1024px and minimum width 768px) */
+
+  .slider-img1{
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+
   .custom-model {
     width: 90% !important;
     max-width: 90% !important;
