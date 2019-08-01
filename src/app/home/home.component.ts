@@ -570,7 +570,7 @@ export class HomeComponent implements OnInit {
         
     
         this.state = response['state'];
-        alert(this.state)
+        // alert(this.state)
         this.zipcodeexist = response['message']
 
         if (this.zipcodeexist == "InValid Zipcode") {
@@ -618,7 +618,7 @@ export class HomeComponent implements OnInit {
           //   confirmButtonText: "OK",
 
           // })
-          alert("mistake")
+          // alert("mistake")
           this.router.navigate(['/products/75001' ]);
           localStorage.setItem('zip', '75001');
           localStorage.setItem('name', name);
