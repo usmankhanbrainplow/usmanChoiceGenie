@@ -491,17 +491,20 @@ app-header {
   margin-top: 5px;
 }
 .nav-home ul {
-      margin-right: 19px !important;
+      margin-right: 8px !important;
       font-weight: 700;
-      padding: 30px 0 0 !important;
+      padding: 32px 0 0 !important;
       display: inline;
 }
-  .nav-home ul li {
+.nav-home ul li {
     display: inline-block;
     vertical-align: middle;
     margin: 0 0 0 10px;
 
    }
+     .nav-home ul li a{
+       font-size: 16px
+     }
   .nav-home ul a {
     -webkit-transition: all 0.2s ease;
     -o-transition: all 0.2s ease;
