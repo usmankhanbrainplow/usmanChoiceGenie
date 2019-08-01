@@ -5,9 +5,7 @@
   "scripts": {
     "ng": "ng",
     "start": "node server.js",
-  
-    "build": "ng build --prod --aot --vendor-chunk --common-chunk --delete-output-path --buildOptimizer",
-
+    "build": "run-s build:client build:aot build:server",
     "build:client": "ng build -prod --build-optimizer --app 0",
     "build:aot": "ng build --aot --app 1",
     "build:server": "webpack -p",
