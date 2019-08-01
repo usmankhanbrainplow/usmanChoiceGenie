@@ -79,6 +79,7 @@ user;
     e.preventDefault();
     var username = e.target.elements[0].value;
     var password = e.target.elements[1].value;
+    
     if (this.captcha.getResponse()) {
       console.log('equ ok');
       // alert("login");
