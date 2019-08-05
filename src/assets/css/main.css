@@ -2048,7 +2048,6 @@ padding: 7px 0 7px 10px !important;
   .footer-text p {
   font-size: 14px;
   color: #ccc;
-  font-weight: 500;
   text-align: left;
   }
 
@@ -2139,7 +2138,6 @@ padding: 7px 0 7px 10px !important;
   .footer .social-link {
     position: relative;
     z-index: 2;
-    font-weight: 500;
     text-align: right !important;
     margin-right: 44px;
   }
