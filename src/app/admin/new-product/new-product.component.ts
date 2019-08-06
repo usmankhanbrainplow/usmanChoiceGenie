@@ -57,6 +57,8 @@ export class NewProductComponent implements OnInit {
   renewable;
   billing;
   fact_sheet;
+  prepaid1;
+  time1;
   spectialterms;
   price_1000_kwh;
   price_500_kwh;
