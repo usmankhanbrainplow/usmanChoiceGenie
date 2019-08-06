@@ -15,3 +15,4 @@ public static api: String = 'https://apis.choicegenie.com/';
    public  static  Imageurlupload = 'https://storage.choicegenie.com/upload_image.php';
    public static pdfupload='https://storage.choicegenie.com/upload.php';
 }
+
