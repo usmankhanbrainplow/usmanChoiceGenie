@@ -704,8 +704,8 @@
                    <label class="product-label" style="margin: 9px 10px 0px 0px;">View:</label>
                   <mat-form-field>
 
-                    <mat-select class="width-sec" placeholder="20 Per Page" selected="20" (change)="checked18($event,i,items)"
-                      value="item"  [(ngModel)]="items" name="items">
+                    <mat-select class="width-sec" selected="20" (change)="checked18($event,i,items)"
+                      value="{{item}}"  [(ngModel)]="items" name="items">
                       <mat-option value="30" selected="true">30 Per Page</mat-option>
                       <mat-option value="40">40 Per Page</mat-option>
                       <mat-option value="50">50 Per Page</mat-option>
