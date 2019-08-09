@@ -57,6 +57,8 @@ export class NewProductComponent implements OnInit {
   renewable;
   billing;
   fact_sheet;
+  prepaid1;
+  time1;
   spectialterms;
   price_1000_kwh;
   price_500_kwh;
@@ -463,6 +465,62 @@ checked14(event, i) {
    
   console.log(this.pricing)
 }
+prepaid= "Both";
+checked17(event, i) {
+  if (event.target.checked == true) {
+      console.log(event.target.checked)
+      this.prepaid = "NULL";
+      // alert(this.Pricing)
+      // delete 
+      // this.setPage(1);
+      // alert(this.fixed)
+      console.log(this.prepaid,"Product_has_preparid");
+  }
+   
+  
+}
+
+checked16(event, i) {
+  if (event.target.checked == true) {
+      console.log(event.target.checked)
+      this.prepaid = "Both";
+      // alert(this.Pricing)
+      // delete 
+      // this.setPage(1);
+      // alert(this.fixed)
+      console.log(this.prepaid,"Product_has_preparid");
+  }
+   
+  
+}
+time= "Both";
+checked18(event, i) {
+  if (event.target.checked == true) {
+      console.log(event.target.checked)
+      this.time = "NULL";
+      // alert(this.Pricing)
+      // delete 
+      // this.setPage(1);
+      // alert(this.fixed)
+      console.log(this.time,"time");
+  }
+   
+  
+}
+
+checked19(event, i) {
+  if (event.target.checked == true) {
+      console.log(event.target.checked)
+      this.time = "Both";
+      // alert(this.Pricing)
+      // delete 
+      // this.setPage(1);
+      // alert(this.fixed)
+      console.log(this.time,"time");
+  }
+   
+  
+}
 
   // signupuserdata(utilityarea, contact_email, title, profileurl, profile_logo, plan_information,  cancelation_fee, fact_sheet, terms_of_service, phone, sign_up, minimum_usage_fee, renewable, specialterms, price_1000_kwh, price_500_kwh, price_2000_kwh,publish_product_date,product_inactive_date,enrollment_productid,product_batch_rate) {
     signupuserdata(utilityarea,contact_email,title,profileurl,profile_logo,product_name,terms_month,fixed,customer_type,cancelation_fee,fact_sheet,terms_of_service,phone,sign_up,minimum_usage_fee,renewable,specialterms,price_1000_kwh,price_500_kwh,price_2000_kwh, publish_product_date,product_inactive_date,enrollment_productid,product_batch_rate,basefee  ) {
@@ -500,7 +558,8 @@ checked14(event, i) {
       "price_2000_kwh": price_2000_kwh,
       "contact_email": contact_email,
       "minumum_usage_fee":this.pricing,
-
+"timeofusage":this.time,
+"prepaidplan":this.prepaid,
       'publish_product_date': moment(publish_product_date).format('YYYY-MM-DD'),
       'product_inactive_date': moment(product_inactive_date).format('YYYY-MM-DD'),
       "enrollment_productid":enrollment_productid,
