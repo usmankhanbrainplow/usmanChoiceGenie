@@ -2,7 +2,7 @@
   <div class="container">
     <div class="login-form-1-center">
       <!-- <form [formGroup]="login" class="login-form-1"> -->
-        <form (submit)="loginUser($event)" class="login-form-1">
+        <form (submit)="loginUser($event)" class="login-form-1 sh-signup-form-fix  Dashbaord-edit ">
                   <div class="login-form-1-header">
           <h3>Log In to Your Account</h3>
           <!-- <ul class="logic-from-1-sl">
@@ -21,22 +21,31 @@
             <input matInput type="password" id="password" [type]="hide ? 'password' : 'text'"  placeholder=" Password"  >
             <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
           </mat-form-field>
-          <div class="float-left">
-              <label >
-                  <input type="checkbox" [(ngModel)]="staySignedIn" formControlName="staySignedIn" value="staySignedIn" (change)="checked($event,i)" checked="true">
+          <!-- <div class="float-left"> -->
+              <!-- <label > -->
+                  <!-- <input type="checkbox" [(ngModel)]="staySignedIn" formControlName="staySignedIn" value="staySignedIn" (change)="checked($event,i)" checked="true"> -->
                   <!-- <input [(ngModel)]="staySignedIn" type="checkbox" checked="true" name="stay-signed" value="Stay Sign In"> -->
-                  <div class="float-r">Stay Signed In</div>
+                  <!-- <div class="float-r">Stay Signed In</div> -->
                   <!-- <mat-checkbox checked="true">Stay Signed In</mat-checkbox> -->
+              <!-- </label> -->
+            <!-- </div> -->
+            <div class="col-lg-6 col-md-6 stay-check">
+              <label >
+                  <mat-slide-toggle [(ngModel)]="staySignedIn" checked="true"   > Stay Signed In </mat-slide-toggle>
               </label>
+              <a class="forget" value="Delete" data-toggle="modal" data-target="#myModal3">Forgot your password?</a>
             </div>
-            <div class="col-lg-12 text-center margin-right-bottom">
+            <div class="col-lg-6 col-md-6 padding-zero">
+              <app-recapcha ></app-recapcha>
+            </div>
+            <!-- <div class="col-lg-12 text-center margin-right-bottom">
               <blackgeeks-recaptcha class="" ></blackgeeks-recaptcha>
-            </div>
+            </div> -->
           <!-- </div> -->
           <div class="" *ngIf="isequal==false">
             <p class="col-lg-12 errormessage" style="color: #c00">Invalid Answer</p>
           </div>
-           <button class="btn btn-fill" type="submit" (click)="loginUser(e)" >Login</button>
+           <button class="btn btn-fill signin-btn" type="submit" (click)="loginUser(e)" >Log In</button>
           <!-- <a  value="Delete" data-toggle="modal" data-target="#myModal3">Forgot Password?</a> -->
           <!-- <div class="modal fade" id="myModal3" role="dialog">
             <div class="modal-dialog">
@@ -69,6 +78,12 @@
             </div>
           </div> -->
           <!-- <div>Don't have an account?<a routerLink="/register"> Sign Up </a></div> -->
+          <div class="Account">Don't have an account?<a class="userlogin-signup" routerLink="/usersignup"> Sign Up </a>
+          </div>
+          <div class="login-link margin-t">
+            <a class="login-link-anchor" onclick="topFunction()" target="_blank" ng-reflect-target="_blank" ng-reflect-router-link="/Terms-of-use-and-Privacy" href="/Terms-of-use-and-Privacy">Terms of Use</a>
+            <a class="login-link-anchor"  onclick="topFunction()" target="_blank" ng-reflect-target="_blank" ng-reflect-router-link="/privacy" href="/privacy">Privacy Policy</a> 
+          </div>
         </div>
       </form>
     </div>
