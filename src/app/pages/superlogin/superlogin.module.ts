@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { CommonModule } from '@angular/common';
+import { CommonModule, } from '@angular/common';
 // import { MdModule } from '../md/md.module';
 import { MaterialModule } from '../../app.module';
 
@@ -14,6 +14,7 @@ import { SuperLoginRoutes } from './superlogin.routing';
 import { SuperloginComponent } from './superlogin.component';
 import { BlackgeeksRecaptchaModule } from 'recaptcha-blackgeeks';
 import { RecaptchaModule } from 'ng-recaptcha';
+import { RecapchaModule } from '../../recapcha/recapcha.module';
 
 
 
@@ -29,6 +30,7 @@ import { RecaptchaModule } from 'ng-recaptcha';
         ReactiveFormsModule,
         MatDatepickerModule,
         HttpClientModule,
+        RecapchaModule
             
     ],
     declarations: [SuperloginComponent],
