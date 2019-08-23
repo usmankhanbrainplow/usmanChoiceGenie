@@ -12,7 +12,7 @@ export class HomeService {
   com;
   title;
   constructor(private http: Http) {
-  this.username = localStorage.getItem('username');
+    this.username = localStorage.getItem('username');
     this.title = localStorage.getItem('title');
     this.product = localStorage.getItem('PRO');
   }
@@ -61,14 +61,14 @@ export class HomeService {
     }),
       { headers: headers }).map((response: Response) => response.json());
   }
-  filter(page, id,Kwh, months1 ,fixed,market ,vari,  planmin,    renewable, name, zipcdoeservicearea, sort, item, min500, max500, demo, prepaidall, timeall, showallplanPB) {
+  filter(page, id, Kwh, months1, fixed, market, vari, planmin, renewable, name, zipcdoeservicearea, sort, item, min500, max500, demo, prepaidall, timeall, showallplanPB) {
     if (name) {
       // , months2, months3, months4, months5, months6, months7,
       // logo1,logo2,logo3,logo4,logo5
       this.com = name.trim();
     }
     // alert(item)
-    console.log(page, id, months1, fixed, prepaidall,  planmin, timeall,  market ,vari,renewable, name, sort, item, min500, max500, showallplanPB)
+    console.log(page, id, months1, fixed, prepaidall, planmin, timeall, market, vari, renewable, name, sort, item, min500, max500, showallplanPB)
     const headers = new Headers();
     headers.append('Content-Type', 'application/json');
     return this.http.post(Config.api + 'multifilter/' + id + '?page=' + page, JSON.stringify({
@@ -84,11 +84,11 @@ export class HomeService {
       // "plan_information7": months7,
       // "prepaid": prepaid,
       // "noprepaid": notprepaid,
-       "planmin": planmin,
+      "planmin": planmin,
       "allplans": showallplanPB,
-      "prepaidplan":prepaidall,
+      "prepaidplan": prepaidall,
       // "bothplanspre": prepaidall,
-      "timeofusage":timeall,
+      "timeofusage": timeall,
       // "bothplanstim": timeall,
       // "time": time,
       // "notime": nottime,
@@ -97,9 +97,9 @@ export class HomeService {
       "servicearea": zipcdoeservicearea,
       "itemsperpage": item.toString(),
 
-       "KWH": Kwh,
-      
-       "minprice": min500,
+      "KWH": Kwh,
+
+      "minprice": min500,
       "maxprice": max500,
 
       // "price_500_kwh_min_price": min500,

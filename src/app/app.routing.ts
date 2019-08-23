@@ -80,7 +80,7 @@ export const AppRoutes: Routes = [
             // { path: 'login', canActivate: [Authgaurd4Service], loadChildren: './pages/login/login.module#LoginModule' },
             { path: 'login', canActivate: [Authgaurd4Service], loadChildren: './pages/userlogin/userlogin.module#LoginModule' },
             { path: 'register', loadChildren: './signup1/signup1.module#Signup1Module' },
-            { path: 'Terms-of-use-and-Privacy', loadChildren: './terms/terms.module#termsModule' },
+            { path: 'terms', loadChildren: './terms/terms.module#termsModule' },
             { path: 'User-guide', loadChildren: './userguide/userguide.module#termsModule' },
             { path: 'features-comparison', loadChildren: './features-comparison/features.module#FeatureModule' },
             // {

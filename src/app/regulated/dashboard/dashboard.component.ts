@@ -266,7 +266,8 @@ export class DashboardComponent implements OnInit, AfterViewInit {
 
 
     }
-    btnEditClick(id, val1, val2, val3, val4, val5, val6, val7, val8, val9, val10, val11,val12,val13,val14,val15,val16,val17,val18,val19,val20,val21,val22,val23,val24,val25) {
+    updateactive;
+    btnEditClick(id, val1, val2, val3, val4, val5, val6, val7, val8, val9, val10, val11,val12,val13,val14,val15,val16,val17,val18,val19,val20,val21,val22,val23,val24,val25,val26) {
         // this.catagoryId = id;
         // console.log(this.plan_information)
         // this.title = val1;
@@ -309,6 +310,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
         this.contact_email= val23;
         this.product_inactive_date=val24;
         this.publish_product_date=val25;
+        this.updateactive = val26;
     //     "serviceareaname": updatedserviceareaname,
     //     "title": updatedtitle,
     //     "profileurl": updatedprofileurl,
@@ -336,24 +338,25 @@ export class DashboardComponent implements OnInit, AfterViewInit {
     //     "product_batch_rate":updatedproduct_batch_rate,
 
 
-        console.log(id, val1, val2, val3, val4, val5, val6, val7, val8, val9, val10, val11,val12,val13,val14,val15,val16,val17,val18,val19,val20,val21,val23)
+        console.log(id, val1, val2, val3, val4, val5, val6, val7, val8, val9, val10, val11,val12,val13,val14,val15,val16,val17,val18,val19,val20,val21,val23,val24,val25,val26)
         console.log('id : ' + this.catagoryId);
     }
+
 
     //Event Binding of PopUp Delete Modal
 
     editClick(updatedserviceareaname,updatedtitle,updatedprofileurl,updatedprofile_logo,updatedproduct_name,updatedrate_type,updatedterms_month,updatedcustomer_type,
         updatedcancelation_fee,updatedfact_sheet,updatedterms_of_service,updatedphone,updatedsign_up,updatedminimum_usage_fee,updatedrenewable,
         updatedspecialterms,updatedprice1000kwh,updatedprice500kwh,updatedprice2000kwh,updatedcontact_email,mydate,updateddate,
-        updatedenrollment_productid,updatedproduct_batch_rate,updatedrating_logo) {
+        updatedenrollment_productid,updatedproduct_batch_rate,updatedrating_logo,updateactive,upactive) {
         console.log('edit' +updatedserviceareaname,updatedtitle,updatedprofileurl,updatedprofile_logo,updatedproduct_name,updatedrate_type,updatedterms_month,updatedcustomer_type,
         updatedcancelation_fee,updatedfact_sheet,updatedterms_of_service,updatedphone,updatedsign_up,updatedminimum_usage_fee,updatedrenewable,
         updatedspecialterms,updatedprice1000kwh,updatedprice500kwh,updatedprice2000kwh,updatedcontact_email,mydate,updateddate,
-        updatedenrollment_productid,updatedproduct_batch_rate);
+        updatedenrollment_productid,updatedproduct_batch_rate,updateactive,upactive);
         console.log("TS OBJECT", updatedserviceareaname,updatedtitle,updatedprofileurl,updatedprofile_logo,updatedproduct_name,updatedrate_type,updatedterms_month,updatedcustomer_type,
         updatedcancelation_fee,updatedfact_sheet,updatedterms_of_service,updatedphone,updatedsign_up,updatedminimum_usage_fee,updatedrenewable,
         updatedspecialterms,updatedprice1000kwh,updatedprice500kwh,updatedprice2000kwh,updatedcontact_email,mydate,updateddate,
-        updatedenrollment_productid,updatedproduct_batch_rate);
+        updatedenrollment_productid,updatedproduct_batch_rate,updateactive,upactive);
         //Calling Delete Service
         this.serve.editTodoList(this.catagoryId,updatedserviceareaname,updatedtitle,updatedprofileurl,updatedprofile_logo,updatedproduct_name,updatedrate_type,updatedterms_month,updatedcustomer_type,updatedcancelation_fee,updatedfact_sheet,updatedterms_of_service,updatedphone,updatedsign_up,updatedminimum_usage_fee,updatedrenewable,updatedspecialterms,updatedprice1000kwh,updatedprice500kwh,updatedprice2000kwh,updatedcontact_email,mydate,updateddate,updatedenrollment_productid,updatedproduct_batch_rate,updatedrating_logo,true).subscribe(data => {
             console.log(data);
