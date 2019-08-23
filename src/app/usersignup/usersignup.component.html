@@ -171,8 +171,10 @@
 
                  
                 </mat-form-field> -->
-                <int-phone-prefix  [(ngModel)]="model.phoneno"  class="phonee"  [formControl]="signupForm.controls['phoneno']"   placeholder="Phone No" required> </int-phone-prefix>
-
+                <!-- <int-phone-prefix  [(ngModel)]="model.phoneno"  class="phonee"  [formControl]="signupForm.controls['phoneno']"   placeholder="Phone No" required> </int-phone-prefix> -->
+                <mat-form-field >
+                  <input  matInput placeholder="Phone No" [(ngModel)]="model.phoneno" [formControl]="signupForm.controls['phoneno']">
+                </mat-form-field>
               </div>
             </div>
 
@@ -304,7 +306,8 @@
 
                   <input name="AcknowledgeTerms" type="hidden" value="false">
                   I authorize ChoiceGenie to request historical usage data for <span id="blockProperty">my property</span>,
-                  and affirm that I agree to the <a class="color-blue" onclick="topFunction()" [routerLink]="['/Terms-of-use-and-Privacy']">ChoiceGenie Privacy Policy</a>
+                  and affirm that I agree to the <a class="color-blue" onclick="topFunction()" [routerLink]="['/Terms-of-use-and-Privacy']">Terms Of USe </a>and
+                  <a class="color-blue" onclick="topFunction()" [routerLink]="['/privacy']"> Privacy Policy</a>
                 </label>
               </div>
               <div class="form-group" style="margin:25px 0 0;">

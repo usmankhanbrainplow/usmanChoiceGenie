@@ -96,7 +96,7 @@
         <img src="../../assets/img/finalize logo 2.png" alt="ChoiceGenie" />
       </a>
     </div>
-    <div class="collapse navbar-collapse" id="menu-example">
+    <div class="collapse navbar-collapse " style="display: inline-block;padding: 0" id="menu-example">
       <ul class="navbar-nav navbar-right">
 
         <li class="vanders">
@@ -195,14 +195,25 @@
             <i class="fa fa-search"></i>
           </a>
         </li>
+        <li class="">
+          <a onclick="topFunction()" href="https://play.google.com/store/apps/details?id=com.brainplow.choicegenie&hl=en" target="_blank">
 
+            <i class="fab fa-android"></i>
+          </a>
+        </li>
+        <li class="">
+          <a onclick="topFunction()" href="https://itunes.apple.com/us/app/choicegenie/id1391027521?platform=ipad&preserveScrollPosition=true&platform=ipad#platform/ipad&platform=ipad"
+            target="_blank">
+            <i class="fab fa-apple"></i>
+          </a>
+        </li>
         
         <li class="vanders" style="border-right: 2px solid #ccc; padding-right: 10px;" *ngIf="!checked_login() && !check_login1() && !checked_login2()">
           <!-- <a > -->
           <!-- <i class="material-icons">fingerprint</i>
             Sign IN -->
           <a onclick="topFunction()" routerLink="/login">
-            <i class="fas fa-fingerprint"></i> Sign in
+            <i class="fas fa-sign-in-alt"></i> Sign In
           </a>
           <!-- <i class="fa fa-caret-down"></i> -->
           <!-- </a> -->
@@ -229,7 +240,7 @@
 
           <a onclick="topFunction()" routerLink="/usersignup">
             <i class="fas fa-unlock-alt"></i>
-            Sign up
+            Sign Up
             <!-- <i class="fa fa-caret-down"></i> -->
           </a>
           <!-- <div class="drop-downs right-drop"> -->
@@ -248,18 +259,7 @@
           <!-- </div> -->
         </li>
 
-        <li class="">
-          <a onclick="topFunction()" href="https://play.google.com/store/apps/details?id=com.brainplow.choicegenie&hl=en" target="_blank">
-
-            <i class="fab fa-android"></i>
-          </a>
-        </li>
-        <li class="">
-          <a onclick="topFunction()" href="https://itunes.apple.com/us/app/choicegenie/id1391027521?platform=ipad&preserveScrollPosition=true&platform=ipad#platform/ipad&platform=ipad"
-            target="_blank">
-            <i class="fab fa-apple"></i>
-          </a>
-        </li>
+       
 
 
         <!-- <li class="info-box-02__box-02">

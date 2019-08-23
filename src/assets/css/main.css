@@ -146,8 +146,6 @@ body {
 .sh-signup-form-fix.edit-profile .mat-input-placeholder.mat-empty {
   top: 1.28125em!important
 }
-
-
 int-phone-prefix button{
   border-radius: 50px;
   padding: 5px 10px;
@@ -1914,7 +1912,7 @@ h3 {
   right: -258px;
 }
 .vanders:hover .right-drop1{
-  right: -209px;
+  right: -194px;
 }
 .vanders:hover .drop-downs-l{
   display: block !important;
@@ -2562,7 +2560,7 @@ section {
 
   .header-home {
   padding: 10px 0;
-  min-height: 58px;
+max-height: 68px;
   -webkit-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.3);
   box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.3);
   background: #fefefe; }
@@ -5425,7 +5423,7 @@ canvas {
   background: #c00 !important;
 }
 .btn-fill:hover i{
-  color: #fff;
+  color: #fff!important;
 }
 .must-login-btn{
   border-radius: 30px;
@@ -9657,6 +9655,10 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
   .navbar-collapse {
      padding-right: 0;
   }
+  .header-div {
+    display: inline-block !important;
+    padding: 0;
+}
   .hd-most-popular-plans {
     font-size: 36px;
   }
