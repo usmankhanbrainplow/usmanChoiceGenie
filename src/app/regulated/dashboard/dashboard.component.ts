@@ -342,20 +342,21 @@ export class DashboardComponent implements OnInit, AfterViewInit {
         console.log('id : ' + this.catagoryId);
     }
 
+
     //Event Binding of PopUp Delete Modal
 
     editClick(updatedserviceareaname,updatedtitle,updatedprofileurl,updatedprofile_logo,updatedproduct_name,updatedrate_type,updatedterms_month,updatedcustomer_type,
         updatedcancelation_fee,updatedfact_sheet,updatedterms_of_service,updatedphone,updatedsign_up,updatedminimum_usage_fee,updatedrenewable,
         updatedspecialterms,updatedprice1000kwh,updatedprice500kwh,updatedprice2000kwh,updatedcontact_email,mydate,updateddate,
-        updatedenrollment_productid,updatedproduct_batch_rate,updatedrating_logo,updateactive) {
+        updatedenrollment_productid,updatedproduct_batch_rate,updatedrating_logo,updateactive,upactive) {
         console.log('edit' +updatedserviceareaname,updatedtitle,updatedprofileurl,updatedprofile_logo,updatedproduct_name,updatedrate_type,updatedterms_month,updatedcustomer_type,
         updatedcancelation_fee,updatedfact_sheet,updatedterms_of_service,updatedphone,updatedsign_up,updatedminimum_usage_fee,updatedrenewable,
         updatedspecialterms,updatedprice1000kwh,updatedprice500kwh,updatedprice2000kwh,updatedcontact_email,mydate,updateddate,
-        updatedenrollment_productid,updatedproduct_batch_rate,updateactive);
+        updatedenrollment_productid,updatedproduct_batch_rate,updateactive,upactive);
         console.log("TS OBJECT", updatedserviceareaname,updatedtitle,updatedprofileurl,updatedprofile_logo,updatedproduct_name,updatedrate_type,updatedterms_month,updatedcustomer_type,
         updatedcancelation_fee,updatedfact_sheet,updatedterms_of_service,updatedphone,updatedsign_up,updatedminimum_usage_fee,updatedrenewable,
         updatedspecialterms,updatedprice1000kwh,updatedprice500kwh,updatedprice2000kwh,updatedcontact_email,mydate,updateddate,
-        updatedenrollment_productid,updatedproduct_batch_rate,updateactive);
+        updatedenrollment_productid,updatedproduct_batch_rate,updateactive,upactive);
         //Calling Delete Service
         this.serve.editTodoList(this.catagoryId,updatedserviceareaname,updatedtitle,updatedprofileurl,updatedprofile_logo,updatedproduct_name,updatedrate_type,updatedterms_month,updatedcustomer_type,updatedcancelation_fee,updatedfact_sheet,updatedterms_of_service,updatedphone,updatedsign_up,updatedminimum_usage_fee,updatedrenewable,updatedspecialterms,updatedprice1000kwh,updatedprice500kwh,updatedprice2000kwh,updatedcontact_email,mydate,updateddate,updatedenrollment_productid,updatedproduct_batch_rate,updatedrating_logo,true).subscribe(data => {
             console.log(data);
