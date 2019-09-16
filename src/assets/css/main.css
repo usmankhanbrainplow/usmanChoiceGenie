@@ -475,7 +475,7 @@ app-header {
 
 .header-home {
   padding: 0 0 !important;
-  min-height: 58px;
+  min-height: 70px;
   -webkit-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.3);
   box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.3);
   background: #fefefe;
@@ -491,8 +491,8 @@ app-header {
 }
 .nav-home ul {
       margin-right: 8px !important;
-      font-weight: 700;
-      padding: 32px 0 0 !important;
+      font-weight: 600;
+      padding: 26px 0 0 !important;
       display: inline;
 }
 .nav-home ul li {
@@ -502,7 +502,7 @@ app-header {
 
    }
      .nav-home ul li a{
-       font-size: 16px
+       font-size: 15px
      }
   .nav-home ul a {
     -webkit-transition: all 0.2s ease;
@@ -2560,7 +2560,6 @@ section {
 
   .header-home {
   padding: 10px 0;
-max-height: 68px;
   -webkit-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.3);
   box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.3);
   background: #fefefe; }
@@ -2573,7 +2572,7 @@ max-height: 68px;
 
  .nav-home ul {
   margin-right: 60px;
-  line-height: 20px;
+  line-height: 0px;
   font-weight: 700;
   padding: 10px 0 0;
   display: inline; }
@@ -6769,7 +6768,7 @@ background: linear-gradient(to bottom, #ededed 0%,#c1bfbf 100%); /* W3C, IE10+, 
   overflow: hidden;
 }
 .por-image img{
-  width: auto !important;
+  width: 150px !important;
 }
 .pop-image{
   width: 215px;
