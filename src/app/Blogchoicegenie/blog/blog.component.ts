@@ -15,7 +15,10 @@ declare const $: any;
 })
 export class BlogComponent implements OnInit {
 
-  constructor(private https: HttpService, public router: Router, private fb: FormBuilder, private http: HttpClient, private route: ActivatedRoute, private sg: SimpleGlobal) { }
+  constructor(private https: HttpService, 
+    public router: Router, private fb: FormBuilder, 
+    private http: HttpClient, private route: ActivatedRoute, 
+    private sg: SimpleGlobal) { }
   data: any = [];
   content;
   con;
@@ -32,6 +35,7 @@ export class BlogComponent implements OnInit {
     headers.append('Content-Type', 'application/json');
     this.https.get(Config.api + 'gettingblog_all/', { headers: headers })
       .subscribe(Res => {
+        
         this.data = Res.json();
     //     // this.content= this.data.content1
     //     this.content=Res.json()[0]['content1'];

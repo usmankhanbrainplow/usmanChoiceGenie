@@ -76,14 +76,15 @@ user;
   }
   loginUser(e){
     
-    e.preventDefault();
-    var username = e.target.elements[0].value;
-    var password = e.target.elements[1].value;
+ 
     
-    if (this.captcha.getResponse()) {
+    // if (this.captcha.getResponse()) {
+      e.preventDefault();
+      var username = e.target.elements[0].value;
+      var password = e.target.elements[1].value;
       console.log('equ ok');
       // alert("login");
-      this.isequal=true;
+      // this.isequal=true;
     console.log(username,password);
     if(username == 'admin' && password =='admin123') {
     
@@ -116,12 +117,12 @@ user;
           }
 
 
-  }
-  else {
-    this.captcha.reset();
-    this.isequal = false;
-    // this.islogin = true;
-  }
+  // }
+  // else {
+  //   this.captcha.reset();
+  //   this.isequal = false;
+  //   // this.islogin = true;
+  // }
   if(this.staySignedIn == false){
     localStorage.setItem('signed', 'false');
     console.log(this.staySignedIn)
